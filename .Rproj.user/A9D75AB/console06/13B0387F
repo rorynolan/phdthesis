@@ -48,4 +48,5 @@ To https://github.com/rorynolan/phdthesis.git
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 ]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch _build.sh
 ]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch _deploy.sh
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch DESCRIPTION
 ]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ 
