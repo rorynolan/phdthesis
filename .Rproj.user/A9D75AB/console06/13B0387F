@@ -1,0 +1,18 @@
+]0;~/Dropbox/DPhil/phdthesis[?1034h[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ [K[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ git init
+Initialized empty Git repository in /Users/rnolan/Dropbox/DPhil/phdthesis/.git/
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ git remote add origin https://github.com/rorynola n/phdthesis.git
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch README.md
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ pandoc -v
+pandoc 1.19.2.1
+Compiled with pandoc-types 1.17.0.4, texmath 0.9, skylighting 0.1.1.4
+Default user data directory: /Users/rnolan/.pandoc
+Copyright (C) 2006-2016 John MacFarlane
+Web:  http://pandoc.org
+This is free software; see the source for copying conditions.
+There is no warranty, not even for merchantability or fitness
+for a particular purpose.
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch .travis.yml
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ travis encrypt 0f7ff31be31901f3238769c54151d6a604 77c0a4
+bash: travis: command not found
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ gitt[K add .
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ 

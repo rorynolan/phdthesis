@@ -1,0 +1,318 @@
+# Photobleaching Correction {#photobleaching-correction}
+
+
+## Introduction to photobleaching 
+
+In the ideal case, an _incident_ photon of appropriate wavelength is absorbed by a fluorophore, promoting the fluorophore to an excited state; subsequently, the fluorophore relaxes down to its ground state by emitting a photon. In reality, it is possible that the incident photon can _break_ the fluorophore with the result that it will no longer emit light. This breaking is referred to as _photobleaching_ (or _bleaching_ for short). Bleaching causes a diminution in the number of effective fluorophores which is a direct cause of a loss of fluorescent signal. 
+
+Many quantitative methods in fields such as fluorescence fluctuation spectroscopy (FFS) and fluorescence correlation spectroscopy (FCS) implicitly assume that there is no bleaching in the data. Hence, data (image series) with significant levels of photobleaching must be corrected prior to the application of equations and algorithms in these fields. A main focus of this thesis is on how to correct fluorescent image series for the effects of bleaching, given that bleaching _does_ occur. There is no emphasis on understanding _why_ and/or _how_ photobleaching occurs.
+
+
+## The effects of photobleaching in FCS and FFS
+
+We simulate two image series, each with 100,000 diffusing fluorescent particles. In the first image series (`img1`), these have brightness $\epsilon = 4$ and in the second (`img2`) they have brightness $\epsilon = 7$. See figure \@ref(fig:bleaching-sim). We bleach these by 15% and 20% to create `img1_bleached` and `img2_bleached` respectively.
+
+(ref:bleaching-sim-caption) Frames 1, 100, 200, 300, 400 and 500 from image series of 100,000 diffusing emitters of brightness $\epsilon = 4$ (top) and $\epsilon = 7$ (bottom) with 15% (top) and 20% (bottom) bleaching.
+
+```{r bleaching-sim, fig.cap='(ref:bleaching-sim-caption)', echo=FALSE, fig.asp=0.5}
+img1 <- read_tif(here("img", "sim1.tif"), msg = FALSE)
+img1_bleached <- read_tif(here("img", "sim1_bleached.tif"), msg = FALSE)
+img2 <- read_tif(here("img", "sim2.tif"), msg = FALSE)
+img2_bleached <- read_tif(here("img", "sim2_bleached.tif"), msg = FALSE)
+mx <- max(c(img1, img2, img1_bleached, img2_bleached))
+sidebyside3space <- function(arr3d, mx) {
+  lst <- map(seq_len(dim(arr3d)[3]), ~ arr3d[, , .])
+  reduce(lst, ~ cbind(.x, mx, mx, mx, .y))
+}
+frames <- c(1, 100, 200, 300, 400, 500)
+to_display <- rbind(sidebyside3space(img1_bleached[, , 1, frames], mx),
+                    mx, mx, mx, mx, mx,
+                    sidebyside3space(img2_bleached[, , 1, frames], mx))
+ijtiff::display(to_display)
+```
+
+It may not be obvious that these image series are subject to bleaching from figure \@ref(fig:bleaching-sim), but we can see it more clearly in figure \@ref(fig:bleaching-sim-mean-intensity).
+
+(ref:bleaching-sim-mean-intensity-caption) Mean intensity profiles of the simulated image series with and without bleaching. Simulation 1 was bleached by 15% and simulation 2 by 20%.
+
+```{r bleaching-sim-mean-intensity, fig.cap='(ref:bleaching-sim-mean-intensity-caption)', echo=FALSE}
+df_bleach_sim <- tibble(simulation = c("img1", "img1_bleached",
+                                      "img2", "img2_bleached"),
+                       img = list(img1, img1_bleached, img2, img2_bleached),
+                       frame = map(img, ~ seq_len(dim(.)[4])),
+                       mean_intensity = map(img, apply, 4, mean)) %>% 
+  select(-img) %>% 
+  unnest()
+ggplot(df_bleach_sim, aes(x = frame, y = mean_intensity, colour = simulation)) +
+  geom_line() + ylab("mean intensity") + 
+  ylim(50, max(df_bleach_sim$mean_intensity))
+```
+
+
+### FCS
+
+The unrelated images `img1` and `img2` have a tiny median cross-correlated brightness of $B_\text{cc} = `r median(cc_brightness(abind(img1, img2, along = 3))) %>% round(4)`$, signifying no significant correlation, as one would expect. However, the bleached images `img1_bleached` and `img2_bleached` have a significant $B_\text{cc} = `r median(cc_brightness(abind(img1_bleached, img2_bleached, along = 3))) %>% round(4)`$. This shows that bleaching is introducing correlation between otherwise unrelated images. Since correlation is used as a proxy for hetero-interaction, bleaching can make it appear as though there is interaction when in fact there is not when using FCS techniques.
+
+
+### FFS
+
+```{definition, name='median mean pixel intensity'}
+The _median mean pixel intensity_ of an image series is found by taking the mean intensity of each pixel in the image series and then taking the median of those means. It can be thought of as a summary statistic for the pixel intensity of the image series.
+```
+
+```{definition, name='median pixel intensity variance'}
+The _median pixel intensity variance_ of an image series is found by taking the variance in the intensity of each pixel in the image series and then taking the median of those variances. It can be thought of as a summary statistic for the variance in the pixel intensity of the image series.
+```
+
+In FFS, one is always interested in the mean and variance of pixel values (and sometimes other fluctuation quantities like the third moment). `img1` has a median mean pixel intensity of `r median(mean_pillars(img1))` and a median pixel intensity variance of `r median(var_pillars(img1))`. The mean brightness is $\epsilon = `r mean(brightness(img1, "e")) %>% round(4)`$ (very close to 4, as expected since the image series was simulated with brightness $\epsilon = 4$). For `img1_bleached`, we find a median mean pixel intensity of `r median(mean_pillars(img1_bleached))` and a median pixel intensity variance of `r median(var_pillars(img1_bleached))`. The mean brightness is $\epsilon = `r mean(brightness(img1_bleached, "e")) %>% round(4)`$. Hence, bleaching has altered both the means and variances of the pixels, resulting in a change in calculated brightness. The non-stationary mean frame intensity introduced by bleaching decreases the mean but increases the variance. The loss in signal has the effect of slightly decreasing the variance: with poisson statistics (such as photon-emission), a loss of signal (photons) leads directly to a loss in variance. This is a subtle point not discussed anywhere in the literature; it is shown in figure \@ref(fig:visualize-variance-decrease).
+
+(ref:visualize-variance-decrease-caption) A decrease in the poisson rate (e.g. for emmission of photons) leads to a decrease in the mean (blue line) but also a decrease in fluctuations around the mean. Notice that towards the right where rate is low, fluctuations around the mean are at their smallest.
+
+```{r visualize-variance-decrease, fig.asp=0.6, out.width='90%', fig.cap='(ref:visualize-variance-decrease-caption)', echo=FALSE}
+df_var_dec_vis <- tibble(rate = seq(100, 0, length.out = 300), 
+                         value = detrendr:::myrpois(rate))
+ggplot(df_var_dec_vis, aes(rate, value)) + scale_x_reverse() +
+  geom_segment(x = -100, y = 100, xend = 0, yend = 0, 
+               colour = "blue") +
+  geom_line(colour = "black") 
+```
+
+
+## Correcting for photobleaching
+
+All of the current literature mentions bleaching correction as being purely for correcting the problem of non-stationary mean (NSM), neglecting the problem of non-stationary variance (NSV). Figure \@ref(fig:visualize-variance-decrease) shows that NSM and NSV go hand-in-hand. Correction for NSM is referred to as trend removal or _detrending_. Hence, the terms _detrending_ and _bleaching correction_ have come to be used interchangeably. I will follow this convention and use the term _detrending_ from now on to mean correction for NSM and possibly also NSV. In what follows immediately here, I will focus on correcting for NSM. Discussion of correction for NSV starts in section \@ref(correcting-for-non-stationary-variance).
+
+
+### Exponential fitting
+
+Naively, one could assume that bleaching of fluorophores takes place at some constant rate. This would mean that the intensity of the image would die-off according to an exponential decay. In figure \@ref(fig:exp-fit-bleach), we fit an exponential decay to such ideal data. 
+
+(ref:exp-fit-bleach-caption) Exponential fit to intensity trace of image which is subject to bleaching at a constant rate.
+
+```{r exp-fit-bleach, fig.cap='(ref:exp-fit-bleach-caption)', echo=FALSE}
+set.seed(1)
+means <- 100
+bleach_rate <- bleach_fraction_to_rate(0.2, 500)
+for (i in 1:499) means %<>% c((1 - bleach_rate) * last(.))
+devs <- detrendr:::myrpois(means * (1 - 0.9))
+df_exp_fit_bleach <- tibble(
+  intensity_value = means * 0.9 + devs,
+  time = seq_along(intensity_value),
+  exponential = means) %>% 
+  gather(line, intensity_value, c(intensity_value, exponential)) %>% 
+  mutate(line = if_else(line == "exponential", "exponential fit", 
+                        "intensity over time"))
+ggplot(df_exp_fit_bleach, aes(time, intensity_value, colour = line)) +
+  geom_line() + ylab("intensity value")
+```
+
+Having fit the data, one may record the deviations from the fitted line as the _fluctuations_ and replace these fluctuations about a straight line, which is placed at the mean of the original series; for figure \@ref(fig:exp-fit-bleach) above, this mean is `r round(mean(means))`. Figure \@ref(fig:exp-fit-corr) shows the corrected series.
+
+(ref:exp-fit-corr-caption) The blue line from figure \@ref(fig:exp-fit-bleach) has changed to a straight horizontal line cutting the $y$ axis at the mean intensity of the original intensity trace. The fluctuations about the blue line that existed in figure \@ref(fig:exp-fit-bleach) are preserved here. As an example, see the large downward fluctuation at $t \approx 50$ seconds in both figures.
+
+```{r exp-fit-corr, fig.cap='(ref:exp-fit-corr-caption)', echo=FALSE}
+df_exp_fit_corr <- df_exp_fit_bleach %>% 
+  mutate(mean = round(mean(means)), 
+         intensity_value = mean + intensity_value - means) %>% 
+  select(time, intensity_value, mean) %>% 
+  gather(line, intensity_value, c(intensity_value, mean)) %>% 
+  mutate(line = if_else(line == "mean", "mean intensity", 
+                        "intensity over time"))
+ggplot(df_exp_fit_corr, aes(time, intensity_value, colour = line)) +
+  geom_line() + ylab("intensity value") + 
+  scale_color_manual(values = rev(gg_color_hue(2)))
+```
+
+We can see that here, in the ideal case where the naive assumptions of the exponential decay fitting approach hold, this approach indeed does quite well. Let us now examine the case where these assumptions don't hold because there are other long-term fluctuations e.g. due to cell movement. We add these other fluctuations as a gentle sinusiod. See figure \@ref(fig:exp-decay-with-sin).
+
+(ref:exp-decay-with-sin-caption) An exponential decay with added sinusoidal variance, fit with a simple exponential decay.
+
+```{r exp-decay-with-sin, fig.cap='(ref:exp-decay-with-sin-caption)', echo=FALSE}
+sin_means <- means %>% {. + 5 * sin(seq_along(.) / 50)}
+df_exp_fit_bleach_sin <- tibble(
+  intensity_value = sin_means * 0.9 + devs,
+  time = seq_along(intensity_value),
+  exponential = means) %>% 
+  gather(line, intensity_value, c(intensity_value, exponential)) %>% 
+  mutate(line = if_else(line == "exponential", "exponential fit", 
+                        "intensity over time") %>% 
+           factor(levels = c("exponential fit", "intensity over time")))
+ggplot(df_exp_fit_bleach_sin, aes(time, intensity_value, colour = line)) +
+  geom_line() + ylab("intensity value")
+```
+
+One can see by eye that this is not a good fit for the data. This has disastrous consequences for the detrended series, shown in figure \@ref(fig:exp-fit-decay-with-sin-corr).
+
+(ref:exp-fit-decay-with-sin-corr-caption) Result of exponential fitting detrending applied to a decay with a long-term sinusoidal trend component.
+
+```{r exp-fit-decay-with-sin-corr, fig.cap='(ref:exp-fit-decay-with-sin-corr-caption)', echo=FALSE}
+df_exp_fit_bleach_sin_corr <- df_exp_fit_bleach_sin %>% 
+  mutate(mean = round(mean(sin_means)), 
+         intensity_value = mean + intensity_value - means) %>% 
+  select(time, intensity_value, mean) %>% 
+  gather(line, intensity_value, c(intensity_value, mean)) %>% 
+  mutate(line = if_else(line == "mean", "mean intensity", 
+                        "intensity over time"))
+ggplot(df_exp_fit_bleach_sin_corr, aes(time, intensity_value, colour = line)) +
+  geom_line() + ylab("intensity value") + 
+  scale_color_manual(values = rev(gg_color_hue(2)))
+```
+
+One can see in figure \@ref(fig:exp-fit-decay-with-sin-corr) that the exponential fit detrend failed to remove the sinusoidal trend in the data (even though it _did_ remove the exponential decay component). We have now seen that exponential fitting detrending is appropriate when the decay has a particular form, but is otherwise not fit for use. This is a problem common to all fitting approaches to detrending, even the more flexible types like polynomial detrending [@polynomial]. For this reason alone, for the purpose of detrending, fitting approaches should be avoided.
+
+
+### Boxcar smoothing
+
+A common approach to obtaining the line from which to measure deviations/fluctuations (as in the red line in figure \@ref(fig:exp-fit-bleach)) is to _smooth_ the time series, i.e. construct the line by taking a _local average_ at each point. This is often referred to as _boxcar smoothing_ because it can be visualised as drawing a box around a neighbourhood of points, taking their average as the smoothed value at that point and then moving the box onto the next series of points and repeating the procedure. See figure \@ref(fig:boxcar-explanation).
+
+(ref:boxcar-explanation-caption) The original time series is depicted by the red dots. The blue rectangles represent the _boxcar_. This boxcar is said to be of length 3 because it is wide enough to encompass 3 points at a time. The boxcar is centred on a point and then the smoothed value at that point (blue dot) is calculated as the mean value of all points within the boxcar. In reality, every point gets a smoothed value which means that the boxcar _overlaps_ but in this figure, for the sake of clarity, they are not overlapped.
+
+```{r boxcar-explanation, fig.cap='(ref:boxcar-explanation-caption)', echo=FALSE}  
+set.seed(9)
+boxcar_explain_df <- tibble(y = seq(0, 2, length.out = 9) + runif(9),
+                            t = seq_along(y))
+boxcar_means_df <- tibble(t = roll_mean_n_by_nofill(boxcar_explain_df$t, 3), 
+                          y = roll_mean_n_by_nofill(boxcar_explain_df$y, 3))
+ggplot(boxcar_explain_df, aes(t, y)) + 
+  geom_point(colour = gg_color_hue(2)[1], size = 2) +
+  geom_point(data = boxcar_means_df, aes(t, y), 
+             colour = gg_color_hue(2)[2], size = 3) + 
+  geom_rect(xmin = 1 - 0.2, xmax = 3 + 0.2, 
+            ymin = boxcar_means_df$y[1] - 0.5,
+            ymax = boxcar_means_df$y[1] + 0.5,
+            colour = gg_color_hue(2)[2], alpha = 0) + 
+  geom_rect(xmin = 4 - 0.2, xmax = 6 + 0.2, 
+            ymin = boxcar_means_df$y[2] - 0.5,
+            ymax = boxcar_means_df$y[2] + 0.5,
+            colour = gg_color_hue(2)[2], alpha = 0) + 
+  geom_rect(xmin = 7 - 0.2, xmax = 9 + 0.2, 
+            ymin = boxcar_means_df$y[3] - 0.5,
+            ymax = boxcar_means_df$y[3] + 0.5,
+            colour = gg_color_hue(2)[2], alpha = 0) + 
+  ylim(-0.3, 3) + xlab("time")
+```
+
+The paremeter $l$ of a boxcar is such that the length of the boxcar is equal to $2l + 1$. This ensures that the length of the boxcar is always odd) which means it can always be centred upon a point). Hence the allowable lengths of a boxcar are $3,5,7,9,$ etc. 
+
+The boxcar parameter $l$ has a large effect on the type of smoothing achieved. This can be seen in figure \@ref(fig:boxcar-sizes) where boxcar smoothing is applied to the trace in figure \@ref(fig:exp-fit-bleach). The traces for $l=1$ and $l=3$ are far too wiggly (not smooth enough); the trace for $l=75$ is better but perhaps still slightly wiggly; finally, the traces for $l=300$ and $l=1000$ are too close to straight horizontal lines (too smooth). 
+
+(ref:boxcar-sizes-caption) The original intensity trace is shown in the top-left. The other panels show the result of boxcar smoothing for $l = 1, 3, 75, 300$ and $1000$. 
+
+```{r boxcar-sizes, fig.cap='(ref:boxcar-sizes-caption)', echo=FALSE}
+df_exp_fit_bleach %>% 
+  spread(line, intensity_value) %>% 
+  clean_names() %>% 
+  select(-exponential_fit) %>% 
+  mutate(boxcar1 = detrendr:::boxcar_smooth(intensity_over_time, 1),
+         boxcar3 = detrendr:::boxcar_smooth(intensity_over_time, 3),
+         boxcar75 = detrendr:::boxcar_smooth(intensity_over_time, 75),
+         boxcar300 = detrendr:::boxcar_smooth(intensity_over_time, 300),
+         boxcar1000 = detrendr:::boxcar_smooth(intensity_over_time, 1000)) %>% 
+  gather(line, intensity, -time) %>% 
+  arrange(first_number(line) %T>% {.[is.na(.)] <- min(., na.rm = TRUE) - 1}) %>%
+  mutate(line = str_replace_all(line, "_", " ") %>% 
+           str_replace("boxcar", "boxcar l=")) %>% 
+  mutate(line = as_factor(line)) %>% 
+  ggplot() + aes(time, intensity) + geom_line() +
+  facet_wrap(~ line, nrow = 2)
+```
+
+This begs the question: what is the correct smoothing parameter $l$? 
+
+
+### Choosing the correct smoothing parameter for detrending
+
+Figure \@ref(fig:boxcar-sizes) shows that the choice of boxcar size is crucial because different sizes lead to very different "smoothed" lines. The most common choice in the community is to choose $l = 10$ [@SimFCS]. There is no justification for this choice.
+
+In section \@ref(number-and-brightness), we learned that for immobile particles, the expected brightness is $B = 1$. This fact can be used to solve for the appropriate choice of $l$ to use for detrending a specific image series. 
+
+```{definition}
+The _mean intensity profile_ of one channel of an image series is obtained by calculating the mean intensity of each frame in that image series.
+```
+
+The mean intensity profile can be used to visualise the bleaching of an image series. If the fluorophores are bleaching, the mean intensity should be decreasing over time. To proceed with solving for the appropriate $l$, we need to make one assumption. This is that any two image series with the same mean intensity profile are appropriately detrended with the same detrending parameter $l$. This assumption seems reasonable to me, however there is no need to debate its validity because later, detrending with the solved-for parameter $l$ will be evaluated with simulated data and compared to the standard $l = 10$. If this assumption is bad, then the performance of the detrending that relies on it should also be bad. With this assumption in hand, solving for $l$ proceeds as follows:
+
+1. Simulate an image series with immobile particles only which has the same mean intensity profile as the acquired real data.
+1. Given that the simulated series is of immobile particles only, once properly detrended, it should have $B = 1$.
+1. The $l$ for which the detrended series has mean brightness closes to 1 is the most appropriate for the simulated data.
+1. By the assumption above, this $l$ is the most appropriate for the real data.
+
+Mathematically, this can be expressed as
+
+\begin{equation}
+l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{l}|)
+(\#eq:leq)
+\end{equation}
+
+In fact, what I have done here is to give a general method for solving for any detrending parameter $\alpha$:
+
+\begin{equation}
+\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{\alpha}|)
+(\#eq:detrend-param)
+\end{equation}
+
+This will be useful later when other detrending regimes with their own parameters are introduced.
+
+
+### Exponential smoothing
+
+_Exponential smoothing_ is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.^[https://en.wikipedia.org/wiki/Weighted_arithmetic_mean] The weights fall off with distance $|t|$ from the point of interest according to $\exp(-\frac{|t|}{\tau})$ where the parameter $\tau$ is a positive real number. This function is visualized in figure \ref(fig:exp-smooth-func). For small values of $\tau$, only values very close to the point of interest have importance when calculating the local average. For larger values of $\tau$, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of $\tau$ has a similar effect to increasing the value of $l$ for the boxcar in that farther away points are taken into account. 
+
+(ref:exp-smooth-func-caption) The function $\exp(-\frac{|t|}{\tau})$ visualised with $\tau = 3$ and $\tau = 9$. For $\tau = 3$, points at distance $|t| = 10$ have approximately zero weight, whereas for $\tau = 9$, these points have significant weight.
+
+
+```{r exp-smooth-func, echo=FALSE, fig.cap='(ref:exp-smooth-func-caption)'}
+exp_smooth_func <- function(t, tau) exp(-abs(t / tau))
+ggplot(tibble(x = 0, y = x)) + aes(x) +
+  stat_function(fun = exp_smooth_func, args = list(tau = 2), 
+                aes(colour = "red")) + 
+  stat_function(fun = exp_smooth_func, args = list(tau = 9), 
+                aes(colour = "blue")) +
+  xlim(-30, 30) + 
+  ylab(TeX("$\\exp\\left(-\\frac{|t|}{\\tau}\\right)$")) + xlab(TeX("$t$")) +
+  scale_colour_manual("", values = c(red = "red", blue = "blue"),
+                      labels = unname(TeX(c("$\\tau = 3$", "$\\tau = 9$")))) 
+```
+
+In figure \@ref(fig:tau-values), exponential smoothing with different parameters $\tau$ is applied to the trace in figure \@ref(fig:exp-fit-bleach). The results are similar to those in figure \@ref(fig:boxcar-sizes). 
+
+(ref:tau-values-caption) The original intensity trace is shown in the top-left. The other panels show the result of exponential smoothing for $\tau = 1, 3, 75, 300$ and $1000$. 
+
+```{r tau-values, fig.cap='(ref:tau-values-caption)', echo=FALSE}
+df_exp_fit_bleach %>% 
+  spread(line, intensity_value) %>% 
+  clean_names() %>% 
+  select(-exponential_fit) %>% 
+  mutate(tau1 = detrendr:::exp_smooth(intensity_over_time, 1, 999),
+         tau3 = detrendr:::exp_smooth(intensity_over_time, 3, 999),
+         tau75 = detrendr:::exp_smooth(intensity_over_time, 75, 999),
+         tau300 = detrendr:::exp_smooth(intensity_over_time, 300, 999),
+         tau1000 = detrendr:::exp_smooth(intensity_over_time, 1000, 999)) %>% 
+  gather(line, intensity, -time) %>% 
+  arrange(first_number(line) %T>% {.[is.na(.)] <- min(., na.rm = TRUE) - 1}) %>%
+  mutate(line = str_replace_all(line, "_", " ") %>% 
+           str_replace("tau", "tau = ") %>% 
+           if_else(str_detect(., "="), str_c("$\\", ., "$"), .) %>% 
+           TeX("char")) %>% 
+  mutate(line = as_factor(line)) %>% 
+  ggplot() + aes(time, intensity) + geom_line() +
+  facet_wrap(~ line, nrow = 2, labeller = label_parsed)
+```
+
+Heuristically, exponential smoothing detrending seems favourable to boxcar detrending because the idea that points further away from the point of interest are less important (but still somewhat important) when computing the local average is reasonable. Indeed, this was the method proposed in the original number and brightness paper [@NB]. For this reason, exponential smoothing was the method of choice for my paper where the method of choosing the correct detrending parameter was published [@nandb].  
+
+
+### Correcting for non-stationary variance {#correcting-for-non-stationary-variance}
+
+```{definition}
+The variance of a random variable $X$ is the expected value of the squared deviation of $X$ from its mean $\mu$:
+\begin{equation}
+\text{Var}(X) = E[(X - \mu)^2]
+(\#eq:variance)
+\end{equation}
+```
+
+All of this chapter so far has focused on correcting for non-stationary mean. As shown in figure \@ref(fig:visualize-variance-decrease), as the mean decreases, so too does the variance. For an instance $x$ of the random variable $X$, $x - \mu$ is the _deviation_ of $x$ from $\mu$. If we write $x$ as $x = \mu + \tilde{x}$, then we get the deviation $x - \mu = (\mu + \tilde{x}) - \mu = \tilde{x}$, so $\tilde{x}$ is the deviation. For a given point in figure \@ref(fig:visualize-variance-decrease), its deviation is its distance from the black line. For positive real number $k$, making the transformation $\tilde{x} \rightarrow \sqrt{k}\tilde{x}$ i.e. $x \rightarrow \mu + \sqrt{k}\tilde{x}$ causes the variance (i.e. the _squared deviation_) to be transformed as $\text{Var}(X) \rightarrow k \times \text{Var}(X)$. Hence, we have a way to modify the variance of a time series as a whole by modifying the deviation of each time point from the mean. For months, I toyed with this idea as a solution of correcting for non-stationary variance. However, in reality the contribution to the variance in intensity at a given pixel is down to both poisson photon statistics and fluorophore movement. This combination of factors makes it very difficult to ascertain the amount by which the variance should be altered. I eventually abandoned my efforts to alter the variance like this in favour of the _Robin Hood_ detrending algorithm (section \@ref(robin-hood-detrending)) which includes correction for non-stationary variance as an intrinsic part of its detrending routine.
+
+
+### Robin Hood detrending {#robin-hood-detrending}
