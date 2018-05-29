@@ -1,0 +1,7 @@
+
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ rm -r .Rproj.user/git checkout master
+error: The following untracked working tree files would be overwritten by checkout:
+	.Rproj.user/A9D75AB/console06/13B0387F
+Please move or remove them before you switch branches.
+Aborting
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ git add .
