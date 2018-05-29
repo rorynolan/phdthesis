@@ -10,6 +10,5 @@ Imports: bookdown,
     RcppRoll, 
     abind, 
     here
-Remotes: rstudio/bookdown,
-    stefano-meschiari/latex2exp,
+Remotes: stefano-meschiari/latex2exp,
     rorynolan/brownded

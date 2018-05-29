@@ -73,8 +73,8 @@ df_var_dec_vis <- tibble(rate = seq(100, 0, length.out = 300),
                          value = detrendr:::myrpois(rate))
 ggplot(df_var_dec_vis, aes(rate, value)) + scale_x_reverse() +
   geom_segment(x = -100, y = 100, xend = 0, yend = 0, 
-               colour = "blue") +
-  geom_line(colour = "black") 
+               colour = gg_color_hue(2)[1]) +
+  geom_line(colour = gg_color_hue(2)[2]) 
 ```
 
 
@@ -315,4 +315,21 @@ The variance of a random variable $X$ is the expected value of the squared devia
 All of this chapter so far has focused on correcting for non-stationary mean. As shown in figure \@ref(fig:visualize-variance-decrease), as the mean decreases, so too does the variance. For an instance $x$ of the random variable $X$, $x - \mu$ is the _deviation_ of $x$ from $\mu$. If we write $x$ as $x = \mu + \tilde{x}$, then we get the deviation $x - \mu = (\mu + \tilde{x}) - \mu = \tilde{x}$, so $\tilde{x}$ is the deviation. For a given point in figure \@ref(fig:visualize-variance-decrease), its deviation is its distance from the black line. For positive real number $k$, making the transformation $\tilde{x} \rightarrow \sqrt{k}\tilde{x}$ i.e. $x \rightarrow \mu + \sqrt{k}\tilde{x}$ causes the variance (i.e. the _squared deviation_) to be transformed as $\text{Var}(X) \rightarrow k \times \text{Var}(X)$. Hence, we have a way to modify the variance of a time series as a whole by modifying the deviation of each time point from the mean. For months, I toyed with this idea as a solution of correcting for non-stationary variance. However, in reality the contribution to the variance in intensity at a given pixel is down to both poisson photon statistics and fluorophore movement. This combination of factors makes it very difficult to ascertain the amount by which the variance should be altered. I eventually abandoned my efforts to alter the variance like this in favour of the _Robin Hood_ detrending algorithm (section \@ref(robin-hood-detrending)) which includes correction for non-stationary variance as an intrinsic part of its detrending routine.
 
 
+### Caveats of fitting and smoothing approaches to detrending
+
+Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently[@nandb], but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities---where most pixel values are either 0 or 1---are quasi-binary and hence a continuous approximation does not make sense (see figure \@ref(fig:fit-smooth-caveats)). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities. 
+
+```{r fit-smooth-caveats, fig.show='hold', out.width='49%', echo = FALSE}
+set.seed(1)
+tibble(t = seq_len(100), y = detrendr:::myrpois(seq(100, 50, length = 100))) %>% 
+  ggplot() + aes(t, y) + geom_point(colour = gg_color_hue(2)[2]) + 
+  geom_segment(x = 1, xend = 100, y = 100, yend = 50, 
+               colour = gg_color_hue(2)[1])
+tibble(t = seq_len(100), y = detrendr:::myrpois(seq(0.5, 0, length = 100))) %>% 
+  ggplot() + aes(t, y) + geom_point(colour = gg_color_hue(2)[2]) + 
+  geom_segment(x = 1, xend = 100, y = 0.5, yend = 0, 
+               colour = gg_color_hue(2)[1])
+```
+
 ### Robin Hood detrending {#robin-hood-detrending}
+
