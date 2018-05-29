@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Algorithms for the Correction of Photobleaching</title>
+  <meta name="description" content="Rory Nolan’s PhD thesis">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Algorithms for the Correction of Photobleaching" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Rory Nolan’s PhD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Algorithms for the Correction of Photobleaching" />
+  
+  <meta name="twitter:description" content="Rory Nolan’s PhD thesis" />
+  
+
+<meta name="author" content="Rory Nolan">
+
+
+<meta name="date" content="2018-05-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="literature.html">
+<link rel="next" href="applications.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PhD thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#confocal-light-microscopy"><i class="fa fa-check"></i><b>1.1</b> Confocal light microscopy</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#intensity-traces"><i class="fa fa-check"></i><b>1.2</b> Intensity traces</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#fluorescence-fluctuation-spectroscopy"><i class="fa fa-check"></i><b>1.3</b> Fluorescence fluctuation spectroscopy</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#number-and-brightness"><i class="fa fa-check"></i><b>1.3.1</b> Number and brightness</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#fluorescence-correlation-spectroscopy"><i class="fa fa-check"></i><b>1.4</b> Fluorescence correlation spectroscopy</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#correlation"><i class="fa fa-check"></i><b>1.4.1</b> Correlation</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#autocorrelation"><i class="fa fa-check"></i><b>1.4.2</b> Autocorrelation</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#cross-correlation"><i class="fa fa-check"></i><b>1.4.3</b> Cross-correlation</a></li>
+<li class="chapter" data-level="1.4.4" data-path="intro.html"><a href="intro.html#cross-correlated-brightness"><i class="fa fa-check"></i><b>1.4.4</b> Cross-correlated brightness</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
+<li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
+<li class="chapter" data-level="3.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#introduction-to-photobleaching"><i class="fa fa-check"></i><b>3.1</b> Introduction to photobleaching</a></li>
+<li class="chapter" data-level="3.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-effects-of-photobleaching-in-fcs-and-ffs"><i class="fa fa-check"></i><b>3.2</b> The effects of photobleaching in FCS and FFS</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#fcs"><i class="fa fa-check"></i><b>3.2.1</b> FCS</a></li>
+<li class="chapter" data-level="3.2.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#ffs"><i class="fa fa-check"></i><b>3.2.2</b> FFS</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-photobleaching"><i class="fa fa-check"></i><b>3.3</b> Correcting for photobleaching</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-fitting"><i class="fa fa-check"></i><b>3.3.1</b> Exponential fitting</a></li>
+<li class="chapter" data-level="3.3.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#boxcar-smoothing"><i class="fa fa-check"></i><b>3.3.2</b> Boxcar smoothing</a></li>
+<li class="chapter" data-level="3.3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#choosing-the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.3.3</b> Choosing the correct smoothing parameter for detrending</a></li>
+<li class="chapter" data-level="3.3.4" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-smoothing"><i class="fa fa-check"></i><b>3.3.4</b> Exponential smoothing</a></li>
+<li class="chapter" data-level="3.3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.3.5</b> Correcting for non-stationary variance</a></li>
+<li class="chapter" data-level="3.3.6" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.3.6</b> Robin Hood detrending</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algorithms for the Correction of Photobleaching</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="photobleaching-correction" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Photobleaching Correction</h1>
+<div id="introduction-to-photobleaching" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introduction to photobleaching</h2>
+<p>In the ideal case, an <em>incident</em> photon of appropriate wavelength is absorbed by a fluorophore, promoting the fluorophore to an excited state; subsequently, the fluorophore relaxes down to its ground state by emitting a photon. In reality, it is possible that the incident photon can <em>break</em> the fluorophore with the result that it will no longer emit light. This breaking is referred to as <em>photobleaching</em> (or <em>bleaching</em> for short). Bleaching causes a diminution in the number of effective fluorophores which is a direct cause of a loss of fluorescent signal.</p>
+<p>Many quantitative methods in fields such as fluorescence fluctuation spectroscopy (FFS) and fluorescence correlation spectroscopy (FCS) implicitly assume that there is no bleaching in the data. Hence, data (image series) with significant levels of photobleaching must be corrected prior to the application of equations and algorithms in these fields. A main focus of this thesis is on how to correct fluorescent image series for the effects of bleaching, given that bleaching <em>does</em> occur. There is no emphasis on understanding <em>why</em> and/or <em>how</em> photobleaching occurs.</p>
+</div>
+<div id="the-effects-of-photobleaching-in-fcs-and-ffs" class="section level2">
+<h2><span class="header-section-number">3.2</span> The effects of photobleaching in FCS and FFS</h2>
+<p>We simulate two image series, each with 100,000 diffusing fluorescent particles. In the first image series (<code>img1</code>), these have brightness <span class="math inline">\(\epsilon = 4\)</span> and in the second (<code>img2</code>) they have brightness <span class="math inline">\(\epsilon = 7\)</span>. See figure <a href="photobleaching-correction.html#fig:bleaching-sim">3.1</a>. We bleach these by 15% and 20% to create <code>img1_bleached</code> and <code>img2_bleached</code> respectively.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:bleaching-sim"></span>
+<img src="phdthesis_files/figure-html/bleaching-sim-1.png" alt="Frames 1, 100, 200, 300, 400 and 500 from image series of 100,000 diffusing emitters of brightness \(\epsilon = 4\) (top) and \(\epsilon = 7\) (bottom) with 15% (top) and 20% (bottom) bleaching." width="100%" />
+<p class="caption">
+Figure 3.1: Frames 1, 100, 200, 300, 400 and 500 from image series of 100,000 diffusing emitters of brightness <span class="math inline">\(\epsilon = 4\)</span> (top) and <span class="math inline">\(\epsilon = 7\)</span> (bottom) with 15% (top) and 20% (bottom) bleaching.
+</p>
+</div>
+<p>It may not be obvious that these image series are subject to bleaching from figure <a href="photobleaching-correction.html#fig:bleaching-sim">3.1</a>, but we can see it more clearly in figure <a href="photobleaching-correction.html#fig:bleaching-sim-mean-intensity">3.2</a>.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:bleaching-sim-mean-intensity"></span>
+<img src="phdthesis_files/figure-html/bleaching-sim-mean-intensity-1.png" alt="Mean intensity profiles of the simulated image series with and without bleaching. Simulation 1 was bleached by 15% and simulation 2 by 20%." width="100%" />
+<p class="caption">
+Figure 3.2: Mean intensity profiles of the simulated image series with and without bleaching. Simulation 1 was bleached by 15% and simulation 2 by 20%.
+</p>
+</div>
+<div id="fcs" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> FCS</h3>
+<p>The unrelated images <code>img1</code> and <code>img2</code> have a tiny median cross-correlated brightness of <span class="math inline">\(B_\text{cc} = 0.0036\)</span>, signifying no significant correlation, as one would expect. However, the bleached images <code>img1_bleached</code> and <code>img2_bleached</code> have a significant <span class="math inline">\(B_\text{cc} = 0.3686\)</span>. This shows that bleaching is introducing correlation between otherwise unrelated images. Since correlation is used as a proxy for hetero-interaction, bleaching can make it appear as though there is interaction when in fact there is not when using FCS techniques.</p>
+</div>
+<div id="ffs" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> FFS</h3>
+
+<div class="definition">
+<span id="def:unnamed-chunk-19" class="definition"><strong>Definition 3.1  (median mean pixel intensity)  </strong></span>The <em>median mean pixel intensity</em> of an image series is found by taking the mean intensity of each pixel in the image series and then taking the median of those means. It can be thought of as a summary statistic for the pixel intensity of the image series.
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-20" class="definition"><strong>Definition 3.2  (median pixel intensity variance)  </strong></span>The <em>median pixel intensity variance</em> of an image series is found by taking the variance in the intensity of each pixel in the image series and then taking the median of those variances. It can be thought of as a summary statistic for the variance in the pixel intensity of the image series.
+</div>
+
+<p>In FFS, one is always interested in the mean and variance of pixel values (and sometimes other fluctuation quantities like the third moment). <code>img1</code> has a median mean pixel intensity of 97.655 and a median pixel intensity variance of 487.2476954. The mean brightness is <span class="math inline">\(\epsilon = 3.9959\)</span> (very close to 4, as expected since the image series was simulated with brightness <span class="math inline">\(\epsilon = 4\)</span>). For <code>img1_bleached</code>, we find a median mean pixel intensity of 90.086 and a median pixel intensity variance of 468.4618978. The mean brightness is <span class="math inline">\(\epsilon = 4.2026\)</span>. Hence, bleaching has altered both the means and variances of the pixels, resulting in a change in calculated brightness. The non-stationary mean frame intensity introduced by bleaching decreases the mean but increases the variance. The loss in signal has the effect of slightly decreasing the variance: with poisson statistics (such as photon-emission), a loss of signal (photons) leads directly to a loss in variance. This is a subtle point not discussed anywhere in the literature; it is shown in figure <a href="photobleaching-correction.html#fig:visualize-variance-decrease">3.3</a>.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:visualize-variance-decrease"></span>
+<img src="phdthesis_files/figure-html/visualize-variance-decrease-1.png" alt="A decrease in the poisson rate (e.g. for emmission of photons) leads to a decrease in the mean (blue line) but also a decrease in fluctuations around the mean. Notice that towards the right where rate is low, fluctuations around the mean are at their smallest." width="90%" />
+<p class="caption">
+Figure 3.3: A decrease in the poisson rate (e.g. for emmission of photons) leads to a decrease in the mean (blue line) but also a decrease in fluctuations around the mean. Notice that towards the right where rate is low, fluctuations around the mean are at their smallest.
+</p>
+</div>
+</div>
+</div>
+<div id="correcting-for-photobleaching" class="section level2">
+<h2><span class="header-section-number">3.3</span> Correcting for photobleaching</h2>
+<p>All of the current literature mentions bleaching correction as being purely for correcting the problem of non-stationary mean (NSM), neglecting the problem of non-stationary variance (NSV). Figure <a href="photobleaching-correction.html#fig:visualize-variance-decrease">3.3</a> shows that NSM and NSV go hand-in-hand. Correction for NSM is referred to as trend removal or <em>detrending</em>. Hence, the terms <em>detrending</em> and <em>bleaching correction</em> have come to be used interchangeably. I will follow this convention and use the term <em>detrending</em> from now on to mean correction for NSM and possibly also NSV. In what follows immediately here, I will focus on correcting for NSM. Discussion of correction for NSV starts in section <a href="photobleaching-correction.html#correcting-for-non-stationary-variance">3.3.5</a>.</p>
+<div id="exponential-fitting" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Exponential fitting</h3>
+<p>Naively, one could assume that bleaching of fluorophores takes place at some constant rate. This would mean that the intensity of the image would die-off according to an exponential decay. In figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a>, we fit an exponential decay to such ideal data.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:exp-fit-bleach"></span>
+<img src="phdthesis_files/figure-html/exp-fit-bleach-1.png" alt="Exponential fit to intensity trace of image which is subject to bleaching at a constant rate." width="100%" />
+<p class="caption">
+Figure 3.4: Exponential fit to intensity trace of image which is subject to bleaching at a constant rate.
+</p>
+</div>
+<p>Having fit the data, one may record the deviations from the fitted line as the <em>fluctuations</em> and replace these fluctuations about a straight line, which is placed at the mean of the original series; for figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a> above, this mean is 90. Figure <a href="photobleaching-correction.html#fig:exp-fit-corr">3.5</a> shows the corrected series.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:exp-fit-corr"></span>
+<img src="phdthesis_files/figure-html/exp-fit-corr-1.png" alt="The blue line from figure 3.4 has changed to a straight horizontal line cutting the \(y\) axis at the mean intensity of the original intensity trace. The fluctuations about the blue line that existed in figure 3.4 are preserved here. As an example, see the large downward fluctuation at \(t \approx 50\) seconds in both figures." width="100%" />
+<p class="caption">
+Figure 3.5: The blue line from figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a> has changed to a straight horizontal line cutting the <span class="math inline">\(y\)</span> axis at the mean intensity of the original intensity trace. The fluctuations about the blue line that existed in figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a> are preserved here. As an example, see the large downward fluctuation at <span class="math inline">\(t \approx 50\)</span> seconds in both figures.
+</p>
+</div>
+<p>We can see that here, in the ideal case where the naive assumptions of the exponential decay fitting approach hold, this approach indeed does quite well. Let us now examine the case where these assumptions don’t hold because there are other long-term fluctuations e.g. due to cell movement. We add these other fluctuations as a gentle sinusiod. See figure <a href="photobleaching-correction.html#fig:exp-decay-with-sin">3.6</a>.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:exp-decay-with-sin"></span>
+<img src="phdthesis_files/figure-html/exp-decay-with-sin-1.png" alt="An exponential decay with added sinusoidal variance, fit with a simple exponential decay." width="100%" />
+<p class="caption">
+Figure 3.6: An exponential decay with added sinusoidal variance, fit with a simple exponential decay.
+</p>
+</div>
+<p>One can see by eye that this is not a good fit for the data. This has disastrous consequences for the detrended series, shown in figure <a href="photobleaching-correction.html#fig:exp-fit-decay-with-sin-corr">3.7</a>.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:exp-fit-decay-with-sin-corr"></span>
+<img src="phdthesis_files/figure-html/exp-fit-decay-with-sin-corr-1.png" alt="Result of exponential fitting detrending applied to a decay with a long-term sinusoidal trend component." width="100%" />
+<p class="caption">
+Figure 3.7: Result of exponential fitting detrending applied to a decay with a long-term sinusoidal trend component.
+</p>
+</div>
+<p>One can see in figure <a href="photobleaching-correction.html#fig:exp-fit-decay-with-sin-corr">3.7</a> that the exponential fit detrend failed to remove the sinusoidal trend in the data (even though it <em>did</em> remove the exponential decay component). We have now seen that exponential fitting detrending is appropriate when the decay has a particular form, but is otherwise not fit for use. This is a problem common to all fitting approaches to detrending, even the more flexible types like polynomial detrending <span class="citation">(Chan, Hayya, and Ord <a href="#ref-polynomial">1977</a>)</span>. For this reason alone, for the purpose of detrending, fitting approaches should be avoided.</p>
+</div>
+<div id="boxcar-smoothing" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Boxcar smoothing</h3>
+<p>A common approach to obtaining the line from which to measure deviations/fluctuations (as in the red line in figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a>) is to <em>smooth</em> the time series, i.e. construct the line by taking a <em>local average</em> at each point. This is often referred to as <em>boxcar smoothing</em> because it can be visualised as drawing a box around a neighbourhood of points, taking their average as the smoothed value at that point and then moving the box onto the next series of points and repeating the procedure. See figure <a href="photobleaching-correction.html#fig:boxcar-explanation">3.8</a>.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:boxcar-explanation"></span>
+<img src="phdthesis_files/figure-html/boxcar-explanation-1.png" alt="The original time series is depicted by the red dots. The blue rectangles represent the boxcar. This boxcar is said to be of length 3 because it is wide enough to encompass 3 points at a time. The boxcar is centred on a point and then the smoothed value at that point (blue dot) is calculated as the mean value of all points within the boxcar. In reality, every point gets a smoothed value which means that the boxcar overlaps but in this figure, for the sake of clarity, they are not overlapped." width="100%" />
+<p class="caption">
+Figure 3.8: The original time series is depicted by the red dots. The blue rectangles represent the <em>boxcar</em>. This boxcar is said to be of length 3 because it is wide enough to encompass 3 points at a time. The boxcar is centred on a point and then the smoothed value at that point (blue dot) is calculated as the mean value of all points within the boxcar. In reality, every point gets a smoothed value which means that the boxcar <em>overlaps</em> but in this figure, for the sake of clarity, they are not overlapped.
+</p>
+</div>
+<p>The paremeter <span class="math inline">\(l\)</span> of a boxcar is such that the length of the boxcar is equal to <span class="math inline">\(2l + 1\)</span>. This ensures that the length of the boxcar is always odd) which means it can always be centred upon a point). Hence the allowable lengths of a boxcar are <span class="math inline">\(3,5,7,9,\)</span> etc.</p>
+<p>The boxcar parameter <span class="math inline">\(l\)</span> has a large effect on the type of smoothing achieved. This can be seen in figure <a href="photobleaching-correction.html#fig:boxcar-sizes">3.9</a> where boxcar smoothing is applied to the trace in figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a>. The traces for <span class="math inline">\(l=1\)</span> and <span class="math inline">\(l=3\)</span> are far too wiggly (not smooth enough); the trace for <span class="math inline">\(l=75\)</span> is better but perhaps still slightly wiggly; finally, the traces for <span class="math inline">\(l=300\)</span> and <span class="math inline">\(l=1000\)</span> are too close to straight horizontal lines (too smooth).</p>
+
+<div class="figure" style="text-align: left"><span id="fig:boxcar-sizes"></span>
+<img src="phdthesis_files/figure-html/boxcar-sizes-1.png" alt="The original intensity trace is shown in the top-left. The other panels show the result of boxcar smoothing for \(l = 1, 3, 75, 300\) and \(1000\)." width="100%" />
+<p class="caption">
+Figure 3.9: The original intensity trace is shown in the top-left. The other panels show the result of boxcar smoothing for <span class="math inline">\(l = 1, 3, 75, 300\)</span> and <span class="math inline">\(1000\)</span>.
+</p>
+</div>
+<p>This begs the question: what is the correct smoothing parameter <span class="math inline">\(l\)</span>?</p>
+</div>
+<div id="choosing-the-correct-smoothing-parameter-for-detrending" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Choosing the correct smoothing parameter for detrending</h3>
+<p>Figure <a href="photobleaching-correction.html#fig:boxcar-sizes">3.9</a> shows that the choice of boxcar size is crucial because different sizes lead to very different “smoothed” lines. The most common choice in the community is to choose <span class="math inline">\(l = 10\)</span> <span class="citation">(Laboratory for Fluorescence Dynamics <a href="#ref-SimFCS">2018</a>)</span>. There is no justification for this choice.</p>
+<p>In section <a href="intro.html#number-and-brightness">1.3.1</a>, we learned that for immobile particles, the expected brightness is <span class="math inline">\(B = 1\)</span>. This fact can be used to solve for the appropriate choice of <span class="math inline">\(l\)</span> to use for detrending a specific image series.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-21" class="definition"><strong>Definition 3.3  </strong></span>The <em>mean intensity profile</em> of one channel of an image series is obtained by calculating the mean intensity of each frame in that image series.
+</div>
+
+<p>The mean intensity profile can be used to visualise the bleaching of an image series. If the fluorophores are bleaching, the mean intensity should be decreasing over time. To proceed with solving for the appropriate <span class="math inline">\(l\)</span>, we need to make one assumption. This is that any two image series with the same mean intensity profile are appropriately detrended with the same detrending parameter <span class="math inline">\(l\)</span>. This assumption seems reasonable to me, however there is no need to debate its validity because later, detrending with the solved-for parameter <span class="math inline">\(l\)</span> will be evaluated with simulated data and compared to the standard <span class="math inline">\(l = 10\)</span>. If this assumption is bad, then the performance of the detrending that relies on it should also be bad. With this assumption in hand, solving for <span class="math inline">\(l\)</span> proceeds as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Simulate an image series with immobile particles only which has the same mean intensity profile as the acquired real data.</li>
+<li>Given that the simulated series is of immobile particles only, once properly detrended, it should have <span class="math inline">\(B = 1\)</span>.</li>
+<li>The <span class="math inline">\(l\)</span> for which the detrended series has mean brightness closes to 1 is the most appropriate for the simulated data.</li>
+<li>By the assumption above, this <span class="math inline">\(l\)</span> is the most appropriate for the real data.</li>
+</ol>
+<p>Mathematically, this can be expressed as</p>
+<span class="math display" id="eq:leq">\[\begin{equation}
+l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{l}|)
+\tag{3.1}
+\end{equation}\]</span>
+<p>In fact, what I have done here is to give a general method for solving for any detrending parameter <span class="math inline">\(\alpha\)</span>:</p>
+<span class="math display" id="eq:detrend-param">\[\begin{equation}
+\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{\alpha}|)
+\tag{3.2}
+\end{equation}\]</span>
+<p>This will be useful later when other detrending regimes with their own parameters are introduced.</p>
+</div>
+<div id="exponential-smoothing" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Exponential smoothing</h3>
+<p><em>Exponential smoothing</em> is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> The weights fall off with distance <span class="math inline">\(|t|\)</span> from the point of interest according to <span class="math inline">\(\exp(-\frac{|t|}{\tau})\)</span> where the parameter <span class="math inline">\(\tau\)</span> is a positive real number. This function is visualized in figure (fig:exp-smooth-func). For small values of <span class="math inline">\(\tau\)</span>, only values very close to the point of interest have importance when calculating the local average. For larger values of <span class="math inline">\(\tau\)</span>, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of <span class="math inline">\(\tau\)</span> has a similar effect to increasing the value of <span class="math inline">\(l\)</span> for the boxcar in that farther away points are taken into account.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:exp-smooth-func"></span>
+<img src="phdthesis_files/figure-html/exp-smooth-func-1.png" alt="The function \(\exp(-\frac{|t|}{\tau})\) visualised with \(\tau = 3\) and \(\tau = 9\). For \(\tau = 3\), points at distance \(|t| = 10\) have approximately zero weight, whereas for \(\tau = 9\), these points have significant weight." width="100%" />
+<p class="caption">
+Figure 3.10: The function <span class="math inline">\(\exp(-\frac{|t|}{\tau})\)</span> visualised with <span class="math inline">\(\tau = 3\)</span> and <span class="math inline">\(\tau = 9\)</span>. For <span class="math inline">\(\tau = 3\)</span>, points at distance <span class="math inline">\(|t| = 10\)</span> have approximately zero weight, whereas for <span class="math inline">\(\tau = 9\)</span>, these points have significant weight.
+</p>
+</div>
+<p>In figure <a href="photobleaching-correction.html#fig:tau-values">3.11</a>, exponential smoothing with different parameters <span class="math inline">\(\tau\)</span> is applied to the trace in figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a>. The results are similar to those in figure <a href="photobleaching-correction.html#fig:boxcar-sizes">3.9</a>.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:tau-values"></span>
+<img src="phdthesis_files/figure-html/tau-values-1.png" alt="The original intensity trace is shown in the top-left. The other panels show the result of exponential smoothing for \(\tau = 1, 3, 75, 300\) and \(1000\)." width="100%" />
+<p class="caption">
+Figure 3.11: The original intensity trace is shown in the top-left. The other panels show the result of exponential smoothing for <span class="math inline">\(\tau = 1, 3, 75, 300\)</span> and <span class="math inline">\(1000\)</span>.
+</p>
+</div>
+<p>Heuristically, exponential smoothing detrending seems favourable to boxcar detrending because the idea that points further away from the point of interest are less important (but still somewhat important) when computing the local average is reasonable. Indeed, this was the method proposed in the original number and brightness paper <span class="citation">(Digman et al. <a href="#ref-NB">2008</a>)</span>. For this reason, exponential smoothing was the method of choice for my paper where the method of choosing the correct detrending parameter was published <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>.</p>
+</div>
+<div id="correcting-for-non-stationary-variance" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> Correcting for non-stationary variance</h3>
+
+<div class="definition">
+<span id="def:unnamed-chunk-22" class="definition"><strong>Definition 3.4  </strong></span>The variance of a random variable <span class="math inline">\(X\)</span> is the expected value of the squared deviation of <span class="math inline">\(X\)</span> from its mean <span class="math inline">\(\mu\)</span>:
+<span class="math display" id="eq:variance">\[\begin{equation}
+\text{Var}(X) = E[(X - \mu)^2]
+\tag{3.3}
+\end{equation}\]</span>
+</div>
+
+<p>All of this chapter so far has focused on correcting for non-stationary mean. As shown in figure <a href="photobleaching-correction.html#fig:visualize-variance-decrease">3.3</a>, as the mean decreases, so too does the variance. For an instance <span class="math inline">\(x\)</span> of the random variable <span class="math inline">\(X\)</span>, <span class="math inline">\(x - \mu\)</span> is the <em>deviation</em> of <span class="math inline">\(x\)</span> from <span class="math inline">\(\mu\)</span>. If we write <span class="math inline">\(x\)</span> as <span class="math inline">\(x = \mu + \tilde{x}\)</span>, then we get the deviation <span class="math inline">\(x - \mu = (\mu + \tilde{x}) - \mu = \tilde{x}\)</span>, so <span class="math inline">\(\tilde{x}\)</span> is the deviation. For a given point in figure <a href="photobleaching-correction.html#fig:visualize-variance-decrease">3.3</a>, its deviation is its distance from the black line. For positive real number <span class="math inline">\(k\)</span>, making the transformation <span class="math inline">\(\tilde{x} \rightarrow \sqrt{k}\tilde{x}\)</span> i.e. <span class="math inline">\(x \rightarrow \mu + \sqrt{k}\tilde{x}\)</span> causes the variance (i.e. the <em>squared deviation</em>) to be transformed as <span class="math inline">\(\text{Var}(X) \rightarrow k \times \text{Var}(X)\)</span>. Hence, we have a way to modify the variance of a time series as a whole by modifying the deviation of each time point from the mean. For months, I toyed with this idea as a solution of correcting for non-stationary variance. However, in reality the contribution to the variance in intensity at a given pixel is down to both poisson photon statistics and fluorophore movement. This combination of factors makes it very difficult to ascertain the amount by which the variance should be altered. I eventually abandoned my efforts to alter the variance like this in favour of the <em>Robin Hood</em> detrending algorithm (section <a href="photobleaching-correction.html#robin-hood-detrending">3.3.6</a>) which includes correction for non-stationary variance as an intrinsic part of its detrending routine.</p>
+</div>
+<div id="robin-hood-detrending" class="section level3">
+<h3><span class="header-section-number">3.3.6</span> Robin Hood detrending</h3>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-polynomial">
+<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). [Wiley, Econometric Society]:737–44. <a href="http://www.jstor.org/stable/1911686" class="uri">http://www.jstor.org/stable/1911686</a>.</p>
+</div>
+<div id="ref-SimFCS">
+<p>Laboratory for Fluorescence Dynamics. 2018. <em>Globals for Images: SimFCS 4</em>. <em>University of California, Irvine</em>. <a href="http://www.lfd.uci.edu/globals/" class="uri">http://www.lfd.uci.edu/globals/</a>.</p>
+</div>
+<div id="ref-NB">
+<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32.</p>
+</div>
+<div id="ref-nandb">
+<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press:3508–10.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p><a href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean" class="uri">https://en.wikipedia.org/wiki/Weighted_arithmetic_mean</a><a href="photobleaching-correction.html#fnref13" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="literature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["phdthesis.pdf", "phdthesis.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
