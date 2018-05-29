@@ -103,4 +103,18 @@ Changes not staged for commit:
 
 	[31mmodified:   .Rproj.user/A9D75AB/console06/13B0387F[m
 
-]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ 
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ [K[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch docs/.nojekyll
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ cd docs
+]0;~/Dropbox/DPhil/phdthesis/docs[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis/docs[m$ ls
+applications.html              intro.html                     photobleaching-correction.html
+final-words.html               [1m[34mlibs[39;49m[0m                           references.html
+[1m[34mimg[39;49m[0m                            literature.html                search_index.json
+index.html                     [1m[34mphdthesis_files[39;49m[0m                style.css
+]0;~/Dropbox/DPhil/phdthesis/docs[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis/docs[m$ ls -a
+[1m[34m.[39;49m[0m                              [1m[34mimg[39;49m[0m                            [1m[34mphdthesis_files[39;49m[0m
+[1m[34m..[39;49m[0m                             index.html                     photobleaching-correction.html
+.nojekyll                      intro.html                     references.html
+applications.html              [1m[34mlibs[39;49m[0m                           search_index.json
+final-words.html               literature.html                style.css
+]0;~/Dropbox/DPhil/phdthesis/docs[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis/docs[m$ git add .[K[K[K[K[K[K[K[K[Kcd ..
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ git add .
