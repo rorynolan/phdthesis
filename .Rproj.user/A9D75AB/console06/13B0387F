@@ -7,3 +7,242 @@ Aborting
 ]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MacBook-Pro-3:[33;1m~/Dropbox/DPhil/phdthesis[m$ git add .
 Switched to branch 'gh-pages'
 ]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ git add .
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ git commit -m "Clean gh-pages."
+[gh-pages 908cfcf] Clean gh-pages.
+ 3 files changed, 5 insertions(+), 4 deletions(-)
+ create mode 100644 .nojekyll
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ ls
+01-intro.Rmd                    [1m[34m_book[39;49m[0m                           [1m[34mjunk[39;49m[0m
+02-instrumentation-software.Rmd _bookdown.yml                   packages.bib
+03-bleaching-correction.Rmd     [1m[34m_bookdown_files[39;49m[0m                 papers.bib
+04-application.Rmd              [1m[32m_build.sh[39;49m[0m                       phdthesis.Rproj
+05-summary.Rmd                  _output.yml                     preamble.tex
+06-references.Rmd               book.bib                        style.css
+DESCRIPTION                     [1m[34mimg[39;49m[0m
+README.md                       index.Rmd
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ git a[Kstatus
+On branch gh-pages
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/A9D75AB/console06/13B0387F[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ rm -r *
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ git status
+On branch gh-pages
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/A9D75AB/console06/13B0387F[m
+	[31mdeleted:    01-intro.Rmd[m
+	[31mdeleted:    02-instrumentation-software.Rmd[m
+	[31mdeleted:    03-bleaching-correction.Rmd[m
+	[31mdeleted:    04-application.Rmd[m
+	[31mdeleted:    05-summary.Rmd[m
+	[31mdeleted:    06-references.Rmd[m
+	[31mdeleted:    DESCRIPTION[m
+	[31mdeleted:    README.md[m
+	[31mdeleted:    _book/applications.html[m
+	[31mdeleted:    _book/confocal-light-microscopy.html[m
+	[31mdeleted:    _book/final-words.html[m
+	[31mdeleted:    _book/img/confocal_volume_particle.png[m
+	[31mdeleted:    _book/img/confocal_volume_particle.tif[m
+	[31mdeleted:    _book/img/cvp.png[m
+	[31mdeleted:    _book/img/quora_confocal.jpeg[m
+	[31mdeleted:    _book/index.html[m
+	[31mdeleted:    _book/intro.html[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/fontawesome/fontawesome-webfont.ttf[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-bookdown.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-fontsettings.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-highlight.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-search.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/style.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/app.min.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/jquery.highlight.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/lunr.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-bookdown.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-fontsettings.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-search.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-sharing.js[m
+	[31mdeleted:    _book/libs/jquery-2.2.3/jquery.min.js[m
+	[31mdeleted:    _book/literature.html[m
+	[31mdeleted:    _book/phdthesis.pdf[m
+	[31mdeleted:    _book/phdthesis.tex[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/bleaching-sim-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/bleaching-sim-mean-intensity-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/boxcar-explanation-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/boxcar-sizes-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/confocal-volume-particle-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/confocal-volume-particle-2.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-decay-with-sin-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-fit-bleach-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-fit-corr-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-fit-decay-with-sin-corr-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-smooth-func-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/fit-smooth-caveats-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/fit-smooth-caveats-2.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/nice-fig-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/tau-values-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/visualize-variance-decrease-1.png[m
+	[31mdeleted:    _book/photobleaching-correction.html[m
+	[31mdeleted:    _book/references.html[m
+	[31mdeleted:    _book/search_index.json[m
+	[31mdeleted:    _book/style.css[m
+	[31mdeleted:    _bookdown.yml[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/bleaching-sim-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/bleaching-sim-mean-intensity-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/boxcar-explanation-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/boxcar-sizes-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-decay-with-sin-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-fit-bleach-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-fit-corr-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-fit-decay-with-sin-corr-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-smooth-func-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/fit-smooth-caveats-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/fit-smooth-caveats-2.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/tau-values-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/visualize-variance-decrease-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/bleaching-sim-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/bleaching-sim-mean-intensity-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/boxcar-explanation-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/boxcar-sizes-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-decay-with-sin-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-fit-bleach-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-fit-corr-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-fit-decay-with-sin-corr-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-smooth-func-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/fit-smooth-caveats-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/fit-smooth-caveats-2.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/tau-values-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/visualize-variance-decrease-1.pdf[m
+	[31mdeleted:    _build.sh[m
+	[31mdeleted:    _output.yml[m
+	[31mdeleted:    book.bib[m
+	[31mdeleted:    img/confocal_volume_particle.png[m
+	[31mdeleted:    img/cvp.png[m
+	[31mdeleted:    img/quora_confocal.jpeg[m
+	[31mdeleted:    img/sim1.tif[m
+	[31mdeleted:    img/sim1_bleached.tif[m
+	[31mdeleted:    img/sim2.tif[m
+	[31mdeleted:    img/sim2_bleached.tif[m
+	[31mdeleted:    index.Rmd[m
+	[31mdeleted:    junk/bleach-sim.R[m
+	[31mdeleted:    packages.bib[m
+	[31mdeleted:    papers.bib[m
+	[31mdeleted:    phdthesis.Rproj[m
+	[31mdeleted:    preamble.tex[m
+	[31mdeleted:    style.css[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch .nojekyll
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ touch .nojekyll[5Pgit status
+On branch gh-pages
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/A9D75AB/console06/13B0387F[m
+	[31mdeleted:    01-intro.Rmd[m
+	[31mdeleted:    02-instrumentation-software.Rmd[m
+	[31mdeleted:    03-bleaching-correction.Rmd[m
+	[31mdeleted:    04-application.Rmd[m
+	[31mdeleted:    05-summary.Rmd[m
+	[31mdeleted:    06-references.Rmd[m
+	[31mdeleted:    DESCRIPTION[m
+	[31mdeleted:    README.md[m
+	[31mdeleted:    _book/applications.html[m
+	[31mdeleted:    _book/confocal-light-microscopy.html[m
+	[31mdeleted:    _book/final-words.html[m
+	[31mdeleted:    _book/img/confocal_volume_particle.png[m
+	[31mdeleted:    _book/img/confocal_volume_particle.tif[m
+	[31mdeleted:    _book/img/cvp.png[m
+	[31mdeleted:    _book/img/quora_confocal.jpeg[m
+	[31mdeleted:    _book/index.html[m
+	[31mdeleted:    _book/intro.html[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/fontawesome/fontawesome-webfont.ttf[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-bookdown.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-fontsettings.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-highlight.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/plugin-search.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/css/style.css[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/app.min.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/jquery.highlight.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/lunr.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-bookdown.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-fontsettings.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-search.js[m
+	[31mdeleted:    _book/libs/gitbook-2.6.7/js/plugin-sharing.js[m
+	[31mdeleted:    _book/libs/jquery-2.2.3/jquery.min.js[m
+	[31mdeleted:    _book/literature.html[m
+	[31mdeleted:    _book/phdthesis.pdf[m
+	[31mdeleted:    _book/phdthesis.tex[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/bleaching-sim-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/bleaching-sim-mean-intensity-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/boxcar-explanation-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/boxcar-sizes-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/confocal-volume-particle-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/confocal-volume-particle-2.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-decay-with-sin-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-fit-bleach-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-fit-corr-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-fit-decay-with-sin-corr-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/exp-smooth-func-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/fit-smooth-caveats-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/fit-smooth-caveats-2.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/nice-fig-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/tau-values-1.png[m
+	[31mdeleted:    _book/phdthesis_files/figure-html/visualize-variance-decrease-1.png[m
+	[31mdeleted:    _book/photobleaching-correction.html[m
+	[31mdeleted:    _book/references.html[m
+	[31mdeleted:    _book/search_index.json[m
+	[31mdeleted:    _book/style.css[m
+	[31mdeleted:    _bookdown.yml[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/bleaching-sim-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/bleaching-sim-mean-intensity-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/boxcar-explanation-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/boxcar-sizes-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-decay-with-sin-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-fit-bleach-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-fit-corr-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-fit-decay-with-sin-corr-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/exp-smooth-func-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/fit-smooth-caveats-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/fit-smooth-caveats-2.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/tau-values-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-html/visualize-variance-decrease-1.png[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/bleaching-sim-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/bleaching-sim-mean-intensity-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/boxcar-explanation-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/boxcar-sizes-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-decay-with-sin-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-fit-bleach-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-fit-corr-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-fit-decay-with-sin-corr-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/exp-smooth-func-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/fit-smooth-caveats-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/fit-smooth-caveats-2.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/tau-values-1.pdf[m
+	[31mdeleted:    _bookdown_files/phdthesis_files/figure-latex/visualize-variance-decrease-1.pdf[m
+	[31mdeleted:    _build.sh[m
+	[31mdeleted:    _output.yml[m
+	[31mdeleted:    book.bib[m
+	[31mdeleted:    img/confocal_volume_particle.png[m
+	[31mdeleted:    img/cvp.png[m
+	[31mdeleted:    img/quora_confocal.jpeg[m
+	[31mdeleted:    img/sim1.tif[m
+	[31mdeleted:    img/sim1_bleached.tif[m
+	[31mdeleted:    img/sim2.tif[m
+	[31mdeleted:    img/sim2_bleached.tif[m
+	[31mdeleted:    index.Rmd[m
+	[31mdeleted:    junk/bleach-sim.R[m
+	[31mdeleted:    packages.bib[m
+	[31mdeleted:    papers.bib[m
+	[31mdeleted:    phdthesis.Rproj[m
+	[31mdeleted:    preamble.tex[m
+	[31mdeleted:    style.css[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;~/Dropbox/DPhil/phdthesis[36mrnolan[m@[32mRorys-MBP-2:[33;1m~/Dropbox/DPhil/phdthesis[m$ git add .
