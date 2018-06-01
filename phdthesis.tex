@@ -84,7 +84,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-05-30}
+  \date{2018-06-01}
 
 \usepackage{booktabs}
 
@@ -441,11 +441,11 @@ I felt it necessary to provide these definitions for two reasons:
   for the same thing.
 \item
   In FCS, it's very common for people to mistake correlation for
-  cross-correlation. This is unfortunate but knowing about this common
+  cross-correlation. This is unfortunate, but knowing about this common
   mistake is essential for navigating the field in a sensible manner. It
   seems that when people in the field correlate the signals from two
-  separate channels, the use the term \_cross-\_correlation, even though
-  they're only using correlation. I think the idea of working
+  separate channels, the use the term \emph{cross}-correlation, even
+  though they're only using correlation. I think the idea of working
   \emph{across} two or more channels (and ideas such as
   \emph{cross}-talk) leads to this confustion.
 \end{enumerate}
@@ -571,8 +571,23 @@ image series for the effects of bleaching, given that bleaching
 \emph{does} occur. There is no emphasis on understanding \emph{why}
 and/or \emph{how} photobleaching occurs.
 
-\section{The effects of photobleaching in FCS and
-FFS}\label{the-effects-of-photobleaching-in-fcs-and-ffs}
+\BeginKnitrBlock{remark}
+\iffalse{} {Remark. } \fi{}All of the current literature mentions
+bleaching correction as being purely for correcting the problem of
+non-stationary mean (NSM), neglecting the problem of non-stationary
+variance (NSV). Figure \ref{fig:visualize-variance-decrease} shows that
+NSM and NSV go hand-in-hand. Correction for NSM is referred to as trend
+removal or \emph{detrending}. Hence, the terms \emph{detrending} and
+\emph{bleaching correction} have come to be used interchangeably. I will
+follow this convention and use the term \emph{detrending} from now on to
+mean correction for NSM and possibly also NSV. Starting at section
+\ref{exponential-fitting-detrending}, the focus is on correcting for
+NSM. Discussion of correction for NSV starts in section
+\ref{correcting-for-non-stationary-variance}.
+\EndKnitrBlock{remark}
+
+\section{The effects of bleaching in FCS and
+FFS}\label{the-effects-of-bleaching-in-fcs-and-ffs}
 
 We simulate two image series, each with 100,000 diffusing fluorescent
 particles. In the first image series (\texttt{img1}), these have
@@ -628,7 +643,7 @@ when using FCS techniques.
 \subsection{FFS}\label{ffs}
 
 \BeginKnitrBlock{definition}[median mean pixel intensity]
-\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19}
+\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
 \iffalse (median mean pixel intensity) \fi{} }The \emph{median mean
 pixel intensity} of an image series is found by taking the mean
 intensity of each pixel in the image series and then taking the median
@@ -637,7 +652,7 @@ pixel intensity of the image series.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[median pixel intensity variance]
-\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
+\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
 \iffalse (median pixel intensity variance) \fi{} }The \emph{median pixel
 intensity variance} of an image series is found by taking the variance
 in the intensity of each pixel in the image series and then taking the
@@ -680,23 +695,8 @@ towards the right where rate is low, fluctuations around the mean are at
 their smallest.}\label{fig:visualize-variance-decrease}
 \end{figure}
 
-\section{Correcting for
-photobleaching}\label{correcting-for-photobleaching}
-
-All of the current literature mentions bleaching correction as being
-purely for correcting the problem of non-stationary mean (NSM),
-neglecting the problem of non-stationary variance (NSV). Figure
-\ref{fig:visualize-variance-decrease} shows that NSM and NSV go
-hand-in-hand. Correction for NSM is referred to as trend removal or
-\emph{detrending}. Hence, the terms \emph{detrending} and
-\emph{bleaching correction} have come to be used interchangeably. I will
-follow this convention and use the term \emph{detrending} from now on to
-mean correction for NSM and possibly also NSV. In what follows
-immediately here, I will focus on correcting for NSM. Discussion of
-correction for NSV starts in section
-\ref{correcting-for-non-stationary-variance}.
-
-\subsection{Exponential fitting}\label{exponential-fitting}
+\section{Exponential fitting
+detrending}\label{exponential-fitting-detrending}
 
 Naively, one could assume that bleaching of fluorophores takes place at
 some constant rate. This would mean that the intensity of the image
@@ -785,7 +785,7 @@ more flexible types like polynomial detrending \citep{polynomial}. For
 this reason alone, for the purpose of detrending, fitting approaches
 should be avoided.
 
-\subsection{Boxcar smoothing}\label{boxcar-smoothing}
+\section{Boxcar smoothing detrending}\label{boxcar-smoothing-detrending}
 
 A common approach to obtaining the line from which to measure
 deviations/fluctuations (as in the red line in figure
@@ -848,7 +848,7 @@ top-left. The other panels show the result of boxcar smoothing for
 
 This begs the question: what is the correct smoothing parameter \(l\)?
 
-\subsection{Choosing the correct smoothing parameter for
+\section{Choosing the correct smoothing parameter for
 detrending}\label{choosing-the-correct-smoothing-parameter-for-detrending}
 
 Figure \ref{fig:boxcar-sizes} shows that the choice of boxcar size is
@@ -862,7 +862,7 @@ to solve for the appropriate choice of \(l\) to use for detrending a
 specific image series.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
+\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
 }The \emph{mean intensity profile} of one channel of an image series is
 obtained by calculating the mean intensity of each frame in that image
 series.
@@ -916,7 +916,8 @@ for any detrending parameter \(\alpha\):
 This will be useful later when other detrending regimes with their own
 parameters are introduced.
 
-\subsection{Exponential smoothing}\label{exponential-smoothing}
+\section{Exponential smoothing
+detrending}\label{exponential-smoothing-detrending}
 
 \emph{Exponential smoothing} is a slight alteration to boxcar smoothing.
 The idea is that when computing a local average, points nearer to the
@@ -974,11 +975,11 @@ this reason, exponential smoothing was the method of choice for my paper
 where the method of choosing the correct detrending parameter was
 published \citep{nandb}.
 
-\subsection{Correcting for non-stationary
+\section{Correcting for non-stationary
 variance}\label{correcting-for-non-stationary-variance}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
+\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
 }The variance of a random variable \(X\) is the expected value of the
 squared deviation of \(X\) from its mean \(\mu\):
 
@@ -1013,7 +1014,7 @@ favour of the \emph{Robin Hood} detrending algorithm (section
 \ref{robin-hood-detrending}) which includes correction for
 non-stationary variance as an intrinsic part of its detrending routine.
 
-\subsection{Caveats of fitting and smoothing approaches to
+\section{Caveats of fitting and smoothing approaches to
 detrending}\label{caveats-of-fitting-and-smoothing-approaches-to-detrending}
 
 Both fitting and smoothing approaches to detrending have serious
@@ -1022,12 +1023,13 @@ has a certain form. Unpredictable issues such as cell movement mean that
 no particular decay form can be assumed. Smoothing methods do not
 perform well at the edges of time series that they are applied to. They
 also require the user to choose a smoothing parameter. The problem of
-how to best choose this parameter was solved recently\citep{nandb}, but
+how to best choose this parameter was solved recently \citep{nandb}, but
 this method has not been widely adopted. Most importantly, both fitting
 and smoothing fail when the data cannot be approximated as continuous
 (fitted and smoothed lines are continuous approximations of data).
 Fluorescence intensity data at low intensities---where most pixel values
-are either 0 or 1---are quasi-binary and hence a continuous
+are either 0 or 1---are quasi-binary\footnote{By \emph{quasi-binary}, I
+  just mean that almost all values are 0 or 1.} and hence a continuous
 approximation does not make sense (see figure
 \ref{fig:fit-smooth-caveats}). This means that neither fitting nor
 smoothing are applicable detrending methods at low intensities. This is
@@ -1040,9 +1042,203 @@ function properly. This means one may need to bleach more in order to be
 able to correct for bleaching. This farcical situation necessitates a
 new detrending technique which can function at low intensities.
 
-\begin{flushleft}\includegraphics[width=0.49\linewidth]{phdthesis_files/figure-latex/fit-smooth-caveats-1} \includegraphics[width=0.49\linewidth]{phdthesis_files/figure-latex/fit-smooth-caveats-2} \end{flushleft}
 
-\subsection{Robin Hood detrending}\label{robin-hood-detrending}
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=0.49\linewidth]{phdthesis_files/figure-latex/fit-smooth-caveats-1} \includegraphics[width=0.49\linewidth]{phdthesis_files/figure-latex/fit-smooth-caveats-2} \hfill{}
+
+\caption{Left: for high (\(\gg 1\)) intensity
+values, the line is a satisfactory approximation of the data,
+representing it well. Right: for low (quasi-binary) intensity values,
+the line is not a good approximation for the data and indeed no line or
+curve could represent the data well.}\label{fig:fit-smooth-caveats}
+\end{figure}
+
+\section{Robin Hood detrending}\label{robin-hood-detrending}
+
+Intensity images in units of photons are count data. This means that the
+values are all natural numbers, i.e.~elements of
+\(\mathbb{N}_0=\{0, 1, 2, 3, \ldots\}\). Fitting and smoothing give
+real-numbered values (elements of \(\mathbb{R}\)), which must then be
+transformed back into count data (elements of \(\mathbb{N}_0\)),
+normally by rounding. This means that fitting and smoothing methods of
+detrending push values through
+\(\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0\). When
+current methods were failing to properly detrend low-intensity images, I
+began to wonder was it necessary to go through the real numbers
+\(\mathbb{R}\), given that the start and end points were the natural
+numbers \(\mathbb{N}_0\).
+
+Consider figure \ref{fig:rh-detrend-eg}. There is a bleached and
+unbleached version of an intensity trace. Suppose that our real data is
+the bleached trace, but we \emph{wish} it looked like the unbleached
+trace. You may wonder why the unbleached trace is not at the starting
+intensity of the bleached series. For reasons that will become clear,
+the Robin Hood algorithm can only place the detrended image at the mean
+intensity of the original image. This is not a problem because the issue
+with bleaching in FCS and FFS is mainly that the changing signal leads
+to incorrect calculations, not that the loss in signal leads to a
+chronic lack of information (photons). Indeed a feature of the Robin
+Hood algorithm is that it preserves the mean intensity of the real data
+on a pixel-by pixel basis.
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/rh-detrend-eg-1} \hfill{}
+
+\caption{Bleached and unbleached intensity traces.}\label{fig:rh-detrend-eg}
+\end{figure}
+
+To get to the unbleached intensity trace from the bleached intensity
+trace, intensity must be subtracted from time-points with too much
+intensity and added to time points with too little intensity. This can
+be done by \emph{taking} counts from frames with too much intensity and
+\emph{giving} them to frames with too little intensity. In this way, no
+counts are gained or lost, they are just moved around the image series.
+See figure \ref{fig:rh-lego}.
+
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=0.48\linewidth]{/home/travis/build/rorynolan/phdthesis/img/rh} \includegraphics[width=0.48\linewidth]{/home/travis/build/rorynolan/phdthesis/img/rh_lego_plot} \hfill{}
+
+\caption{Robin Hood: counts are taken from frames of higher
+intensity (usually closer to the start of the image series) and given to
+frames of lower intensity (usually closer to the end of the image
+series).}\label{fig:rh-lego}
+\end{figure}
+
+To determine how many swaps need to be made to detrend a given image
+series, equation \eqref{eq:detrend-param} can be used, with \(\alpha\)
+being the number of swaps.
+
+The random gifting of counts from higher to lower intensity frames has
+the effect of redistribution mean intensity but \emph{also} variance in
+intensity. With photon statistics (which follow a poisson distribution),
+random counts provide both mean and variance. This is in contrast to all
+previous methods which consist of determining local deviation and adding
+it to a \emph{fixed} global mean: this provides no redistribution of
+variance.
+
+\section{A comprehensive comparison of detrending
+methods}\label{a-comprehensive-comparison-of-detrending-methods}
+
+To compare the various detrending methods, I use the following workflow:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Simulate a number \(N\) of particles diffusing with known diffusion
+  rate.
+\item
+  Simulate photon emmission from these particles with chosen brightness
+  \(\epsilon\) and create an image series from this, being careful to
+  (virtually) sample at a rate appropriate for number and brightness
+  analysis.
+\item
+  Bleach the simulation with a chosen constant bleaching rate.
+\item
+  Simulate photon emission from the bleached simulation (bleached
+  particles don't emit photons) with the same brightness \(\epsilon\).
+\item
+  Detrend the bleached image series.
+\item
+  Evaluate the detrending algorithm by measuring how close the
+  brightness of the detrended bleached image series is to the known
+  simulated brightness.
+\end{enumerate}
+
+For all combinations of brightnesses of
+\(\epsilon = 0.001, 0.01, 0.1, 1, 10\) and bleaching fractions of 0\%,
+1\%, 5\%, 10\%, 15\%, 20\%, 25\%, 30\%, 20 images of 64x64 pixels and
+5,000 frames were simulated using 100,000 fluorescent diffusing
+particles.\footnote{The simulation took 3 weeks.} These were detrended
+with the following detrending routines:\footnote{The detrending took 2
+  weeks.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Boxcar with \(l = 10\) (\texttt{boxcar10}, the most common detrending
+  routine).
+\item
+  Exponential smoothing with automatically chosen parameter \(\tau\)
+  (\texttt{autotau}).
+\item
+  Robin Hood with automatically chosen swaps (\texttt{robinhood}).
+\end{enumerate}
+
+The performance was evaluated using the \emph{mean relative error}.
+
+\BeginKnitrBlock{definition}
+\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24} }
+For a given brightness and bleaching fraction,
+
+\begin{equation}
+\text{mean relative error } = \frac{|(\text{calculated brightness after detrending}) - (\text{true brightness})|}{(\text{true brightness})}
+\label{eq:mean-relative-error}
+\end{equation}
+\EndKnitrBlock{definition}
+
+Figure \ref{fig:detrend-compare} shows the results. Before I discuss
+them note that the common brightnesses that we see are in the range
+\(\epsilon = 0.003\) to \(\epsilon = 0.1\).
+
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/detrend_compare} \hfill{}
+
+\caption{A comparison of different detrending
+methods with various brightnesses and bleaching fractions (steady,
+constant-rate bleaching), including the results of not detrending at
+all.}\label{fig:detrend-compare}
+\end{figure}
+
+The most striking thing about \ref{fig:detrend-compare} is that the best
+choice in all cases is to not detrend at all! This is an interesting
+result and seems to render all detrending routines worthless. However,
+when working with real data, not detrending does not work well at all.
+This will be shown in chapter \ref{applications}. This is probably
+because with real data bleaching is likely not taking place at a
+constant, steady rate and other factors such as cell movement are
+contributing to medium and long term intensity fluctuations and these
+have a detrimental effect on calculations if not detrended out.
+
+The worst performer by far is \texttt{boxcar10}. For example, at
+\(\epsilon = 0.1\), it makes an error of worse than 40\% and for
+\(\epsilon = 0.001, 0.01\), its error is worse than 50\%, so it does not
+even appear on the plot. This is good evidence that arbitrarily choosing
+the parameter \(l\) very bad practice. For realistic brightnesses
+(\(\le 0.1\)), \texttt{robinhood} is the best with errors almost always
+lower than 5\%. \texttt{autotau} also performs very well, with errors
+almost always less than 10\%. At the lowest brightness
+\(\epsilon = 0.001\), all methods are somewhat erratic. That is because
+at this extremely low brightness, there is a critical lack of
+information (photons) for the algorithms to work with. Finally, at
+unrealistically high brightnesses of \(\epsilon = 1, 10\),
+\texttt{autotau} begins to perform well because at these high photon
+counts, the caveats of smoothing have totally disappeared. However, I
+cannot explain the degradation in the performance of \texttt{robinhood}
+in this case. Fortunately, there is no need to dwell on this as this
+situation (\(\epsilon = 1, 10\)), does not arise in practice.
 
 \chapter{Applications}\label{applications}
 
