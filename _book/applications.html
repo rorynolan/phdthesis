@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-05-29">
+<meta name="date" content="2018-06-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -83,17 +83,18 @@
 <li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
 <li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
 <li class="chapter" data-level="3.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#introduction-to-photobleaching"><i class="fa fa-check"></i><b>3.1</b> Introduction to photobleaching</a></li>
-<li class="chapter" data-level="3.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-effects-of-photobleaching-in-fcs-and-ffs"><i class="fa fa-check"></i><b>3.2</b> The effects of photobleaching in FCS and FFS</a><ul>
+<li class="chapter" data-level="3.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-effects-of-bleaching-in-fcs-and-ffs"><i class="fa fa-check"></i><b>3.2</b> The effects of bleaching in FCS and FFS</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#fcs"><i class="fa fa-check"></i><b>3.2.1</b> FCS</a></li>
 <li class="chapter" data-level="3.2.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#ffs"><i class="fa fa-check"></i><b>3.2.2</b> FFS</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-photobleaching"><i class="fa fa-check"></i><b>3.3</b> Correcting for photobleaching</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-fitting"><i class="fa fa-check"></i><b>3.3.1</b> Exponential fitting</a></li>
-<li class="chapter" data-level="3.3.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#boxcar-smoothing"><i class="fa fa-check"></i><b>3.3.2</b> Boxcar smoothing</a></li>
-<li class="chapter" data-level="3.3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#choosing-the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.3.3</b> Choosing the correct smoothing parameter for detrending</a></li>
-<li class="chapter" data-level="3.3.4" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-smoothing"><i class="fa fa-check"></i><b>3.3.4</b> Exponential smoothing</a></li>
-<li class="chapter" data-level="3.3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.3.5</b> Correcting for non-stationary variance</a></li>
-</ul></li>
+<li class="chapter" data-level="3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-fitting-detrending"><i class="fa fa-check"></i><b>3.3</b> Exponential fitting detrending</a></li>
+<li class="chapter" data-level="3.4" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#boxcar-smoothing-detrending"><i class="fa fa-check"></i><b>3.4</b> Boxcar smoothing detrending</a></li>
+<li class="chapter" data-level="3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#choosing-the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.5</b> Choosing the correct smoothing parameter for detrending</a></li>
+<li class="chapter" data-level="3.6" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-smoothing-detrending"><i class="fa fa-check"></i><b>3.6</b> Exponential smoothing detrending</a></li>
+<li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
+<li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
+<li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
+<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comprehensive-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comprehensive comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
@@ -179,19 +180,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

@@ -181,7 +181,7 @@ where $n$ is the mean number of fluorescent particles in the focal volume. The c
 I felt it necessary to provide these definitions for two reasons:
 
 1. It is important for people from the fields of FCS and pure mathematics/statistics to know that they have different definitions for the same thing.
-1. In FCS, it's very common for people to mistake correlation for cross-correlation. This is unfortunate but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the field correlate the signals from two separate channels, the use the term _cross-_correlation, even though they're only using correlation. I think the idea of working _across_ two or more channels (and ideas such as _cross_-talk) leads to this confustion.
+1. In FCS, it's very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the field correlate the signals from two separate channels, the use the term _cross_-correlation, even though they're only using correlation. I think the idea of working _across_ two or more channels (and ideas such as _cross_-talk) leads to this confustion.
 
 Henceforth, the FCS defintions of these quantities will be assumed.
 

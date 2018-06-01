@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-05-29">
+<meta name="date" content="2018-06-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -49,6 +49,71 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -93,6 +158,8 @@
 <li class="chapter" data-level="3.3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#choosing-the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.3.3</b> Choosing the correct smoothing parameter for detrending</a></li>
 <li class="chapter" data-level="3.3.4" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-smoothing"><i class="fa fa-check"></i><b>3.3.4</b> Exponential smoothing</a></li>
 <li class="chapter" data-level="3.3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.3.5</b> Correcting for non-stationary variance</a></li>
+<li class="chapter" data-level="3.3.6" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.3.6</b> Caveats of fitting and smoothing approaches to detrending</a></li>
+<li class="chapter" data-level="3.3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.3.7</b> Robin Hood detrending</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
@@ -193,7 +260,7 @@ where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)
 \epsilon &amp;= \frac{\sigma^2}{\langle I \rangle} - 1 \tag{1.3} \\
 n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.4}
 \end{align}\]</span></p>
-<p>— <span class="citation">Nolan et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<p>— <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 </blockquote>
 <p>The quantity <span class="math inline">\(\epsilon\)</span> is a relative measure of oligomeric state. That is, <span class="math inline">\(\epsilon\)</span> will be twice as big for dimers as it is for monomers, three times as big for trimers as it is for monomers and so on.</p>
 <p>The way that N&amp;B experiments to determine unknown oligomeric states are generally done is as follows:</p>
@@ -223,7 +290,7 @@ Number and brightness has specific pixel dewll-time and frame rate requirements.
 <li>When acquiring photons at a given pixel, the underlying configuration of entities is constant (there’s not enough time for the entities to move and change their configuration).</li>
 <li>When the scanner returns to a given pixel (one frame time later), the underlying configuration has changed totally since the last time the scanner was at this pixel (because so much time has passed, all of the diffusing entities have moved a lot in the meantime).</li>
 </ol>
-<p>Both of these points are implicitly assumed in the derivation of the N&amp;B equations so it is essential to get these acquisition parameters right. This is discussed at length in <span class="citation">Nolan et al. (<a href="#ref-NBreview">2017</a>)</span>.</p>
+<p>Both of these points are implicitly assumed in the derivation of the N&amp;B equations so it is essential to get these acquisition parameters right. This is discussed at length in <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span>.</p>
 <p>An important property of N&amp;B is that if all fluorescent particles are immobile, then <span class="math inline">\(B = 1\)</span>. This is because photon emission from stationary sources happens according to a poisson distribution. Poisson distributions have variance equal to mean, this implies <span class="math inline">\(\sigma^2\)</span> = <span class="math inline">\(\langle I \rangle\)</span> which gives <span class="math inline">\(B = \frac{\sigma^2}{\langle I \rangle} = 1\)</span>.</p>
 <p>The N&amp;B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Much of my PhD focussed on corrections for photobleaching. This is discussed in chapter <a href="photobleaching-correction.html#photobleaching-correction">3</a>.</p>
 </div>
@@ -298,7 +365,7 @@ G(X; 0) = \frac{1}{n}
 <p>I felt it necessary to provide these definitions for two reasons:</p>
 <ol style="list-style-type: decimal">
 <li>It is important for people from the fields of FCS and pure mathematics/statistics to know that they have different definitions for the same thing.</li>
-<li>In FCS, it’s very common for people to mistake correlation for cross-correlation. This is unfortunate but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the field correlate the signals from two separate channels, the use the term _cross-_correlation, even though they’re only using correlation. I think the idea of working <em>across</em> two or more channels (and ideas such as <em>cross</em>-talk) leads to this confustion.</li>
+<li>In FCS, it’s very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the field correlate the signals from two separate channels, the use the term <em>cross</em>-correlation, even though they’re only using correlation. I think the idea of working <em>across</em> two or more channels (and ideas such as <em>cross</em>-talk) leads to this confustion.</li>
 </ol>
 <p>Henceforth, the FCS defintions of these quantities will be assumed.</p>
 <div id="correlation" class="section level3">

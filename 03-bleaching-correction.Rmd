@@ -7,8 +7,12 @@ In the ideal case, an _incident_ photon of appropriate wavelength is absorbed by
 
 Many quantitative methods in fields such as fluorescence fluctuation spectroscopy (FFS) and fluorescence correlation spectroscopy (FCS) implicitly assume that there is no bleaching in the data. Hence, data (image series) with significant levels of photobleaching must be corrected prior to the application of equations and algorithms in these fields. A main focus of this thesis is on how to correct fluorescent image series for the effects of bleaching, given that bleaching _does_ occur. There is no emphasis on understanding _why_ and/or _how_ photobleaching occurs.
 
+```{remark}
+All of the current literature mentions bleaching correction as being purely for correcting the problem of non-stationary mean (NSM), neglecting the problem of non-stationary variance (NSV). Figure \@ref(fig:visualize-variance-decrease) shows that NSM and NSV go hand-in-hand. Correction for NSM is referred to as trend removal or _detrending_. Hence, the terms _detrending_ and _bleaching correction_ have come to be used interchangeably. I will follow this convention and use the term _detrending_ from now on to mean correction for NSM and possibly also NSV. Starting at section \@ref(exponential-fitting-detrending), the focus is on correcting for NSM. Discussion of correction for NSV starts in section \@ref(correcting-for-non-stationary-variance).
+```
 
-## The effects of photobleaching in FCS and FFS
+
+## The effects of bleaching in FCS and FFS
 
 We simulate two image series, each with 100,000 diffusing fluorescent particles. In the first image series (`img1`), these have brightness $\epsilon = 4$ and in the second (`img2`) they have brightness $\epsilon = 7$. See figure \@ref(fig:bleaching-sim). We bleach these by 15% and 20% to create `img1_bleached` and `img2_bleached` respectively.
 
@@ -78,12 +82,7 @@ ggplot(df_var_dec_vis, aes(rate, value)) + scale_x_reverse() +
 ```
 
 
-## Correcting for photobleaching
-
-All of the current literature mentions bleaching correction as being purely for correcting the problem of non-stationary mean (NSM), neglecting the problem of non-stationary variance (NSV). Figure \@ref(fig:visualize-variance-decrease) shows that NSM and NSV go hand-in-hand. Correction for NSM is referred to as trend removal or _detrending_. Hence, the terms _detrending_ and _bleaching correction_ have come to be used interchangeably. I will follow this convention and use the term _detrending_ from now on to mean correction for NSM and possibly also NSV. In what follows immediately here, I will focus on correcting for NSM. Discussion of correction for NSV starts in section \@ref(correcting-for-non-stationary-variance).
-
-
-### Exponential fitting
+## Exponential fitting detrending {#exponential-fitting-detrending}
 
 Naively, one could assume that bleaching of fluorophores takes place at some constant rate. This would mean that the intensity of the image would die-off according to an exponential decay. In figure \@ref(fig:exp-fit-bleach), we fit an exponential decay to such ideal data. 
 
@@ -161,7 +160,7 @@ ggplot(df_exp_fit_bleach_sin_corr, aes(time, intensity_value, colour = line)) +
 One can see in figure \@ref(fig:exp-fit-decay-with-sin-corr) that the exponential fit detrend failed to remove the sinusoidal trend in the data (even though it _did_ remove the exponential decay component). We have now seen that exponential fitting detrending is appropriate when the decay has a particular form, but is otherwise not fit for use. This is a problem common to all fitting approaches to detrending, even the more flexible types like polynomial detrending [@polynomial]. For this reason alone, for the purpose of detrending, fitting approaches should be avoided.
 
 
-### Boxcar smoothing
+## Boxcar smoothing detrending
 
 A common approach to obtaining the line from which to measure deviations/fluctuations (as in the red line in figure \@ref(fig:exp-fit-bleach)) is to _smooth_ the time series, i.e. construct the line by taking a _local average_ at each point. This is often referred to as _boxcar smoothing_ because it can be visualised as drawing a box around a neighbourhood of points, taking their average as the smoothed value at that point and then moving the box onto the next series of points and repeating the procedure. See figure \@ref(fig:boxcar-explanation).
 
@@ -220,7 +219,7 @@ df_exp_fit_bleach %>%
 This begs the question: what is the correct smoothing parameter $l$? 
 
 
-### Choosing the correct smoothing parameter for detrending
+## Choosing the correct smoothing parameter for detrending
 
 Figure \@ref(fig:boxcar-sizes) shows that the choice of boxcar size is crucial because different sizes lead to very different "smoothed" lines. The most common choice in the community is to choose $l = 10$ [@SimFCS]. There is no justification for this choice.
 
@@ -254,7 +253,7 @@ In fact, what I have done here is to give a general method for solving for any d
 This will be useful later when other detrending regimes with their own parameters are introduced.
 
 
-### Exponential smoothing
+## Exponential smoothing detrending
 
 _Exponential smoothing_ is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.^[https://en.wikipedia.org/wiki/Weighted_arithmetic_mean] The weights fall off with distance $|t|$ from the point of interest according to $\exp(-\frac{|t|}{\tau})$ where the parameter $\tau$ is a positive real number. This function is visualized in figure \ref(fig:exp-smooth-func). For small values of $\tau$, only values very close to the point of interest have importance when calculating the local average. For larger values of $\tau$, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of $\tau$ has a similar effect to increasing the value of $l$ for the boxcar in that farther away points are taken into account. 
 
@@ -302,7 +301,7 @@ df_exp_fit_bleach %>%
 Heuristically, exponential smoothing detrending seems favourable to boxcar detrending because the idea that points further away from the point of interest are less important (but still somewhat important) when computing the local average is reasonable. Indeed, this was the method proposed in the original number and brightness paper [@NB]. For this reason, exponential smoothing was the method of choice for my paper where the method of choosing the correct detrending parameter was published [@nandb].  
 
 
-### Correcting for non-stationary variance {#correcting-for-non-stationary-variance}
+## Correcting for non-stationary variance {#correcting-for-non-stationary-variance}
 
 ```{definition}
 The variance of a random variable $X$ is the expected value of the squared deviation of $X$ from its mean $\mu$:
@@ -315,21 +314,105 @@ The variance of a random variable $X$ is the expected value of the squared devia
 All of this chapter so far has focused on correcting for non-stationary mean. As shown in figure \@ref(fig:visualize-variance-decrease), as the mean decreases, so too does the variance. For an instance $x$ of the random variable $X$, $x - \mu$ is the _deviation_ of $x$ from $\mu$. If we write $x$ as $x = \mu + \tilde{x}$, then we get the deviation $x - \mu = (\mu + \tilde{x}) - \mu = \tilde{x}$, so $\tilde{x}$ is the deviation. For a given point in figure \@ref(fig:visualize-variance-decrease), its deviation is its distance from the black line. For positive real number $k$, making the transformation $\tilde{x} \rightarrow \sqrt{k}\tilde{x}$ i.e. $x \rightarrow \mu + \sqrt{k}\tilde{x}$ causes the variance (i.e. the _squared deviation_) to be transformed as $\text{Var}(X) \rightarrow k \times \text{Var}(X)$. Hence, we have a way to modify the variance of a time series as a whole by modifying the deviation of each time point from the mean. For months, I toyed with this idea as a solution of correcting for non-stationary variance. However, in reality the contribution to the variance in intensity at a given pixel is down to both poisson photon statistics and fluorophore movement. This combination of factors makes it very difficult to ascertain the amount by which the variance should be altered. I eventually abandoned my efforts to alter the variance like this in favour of the _Robin Hood_ detrending algorithm (section \@ref(robin-hood-detrending)) which includes correction for non-stationary variance as an intrinsic part of its detrending routine.
 
 
-### Caveats of fitting and smoothing approaches to detrending
+## Caveats of fitting and smoothing approaches to detrending
 
-Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently[@nandb], but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities---where most pixel values are either 0 or 1---are quasi-binary and hence a continuous approximation does not make sense (see figure \@ref(fig:fit-smooth-caveats)). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities. 
+Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently [@nandb], but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities---where most pixel values are either 0 or 1---are quasi-binary^[By _quasi-binary_, I just mean that almost all values are 0 or 1.] and hence a continuous approximation does not make sense (see figure \@ref(fig:fit-smooth-caveats)). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities. 
 
-```{r fit-smooth-caveats, fig.show='hold', out.width='49%', echo = FALSE}
+(ref:fit-smooth-caveats-caption) Left: for high ($\gg 1$) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well.
+
+```{r fit-smooth-caveats, fig.width=3.5, fig.show='hold', out.width='49%', fig.cap='(ref:fit-smooth-caveats-caption)', echo = FALSE, fig.asp = 0.7}
 set.seed(1)
 tibble(t = seq_len(100), y = detrendr:::myrpois(seq(100, 50, length = 100))) %>% 
   ggplot() + aes(t, y) + geom_point(colour = gg_color_hue(2)[2]) + 
   geom_segment(x = 1, xend = 100, y = 100, yend = 50, 
-               colour = gg_color_hue(2)[1])
+               colour = gg_color_hue(2)[1]) + ylab("Intensity")
 tibble(t = seq_len(100), y = detrendr:::myrpois(seq(0.5, 0, length = 100))) %>% 
   ggplot() + aes(t, y) + geom_point(colour = gg_color_hue(2)[2]) + 
   geom_segment(x = 1, xend = 100, y = 0.5, yend = 0, 
-               colour = gg_color_hue(2)[1])
+               colour = gg_color_hue(2)[1]) + ylab("Intensity")
 ```
 
-### Robin Hood detrending {#robin-hood-detrending}
 
+## Robin Hood detrending {#robin-hood-detrending}
+
+Intensity images in units of photons are count data. This means that the values are all natural numbers, i.e. elements of $\mathbb{N}_0=\{0, 1, 2, 3, \ldots\}$. Fitting and smoothing give real-numbered values (elements of $\mathbb{R}$), which must then be transformed back into count data (elements of $\mathbb{N}_0$), normally by rounding. This means that fitting and smoothing methods of detrending push values through $\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0$. When current methods were failing to properly detrend low-intensity images, I began to wonder was it necessary to go through the real numbers $\mathbb{R}$, given that the start and end points were the natural numbers $\mathbb{N}_0$. 
+
+Consider figure \@ref(fig:rh-detrend-eg). There is a bleached and unbleached version of an intensity trace. Suppose that our real data is the bleached trace, but we _wish_ it looked like the unbleached trace. You may wonder why the unbleached trace is not at the starting intensity of the bleached series. For reasons that will become clear, the Robin Hood algorithm can only place the detrended image at the mean intensity of the original image. This is not a problem because the issue with bleaching in FCS and FFS is mainly that the changing signal leads to incorrect calculations, not that the loss in signal leads to a chronic lack of information (photons). Indeed a feature of the Robin Hood algorithm is that it preserves the mean intensity of the real data on a pixel-by pixel basis.
+
+(ref:rh-detrend-eg-caption) Bleached and unbleached intensity traces.
+
+```{r rh-detrend-eg, fig.cap='(ref:rh-detrend-eg-caption)', echo=FALSE}
+set.seed(1)
+rh_detrend_eg_df <- tibble(
+  x = seq(100, 80, length.out = 100),
+  devs = runif(length(x), -2, 2),
+  bleached = x + devs,
+  unbleached = mean(x) + devs,
+  time = seq_along(x)) %>% 
+  gather(line, Intensity, bleached:unbleached)
+ggplot(rh_detrend_eg_df, aes(time, Intensity, colour = line)) + geom_line()
+```
+
+To get to the unbleached intensity trace from the bleached intensity trace, intensity must be subtracted from time-points with too much intensity and added to time points with too little intensity. This can be done by _taking_ counts from frames with too much intensity and _giving_ them to frames with too little intensity. In this way, no counts are gained or lost, they are just moved around the image series. See figure \@ref(fig:rh-lego).
+
+(ref:rh-lego-caption) Robin Hood: counts are taken from frames of higher intensity (usually closer to the start of the image series) and given to frames of lower intensity (usually closer to the end of the image series).
+
+```{r rh-lego, fig.show='hold', out.width='48%', echo=FALSE, fig.asp=0.4, fig.cap='(ref:rh-lego-caption)'}
+rh_lego_gg <- filter(rh_detrend_eg_df, line == "bleached") %>% 
+  ggplot() + aes(x = time, y = Intensity) + geom_line(colour = gg_color_hue(2)[1]) +
+  geom_hline(yintercept = 90, linetype = "dotted") +
+  geom_curve(aes(x = 4, xend = 85, y = 97.5, yend = 81), 
+             arrow = arrow(), curvature = 0.3)
+ggsave(filename = here("img", "rh_lego_plot.png"), plot = rh_lego_gg, 
+       width = 4, height = 3.7)
+ggsave(filename = here("img", "rh_lego_plot.pdf"), plot = rh_lego_gg, 
+       width = 4, height = 3.7)
+include_graphics(here("img", rev(c("rh_lego_plot.png", "rh.png"))))
+```
+
+To determine how many swaps need to be made to detrend a given image series, equation \@ref(eq:detrend-param) can be used, with $\alpha$ being the number of swaps.
+
+The random gifting of counts from higher to lower intensity frames has the effect of redistribution mean intensity but _also_ variance in intensity. With photon statistics (which follow a poisson distribution), random counts provide both mean and variance. This is in contrast to all previous methods which consist of determining local deviation and adding it to a _fixed_ global mean: this provides no redistribution of variance.
+
+
+## A comprehensive comparison of detrending methods
+
+To compare the various detrending methods, I use the following workflow:
+
+1. Simulate a number $N$ of particles diffusing with known diffusion rate.
+1. Simulate photon emmission from these particles with chosen brightness $\epsilon$ and create an image series from this, being careful to (virtually) sample at a rate appropriate for number and brightness analysis.
+1. Bleach the simulation with a chosen constant bleaching rate.
+1. Simulate photon emission from the bleached simulation (bleached particles don't emit photons) with the same brightness $\epsilon$. 
+1. Detrend the bleached image series.
+1. Evaluate the detrending algorithm by measuring how close the brightness of the detrended bleached image series is to the known simulated brightness.
+
+For all combinations of brightnesses of $\epsilon = 0.001, 0.01, 0.1, 1, 10$ and bleaching fractions of 0%, 1%, 5%, 10%, 15%, 20%, 25%, 30%, 20 images of 64x64 pixels and 5,000 frames were simulated using 100,000 fluorescent diffusing particles.^[The simulation took 3 weeks.] These were detrended with the following detrending routines:^[The detrending took 2 weeks.]
+
+1. Boxcar with $l = 10$ (`boxcar10`, the most common detrending routine).
+1. Exponential smoothing with automatically chosen parameter $\tau$ (`autotau`).
+1. Robin Hood with automatically chosen swaps (`robinhood`).
+
+The performance was evaluated using the _mean relative error_. 
+
+```{definition}
+
+For a given brightness and bleaching fraction,
+
+\begin{equation}
+\text{mean relative error } = \frac{|(\text{calculated brightness after detrending}) - (\text{true brightness})|}{(\text{true brightness})}
+(\#eq:mean-relative-error)
+\end{equation}
+
+```
+
+Figure \@ref(fig:detrend-compare) shows the results. Before I discuss them note that the common brightnesses that we see are in the range $\epsilon = 0.003$ to $\epsilon = 0.1$. 
+
+(ref:detrend-compare-caption) A comparison of different detrending methods with various brightnesses and bleaching fractions (steady, constant-rate bleaching), including the results of not detrending at all.
+
+```{r detrend-compare, echo=FALSE, fig.asp=1, fig.cap='(ref:detrend-compare-caption)'}
+include_graphics(here("img", "detrend_compare.png"))
+```
+
+The most striking thing about \@ref(fig:detrend-compare) is that the best choice in all cases is to not detrend at all! This is an interesting result and seems to render all detrending routines worthless. However, when working with real data, not detrending does not work well at all. This will be shown in chapter \@ref(applications). This is probably because with real data bleaching is likely not taking place at a constant, steady rate and other factors such as cell movement are contributing to medium and long term intensity fluctuations and these have a detrimental effect on calculations if not detrended out.
+
+The worst performer by far is `boxcar10`. For example, at $\epsilon = 0.1$, it makes an error of worse than 40% and for $\epsilon = 0.001, 0.01$, its error is worse than 50%, so it does not even appear on the plot. This is good evidence that arbitrarily choosing the parameter $l$ very bad practice. For realistic brightnesses ($\le 0.1$), `robinhood` is the best with errors almost always lower than 5%. `autotau` also performs very well, with errors almost always less than 10%. At the lowest brightness $\epsilon = 0.001$, all methods are somewhat erratic. That is because at this extremely low brightness, there is a critical lack of information (photons) for the algorithms to work with. Finally, at unrealistically high brightnesses of $\epsilon = 1, 10$, `autotau` begins to perform well because at these high photon counts, the caveats of smoothing have totally disappeared. However, I cannot explain the degradation in the performance of `robinhood` in this case. Fortunately, there is no need to dwell on this as this situation ($\epsilon = 1, 10$), does not arise in practice. 
