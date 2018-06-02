@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-01">
+<meta name="date" content="2018-06-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -94,7 +94,7 @@
 <li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
 <li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
 <li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
-<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comprehensive-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comprehensive comparison of detrending methods</a></li>
+<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
@@ -329,8 +329,8 @@ Figure 3.14: Robin Hood: counts are taken from frames of higher intensity (usual
 <p>To determine how many swaps need to be made to detrend a given image series, equation <a href="photobleaching-correction.html#eq:detrend-param">(3.2)</a> can be used, with <span class="math inline">\(\alpha\)</span> being the number of swaps.</p>
 <p>The random gifting of counts from higher to lower intensity frames has the effect of redistribution mean intensity but <em>also</em> variance in intensity. With photon statistics (which follow a poisson distribution), random counts provide both mean and variance. This is in contrast to all previous methods which consist of determining local deviation and adding it to a <em>fixed</em> global mean: this provides no redistribution of variance.</p>
 </div>
-<div id="a-comprehensive-comparison-of-detrending-methods" class="section level2">
-<h2><span class="header-section-number">3.10</span> A comprehensive comparison of detrending methods</h2>
+<div id="a-comparison-of-detrending-methods" class="section level2">
+<h2><span class="header-section-number">3.10</span> A comparison of detrending methods</h2>
 <p>To compare the various detrending methods, I use the following workflow:</p>
 <ol style="list-style-type: decimal">
 <li>Simulate a number <span class="math inline">\(N\)</span> of particles diffusing with known diffusion rate.</li>
