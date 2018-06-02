@@ -375,7 +375,7 @@ To determine how many swaps need to be made to detrend a given image series, equ
 The random gifting of counts from higher to lower intensity frames has the effect of redistribution mean intensity but _also_ variance in intensity. With photon statistics (which follow a poisson distribution), random counts provide both mean and variance. This is in contrast to all previous methods which consist of determining local deviation and adding it to a _fixed_ global mean: this provides no redistribution of variance.
 
 
-## A comprehensive comparison of detrending methods
+## A comparison of detrending methods
 
 To compare the various detrending methods, I use the following workflow:
 
