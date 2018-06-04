@@ -7,6 +7,13 @@ documentclass: book
 bibliography: [book.bib, packages.bib, papers.bib]
 biblio-style: apalike
 link-citations: yes
+fontsize: 12pt
+geometry: margin=35mm
+linkcolor: blue
+citecolor: green
+urlcolor: NavyBlue
+toccolor: blue
+linestretch: 2
 description: "Rory Nolan's PhD thesis"
 ---
 
