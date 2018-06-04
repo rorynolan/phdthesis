@@ -1,5 +1,7 @@
-\documentclass[]{book}
+\documentclass[12pt,]{book}
 \usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{2}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -21,12 +23,16 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=35mm]{geometry}
 \usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{unicode=true,
             pdftitle={Algorithms for the Correction of Photobleaching},
             pdfauthor={Rory Nolan},
-            pdfborder={0 0 0},
+            colorlinks=true,
+            linkcolor=blue,
+            citecolor=green,
+            urlcolor=NavyBlue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
@@ -84,7 +90,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-06-02}
+  \date{2018-06-04}
 
 \usepackage{booktabs}
 
@@ -108,6 +114,7 @@
 \maketitle
 
 {
+\hypersetup{linkcolor=blue}
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
@@ -1072,7 +1079,7 @@ detrending push values through
 current methods were failing to properly detrend low-intensity images, I
 began to wonder was it necessary to go through the real numbers
 \(\mathbb{R}\), given that the start and end points were the natural
-numbers \(\mathbb{N}_0\).
+numbers \(\mathbb{N}_0\)?
 
 Consider figure \ref{fig:rh-detrend-eg}. There is a bleached and
 unbleached version of an intensity trace. Suppose that our real data is
@@ -1194,7 +1201,7 @@ For a given brightness and bleaching fraction,
 \EndKnitrBlock{definition}
 
 Figure \ref{fig:detrend-compare} shows the results. Before I discuss
-them note that the common brightnesses that we see are in the range
+them, note that the common brightnesses that we see are in the range
 \(\epsilon = 0.003\) to \(\epsilon = 0.1\).
 
 
@@ -1237,8 +1244,8 @@ unrealistically high brightnesses of \(\epsilon = 1, 10\),
 \texttt{autotau} begins to perform well because at these high photon
 counts, the caveats of smoothing have totally disappeared. However, I
 cannot explain the degradation in the performance of \texttt{robinhood}
-in this case. Fortunately, there is no need to dwell on this as this
-situation (\(\epsilon = 1, 10\)), does not arise in practice.
+in this case. Fortunately, there is no need to dwell on this, as this
+situation (\(\epsilon = 1, 10\)) does not arise in practice.
 
 \chapter{Applications}\label{applications}
 
