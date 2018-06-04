@@ -70,8 +70,7 @@ The brightness $\epsilon$ of an entity is the mean number of photon detector cou
 For an image series where the $i$^th^ slice in the stack is the image acquired at time $t = i$, for a given pixel position $(x, y)$, we define $\langle I \rangle$ as the mean intensity of that pixel over the image series and $\sigma^2$ as the variance in that intensity. Define $n$ as the mean number of entities in the illumination volume corresponding to that pixel. Assuming that all entities are mobile, we have
 \begin{align}
 N &= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} (\#eq:NB1-1) \\
-B &= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon 
-(\#eq:NB1-2)
+B &= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon (\#eq:NB1-2)
 \end{align}
 where $N$ and $B$ are referred to as the “apparent number” and “apparent brightness” respectively. This gives
 \begin{align}
