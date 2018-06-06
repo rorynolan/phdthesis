@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="final-words.html">
-
+<link rel="prev" href="intro.html">
+<link rel="next" href="photobleaching-correction.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -131,89 +131,68 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="instrumentation-and-software" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Instrumentation and Software</h1>
+<div id="instrumentation" class="section level2">
+<h2><span class="header-section-number">2.1</span> Instrumentation</h2>
+<p>All of the images used in this thesis were acquired on a Leica SP8 confocal microscope.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Importantly, the detectors that we have on this microscope are capable of photon counting.</p>
+<p>These images were acquired by Luis Alvarez (postdoctoral researcher), Maro Iliopoulou (research assistant) and Sergi Padilla-Parra (supervisor).</p>
+</div>
+<div id="software-programs-languages-and-tools" class="section level2">
+<h2><span class="header-section-number">2.2</span> Software programs, languages and tools</h2>
+<div id="c" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> C++</h3>
+<p><em>C++</em> <span class="citation">(Stroustrup <a href="#ref-cpp">2013</a>)</span> is a genaral-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important issue.</p>
+</div>
+<div id="r" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> R</h3>
+<p><em>R</em> <span class="citation">(R Core Team <a href="#ref-R">2016</a>)</span> is a programming language and free software environment for statistical computing and graphics.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> I use R primarily as a wrapper for my C++ code to make my algorithms more user-friendly. R is best used with the RStudio integrated development environment.</p>
+</div>
+<div id="imagej" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> ImageJ</h3>
+<p><em>ImageJ</em> <a href="instrumentation-and-software.html#imagej">ImageJ</a> is an open source image processing program designed for scientific multidimensional images.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> It is the preferred image viewing and analysis software in the community. I have written my software in C++ and R because they are easier for developers, but I still intend to translate my image-related algorithms ImageJ plugins. ImageJ is best used via the FIJI <span class="citation">(Schindelin et al. <a href="#ref-FIJI">2012</a>)</span> distribution.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></p>
+</div>
+<div id="git-and-github" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Git and GitHub</h3>
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> GitHub is a web-based hosting service for version control using Git.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> All of the computer code used during my thesis can be found on my GitHub at <a href="https://github.com/rorynolan" class="uri">https://github.com/rorynolan</a>. The vast majority of my time during my thesis was spent writing code so this GitHub account is the best record of the work that I have done.</p>
+</div>
+<div id="my-software-packages" class="section level3">
+<h3><span class="header-section-number">2.2.5</span> My software packages</h3>
 
+</div>
+</div>
+</div>
+<h3>References</h3>
 <div id="refs" class="references">
-<div>
-<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). [Wiley, Econometric Society]:737–44. <a href="http://www.jstor.org/stable/1911686" class="uri">http://www.jstor.org/stable/1911686</a>.</p>
-</div>
-<div>
-<p>Chen, Y., J. D. Muller, K. M. Berland, and E. Gratton. 1999. “Fluorescence fluctuation spectroscopy.” <em>Methods</em> 19 (2):234–52.</p>
-</div>
-<div>
-<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32.</p>
-</div>
-<div>
-<p>Digman, M. A., and E. Gratton. 2009. “Imaging barriers to diffusion by pair correlation functions.” <em>Biophys. J.</em> 97 (2):665–73.</p>
-</div>
-<div>
-<p>Digman, M. A., P. W. Wiseman, C. Choi, Alan R. Horwitz, and E. Gratton. 2009. “Stoichiometry of Molecular Complexes at Adhesions in Living Cells.” <em>Proceedings of the National Academy of Sciences</em> 106 (7). National Academy of Sciences:2170–5. <a href="https://doi.org/10.1073/pnas.0806036106" class="uri">https://doi.org/10.1073/pnas.0806036106</a>.</p>
-</div>
-<div>
-<p>Hebert, B., S. Costantino, and P. W. Wiseman. 2005. “Spatiotemporal image correlation spectroscopy (STICS) theory, verification, and application to protein velocity mapping in living CHO cells.” <em>Biophys. J.</em> 88 (5):3601–14.</p>
-</div>
-<div>
-<p>Jameson, D. M., J. A. Ross, and J. P. Albanesi. 2009. “Fluorescence fluctuation spectroscopy: ushering in a new age of enlightenment for cellular dynamics.” <em>Biophys Rev</em> 1 (3):105–18.</p>
-</div>
-<div>
-<p>Laboratory for Fluorescence Dynamics. 2018. <em>Globals for Images: SimFCS 4</em>. <em>University of California, Irvine</em>. <a href="http://www.lfd.uci.edu/globals/" class="uri">http://www.lfd.uci.edu/globals/</a>.</p>
-</div>
-<div>
-<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press:3508–10.</p>
-</div>
-<div>
-<p>Nolan, Rory, Maro Iliopoulou, Luis Alvarez, and Sergi Padilla-Parra. 2017. “Detecting Protein Aggregation and Interaction in Live Cells: A Guide to Number and Brightness.” <em>Methods</em>. <a href="https://doi.org/https://doi.org/10.1016/j.ymeth.2017.12.001" class="uri">https://doi.org/https://doi.org/10.1016/j.ymeth.2017.12.001</a>.</p>
-</div>
-<div>
-<p>Qian, H., and E. L. Elson. 1990. “Distribution of molecular aggregation by analysis of fluctuation moments.” <em>Proc. Natl. Acad. Sci. U.S.A.</em> 87 (14):5479–83.</p>
-</div>
-<div>
-<p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
-</div>
-<div>
-<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7):676–82.</p>
-</div>
-<div>
+<div id="ref-cpp">
 <p>Stroustrup, Bjarne. 2013. <em>The C++ Programming Language</em>. 4th ed. Addison-Wesley Professional.</p>
 </div>
+<div id="ref-R">
+<p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-FIJI">
+<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7):676–82.</p>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p><a href="https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8" class="uri">https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8</a><a href="instrumentation-and-software.html#fnref13" class="footnote-back">↩</a></p></li>
+<li id="fn14"><p><a href="https://en.wikipedia.org/wiki/C%2B%2B">https://en.wikipedia.org/wiki/C%2B%2B</a><a href="instrumentation-and-software.html#fnref14" class="footnote-back">↩</a></p></li>
+<li id="fn15"><p><a href="https://en.wikipedia.org/wiki/R_(programming_language)" class="uri">https://en.wikipedia.org/wiki/R_(programming_language)</a><a href="instrumentation-and-software.html#fnref15" class="footnote-back">↩</a></p></li>
+<li id="fn16"><p><a href="https://imagej.net" class="uri">https://imagej.net</a><a href="instrumentation-and-software.html#fnref16" class="footnote-back">↩</a></p></li>
+<li id="fn17"><p><a href="https://imagej.net/Fiji" class="uri">https://imagej.net/Fiji</a><a href="instrumentation-and-software.html#fnref17" class="footnote-back">↩</a></p></li>
+<li id="fn18"><p><a href="https://git-scm.com/" class="uri">https://git-scm.com/</a><a href="instrumentation-and-software.html#fnref18" class="footnote-back">↩</a></p></li>
+<li id="fn19"><p><a href="https://en.wikipedia.org/wiki/GitHub" class="uri">https://en.wikipedia.org/wiki/GitHub</a><a href="instrumentation-and-software.html#fnref19" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="final-words.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="photobleaching-correction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

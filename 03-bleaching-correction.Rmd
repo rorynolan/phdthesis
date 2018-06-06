@@ -239,14 +239,14 @@ The mean intensity profile can be used to visualise the bleaching of an image se
 Mathematically, this can be expressed as
 
 \begin{equation}
-l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{l}|)
+l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{l}|)
 (\#eq:leq)
 \end{equation}
 
 In fact, what I have done here is to give a general method for solving for any detrending parameter $\alpha$:
 
 \begin{equation}
-\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{\alpha}|)
+\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{\alpha}|)
 (\#eq:detrend-param)
 \end{equation}
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-01">
+<meta name="date" content="2018-06-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="index.html">
-<link rel="next" href="literature.html">
+<link rel="next" href="instrumentation-and-software.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -80,7 +80,16 @@
 <li class="chapter" data-level="1.4.4" data-path="intro.html"><a href="intro.html#cross-correlated-brightness"><i class="fa fa-check"></i><b>1.4.4</b> Cross-correlated brightness</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
+<li class="chapter" data-level="2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html"><i class="fa fa-check"></i><b>2</b> Instrumentation and Software</a><ul>
+<li class="chapter" data-level="2.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#instrumentation"><i class="fa fa-check"></i><b>2.1</b> Instrumentation</a></li>
+<li class="chapter" data-level="2.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#software-programs-languages-and-tools"><i class="fa fa-check"></i><b>2.2</b> Software programs, languages and tools</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#c"><i class="fa fa-check"></i><b>2.2.1</b> C++</a></li>
+<li class="chapter" data-level="2.2.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#r"><i class="fa fa-check"></i><b>2.2.2</b> R</a></li>
+<li class="chapter" data-level="2.2.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#imagej"><i class="fa fa-check"></i><b>2.2.3</b> ImageJ</a></li>
+<li class="chapter" data-level="2.2.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#git-and-github"><i class="fa fa-check"></i><b>2.2.4</b> Git and GitHub</a></li>
+<li class="chapter" data-level="2.2.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#my-software-packages"><i class="fa fa-check"></i><b>2.2.5</b> My software packages</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
 <li class="chapter" data-level="3.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#introduction-to-photobleaching"><i class="fa fa-check"></i><b>3.1</b> Introduction to photobleaching</a></li>
 <li class="chapter" data-level="3.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-effects-of-bleaching-in-fcs-and-ffs"><i class="fa fa-check"></i><b>3.2</b> The effects of bleaching in FCS and FFS</a><ul>
@@ -94,7 +103,7 @@
 <li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
 <li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
 <li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
-<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comprehensive-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comprehensive comparison of detrending methods</a></li>
+<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
@@ -186,8 +195,7 @@ Figure 1.2: Left: a fluorophore diffusing trhough the confocal volume. Right: th
 <p>For an image series where the <span class="math inline">\(i\)</span><sup>th</sup> slice in the stack is the image acquired at time <span class="math inline">\(t = i\)</span>, for a given pixel position <span class="math inline">\((x, y)\)</span>, we define <span class="math inline">\(\langle I \rangle\)</span> as the mean intensity of that pixel over the image series and <span class="math inline">\(\sigma^2\)</span> as the variance in that intensity. Define <span class="math inline">\(n\)</span> as the mean number of entities in the illumination volume corresponding to that pixel. Assuming that all entities are mobile, we have
 <span class="math display" id="eq:NB1-2" id="eq:NB1-1">\[\begin{align}
 N &amp;= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} \tag{1.1} \\
-B &amp;= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon 
-\tag{1.2}
+B &amp;= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon \tag{1.2}
 \end{align}\]</span>
 where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)</span> are referred to as the “apparent number” and “apparent brightness” respectively. This gives
 <span class="math display" id="eq:NB2-2" id="eq:NB2-1">\[\begin{align}
@@ -416,7 +424,7 @@ This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scale
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="instrumentation-and-software.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
