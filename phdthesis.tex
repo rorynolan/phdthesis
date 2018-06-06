@@ -90,7 +90,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-06-04}
+  \date{2018-06-06}
 
 \usepackage{booktabs}
 
@@ -548,9 +548,62 @@ brightness}. Rather than rename it, I will continue to refer to it as
 cross-correlated brightness.
 \EndKnitrBlock{remark}
 
-\chapter{Literature}\label{literature}
+\chapter{Instrumentation and
+Software}\label{instrumentation-and-software}
 
-Here is a review of existing methods.
+\section{Instrumentation}\label{instrumentation}
+
+All of the images used in this thesis were acquired on a Leica SP8
+confocal microscope.\footnote{\url{https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8}}
+Importantly, the detectors that we have on this microscope are capable
+of photon counting.
+
+These images were acquired by Luis Alvarez (postdoctoral researcher),
+Maro Iliopoulou (research assistant) and Sergi Padilla-Parra
+(supervisor).
+
+\section{Software programs, languages and
+tools}\label{software-programs-languages-and-tools}
+
+\subsection{C++}\label{c}
+
+\emph{C++} \citep{cpp} is a genaral-purpose programming language
+optimized for performance (speed), efficiency (with use of computer
+resources) and flexibility.\footnote{\url{https://en.wikipedia.org/wiki/C\%2B\%2B}}
+I used it for its speed, since many of the algorithms that I developed
+were quite computationally intensive and hence speed was an important
+issue.
+
+\subsection{R}\label{r}
+
+\emph{R} \citep{R} is a programming language and free software
+environment for statistical computing and graphics.\footnote{\url{https://en.wikipedia.org/wiki/R_(programming_language)}}
+I use R primarily as a wrapper for my C++ code to make my algorithms
+more user-friendly. R is best used with the RStudio integrated
+development environment.
+
+\hypertarget{imagej}{\subsection{ImageJ}\label{imagej}}
+
+\emph{ImageJ} \protect\hyperlink{imagej}{ImageJ} is an open source image
+processing program designed for scientific multidimensional
+images.\footnote{\url{https://imagej.net}} It is the preferred image
+viewing and analysis software in the community. I have written my
+software in C++ and R because they are easier for developers, but I
+still intend to translate my image-related algorithms ImageJ plugins.
+ImageJ is best used via the FIJI \citep{FIJI} distribution.\footnote{\url{https://imagej.net/Fiji}}
+
+\subsection{Git and GitHub}\label{git-and-github}
+
+Git is a free and open source distributed version control system
+designed to handle everything from small to very large projects with
+speed and efficiency.\footnote{\url{https://git-scm.com/}} GitHub is a
+web-based hosting service for version control using Git.\footnote{\url{https://en.wikipedia.org/wiki/GitHub}}
+All of the computer code used during my thesis can be found on my GitHub
+at \url{https://github.com/rorynolan}. The vast majority of my time
+during my thesis was spent writing code so this GitHub account is the
+best record of the work that I have done.
+
+\subsection{My software packages}\label{my-software-packages}
 
 \chapter{Photobleaching Correction}\label{photobleaching-correction}
 
@@ -812,6 +865,12 @@ figure \ref{fig:boxcar-explanation}.
 
 
 
+\begin{verbatim}
+#> Warning: Removed 9 rows containing missing values (geom_rect).
+
+#> Warning: Removed 9 rows containing missing values (geom_rect).
+\end{verbatim}
+
 \begin{figure}
 
 \includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/boxcar-explanation-1} \hfill{}
@@ -907,7 +966,7 @@ for \(l\) proceeds as follows:
 Mathematically, this can be expressed as
 
 \begin{equation}
-l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{l}|)
+l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{l}|)
 \label{eq:leq}
 \end{equation}
 
@@ -915,7 +974,7 @@ In fact, what I have done here is to give a general method for solving
 for any detrending parameter \(\alpha\):
 
 \begin{equation}
-\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{\alpha}|)
+\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{\alpha}|)
 \label{eq:detrend-param}
 \end{equation}
 

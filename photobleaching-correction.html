@@ -25,14 +25,14 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-04">
+<meta name="date" content="2018-06-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="literature.html">
+<link rel="prev" href="instrumentation-and-software.html">
 <link rel="next" href="applications.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -80,7 +80,16 @@
 <li class="chapter" data-level="1.4.4" data-path="intro.html"><a href="intro.html#cross-correlated-brightness"><i class="fa fa-check"></i><b>1.4.4</b> Cross-correlated brightness</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
+<li class="chapter" data-level="2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html"><i class="fa fa-check"></i><b>2</b> Instrumentation and Software</a><ul>
+<li class="chapter" data-level="2.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#instrumentation"><i class="fa fa-check"></i><b>2.1</b> Instrumentation</a></li>
+<li class="chapter" data-level="2.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#software-programs-languages-and-tools"><i class="fa fa-check"></i><b>2.2</b> Software programs, languages and tools</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#c"><i class="fa fa-check"></i><b>2.2.1</b> C++</a></li>
+<li class="chapter" data-level="2.2.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#r"><i class="fa fa-check"></i><b>2.2.2</b> R</a></li>
+<li class="chapter" data-level="2.2.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#imagej"><i class="fa fa-check"></i><b>2.2.3</b> ImageJ</a></li>
+<li class="chapter" data-level="2.2.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#git-and-github"><i class="fa fa-check"></i><b>2.2.4</b> Git and GitHub</a></li>
+<li class="chapter" data-level="2.2.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#my-software-packages"><i class="fa fa-check"></i><b>2.2.5</b> My software packages</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
 <li class="chapter" data-level="3.1" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#introduction-to-photobleaching"><i class="fa fa-check"></i><b>3.1</b> Introduction to photobleaching</a></li>
 <li class="chapter" data-level="3.2" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-effects-of-bleaching-in-fcs-and-ffs"><i class="fa fa-check"></i><b>3.2</b> The effects of bleaching in FCS and FFS</a><ul>
@@ -218,6 +227,9 @@ Figure 3.7: Result of exponential fitting detrending applied to a decay with a l
 <h2><span class="header-section-number">3.4</span> Boxcar smoothing detrending</h2>
 <p>A common approach to obtaining the line from which to measure deviations/fluctuations (as in the red line in figure <a href="photobleaching-correction.html#fig:exp-fit-bleach">3.4</a>) is to <em>smooth</em> the time series, i.e. construct the line by taking a <em>local average</em> at each point. This is often referred to as <em>boxcar smoothing</em> because it can be visualised as drawing a box around a neighbourhood of points, taking their average as the smoothed value at that point and then moving the box onto the next series of points and repeating the procedure. See figure <a href="photobleaching-correction.html#fig:boxcar-explanation">3.8</a>.</p>
 
+<pre><code>#&gt; Warning: Removed 9 rows containing missing values (geom_rect).
+
+#&gt; Warning: Removed 9 rows containing missing values (geom_rect).</code></pre>
 <div class="figure" style="text-align: left"><span id="fig:boxcar-explanation"></span>
 <img src="phdthesis_files/figure-html/boxcar-explanation-1.png" alt="The original time series is depicted by the red dots. The blue rectangles represent the boxcar. This boxcar is said to be of length 3 because it is wide enough to encompass 3 points at a time. The boxcar is centred on a point and then the smoothed value at that point (blue dot) is calculated as the mean value of all points within the boxcar. In reality, every point gets a smoothed value which means that the boxcar overlaps but in this figure, for the sake of clarity, they are not overlapped." width="100%" />
 <p class="caption">
@@ -253,19 +265,19 @@ Figure 3.9: The original intensity trace is shown in the top-left. The other pan
 </ol>
 <p>Mathematically, this can be expressed as</p>
 <span class="math display" id="eq:leq">\[\begin{equation}
-l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{l}|)
+l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{l}|)
 \tag{3.1}
 \end{equation}\]</span>
 <p>In fact, what I have done here is to give a general method for solving for any detrending parameter <span class="math inline">\(\alpha\)</span>:</p>
 <span class="math display" id="eq:detrend-param">\[\begin{equation}
-\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter} \tilde{\alpha}|)
+\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{\alpha}|)
 \tag{3.2}
 \end{equation}\]</span>
 <p>This will be useful later when other detrending regimes with their own parameters are introduced.</p>
 </div>
 <div id="exponential-smoothing-detrending" class="section level2">
 <h2><span class="header-section-number">3.6</span> Exponential smoothing detrending</h2>
-<p><em>Exponential smoothing</em> is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a> The weights fall off with distance <span class="math inline">\(|t|\)</span> from the point of interest according to <span class="math inline">\(\exp(-\frac{|t|}{\tau})\)</span> where the parameter <span class="math inline">\(\tau\)</span> is a positive real number. This function is visualized in figure (fig:exp-smooth-func). For small values of <span class="math inline">\(\tau\)</span>, only values very close to the point of interest have importance when calculating the local average. For larger values of <span class="math inline">\(\tau\)</span>, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of <span class="math inline">\(\tau\)</span> has a similar effect to increasing the value of <span class="math inline">\(l\)</span> for the boxcar in that farther away points are taken into account.</p>
+<p><em>Exponential smoothing</em> is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> The weights fall off with distance <span class="math inline">\(|t|\)</span> from the point of interest according to <span class="math inline">\(\exp(-\frac{|t|}{\tau})\)</span> where the parameter <span class="math inline">\(\tau\)</span> is a positive real number. This function is visualized in figure (fig:exp-smooth-func). For small values of <span class="math inline">\(\tau\)</span>, only values very close to the point of interest have importance when calculating the local average. For larger values of <span class="math inline">\(\tau\)</span>, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of <span class="math inline">\(\tau\)</span> has a similar effect to increasing the value of <span class="math inline">\(l\)</span> for the boxcar in that farther away points are taken into account.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:exp-smooth-func"></span>
 <img src="phdthesis_files/figure-html/exp-smooth-func-1.png" alt="The function \(\exp(-\frac{|t|}{\tau})\) visualised with \(\tau = 3\) and \(\tau = 9\). For \(\tau = 3\), points at distance \(|t| = 10\) have approximately zero weight, whereas for \(\tau = 9\), these points have significant weight." width="100%" />
@@ -298,7 +310,7 @@ Figure 3.11: The original intensity trace is shown in the top-left. The other pa
 </div>
 <div id="caveats-of-fitting-and-smoothing-approaches-to-detrending" class="section level2">
 <h2><span class="header-section-number">3.8</span> Caveats of fitting and smoothing approaches to detrending</h2>
-<p>Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities—where most pixel values are either 0 or 1—are quasi-binary<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> and hence a continuous approximation does not make sense (see figure <a href="photobleaching-correction.html#fig:fit-smooth-caveats">3.12</a>). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities.</p>
+<p>Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities—where most pixel values are either 0 or 1—are quasi-binary<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a> and hence a continuous approximation does not make sense (see figure <a href="photobleaching-correction.html#fig:fit-smooth-caveats">3.12</a>). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:fit-smooth-caveats"></span>
 <img src="phdthesis_files/figure-html/fit-smooth-caveats-1.png" alt="Left: for high (\(\gg 1\)) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well." width="49%" /><img src="phdthesis_files/figure-html/fit-smooth-caveats-2.png" alt="Left: for high (\(\gg 1\)) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well." width="49%" />
@@ -340,7 +352,7 @@ Figure 3.14: Robin Hood: counts are taken from frames of higher intensity (usual
 <li>Detrend the bleached image series.</li>
 <li>Evaluate the detrending algorithm by measuring how close the brightness of the detrended bleached image series is to the known simulated brightness.</li>
 </ol>
-<p>For all combinations of brightnesses of <span class="math inline">\(\epsilon = 0.001, 0.01, 0.1, 1, 10\)</span> and bleaching fractions of 0%, 1%, 5%, 10%, 15%, 20%, 25%, 30%, 20 images of 64x64 pixels and 5,000 frames were simulated using 100,000 fluorescent diffusing particles.<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a> These were detrended with the following detrending routines:<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a></p>
+<p>For all combinations of brightnesses of <span class="math inline">\(\epsilon = 0.001, 0.01, 0.1, 1, 10\)</span> and bleaching fractions of 0%, 1%, 5%, 10%, 15%, 20%, 25%, 30%, 20 images of 64x64 pixels and 5,000 frames were simulated using 100,000 fluorescent diffusing particles.<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> These were detrended with the following detrending routines:<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a></p>
 <ol style="list-style-type: decimal">
 <li>Boxcar with <span class="math inline">\(l = 10\)</span> (<code>boxcar10</code>, the most common detrending routine).</li>
 <li>Exponential smoothing with automatically chosen parameter <span class="math inline">\(\tau\)</span> (<code>autotau</code>).</li>
@@ -386,11 +398,11 @@ Figure 3.15: A comparison of different detrending methods with various brightnes
 </div>
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p><a href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean" class="uri">https://en.wikipedia.org/wiki/Weighted_arithmetic_mean</a><a href="photobleaching-correction.html#fnref13">↩</a></p></li>
-<li id="fn14"><p>By <em>quasi-binary</em>, I just mean that almost all values are 0 or 1.<a href="photobleaching-correction.html#fnref14">↩</a></p></li>
-<li id="fn15"><p>The simulation took 3 weeks.<a href="photobleaching-correction.html#fnref15">↩</a></p></li>
-<li id="fn16"><p>The detrending took 2 weeks.<a href="photobleaching-correction.html#fnref16">↩</a></p></li>
+<ol start="20">
+<li id="fn20"><p><a href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean" class="uri">https://en.wikipedia.org/wiki/Weighted_arithmetic_mean</a><a href="photobleaching-correction.html#fnref20">↩</a></p></li>
+<li id="fn21"><p>By <em>quasi-binary</em>, I just mean that almost all values are 0 or 1.<a href="photobleaching-correction.html#fnref21">↩</a></p></li>
+<li id="fn22"><p>The simulation took 3 weeks.<a href="photobleaching-correction.html#fnref22">↩</a></p></li>
+<li id="fn23"><p>The detrending took 2 weeks.<a href="photobleaching-correction.html#fnref23">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -398,7 +410,7 @@ Figure 3.15: A comparison of different detrending methods with various brightnes
           </div>
         </div>
       </div>
-<a href="literature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="instrumentation-and-software.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
