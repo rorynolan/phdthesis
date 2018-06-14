@@ -253,7 +253,7 @@ In fact, what I have done here is to give a general method for solving for any d
 This will be useful later when other detrending regimes with their own parameters are introduced.
 
 
-## Exponential smoothing detrending
+## Exponential smoothing detrending {#exponential-smoothing-detrending}
 
 _Exponential smoothing_ is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.^[https://en.wikipedia.org/wiki/Weighted_arithmetic_mean] The weights fall off with distance $|t|$ from the point of interest according to $\exp(-\frac{|t|}{\tau})$ where the parameter $\tau$ is a positive real number. This function is visualized in figure \ref(fig:exp-smooth-func). For small values of $\tau$, only values very close to the point of interest have importance when calculating the local average. For larger values of $\tau$, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of $\tau$ has a similar effect to increasing the value of $l$ for the boxcar in that farther away points are taken into account. 
 
@@ -325,11 +325,11 @@ set.seed(1)
 tibble(t = seq_len(100), y = detrendr:::myrpois(seq(100, 50, length = 100))) %>% 
   ggplot() + aes(t, y) + geom_point(colour = gg_color_hue(2)[2]) + 
   geom_segment(x = 1, xend = 100, y = 100, yend = 50, 
-               colour = gg_color_hue(2)[1]) + ylab("Intensity")
+               colour = gg_color_hue(2)[1]) + ylab("Intensity") + xlab("time")
 tibble(t = seq_len(100), y = detrendr:::myrpois(seq(0.5, 0, length = 100))) %>% 
   ggplot() + aes(t, y) + geom_point(colour = gg_color_hue(2)[2]) + 
   geom_segment(x = 1, xend = 100, y = 0.5, yend = 0, 
-               colour = gg_color_hue(2)[1]) + ylab("Intensity")
+               colour = gg_color_hue(2)[1]) + ylab("Intensity") + xlab("time")
 ```
 
 
@@ -413,6 +413,6 @@ Figure \@ref(fig:detrend-compare) shows the results. Before I discuss them, note
 include_graphics(here("img", "detrend_compare.png"))
 ```
 
-The most striking thing about \@ref(fig:detrend-compare) is that the best choice in all cases is to not detrend at all! This is an interesting result and seems to render all detrending routines worthless. However, when working with real data, not detrending does not work well at all. This will be shown in chapter \@ref(applications). This is probably because with real data bleaching is likely not taking place at a constant, steady rate and other factors such as cell movement are contributing to medium and long term intensity fluctuations and these have a detrimental effect on calculations if not detrended out.
+The most striking thing about \@ref(fig:detrend-compare) is that the best choice in all cases is to not detrend at all! This is an interesting result and seems to render all detrending routines worthless. However, when working with real data, not detrending does not work well at all. This will be shown in chapter \@ref(applications). This is probably because with real data, bleaching is likely not taking place at a constant, steady rate and other factors such as cell movement are contributing to medium and long term intensity fluctuations and these have a detrimental effect on calculations if not detrended out.
 
 The worst performer by far is `boxcar10`. For example, at $\epsilon = 0.1$, it makes an error of worse than 40% and for $\epsilon = 0.001, 0.01$, its error is worse than 50%, so it does not even appear on the plot. This is good evidence that arbitrarily choosing the parameter $l$ very bad practice. For realistic brightnesses ($\le 0.1$), `robinhood` is the best with errors almost always lower than 5%. `autotau` also performs very well, with errors almost always less than 10%. At the lowest brightness $\epsilon = 0.001$, all methods are somewhat erratic. That is because at this extremely low brightness, there is a critical lack of information (photons) for the algorithms to work with. Finally, at unrealistically high brightnesses of $\epsilon = 1, 10$, `autotau` begins to perform well because at these high photon counts, the caveats of smoothing have totally disappeared. However, I cannot explain the degradation in the performance of `robinhood` in this case. Fortunately, there is no need to dwell on this, as this situation ($\epsilon = 1, 10$) does not arise in practice. 

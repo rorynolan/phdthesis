@@ -61,9 +61,10 @@ Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the inte
 
 _Number and brightness_ (N&B, @NB) is an FFS technique for quantifying the oligomeric states of fluorescently labelled proteins. What follows is a mathematical description of the technique.
 
-> ```{definition}
+```{definition}
 An _entity_ is a set of molecules which are chemically bound.
 ```
+
 ```{definition}
 The brightness $\epsilon$ of an entity is the mean number of photon detector counts it gives per unit time when in the illumination (confocal) volume.
 ```

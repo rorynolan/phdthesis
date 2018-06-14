@@ -21,7 +21,7 @@ description: "Rory Nolan's PhD thesis"
 
 ```{r load-pkgs, include=FALSE}
 # The dev version of latex2exp is needed
-pkgs <- c("tidyverse", "forcats", "magrittr", "ijtiff", 
+pkgs <- c("tidyverse", "forcats", "magrittr", "ijtiff", "cranlogs", "lubridate",
           "detrendr", "nandb", "filesstrings", "knitr", "latex2exp",
           "janitor", "RcppRoll", "abind", "brownded", "here")
 lapply(pkgs, library, character.only = TRUE)
