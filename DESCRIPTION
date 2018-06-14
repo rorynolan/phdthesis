@@ -9,4 +9,5 @@ Imports: bookdown,
     janitor, 
     RcppRoll, 
     abind, 
-    here
+    here,
+    cranlogs
