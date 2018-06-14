@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-06">
+<meta name="date" content="2018-06-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,13 @@
 <li class="chapter" data-level="2.2.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#r"><i class="fa fa-check"></i><b>2.2.2</b> R</a></li>
 <li class="chapter" data-level="2.2.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#imagej"><i class="fa fa-check"></i><b>2.2.3</b> ImageJ</a></li>
 <li class="chapter" data-level="2.2.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#git-and-github"><i class="fa fa-check"></i><b>2.2.4</b> Git and GitHub</a></li>
-<li class="chapter" data-level="2.2.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#my-software-packages"><i class="fa fa-check"></i><b>2.2.5</b> My software packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#my-software-packages"><i class="fa fa-check"></i><b>2.3</b> My software packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#ijtiff"><i class="fa fa-check"></i><b>2.3.1</b> <code>ijtiff</code></a></li>
+<li class="chapter" data-level="2.3.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#autothresholdr"><i class="fa fa-check"></i><b>2.3.2</b> <code>autothresholdr</code></a></li>
+<li class="chapter" data-level="2.3.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#detrendr"><i class="fa fa-check"></i><b>2.3.3</b> <code>detrendr</code></a></li>
+<li class="chapter" data-level="2.3.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#filesstrings"><i class="fa fa-check"></i><b>2.3.4</b> <code>filesstrings</code></a></li>
+<li class="chapter" data-level="2.3.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#exampletestr"><i class="fa fa-check"></i><b>2.3.5</b> <code>exampletestr</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
@@ -106,7 +112,7 @@
 <li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
 <li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
@@ -156,8 +162,34 @@
 <h3><span class="header-section-number">2.2.4</span> Git and GitHub</h3>
 <p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> GitHub is a web-based hosting service for version control using Git.<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> All of the computer code used during my thesis can be found on my GitHub at <a href="https://github.com/rorynolan" class="uri">https://github.com/rorynolan</a>. The vast majority of my time during my thesis was spent writing code so this GitHub account is the best record of the work that I have done.</p>
 </div>
-<div id="my-software-packages" class="section level3">
-<h3><span class="header-section-number">2.2.5</span> My software packages</h3>
+</div>
+<div id="my-software-packages" class="section level2">
+<h2><span class="header-section-number">2.3</span> My software packages</h2>
+<div id="ijtiff" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> <code>ijtiff</code></h3>
+<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 378 downloads per month which amounts to 2208 since it was first released.</p>
+<p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> This package was peer reviewed and published in 2018.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span></p>
+</div>
+<div id="autothresholdr" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> <code>autothresholdr</code></h3>
+<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(LANDINI et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 570 downloads per month which amounts to 8921 since it was first released.</p>
+</div>
+<div id="detrendr" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> <code>detrendr</code></h3>
+<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 409 downloads per month which amounts to 3144 since it was first released.</p>
+</div>
+<div id="filesstrings" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> <code>filesstrings</code></h3>
+<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span> It gets 766 downloads per month which amounts to 12002 since it was first released.</p>
+</div>
+<div id="exampletestr" class="section level3">
+<h3><span class="header-section-number">2.3.5</span> <code>exampletestr</code></h3>
+
+<div class="definition">
+<span id="def:unnamed-chunk-19" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>
+</div>
+
+<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes unit testing much easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 466 downloads per month which amounts to 6951 since it was first released.</p>
 
 </div>
 </div>
@@ -173,6 +205,21 @@
 <div id="ref-FIJI">
 <p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7): 676–82.</p>
 </div>
+<div id="ref-ImageJ">
+<p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1): 529.</p>
+</div>
+<div id="ref-ijtiff">
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “Ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal: 633. doi:<a href="https://doi.org/10.21105/joss.00633">10.21105/joss.00633</a>.</p>
+</div>
+<div id="ref-autothresholdr">
+<p>LANDINI, G., D.A. RANDELL, S. FOUAD, and A. GALTON. 2016. “Automatic Thresholding from the Gradients of Region Boundaries.” <em>Journal of Microscopy</em> 265 (2). Wiley: 185–95. doi:<a href="https://doi.org/10.1111/jmi.12474">10.1111/jmi.12474</a>.</p>
+</div>
+<div id="ref-filesstrings">
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017b. “Filesstrings: An R Package for File and String Manipulation.” <em>The Journal of Open Source Software</em> 2 (14). The Open Journal: 260. doi:<a href="https://doi.org/10.21105/joss.00260">10.21105/joss.00260</a>.</p>
+</div>
+<div id="ref-exampletestr">
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017a. “Exampletestr - an Easy Start to Unit Testing R Packages.” <em>Wellcome Open Research</em> 2 (June). F1000 Research, Ltd.: 31. doi:<a href="https://doi.org/10.12688/wellcomeopenres.11635.2">10.12688/wellcomeopenres.11635.2</a>.</p>
+</div>
 </div>
 <div class="footnotes">
 <hr />
@@ -184,6 +231,8 @@
 <li id="fn17"><p><a href="https://imagej.net/Fiji" class="uri">https://imagej.net/Fiji</a><a href="instrumentation-and-software.html#fnref17">↩</a></p></li>
 <li id="fn18"><p><a href="https://git-scm.com/" class="uri">https://git-scm.com/</a><a href="instrumentation-and-software.html#fnref18">↩</a></p></li>
 <li id="fn19"><p><a href="https://en.wikipedia.org/wiki/GitHub" class="uri">https://en.wikipedia.org/wiki/GitHub</a><a href="instrumentation-and-software.html#fnref19">↩</a></p></li>
+<li id="fn20"><p><a href="https://ropensci.org/about" class="uri">https://ropensci.org/about</a><a href="instrumentation-and-software.html#fnref20">↩</a></p></li>
+<li id="fn21"><p><a href="https://en.wikipedia.org/wiki/Unit_testing" class="uri">https://en.wikipedia.org/wiki/Unit_testing</a><a href="instrumentation-and-software.html#fnref21">↩</a></p></li>
 </ol>
 </div>
             </section>

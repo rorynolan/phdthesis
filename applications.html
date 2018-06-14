@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-06">
+<meta name="date" content="2018-06-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,13 @@
 <li class="chapter" data-level="2.2.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#r"><i class="fa fa-check"></i><b>2.2.2</b> R</a></li>
 <li class="chapter" data-level="2.2.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#imagej"><i class="fa fa-check"></i><b>2.2.3</b> ImageJ</a></li>
 <li class="chapter" data-level="2.2.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#git-and-github"><i class="fa fa-check"></i><b>2.2.4</b> Git and GitHub</a></li>
-<li class="chapter" data-level="2.2.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#my-software-packages"><i class="fa fa-check"></i><b>2.2.5</b> My software packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#my-software-packages"><i class="fa fa-check"></i><b>2.3</b> My software packages</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#ijtiff"><i class="fa fa-check"></i><b>2.3.1</b> <code>ijtiff</code></a></li>
+<li class="chapter" data-level="2.3.2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#autothresholdr"><i class="fa fa-check"></i><b>2.3.2</b> <code>autothresholdr</code></a></li>
+<li class="chapter" data-level="2.3.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#detrendr"><i class="fa fa-check"></i><b>2.3.3</b> <code>detrendr</code></a></li>
+<li class="chapter" data-level="2.3.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#filesstrings"><i class="fa fa-check"></i><b>2.3.4</b> <code>filesstrings</code></a></li>
+<li class="chapter" data-level="2.3.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#exampletestr"><i class="fa fa-check"></i><b>2.3.5</b> <code>exampletestr</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
@@ -106,7 +112,7 @@
 <li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
 <li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
@@ -133,13 +139,25 @@
             <section class="normal" id="section-">
 <div id="applications" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Applications</h1>
-<p>Some <em>significant</em> applications are demonstrated in this chapter.</p>
-<div id="example-one" class="section level2">
-<h2><span class="header-section-number">4.1</span> Example one</h2>
+<div id="dimerization-of-fkbp12" class="section level2">
+<h2><span class="header-section-number">4.1</span> Dimerization of FKBP12</h2>
+<p>Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 <span class="citation">(Amara et al. <a href="#ref-Amara">1997</a>)</span>. As a test application of exponential smoothing detrending (section <a href="photobleaching-correction.html#exponential-smoothing-detrending">3.6</a>) with automatically chosen parameter <span class="math inline">\(\tau\)</span>, we used it with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12. We found a brightness increase in <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(\approx 1.6\)</span>-fold using the <em>automatic</em> detrending method. The naiive choice of <span class="math inline">\(\tau=10\)</span> resulted in a <span class="math inline">\(\approx 0.7\)</span>-fold calculated increase, which is indeed a decrease. The <span class="math inline">\(\approx 1.6\)</span>-fold increase suggests that dimerization had occurred, however, we expected the increase to be <span class="math inline">\(\approx 2\)</span>-fold upon dimerization. In that publication <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out <span class="citation">(Dunsing et al. <a href="#ref-fpcompare">2018</a>)</span> explaining how the assumption that all fluorophores emit signal is invalid and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. The fact that the naive choice of <span class="math inline">\(\tau=10\)</span> gave a decrease in brightness shows that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.</p>
 </div>
 <div id="example-two" class="section level2">
 <h2><span class="header-section-number">4.2</span> Example two</h2>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Amara">
+<p>Amara, J. F., T. Clackson, V. M. Rivera, T. Guo, T. Keenan, S. Natesan, R. Pollock, et al. 1997. “A Versatile Synthetic Dimerizer for the Regulation of Protein-Protein Interactions.” <em>Proceedings of the National Academy of Sciences</em> 94 (20). Proceedings of the National Academy of Sciences: 10618–23. doi:<a href="https://doi.org/10.1073/pnas.94.20.10618">10.1073/pnas.94.20.10618</a>.</p>
+</div>
+<div id="ref-nandb">
+<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press: 3508–10.</p>
+</div>
+<div id="ref-fpcompare">
+<p>Dunsing, Valentin, Madlen Luckner, Boris Zühlke, Roberto Petazzi, Andreas Herrmann, and Salvatore Chiantia. 2018. “Quantifying Protein Oligomerization in Living Cells: A Systematic Comparison of Fluorescent Proteins,” April. Cold Spring Harbor Laboratory. doi:<a href="https://doi.org/10.1101/311175">10.1101/311175</a>.</p>
 </div>
 </div>
             </section>

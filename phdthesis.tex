@@ -82,15 +82,16 @@
 }
 
 \setlength{\droptitle}{-2em}
+
   \title{Algorithms for the Correction of Photobleaching}
-  \pretitle{\vspace{\droptitle}\centering\huge}
+    \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-  \author{Rory Nolan}
-  \preauthor{\centering\large\emph}
+    \author{Rory Nolan}
+    \preauthor{\centering\large\emph}
   \postauthor{\par}
-  \predate{\centering\large\emph}
+      \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-06-06}
+    \date{2018-06-14}
 
 \usepackage{booktabs}
 
@@ -217,12 +218,12 @@ moments. For example, the intensity trace in figure
 quantifying the oligomeric states of fluorescently labelled proteins.
 What follows is a mathematical description of the technique.
 
-\begin{quote}
 \BeginKnitrBlock{definition}
 \protect\hypertarget{def:unnamed-chunk-5}{}{\label{def:unnamed-chunk-5} }An
 \emph{entity} is a set of molecules which are chemically bound.
-\EndKnitrBlock{definition} \BeginKnitrBlock{definition}
+\EndKnitrBlock{definition}
 
+\BeginKnitrBlock{definition}
 \protect\hypertarget{def:unnamed-chunk-6}{}{\label{def:unnamed-chunk-6} }The
 brightness \(\epsilon\) of an entity is the mean number of photon
 detector counts it gives per unit time when in the illumination
@@ -248,6 +249,7 @@ where \(N\) and \(B\) are referred to as the ``apparent number'' and
 n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \label{eq:NB2-2}
 \end{align}
 
+\begin{quote}
 --- \citet{NBreview}\footnote{This is a formulation of N\&B that I wrote
   in a 2017 review of the technique.}
 \end{quote}
@@ -603,7 +605,75 @@ at \url{https://github.com/rorynolan}. The vast majority of my time
 during my thesis was spent writing code so this GitHub account is the
 best record of the work that I have done.
 
-\subsection{My software packages}\label{my-software-packages}
+\section{My software packages}\label{my-software-packages}
+
+\subsection{\texorpdfstring{\texttt{ijtiff}}{ijtiff}}\label{ijtiff}
+
+An R package for general purpose TIFF file I/O. This is currently the
+only such package with read and write support for TIFF files with
+floating point (real-numbered) pixels, and the only package that can
+correctly import TIFF files that were saved from \emph{ImageJ}
+\citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
+capability is a basic need for masses of people. \texttt{ijtiff} gets
+378 downloads per month which amounts to 2208 since it was first
+released.
+
+This package is part of the \emph{rOpenSci} project. rOpenSci is a
+non-profit initiative founded to make scientific data retrieval
+reproducible.\footnote{\url{https://ropensci.org/about}} This package
+was peer reviewed and published in 2018.\citep{ijtiff}
+
+\subsection{\texorpdfstring{\texttt{autothresholdr}}{autothresholdr}}\label{autothresholdr}
+
+\texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
+\emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
+users. It gets 570 downloads per month which amounts to 8921 since it
+was first released.
+
+\subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
+
+\texttt{detrendr} is an R package for detrending images (correcting for
+photobleaching). It provides all detrending algorithms mentioned in
+section \ref{photobleaching-correction}. The detrending is done in C++
+in the background for speed but it is wrapped in an R package for ease
+of use. It gets 409 downloads per month which amounts to 3144 since it
+was first released.
+
+\subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
+
+\texttt{filesstrings} is an R package providing convenient functions for
+moving files, deleting directories, and a variety of string operations
+that facilitate manipulating file names and extracting information from
+strings. The motivation for making this package was to facilitate the
+use of file names for metadata. This is very common in microscopy,
+e.g.~a filename like \texttt{well1\_cell1\_before\_drug\_addition.tif}
+is often seen. Using file names for metadata like this is a good idea,
+however if the naming or the extraction of data from these names is
+inconsistent, analysis becomes a nightmare and less reproducible. This
+package was peer reviewed and published in 2017.\citep{filesstrings} It
+gets 766 downloads per month which amounts to 12002 since it was first
+released.
+
+\subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
+
+\BeginKnitrBlock{definition}
+\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19}
+}\emph{Unit testing} is a software testing method by which individual
+units of source code, sets of one or more computer program modules
+together with associated control data, usage procedures, and operating
+procedures, are tested to determine whether they are fit for
+use.\footnote{\url{https://en.wikipedia.org/wiki/Unit_testing}}
+\EndKnitrBlock{definition}
+
+Unit testing is a tool to verify that software is performing as
+intended. It is a great way to discover bugs in software.
+\texttt{exampletestr} is an R package which makes unit testing much
+easier for R package developers to write unit tests for their packages.
+It helped me to eradicate many bugs in all of my packages.
+Interestingly, \texttt{exampletestr} was used to unit test and eradicate
+bugs in itself! This package was peer reviewed and published in
+2017.\citep{exampletestr} It gets 466 downloads per month which amounts
+to 6951 since it was first released.
 
 \chapter{Photobleaching Correction}\label{photobleaching-correction}
 
@@ -702,7 +772,7 @@ when using FCS techniques.
 \subsection{FFS}\label{ffs}
 
 \BeginKnitrBlock{definition}[median mean pixel intensity]
-\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
+\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
 \iffalse (median mean pixel intensity) \fi{} }The \emph{median mean
 pixel intensity} of an image series is found by taking the mean
 intensity of each pixel in the image series and then taking the median
@@ -711,7 +781,7 @@ pixel intensity of the image series.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[median pixel intensity variance]
-\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
+\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
 \iffalse (median pixel intensity variance) \fi{} }The \emph{median pixel
 intensity variance} of an image series is found by taking the variance
 in the intensity of each pixel in the image series and then taking the
@@ -927,7 +997,7 @@ to solve for the appropriate choice of \(l\) to use for detrending a
 specific image series.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
+\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
 }The \emph{mean intensity profile} of one channel of an image series is
 obtained by calculating the mean intensity of each frame in that image
 series.
@@ -1044,7 +1114,7 @@ published \citep{nandb}.
 variance}\label{correcting-for-non-stationary-variance}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
+\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24}
 }The variance of a random variable \(X\) is the expected value of the
 squared deviation of \(X\) from its mean \(\mu\):
 
@@ -1249,7 +1319,7 @@ with the following detrending routines:\footnote{The detrending took 2
 The performance was evaluated using the \emph{mean relative error}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24} }
+\protect\hypertarget{def:unnamed-chunk-25}{}{\label{def:unnamed-chunk-25} }
 For a given brightness and bleaching fraction,
 
 \begin{equation}
@@ -1282,7 +1352,7 @@ choice in all cases is to not detrend at all! This is an interesting
 result and seems to render all detrending routines worthless. However,
 when working with real data, not detrending does not work well at all.
 This will be shown in chapter \ref{applications}. This is probably
-because with real data bleaching is likely not taking place at a
+because with real data, bleaching is likely not taking place at a
 constant, steady rate and other factors such as cell movement are
 contributing to medium and long term intensity fluctuations and these
 have a detrimental effect on calculations if not detrended out.
@@ -1307,9 +1377,31 @@ situation (\(\epsilon = 1, 10\)) does not arise in practice.
 
 \chapter{Applications}\label{applications}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+\section{Dimerization of FKBP12}\label{dimerization-of-fkbp12}
 
-\section{Example one}\label{example-one}
+Myristoylated FKBP12 is known to dimerize upon addition of the drug
+AP1510 \citep{Amara}. As a test application of exponential smoothing
+detrending (section \ref{exponential-smoothing-detrending}) with
+automatically chosen parameter \(\tau\), we used it with number and
+brightness to verify this dimerization. We tested this in 20 Cos7 cells
+with mClover-labelled FKBP12. We found a brightness increase in
+\(\epsilon\) of \(\approx 1.6\)-fold using the \emph{automatic}
+detrending method. The naiive choice of \(\tau=10\) resulted in a
+\(\approx 0.7\)-fold calculated increase, which is indeed a decrease.
+The \(\approx 1.6\)-fold increase suggests that dimerization had
+occurred, however, we expected the increase to be \(\approx 2\)-fold
+upon dimerization. In that publication \citep{nandb}, we postulated that
+the 1.6 figure was due to the fact that not all of the protein had
+dimerized. Recently, a paper came out \citep{fpcompare} explaining how
+the assumption that all fluorophores emit signal is invalid and that
+because of this, oligomeric state changes calculated from brightness
+must be adjusted by a correction factor specific to the fluorophore.
+Unfortunately, this study did not characterize mClover, so we do not
+know its correction factor. I suspect that applying this correction
+would bring our figure of 1.6 a lot closer to 2. The fact that the naive
+choice of \(\tau=10\) gave a decrease in brightness shows that arbitrary
+parameter choices lead to unpredictable and unreliable results and
+should hence be avoided.
 
 \section{Example two}\label{example-two}
 
