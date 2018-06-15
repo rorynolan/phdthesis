@@ -39,15 +39,35 @@ Git is a free and open source distributed version control system designed to han
 ### `ijtiff`
 
 ```{r ijtiff-downloads, echo=FALSE}
+
 get_downloads <- function(pkg) {
-  since2010 <- cran_downloads(pkg, from = "2010-01-01", 
+  pd_path <- here("misc", "package-downloads.csv")
+  if (has_internet()) {
+    since2010 <- cran_downloads(pkg, from = "2010-01-01", 
                               to = as.character(today()))
-  first_nonzero_count <- match(T, since2010$count > 0)
-  since2010 %<>% {.[seq_len(nrow(.)) >= first_nonzero_count, ]}
-  n_days <- nrow(since2010)
-  tibble(total = sum(since2010$count), 
-         per_month = round(total / n_days * 365.25 / 12)) %>% 
-    mutate_if(is.numeric, format, scientific = FALSE)
+    first_nonzero_count <- match(T, since2010$count > 0)
+    since2010 %<>% {.[seq_len(nrow(.)) >= first_nonzero_count, ]}
+    n_days <- nrow(since2010)
+    out <- tibble(package = pkg, 
+                  total = sum(since2010$count), 
+                  per_month = round(total / n_days * 365.25 / 12)) %>% 
+      mutate_if(is.numeric, format, scientific = FALSE)
+    if (file.exists(pd_path)) {
+      new_pd_df <- pd_path %>% 
+        read_csv() %>% 
+        mutate_if(is.numeric, format, scientific = FALSE) %>% 
+        bind_rows(out, .) %>% 
+        filter(!duplicated(pkg)) %>% 
+        write_csv(pd_path)
+    } else {
+      write_csv(out, pd_path)
+    }
+  } else {
+    read_csv(pd_path) %>% 
+      filter(package == pkg) %>% 
+      slice(1) %>% 
+      mutate_if(is.numeric, format, scientific = FALSE)
+  }
 }
 ijtiff_downloads <- get_downloads("ijtiff")
 ```

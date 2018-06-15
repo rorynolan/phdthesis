@@ -6,4 +6,14 @@
 Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 [@Amara]. As a test application of exponential smoothing detrending (section \@ref(exponential-smoothing-detrending)) with automatically chosen parameter $\tau$, we used it with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12. We found a brightness increase in $\epsilon$ of $\approx 1.6$-fold using the _automatic_ detrending method. The naiive choice of $\tau=10$ resulted in a $\approx 0.7$-fold calculated increase, which is indeed a decrease. The $\approx 1.6$-fold increase suggests that dimerization had occurred, however, we expected the increase to be $\approx 2$-fold upon dimerization. In that publication [@nandb], we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out [@fpcompare] explaining how the assumption that all fluorophores emit signal is invalid and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. The fact that the naive choice of $\tau=10$ gave a decrease in brightness shows that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.
 
 
-## Example two
+## _In vitro_ number and brightness
+
+In our research group, we believe that the most practical quantitative method for measuring homo-dimerization _in vivo_ and _in vitro_ is N&B [@NB] because it is callibration-free and does not require specialised instrumentation. There are many examples of the application of N&B _in vivo_ (the original N&B paper has over 250 citations, most of which are _in vivo_ applications) but none _in vitro_. Hence, we published a protocol [@JOVE] detailing how N&B can be applied _in vitro_. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known coloquially as the _BB dimerizer_); this pair is designed to have better specificity than the original [@Clackson]. 
+
+In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from $\epsilon = 0.005$ to $\epsilon = 0.010$ upon addition of the drug. See figure \@ref(fig:jove). This analysis was done with exponential smoothing detrending with automatically chosen parameter $\tau$. Without detrending, the pre-BB brightness was calculated as $\epsilon = 0.026$, showing that detrending is absolutely necessary and that neglecting this step can lead to nonsensical results.
+
+(ref:jove-caption) Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from $\epsilon = 0.005$ to $\epsilon = 0.010$ over a period of minutes.
+
+```{r jove, echo=FALSE, fig.cap='(ref:jove-caption)'}
+include_graphics(here("img", "jove-dimerization.png"))
+```

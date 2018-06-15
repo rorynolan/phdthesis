@@ -22,7 +22,7 @@ description: "Rory Nolan's PhD thesis"
 ```{r load-pkgs, include=FALSE}
 # The dev version of latex2exp is needed
 pkgs <- c("tidyverse", "forcats", "magrittr", "ijtiff", "cranlogs", "lubridate",
-          "detrendr", "nandb", "filesstrings", "knitr", "latex2exp",
+          "curl", "detrendr", "nandb", "filesstrings", "knitr", "latex2exp",
           "janitor", "RcppRoll", "abind", "brownded", "here")
 lapply(pkgs, library, character.only = TRUE)
 
@@ -37,6 +37,17 @@ gg_color_hue <- function(n) {
 roll_mean_n_by_nofill <- function(x, n_by) {
   roll_mean(x, n = n_by, by = n_by) %>% 
     {.[seq_along(.) %% n_by == 1]}
+}
+
+move_to_groups_folder <- function() {
+  groups_theses_path <- str_c("/Volumes/groups/cellular-imaging/",
+                              "ReadingList/Theses/Rory")
+  if (dir.exists(groups_theses_path)) {
+    file.copy(here("_book", "phdthesis.pdf"), groups_theses_path)
+    message("success")
+  } else {
+    message("failure")
+  }
 }
 ```
 

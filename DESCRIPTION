@@ -12,4 +12,5 @@ Imports: bookdown,
     here,
     cranlogs,
     RcppRoll, 
-    abind
+    abind,
+    curl

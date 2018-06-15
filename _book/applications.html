@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-14">
+<meta name="date" content="2018-06-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -113,7 +113,7 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -141,10 +141,19 @@
 <h1><span class="header-section-number">Chapter 4</span> Applications</h1>
 <div id="dimerization-of-fkbp12" class="section level2">
 <h2><span class="header-section-number">4.1</span> Dimerization of FKBP12</h2>
-<p>Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 <span class="citation">(Amara et al. <a href="#ref-Amara">1997</a>)</span>. As a test application of exponential smoothing detrending (section <a href="photobleaching-correction.html#exponential-smoothing-detrending">3.6</a>) with automatically chosen parameter <span class="math inline">\(\tau\)</span>, we used it with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12. We found a brightness increase in <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(\approx 1.6\)</span>-fold using the <em>automatic</em> detrending method. The naiive choice of <span class="math inline">\(\tau=10\)</span> resulted in a <span class="math inline">\(\approx 0.7\)</span>-fold calculated increase, which is indeed a decrease. The <span class="math inline">\(\approx 1.6\)</span>-fold increase suggests that dimerization had occurred, however, we expected the increase to be <span class="math inline">\(\approx 2\)</span>-fold upon dimerization. In that publication <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out <span class="citation">(Dunsing et al. <a href="#ref-fpcompare">2018</a>)</span> explaining how the assumption that all fluorophores emit signal is invalid and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. The fact that the naive choice of <span class="math inline">\(\tau=10\)</span> gave a decrease in brightness shows that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.</p>
+<p>Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 <span class="citation">(Amara et al. <a href="#ref-Amara">1997</a>)</span>. As a test application of exponential smoothing detrending (section <a href="photobleaching-correction.html#exponential-smoothing-detrending">3.6</a>) with automatically chosen parameter <span class="math inline">\(\tau\)</span>, we used it with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12. We found a brightness increase in <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(\approx 1.6\)</span>-fold using the <em>automatic</em> detrending method. The naiive choice of <span class="math inline">\(\tau=10\)</span> resulted in a <span class="math inline">\(\approx 0.7\)</span>-fold calculated increase, which is indeed a decrease. The <span class="math inline">\(\approx 1.6\)</span>-fold increase suggests that dimerization had occurred, however, we expected the increase to be <span class="math inline">\(\approx 2\)</span>-fold upon dimerization. In that publication <span class="citation">(Nolan et al. <a href="#ref-nandb">2017</a>)</span>, we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out <span class="citation">(Dunsing et al. <a href="#ref-fpcompare">2018</a>)</span> explaining how the assumption that all fluorophores emit signal is invalid and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. The fact that the naive choice of <span class="math inline">\(\tau=10\)</span> gave a decrease in brightness shows that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.</p>
 </div>
-<div id="example-two" class="section level2">
-<h2><span class="header-section-number">4.2</span> Example two</h2>
+<div id="in-vitro-number-and-brightness" class="section level2">
+<h2><span class="header-section-number">4.2</span> <em>In vitro</em> number and brightness</h2>
+<p>In our research group, we believe that the most practical quantitative method for measuring homo-dimerization <em>in vivo</em> and <em>in vitro</em> is N&amp;B <span class="citation">(Digman et al. <a href="#ref-NB">2008</a>)</span> because it is callibration-free and does not require specialised instrumentation. There are many examples of the application of N&amp;B <em>in vivo</em> (the original N&amp;B paper has over 250 citations, most of which are <em>in vivo</em> applications) but none <em>in vitro</em>. Hence, we published a protocol <span class="citation">(Nolan et al. <a href="#ref-JOVE">2018</a>)</span> detailing how N&amp;B can be applied <em>in vitro</em>. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known coloquially as the <em>BB dimerizer</em>); this pair is designed to have better specificity than the original <span class="citation">(Clackson et al. <a href="#ref-Clackson">1998</a>)</span>.</p>
+<p>In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> upon addition of the drug. See figure <a href="applications.html#fig:jove">4.1</a>. This analysis was done with exponential smoothing detrending with automatically chosen parameter <span class="math inline">\(\tau\)</span>. Without detrending, the pre-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.026\)</span>, showing that detrending is absolutely necessary and that neglecting this step can lead to nonsensical results.</p>
+
+<div class="figure"><span id="fig:jove"></span>
+<img src="img/jove-dimerization.png" alt="Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from \(\epsilon = 0.005\) to \(\epsilon = 0.010\) over a period of minutes." width="1350" />
+<p class="caption">
+Figure 4.1: Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> over a period of minutes.
+</p>
+</div>
 
 </div>
 </div>
@@ -158,6 +167,15 @@
 </div>
 <div id="ref-fpcompare">
 <p>Dunsing, Valentin, Madlen Luckner, Boris Zühlke, Roberto Petazzi, Andreas Herrmann, and Salvatore Chiantia. 2018. “Quantifying Protein Oligomerization in Living Cells: A Systematic Comparison of Fluorescent Proteins,” April. Cold Spring Harbor Laboratory. <a href="https://doi.org/10.1101/311175" class="uri">https://doi.org/10.1101/311175</a>.</p>
+</div>
+<div id="ref-NB">
+<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32.</p>
+</div>
+<div id="ref-JOVE">
+<p>Nolan, Rory, Luis Alvarez, Samuel C. Griffiths, Jonathan Elegheert, Christian Siebold, and Sergi Padilla-Parra. 2018. “Calibration-Free in-Vitro Quantification of Protein Homo-Oligomerization Using Commercial Instrumentation and Free, Open Source Brightness Analysis Software.” <em>Journal of Visualized Experiments</em>, no. 0. MyJove Corporation.</p>
+</div>
+<div id="ref-Clackson">
+<p>Clackson, T., W. Yang, L. W. Rozamus, M. Hatada, J. F. Amara, C. T. Rollins, L. F. Stevenson, et al. 1998. “Redesigning an FKBP-ligand interface to generate chemical dimerizers with novel specificity.” <em>Proc. Natl. Acad. Sci. U.S.A.</em> 95 (18):10437–42.</p>
 </div>
 </div>
             </section>
