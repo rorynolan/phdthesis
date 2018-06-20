@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Algorithms for the Correction of Photobleaching</title>
   <meta name="description" content="Rory Nolan’s PhD thesis">
-  <meta name="generator" content="bookdown 0.7.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
 
   <meta property="og:title" content="Algorithms for the Correction of Photobleaching" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-15">
+<meta name="date" content="2018-06-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -66,7 +66,11 @@
 <li><a href="./">PhD thesis</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ways-to-read"><i class="fa fa-check"></i>Ways to read</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#apportion-of-credit"><i class="fa fa-check"></i>Apportion of credit</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#confocal-light-microscopy"><i class="fa fa-check"></i><b>1.1</b> Confocal light microscopy</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#intensity-traces"><i class="fa fa-check"></i><b>1.2</b> Intensity traces</a></li>
@@ -114,6 +118,13 @@
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
 <li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a></li>
+<li class="chapter" data-level="4.3" data-path="applications.html"><a href="applications.html#hiv-1-receptor-stoichiometry"><i class="fa fa-check"></i><b>4.3</b> HIV-1 receptor stoichiometry</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="applications.html"><a href="applications.html#expetimental-setup"><i class="fa fa-check"></i><b>4.3.2</b> Expetimental setup</a></li>
+<li class="chapter" data-level="4.3.3" data-path="applications.html"><a href="applications.html#analysis"><i class="fa fa-check"></i><b>4.3.3</b> Analysis</a></li>
+<li class="chapter" data-level="4.3.4" data-path="applications.html"><a href="applications.html#results"><i class="fa fa-check"></i><b>4.3.4</b> Results</a></li>
+<li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -167,44 +178,20 @@
 <h2><span class="header-section-number">2.3</span> My software packages</h2>
 <div id="ijtiff" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> <code>ijtiff</code></h3>
-<pre><code>#&gt; Parsed with column specification:
-#&gt; cols(
-#&gt;   package = col_character(),
-#&gt;   total = col_integer(),
-#&gt;   per_month = col_integer()
-#&gt; )</code></pre>
-<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378 downloads per month which amounts to 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208, 6951, 12002, 3144, 8921, 2208, 2208 since it was first released.</p>
+<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 370 downloads per month which amounts to 2238 since it was first released.</p>
 <p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> This package was peer reviewed and published in 2018.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span></p>
 </div>
 <div id="autothresholdr" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> <code>autothresholdr</code></h3>
-<pre><code>#&gt; Parsed with column specification:
-#&gt; cols(
-#&gt;   package = col_character(),
-#&gt;   total = col_integer(),
-#&gt;   per_month = col_integer()
-#&gt; )</code></pre>
-<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(LANDINI et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378 downloads per month which amounts to 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208, 6951, 12002, 3144, 8921, 2208, 2208 since it was first released.</p>
+<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(LANDINI et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 566 downloads per month which amounts to 8960 since it was first released.</p>
 </div>
 <div id="detrendr" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> <code>detrendr</code></h3>
-<pre><code>#&gt; Parsed with column specification:
-#&gt; cols(
-#&gt;   package = col_character(),
-#&gt;   total = col_integer(),
-#&gt;   per_month = col_integer()
-#&gt; )</code></pre>
-<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378 downloads per month which amounts to 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208, 6951, 12002, 3144, 8921, 2208, 2208 since it was first released.</p>
+<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 403 downloads per month which amounts to 3174 since it was first released.</p>
 </div>
 <div id="filesstrings" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> <code>filesstrings</code></h3>
-<pre><code>#&gt; Parsed with column specification:
-#&gt; cols(
-#&gt;   package = col_character(),
-#&gt;   total = col_integer(),
-#&gt;   per_month = col_integer()
-#&gt; )</code></pre>
-<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span> It gets 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378 downloads per month which amounts to 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208, 6951, 12002, 3144, 8921, 2208, 2208 since it was first released.</p>
+<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span> It gets 761 downloads per month which amounts to 12072 since it was first released.</p>
 </div>
 <div id="exampletestr" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> <code>exampletestr</code></h3>
@@ -213,13 +200,7 @@
 <span id="def:unnamed-chunk-19" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>
 </div>
 
-<pre><code>#&gt; Parsed with column specification:
-#&gt; cols(
-#&gt;   package = col_character(),
-#&gt;   total = col_integer(),
-#&gt;   per_month = col_integer()
-#&gt; )</code></pre>
-<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes unit testing much easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378 downloads per month which amounts to 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208, 6951, 12002, 3144, 8921, 2208, 2208 since it was first released.</p>
+<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes unit testing much easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 461 downloads per month which amounts to 6971 since it was first released.</p>
 
 </div>
 </div>
@@ -233,10 +214,10 @@
 <p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-FIJI">
-<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7): 676–82.</p>
+<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7): 676–82. doi:<a href="https://doi.org/10.1038/nmeth.2019">10.1038/nmeth.2019</a>.</p>
 </div>
 <div id="ref-ImageJ">
-<p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1): 529.</p>
+<p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1): 529. doi:<a href="https://doi.org/10.1186/s12859-017-1934-z">10.1186/s12859-017-1934-z</a>.</p>
 </div>
 <div id="ref-ijtiff">
 <p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “Ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal: 633. doi:<a href="https://doi.org/10.21105/joss.00633">10.21105/joss.00633</a>.</p>
