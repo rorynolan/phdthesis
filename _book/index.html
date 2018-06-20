@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-15">
+<meta name="date" content="2018-06-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -66,7 +66,11 @@
 <li><a href="./">PhD thesis</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ways-to-read"><i class="fa fa-check"></i>Ways to read</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#apportion-of-credit"><i class="fa fa-check"></i>Apportion of credit</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#confocal-light-microscopy"><i class="fa fa-check"></i><b>1.1</b> Confocal light microscopy</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#intensity-traces"><i class="fa fa-check"></i><b>1.2</b> Intensity traces</a></li>
@@ -114,6 +118,13 @@
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
 <li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a></li>
+<li class="chapter" data-level="4.3" data-path="applications.html"><a href="applications.html#hiv-1-receptor-stoichiometry"><i class="fa fa-check"></i><b>4.3</b> HIV-1 receptor stoichiometry</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="applications.html"><a href="applications.html#expetimental-setup"><i class="fa fa-check"></i><b>4.3.2</b> Expetimental setup</a></li>
+<li class="chapter" data-level="4.3.3" data-path="applications.html"><a href="applications.html#analysis"><i class="fa fa-check"></i><b>4.3.3</b> Analysis</a></li>
+<li class="chapter" data-level="4.3.4" data-path="applications.html"><a href="applications.html#results"><i class="fa fa-check"></i><b>4.3.4</b> Results</a></li>
+<li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -140,11 +151,82 @@
 <div id="header">
 <h1 class="title">Algorithms for the Correction of Photobleaching</h1>
 <h4 class="author"><em>Rory Nolan</em></h4>
-<h4 class="date"><em>2018-06-15</em></h4>
+<h4 class="date"><em>2018-06-20</em></h4>
 </div>
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<div id="ways-to-read" class="section level2 unnumbered">
+<h2>Ways to read</h2>
+<p>In my opinion, the best way to read this thesis is on the web at <a href="https://rorynolan.github.io/phdthesis/" class="uri">https://rorynolan.github.io/phdthesis/</a>. If you are reading this on the web now but would like a pdf version, click on the download symbol at the top left of the page (to the right of the <strong>A</strong>) and select PDF.</p>
+</div>
+<div id="apportion-of-credit" class="section level2 unnumbered">
+<h2>Apportion of credit</h2>
+<p>Whilst I have attempted to make it clear throughout what I myself did and did not do in relation to all work mentioned, for clarity I include the following rules of thumb:</p>
+<ul>
+<li>The idea for fluorescence fluctuation spectroscopy (FFS) as the main area of my thesis was Sergi Padilla-Parra’s.</li>
+<li>Molecular biology was done by Maro Iliopoulou and Luis Alvarez.</li>
+<li>Imaging was done by Maro Iliopoulou, Luis Alvarez and Sergi Padilla-Parra.</li>
+<li>The idea that correction for bleaching was the crucial step for FFS analysis was formulated by Luis Alvarez, Sergi Padilla-Parra and I.</li>
+<li>I formulated the solutions for how to correctly correct for bleaching, i.e. the automatic parameter choice and the Robin Hood algorithm.</li>
+<li>I wrote all of the software and maintain all of it.</li>
+<li>All FFS analysis was performed using my software. The software was used to analyse data by Maro Iliopoulou, Luis Alvarez, Sergi Padilla Parra and I.</li>
+<li>On all papers where I am the first listed author, I wrote the paper, taking suggested amendments from other listed authors. The NSMB paper <span class="citation">(Iliopoulou et al. <a href="#ref-HIVstoichiometry">2018</a>)</span> was written by Maro and Sergi; I also made significant contributions to the writing of that manuscript but my main role in that project was in data analysis. In all other papers where I am listed as an author, my role was minor.</li>
+</ul>
+<p>Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral researcher in Sergi’s group and Maro Iliopoulou is a research assistant in Sergi’s group.</p>
+</div>
+<div id="publications" class="section level2 unnumbered">
+<h2>Publications</h2>
+<div id="first-author" class="section level4 unnumbered">
+<h4>First author</h4>
+<ul>
+<li>R. Nolan and S. Padilla-Parra. “filesstrings: An R package for file and
+string manipulation”. In: <em>Journal of Open Source Software</em> 2.14 (2017).</li>
+<li>R. Nolan and S. Padilla-Parra. “exampletestr—An easy start to unit
+testing R packages”. In: <em>Wellcome open research</em> 2 (2017).</li>
+<li>R. Nolan, L. Alvarez, J. Elegheert, et al. “nandb—number and brightness
+in R with a novel automic detrending algorithm”. In: <em>Bioinformatics</em> 33.21
+(2017).</li>
+<li>R. Nolan, M. Iliopoulou, L. Alvarez, et al. “Detecting protein
+aggregation and interactions in live cells: a guide to Number and
+Brightness”. In: <em>Methods</em> (2017).</li>
+<li>R. Nolan and S. Padilla-Parra. “ijtiff: An R package providing TIFF I/O
+for ImageJ users”. In: <em>Journal of Open Source Software</em> 3.23 (2018).</li>
+<li>R. Nolan, L. Alvarez, S. C. Griffiths, et al. “Calibration-Free In-Vitro
+Quantification of Protein Homo-Oligomerization Using Commercial
+Instrumentation and Free, Open Source Brightness Analysis Software”. In:
+<em>Journal of Visualized Experiments</em> 0.0 (2018).</li>
+</ul>
+</div>
+<div id="co-first-author" class="section level4 unnumbered">
+<h4>Co-first author</h4>
+<ul>
+<li>M. Iliopoulou, R. Nolan, L. Alvarez, et al. “A dynamic three step
+mechanism drives the HIV-1 prefusion reaction”. In: <em>Nat. Struct. Mol. Biol.</em>
+0.0 (2018).</li>
+</ul>
+</div>
+<div id="other" class="section level4 unnumbered">
+<h4>Other</h4>
+<ul>
+<li>D. M. Jones, L. A. Alvarez, R. Nolan, et al. “Dynamin-2 stabilizes the
+HIV-1 fusion pore with a low oligomeric state”. In: <em>Cell reports</em> 18.2
+(2017).</li>
+<li>G. M. Jakobsdottir, M. Iliopoulou, R. Nolan, et al. “On the whereabouts
+of HIV-1 cellular entry and its fusion ports”. In: <em>Trends in molecular
+medicine</em> (2017).</li>
+<li>Q. F. Wills, E. Mellado-Gomez, R. Nolan, et al. “The nature and nurture
+of cell heterogeneity: accounting for macrophage gene-environment
+interactions with single-cell RNA-Seq”. In: <em>BMC genomics</em> 18.1 (2017).</li>
+</ul>
 
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-HIVstoichiometry">
+<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer1, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 0 (0).</p>
+</div>
 </div>
             </section>
 
@@ -193,19 +275,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

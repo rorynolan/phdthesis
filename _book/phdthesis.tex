@@ -90,7 +90,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-06-15}
+  \date{2018-06-20}
 
 \usepackage{booktabs}
 
@@ -117,8 +117,121 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter*{Prerequisites}\label{prerequisites}
-\addcontentsline{toc}{chapter}{Prerequisites}
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\section*{Ways to read}\label{ways-to-read}
+\addcontentsline{toc}{section}{Ways to read}
+
+In my opinion, the best way to read this thesis is on the web at
+\url{https://rorynolan.github.io/phdthesis/}. If you are reading this on
+the web now but would like a pdf version, click on the download symbol
+at the top left of the page (to the right of the \textbf{A}) and select
+PDF.
+
+\section*{Apportion of credit}\label{apportion-of-credit}
+\addcontentsline{toc}{section}{Apportion of credit}
+
+Whilst I have attempted to make it clear throughout what I myself did
+and did not do in relation to all work mentioned, for clarity I include
+the following rules of thumb:
+
+\begin{itemize}
+\tightlist
+\item
+  The idea for fluorescence fluctuation spectroscopy (FFS) as the main
+  area of my thesis was Sergi Padilla-Parra's.
+\item
+  Molecular biology was done by Maro Iliopoulou and Luis Alvarez.
+\item
+  Imaging was done by Maro Iliopoulou, Luis Alvarez and Sergi
+  Padilla-Parra.
+\item
+  The idea that correction for bleaching was the crucial step for FFS
+  analysis was formulated by Luis Alvarez, Sergi Padilla-Parra and I.
+\item
+  I formulated the solutions for how to correctly correct for bleaching,
+  i.e.~the automatic parameter choice and the Robin Hood algorithm.
+\item
+  I wrote all of the software and maintain all of it.
+\item
+  All FFS analysis was performed using my software. The software was
+  used to analyse data by Maro Iliopoulou, Luis Alvarez, Sergi Padilla
+  Parra and I.
+\item
+  On all papers where I am the first listed author, I wrote the paper,
+  taking suggested amendments from other listed authors. The NSMB paper
+  \citep{HIVstoichiometry} was written by Maro and Sergi; I also made
+  significant contributions to the writing of that manuscript but my
+  main role in that project was in data analysis. In all other papers
+  where I am listed as an author, my role was minor.
+\end{itemize}
+
+Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral
+researcher in Sergi's group and Maro Iliopoulou is a research assistant
+in Sergi's group.
+
+\section*{Publications}\label{publications}
+\addcontentsline{toc}{section}{Publications}
+
+First author:
+
+\begin{itemize}
+\tightlist
+\item
+  R. Nolan and S. Padilla-Parra. ``filesstrings: An R package for file
+  and string manipulation''. In: \emph{Journal of Open Source Software}
+  2.14 (2017).
+\item
+  R. Nolan and S. Padilla-Parra. ``exampletestr---An easy start to unit
+  testing R packages''. In: \emph{Wellcome open research} 2 (2017).
+\item
+  R. Nolan, L. Alvarez, J. Elegheert, et al. ``nandb---number and
+  brightness in R with a novel automic detrending algorithm''. In:
+  \emph{Bioinformatics} 33.21 (2017).
+\item
+  R. Nolan, M. Iliopoulou, L. Alvarez, et al. ``Detecting protein
+  aggregation and interactions in live cells: a guide to Number and
+  Brightness''. In: \emph{Methods} (2017).
+\item
+  R. Nolan and S. Padilla-Parra. ``ijtiff: An R package providing TIFF
+  I/O for ImageJ users''. In: \emph{Journal of Open Source Software}
+  3.23 (2018).
+\item
+  R. Nolan, L. Alvarez, S. C. Griffiths, et al. ``Calibration-Free
+  In-Vitro Quantification of Protein Homo-Oligomerization Using
+  Commercial Instrumentation and Free, Open Source Brightness Analysis
+  Software''. In: \emph{Journal of Visualized Experiments} 0.0 (2018).
+\end{itemize}
+
+Co-first author:
+
+\begin{itemize}
+\tightlist
+\item
+  M. Iliopoulou, R. Nolan, L. Alvarez, et al. ``A dynamic three step
+  mechanism drives the HIV-1 prefusion reaction''. In: \emph{Nat.
+  Struct. Mol. Biol.} 0.0 (2018).
+\end{itemize}
+
+Other:
+
+\begin{itemize}
+\tightlist
+\item
+  D. M. Jones, L. A. Alvarez, R. Nolan, et al. ``Dynamin-2 stabilizes
+  the HIV-1 fusion pore with a low oligomeric state''. In: \emph{Cell
+  reports} 18.2 (2017).
+\item
+  G. M. Jakobsdottir, M. Iliopoulou, R. Nolan, et al. ``On the
+  whereabouts of HIV-1 cellular entry and its fusion ports''. In:
+  \emph{Trends in molecular medicine} (2017).
+\item
+  Q. F. Wills, E. Mellado-Gomez, R. Nolan, et al. ``The nature and
+  nurture of cell heterogeneity: accounting for macrophage
+  gene-environment interactions with single-cell RNA-Seq''. In:
+  \emph{BMC genomics} 18.1 (2017).
+\end{itemize}
 
 \chapter{Introduction}\label{intro}
 
@@ -607,26 +720,14 @@ best record of the work that I have done.
 
 \subsection{\texorpdfstring{\texttt{ijtiff}}{ijtiff}}\label{ijtiff}
 
-\begin{verbatim}
-#> Parsed with column specification:
-#> cols(
-#>   package = col_character(),
-#>   total = col_integer(),
-#>   per_month = col_integer()
-#> )
-\end{verbatim}
-
 An R package for general purpose TIFF file I/O. This is currently the
 only such package with read and write support for TIFF files with
 floating point (real-numbered) pixels, and the only package that can
 correctly import TIFF files that were saved from \emph{ImageJ}
 \citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
 capability is a basic need for masses of people. \texttt{ijtiff} gets
-377, 465, 765, 408, 570, 377, 465, 765, 408, 570, 377, 466, 766, 409,
-570, 378, 466, 766, 409, 570, 378, 378 downloads per month which amounts
-to 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215,
-6951, 12002, 3144, 8921, 2208, 6951, 12002, 3144, 8921, 2208, 2208 since
-it was first released.
+370 downloads per month which amounts to 2238 since it was first
+released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
 non-profit initiative founded to make scientific data retrieval
@@ -635,55 +736,21 @@ was peer reviewed and published in 2018.\citep{ijtiff}
 
 \subsection{\texorpdfstring{\texttt{autothresholdr}}{autothresholdr}}\label{autothresholdr}
 
-\begin{verbatim}
-#> Parsed with column specification:
-#> cols(
-#>   package = col_character(),
-#>   total = col_integer(),
-#>   per_month = col_integer()
-#> )
-\end{verbatim}
-
 \texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
 \emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570,
-377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378 downloads per
-month which amounts to 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956,
-12014, 3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208, 6951, 12002,
-3144, 8921, 2208, 2208 since it was first released.
+users. It gets 566 downloads per month which amounts to 8960 since it
+was first released.
 
 \subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
-
-\begin{verbatim}
-#> Parsed with column specification:
-#> cols(
-#>   package = col_character(),
-#>   total = col_integer(),
-#>   per_month = col_integer()
-#> )
-\end{verbatim}
 
 \texttt{detrendr} is an R package for detrending images (correcting for
 photobleaching). It provides all detrending algorithms mentioned in
 section \ref{photobleaching-correction}. The detrending is done in C++
 in the background for speed but it is wrapped in an R package for ease
-of use. It gets 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408,
-570, 377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378
-downloads per month which amounts to 3153, 8930, 2215, 6956, 12014,
-3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6951, 12002, 3144,
-8921, 2208, 6951, 12002, 3144, 8921, 2208, 2208 since it was first
-released.
+of use. It gets 403 downloads per month which amounts to 3174 since it
+was first released.
 
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
-
-\begin{verbatim}
-#> Parsed with column specification:
-#> cols(
-#>   package = col_character(),
-#>   total = col_integer(),
-#>   per_month = col_integer()
-#> )
-\end{verbatim}
 
 \texttt{filesstrings} is an R package providing convenient functions for
 moving files, deleting directories, and a variety of string operations
@@ -695,11 +762,8 @@ is often seen. Using file names for metadata like this is a good idea,
 however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible. This
 package was peer reviewed and published in 2017.\citep{filesstrings} It
-gets 765, 408, 570, 377, 465, 765, 408, 570, 377, 465, 765, 408, 570,
-377, 466, 766, 409, 570, 378, 466, 766, 409, 570, 378, 378 downloads per
-month which amounts to 12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930,
-2215, 6956, 12014, 3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208,
-6951, 12002, 3144, 8921, 2208, 2208 since it was first released.
+gets 761 downloads per month which amounts to 12072 since it was first
+released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
@@ -712,15 +776,6 @@ procedures, are tested to determine whether they are fit for
 use.\footnote{\url{https://en.wikipedia.org/wiki/Unit_testing}}
 \EndKnitrBlock{definition}
 
-\begin{verbatim}
-#> Parsed with column specification:
-#> cols(
-#>   package = col_character(),
-#>   total = col_integer(),
-#>   per_month = col_integer()
-#> )
-\end{verbatim}
-
 Unit testing is a tool to verify that software is performing as
 intended. It is a great way to discover bugs in software.
 \texttt{exampletestr} is an R package which makes unit testing much
@@ -728,12 +783,8 @@ easier for R package developers to write unit tests for their packages.
 It helped me to eradicate many bugs in all of my packages.
 Interestingly, \texttt{exampletestr} was used to unit test and eradicate
 bugs in itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 465, 765, 408, 570, 377, 465, 765,
-408, 570, 377, 465, 765, 408, 570, 377, 466, 766, 409, 570, 378, 466,
-766, 409, 570, 378, 378 downloads per month which amounts to 6956,
-12014, 3153, 8930, 2215, 6956, 12014, 3153, 8930, 2215, 6956, 12014,
-3153, 8930, 2215, 6951, 12002, 3144, 8921, 2208, 6951, 12002, 3144,
-8921, 2208, 2208 since it was first released.
+2017.\citep{exampletestr} It gets 461 downloads per month which amounts
+to 6971 since it was first released.
 
 \chapter{Photobleaching Correction}\label{photobleaching-correction}
 
@@ -1457,7 +1508,284 @@ choice of \(\tau=10\) gave a decrease in brightness shows that arbitrary
 parameter choices lead to unpredictable and unreliable results and
 should hence be avoided.
 
-\section{Example two}\label{example-two}
+\section{\texorpdfstring{\emph{In vitro} number and
+brightness}{In vitro number and brightness}}\label{in-vitro-number-and-brightness}
+
+In our research group, we believe that the most practical quantitative
+method for measuring homo-dimerization \emph{in vivo} and \emph{in
+vitro} is N\&B \citep{NB} because it is callibration-free and does not
+require specialised instrumentation. There are many examples of the
+application of N\&B \emph{in vivo} (the original N\&B paper has over 250
+citations, most of which are \emph{in vivo} applications) but none
+\emph{in vitro}. Hence, we published a protocol \citep{JOVE} detailing
+how N\&B can be applied \emph{in vitro}. This time, we used FKBP12F36V
+which is an FKBP mutant with a new dimerizing drug AP20187 (known
+coloquially as the \emph{BB dimerizer}); this pair is designed to have
+better specificity than the original \citep{Clackson}.
+
+In this experiment, the FKBP12F36V was labelled with mVenus. We found
+that the brightness doubled from \(\epsilon = 0.005\) to
+\(\epsilon = 0.010\) upon addition of the drug. See figure
+\ref{fig:jove}. This analysis was done with exponential smoothing
+detrending with automatically chosen parameter \(\tau\). Without
+detrending, the pre-BB brightness was calculated as
+\(\epsilon = 0.026\), showing that detrending is absolutely necessary
+and that neglecting this step can lead to nonsensical results.
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/jove-dimerization} \hfill{}
+
+\caption{Dimerization of FKBP12F36V upon BB addition is seen
+by a brightness doubling from \(\epsilon = 0.005\) to
+\(\epsilon = 0.010\) over a period of minutes.}\label{fig:jove}
+\end{figure}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remark. } \fi{} This paper also included an important
+correction to the equation for brightness \(\epsilon\) when analog
+equipment is used. The correct equation is
+
+\begin{equation}
+\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})}
+\label{eq:dalaleq}
+\end{equation}
+
+The \(S\) in the denominator was omitted in the original paper
+\citep{Dalal} and this error was reproduced in our N\&B review
+\citep{NBreview}.
+\EndKnitrBlock{remark}
+
+\section{HIV-1 receptor
+stoichiometry}\label{hiv-1-receptor-stoichiometry}
+
+\subsection{Introduction}\label{introduction}
+
+Our main motivation for studying N\&B in the first place was that we
+thought it was a valuable method to study the process of HIV-1 fusion in
+live cells. N\&B was first used in our research group to study the
+oligomeric state of dynamin at the HIV-1 fusion pore in TZM-bl cells
+\citep{DanDynamin}. This study concluded that dynamin-2 stabilizes the
+HIV-1 fusion pore with a low oligomeric state.
+
+Following on from this, we wanted to study the stoichiometry of the
+interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or
+CXCR4) upon the engagement of the virus with the cell and to follow this
+interaction stoichiometry up to the point of fusion. See figure
+\ref{fig:HIVStoichiometrySetup}. See \citet{Jakobsdottir} for a review
+of HIV-1 fusion.
+
+\begin{quote}
+Entry of HIV-1 into a host cell requires an initial interaction between
+the viral-envelope glycoprotein spike complex---Env---with cell surface
+displayed CD4 and co receptors \citep{Jakobsdottir}. Although structural
+studies have revealed the intra-molecular basis for CD4 receptor and
+CXCR4/CCR5 co-receptor-induced conformational changes to the HIV-1 Env
+during host cell entry \citep{Ozorowski}, little is known about how the
+inter-molecular dynamics and stoichiometry of this process culminates in
+fusion with the host cell membrane in live cells \citep{Brandenberg}.
+This is due to the difficulty of working with live cells and the lack of
+temporal resolution of the techniques commonly employed
+(i.e.~crystallography and cryo-EM).
+
+--- \citet{HIVstoichiometry}
+\end{quote}
+
+
+
+
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometrySetup} \hfill{}
+
+\caption{The HIV-1 envelope glycoprotein Env
+must bind the receptor (CD4) and form a complex with the co-receptor
+(CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to
+initiate the fusion process. Labelling the viral Gag protein with
+mCherry, the receptor with mTFP1 and the co-recptor with mOrange, it is
+possible to follow these three players in the fusion reaction and to
+quantify their interaction.}\label{fig:HIVStoichiometrySetup}
+\end{figure}
+
+We saw N\&B as the ideal technique to probe this stoichiometry
+temporally. With our microscope, we could acquire 100 frames per 1.7
+minutes, therefore, using each consecutive sequence of 100 frames to
+create a brightness image, we could obtain 1 brightness image every 1.7
+minutes and use this to calculate this temporal stoichiometry.
+
+\subsection{Expetimental setup}\label{expetimental-setup}
+
+Receptor (mOrange) and co-receptor (mTFP1) were labelled in Cos7 cells.
+Virus was added at time \(t=0\) and imaging proceeded for a number of
+minutes at 100 frames per 1.7 minutes. Alternating laser excitation
+(ALEX, \citet{ALEX}) was used to eliminate the possibility of channel
+bleed-through. See figure \ref{fig:HIVStoichiometryIntensity}.
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryIntensity} \hfill{}
+
+\caption{Intensity images from the virus,
+receptor and co-receptor. Every 100th frame is shown. A virus which
+lands at \(t \approx 1.7\) minutes is highlighted.}\label{fig:HIVStoichiometryIntensity}
+\end{figure}
+
+\subsection{Analysis}\label{analysis}
+
+The virus channel was used to locate the virus at a given point in time.
+The receptor and co-receptor were used to calculate brightness and
+cross-correlated brightness every 100 frames (every 1.7 min). The
+brightness was used to tell the number of receptor and co-receptor units
+involved in a complex. The cross-correlated brightness was used to
+delimit whether or not the receptor and co-receptor units were together
+in the \emph{same} complex. See figure
+\ref{fig:HIVStoichiometryAnalysis}, this is the corresponding brightness
+and cross-correlated brightness image of figure
+\ref{fig:HIVStoichiometryIntensity}. Notice that once the virus lands,
+the oligomeric state of the receptor and co-receptor increases. We also
+see significant positive cross-correlated brightness in this area,
+indicating that the virus has triggered a complex of receptor and
+co-receptor.
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryAnalysis} \hfill{}
+
+\caption{Brightness images of receptor and
+co-receptor and cross-correlated brightness image of the interaction
+between the two.}\label{fig:HIVStoichiometryAnalysis}
+\end{figure}
+
+\subsection{Results}\label{results}
+
+Figure \ref{fig:HIVStoichiometryPlots} shows the results of the analysis
+detailed in figures \ref{fig:HIVStoichiometryIntensity} and
+\ref{fig:HIVStoichiometryAnalysis} for \(n=10\) cases where virus
+triggered receptor and co-receptor complexes in the X4-tropic setting
+and \(n=12\) in the R5-tropic setting. A three-step pre-fusion process
+is hypothesized for each.
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=0.47\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/X4plot} \includegraphics[width=0.47\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/R5plot} \hfill{}
+
+\caption{Number of receptor and co-receptor
+units involved in complexes with virus over time, obtained by brightness
+analysis.}\label{fig:HIVStoichiometryPlots}
+\end{figure}
+
+\begin{quote}
+Our studies support a dynamic three step model for both
+HIV\textsubscript{HXB2} and HIV\textsubscript{JR-FL} (figure
+\ref{fig:HIVStoichiometryPlots}). For X4 tropic virions, Env -- CD4
+interactions induce CXCR4 dimerization, CD4 then engages with two Env, -
+as shown by 3 color TIRF-dSTORM microscopy - to generate a hexamer that
+might serve as a scaffold to stabilise a final 4CD4 -- 1/2CXCR4
+conformation, with a single Env. We speculate that for HIVHXB2, step 2
+is crucial to culminate the fusion reaction and there could be an
+anchoring domain and a fusion domain that undergoes gp120 disassembly
+leading to 6 helix bundle formation. For R5 tropic virions, Env -- CD4
+interactions form a the previously described asymmetric pre-hairpin
+intermediate; following binding and oligomerisation of 2 additional CD4
+molecules with concomitant CCR5 dimerization. After this, the secondary
+intermediate leads to the final fusion competent complex with a total of
+\(4\pm0.3\) CD4, \(2 \pm 0.3\) CCR5 and 1 JR-FL Env.
+
+--- \citet{HIVstoichiometry}
+\end{quote}
+
+For the X4-tropic case, some structural modelling of the hypothesis has
+been done. See figure \ref{fig:HIVStoichiometryStructure}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryStructure} \hfill{}
+
+\caption{The HIV-1 JR-FL Env glycoprotein
+(Blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. STEP
+1: The initial attachment of the cognate host receptor, CD4 (Orange) to
+HIV-1 Env (PDB: 5VN3) forms an asymmetric pre-hairpin intermediate. STEP
+2: Subsequent binding and oligomerisation of additional CD4 molecules on
+the trimer forms the secondary intermediate. STEP 3: The formation of
+this penultimate intermediate allows binding and dimerization of CCR5
+co-receptors (green) results in the final fusion competent complex, with
+a total of 4 CD4 and 2 CCR5 molecules bound to a single HIV-1 Env
+trimer. b, Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4
+(red dots) induced by HIVHXB2--Gag-iCherry virions. The HIV-1 Env
+glycoprotein is present as a trimer on the mature virion. Cognate host
+receptors, CD4 and CXCR4, exist as monomers and dimers on the cell
+surface prior to receptor recognition. The gp120 and gp41 subunits of
+the Env spike are colored light and dark blue, respectively. CD4 is
+colored orange. Attachment of the HIV-1 Env spike induces the formation
+of CXCR4 dimers (STEP 1) also seen in the literature \citep{DoKwon}. CD4
+clustering is likely facilitated by homodimerisation in the cytoplasmic
+domain, which enables cross-linking of at least two Env trimers (STEP 2)
+also seen in the literature \citep{Brandenberg2015}. Normal brightness
+analysis reveals the limited degradation of these higher order receptor
+clusters over time (2 -- 5 mins). We hypothesize that 1 Env plays the
+role of the anchoring and signaling domain whilst the other constitutes
+the fusion domain. Disassembly of gp12042 in the fusion domain inciates
+the six helix bundle formation (STEP 3) and leads to the final 4CD4 --
+2CXCR4 conformation in the anchoring domain. (gp120: light blue, gp41:
+dark blue, CD4: orange, CXCR4: green, b12: yellow)}\label{fig:HIVStoichiometryStructure}
+\end{figure}
+
+\subsection{Conclusion}\label{conclusion}
+
+Time-resolved N\&B enabled us to answer questions about the interaction
+between the HIV-1 virus and its receptor and co-receptor in live cells
+which up to now could not be answered. Being able to correctly correct
+for bleaching is crucial for reliable N\&B analysis, so the development
+of these new algorithms was crucial to this study.
 
 \chapter{Final Words}\label{final-words}
 

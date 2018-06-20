@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-15">
+<meta name="date" content="2018-06-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -66,7 +66,11 @@
 <li><a href="./">PhD thesis</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ways-to-read"><i class="fa fa-check"></i>Ways to read</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#apportion-of-credit"><i class="fa fa-check"></i>Apportion of credit</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#confocal-light-microscopy"><i class="fa fa-check"></i><b>1.1</b> Confocal light microscopy</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#intensity-traces"><i class="fa fa-check"></i><b>1.2</b> Intensity traces</a></li>
@@ -114,6 +118,13 @@
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
 <li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a></li>
+<li class="chapter" data-level="4.3" data-path="applications.html"><a href="applications.html#hiv-1-receptor-stoichiometry"><i class="fa fa-check"></i><b>4.3</b> HIV-1 receptor stoichiometry</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="applications.html"><a href="applications.html#expetimental-setup"><i class="fa fa-check"></i><b>4.3.2</b> Expetimental setup</a></li>
+<li class="chapter" data-level="4.3.3" data-path="applications.html"><a href="applications.html#analysis"><i class="fa fa-check"></i><b>4.3.3</b> Analysis</a></li>
+<li class="chapter" data-level="4.3.4" data-path="applications.html"><a href="applications.html#results"><i class="fa fa-check"></i><b>4.3.4</b> Results</a></li>
+<li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -280,7 +291,7 @@ l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series d
 </div>
 <div id="exponential-smoothing-detrending" class="section level2">
 <h2><span class="header-section-number">3.6</span> Exponential smoothing detrending</h2>
-<p><em>Exponential smoothing</em> is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a> The weights fall off with distance <span class="math inline">\(|t|\)</span> from the point of interest according to <span class="math inline">\(\exp(-\frac{|t|}{\tau})\)</span> where the parameter <span class="math inline">\(\tau\)</span> is a positive real number. This function is visualized in figure (fig:exp-smooth-func). For small values of <span class="math inline">\(\tau\)</span>, only values very close to the point of interest have importance when calculating the local average. For larger values of <span class="math inline">\(\tau\)</span>, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of <span class="math inline">\(\tau\)</span> has a similar effect to increasing the value of <span class="math inline">\(l\)</span> for the boxcar in that farther away points are taken into account.</p>
+<p><em>Exponential smoothing</em> is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> The weights fall off with distance <span class="math inline">\(|t|\)</span> from the point of interest according to <span class="math inline">\(\exp(-\frac{|t|}{\tau})\)</span> where the parameter <span class="math inline">\(\tau\)</span> is a positive real number. This function is visualized in figure (fig:exp-smooth-func). For small values of <span class="math inline">\(\tau\)</span>, only values very close to the point of interest have importance when calculating the local average. For larger values of <span class="math inline">\(\tau\)</span>, further values also have importance (but closer values always have higher rates). In this sense, increasing the value of <span class="math inline">\(\tau\)</span> has a similar effect to increasing the value of <span class="math inline">\(l\)</span> for the boxcar in that farther away points are taken into account.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:exp-smooth-func"></span>
 <img src="phdthesis_files/figure-html/exp-smooth-func-1.png" alt="The function \(\exp(-\frac{|t|}{\tau})\) visualised with \(\tau = 3\) and \(\tau = 9\). For \(\tau = 3\), points at distance \(|t| = 10\) have approximately zero weight, whereas for \(\tau = 9\), these points have significant weight." width="100%" />
@@ -313,7 +324,7 @@ Figure 3.11: The original intensity trace is shown in the top-left. The other pa
 </div>
 <div id="caveats-of-fitting-and-smoothing-approaches-to-detrending" class="section level2">
 <h2><span class="header-section-number">3.8</span> Caveats of fitting and smoothing approaches to detrending</h2>
-<p>Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities—where most pixel values are either 0 or 1—are quasi-binary<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a> and hence a continuous approximation does not make sense (see figure <a href="photobleaching-correction.html#fig:fit-smooth-caveats">3.12</a>). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities.</p>
+<p>Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities—where most pixel values are either 0 or 1—are quasi-binary<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a> and hence a continuous approximation does not make sense (see figure <a href="photobleaching-correction.html#fig:fit-smooth-caveats">3.12</a>). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:fit-smooth-caveats"></span>
 <img src="phdthesis_files/figure-html/fit-smooth-caveats-1.png" alt="Left: for high (\(\gg 1\)) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well." width="49%" /><img src="phdthesis_files/figure-html/fit-smooth-caveats-2.png" alt="Left: for high (\(\gg 1\)) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well." width="49%" />
@@ -355,7 +366,7 @@ Figure 3.14: Robin Hood: counts are taken from frames of higher intensity (usual
 <li>Detrend the bleached image series.</li>
 <li>Evaluate the detrending algorithm by measuring how close the brightness of the detrended bleached image series is to the known simulated brightness.</li>
 </ol>
-<p>For all combinations of brightnesses of <span class="math inline">\(\epsilon = 0.001, 0.01, 0.1, 1, 10\)</span> and bleaching fractions of 0%, 1%, 5%, 10%, 15%, 20%, 25%, 30%, 20 images of 64x64 pixels and 5,000 frames were simulated using 100,000 fluorescent diffusing particles.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> These were detrended with the following detrending routines:<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p>
+<p>For all combinations of brightnesses of <span class="math inline">\(\epsilon = 0.001, 0.01, 0.1, 1, 10\)</span> and bleaching fractions of 0%, 1%, 5%, 10%, 15%, 20%, 25%, 30%, 20 images of 64x64 pixels and 5,000 frames were simulated using 100,000 fluorescent diffusing particles.<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> These were detrended with the following detrending routines:<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a></p>
 <ol style="list-style-type: decimal">
 <li>Boxcar with <span class="math inline">\(l = 10\)</span> (<code>boxcar10</code>, the most common detrending routine).</li>
 <li>Exponential smoothing with automatically chosen parameter <span class="math inline">\(\tau\)</span> (<code>autotau</code>).</li>
@@ -364,8 +375,7 @@ Figure 3.14: Robin Hood: counts are taken from frames of higher intensity (usual
 <p>The performance was evaluated using the <em>mean relative error</em>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-25" class="definition"><strong>Definition 3.5  </strong></span>
-For a given brightness and bleaching fraction,</p>
+<p><span id="def:unnamed-chunk-25" class="definition"><strong>Definition 3.5  </strong></span> For a given brightness and bleaching fraction,</p>
 <span class="math display" id="eq:mean-relative-error">\[\begin{equation}
 \text{mean relative error } = \frac{|(\text{calculated brightness after detrending}) - (\text{true brightness})|}{(\text{true brightness})}
 \tag{3.4}
@@ -388,25 +398,25 @@ Figure 3.15: A comparison of different detrending methods with various brightnes
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-polynomial">
-<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). [Wiley, Econometric Society]:737–44. <a href="http://www.jstor.org/stable/1911686" class="uri">http://www.jstor.org/stable/1911686</a>.</p>
+<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). JSTOR: 737. doi:<a href="https://doi.org/10.2307/1911686">10.2307/1911686</a>.</p>
 </div>
 <div id="ref-SimFCS">
 <p>Laboratory for Fluorescence Dynamics. 2018. <em>Globals for Images: SimFCS 4</em>. <em>University of California, Irvine</em>. <a href="http://www.lfd.uci.edu/globals/" class="uri">http://www.lfd.uci.edu/globals/</a>.</p>
 </div>
 <div id="ref-NB">
-<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32.</p>
+<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6): 2320–32. doi:<a href="https://doi.org/10.1529/biophysj.107.114645">10.1529/biophysj.107.114645</a>.</p>
 </div>
 <div id="ref-nandb">
-<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press:3508–10.</p>
+<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press: 3508–10. doi:<a href="https://doi.org/10.1093/bioinformatics/btx434">10.1093/bioinformatics/btx434</a>.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="22">
-<li id="fn22"><p><a href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean" class="uri">https://en.wikipedia.org/wiki/Weighted_arithmetic_mean</a><a href="photobleaching-correction.html#fnref22" class="footnote-back">↩</a></p></li>
-<li id="fn23"><p>By <em>quasi-binary</em>, I just mean that almost all values are 0 or 1.<a href="photobleaching-correction.html#fnref23" class="footnote-back">↩</a></p></li>
-<li id="fn24"><p>The simulation took 3 weeks.<a href="photobleaching-correction.html#fnref24" class="footnote-back">↩</a></p></li>
-<li id="fn25"><p>The detrending took 2 weeks.<a href="photobleaching-correction.html#fnref25" class="footnote-back">↩</a></p></li>
+<li id="fn22"><p><a href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean" class="uri">https://en.wikipedia.org/wiki/Weighted_arithmetic_mean</a><a href="photobleaching-correction.html#fnref22">↩</a></p></li>
+<li id="fn23"><p>By <em>quasi-binary</em>, I just mean that almost all values are 0 or 1.<a href="photobleaching-correction.html#fnref23">↩</a></p></li>
+<li id="fn24"><p>The simulation took 3 weeks.<a href="photobleaching-correction.html#fnref24">↩</a></p></li>
+<li id="fn25"><p>The detrending took 2 weeks.<a href="photobleaching-correction.html#fnref25">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -461,7 +471,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

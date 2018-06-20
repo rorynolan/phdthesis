@@ -62,12 +62,11 @@ get_downloads <- function(pkg) {
     } else {
       write_csv(out, pd_path)
     }
-  } else {
-    read_csv(pd_path) %>% 
-      filter(package == pkg) %>% 
-      slice(1) %>% 
-      mutate_if(is.numeric, format, scientific = FALSE)
   }
+  suppressMessages(read_csv(pd_path)) %>% 
+    filter(package == pkg) %>% 
+    slice(1) %>% 
+    mutate_if(is.numeric, format, scientific = FALSE)
 }
 ijtiff_downloads <- get_downloads("ijtiff")
 ```

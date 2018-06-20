@@ -278,7 +278,11 @@ In figure \@ref(fig:tau-values), exponential smoothing with different parameters
 (ref:tau-values-caption) The original intensity trace is shown in the top-left. The other panels show the result of exponential smoothing for $\tau = 1, 3, 75, 300$ and $1000$. 
 
 ```{r tau-values, fig.cap='(ref:tau-values-caption)', echo=FALSE}
-df_exp_fit_bleach %>% 
+tau_values_df_rds_path <- here("misc", "tau_values_df.RDS")
+if (file.exists(tau_values_df_rds_path)) {
+  tau_values_df <- readRDS(tau_values_df_rds_path)
+} else {
+  tau_values_df <- df_exp_fit_bleach %>% 
   spread(line, intensity_value) %>% 
   clean_names() %>% 
   select(-exponential_fit) %>% 
@@ -293,8 +297,10 @@ df_exp_fit_bleach %>%
            str_replace("tau", "tau = ") %>% 
            if_else(str_detect(., "="), str_c("$\\", ., "$"), .) %>% 
            TeX("char")) %>% 
-  mutate(line = as_factor(line)) %>% 
-  ggplot() + aes(time, intensity) + geom_line() +
+  mutate(line = as_factor(line))
+  saveRDS(tau_values_df, tau_values_df_rds_path)
+}
+ggplot(tau_values_df) + aes(time, intensity) + geom_line() +
   facet_wrap(~ line, nrow = 2, labeller = label_parsed)
 ```
 
