@@ -42,7 +42,7 @@ df_intensity_trace <- tibble(time = seq_len(100),
                                                               rep(0.7, 40), 
                                                               rep(0, 30)))) 
 p <- ggplot(df_intensity_trace) + aes(time, intensity) + 
-  geom_bar(stat = "identity") + ylab("time (ms)")
+  geom_bar(stat = "identity") + xlab("time (ms)")
 ggsave(cvp_png, p, width = 2, height = 1.5)
 include_graphics(c(here("img", "confocal_volume_particle.png"), cvp_png))
 ```

@@ -73,7 +73,7 @@ ijtiff_downloads <- get_downloads("ijtiff")
 
 An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from _ImageJ_ [@ImageJ]. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. `ijtiff` gets `r ijtiff_downloads$per_month` downloads per month which amounts to `r ijtiff_downloads$total` since it was first released.
 
-This package is part of the _rOpenSci_ project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.^[https://ropensci.org/about] This package was peer reviewed and published in 2018.[@ijtiff]
+This package is part of the _rOpenSci_ project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.^[https://ropensci.org/about] This package was peer reviewed and published [@ijtiff].
 
 
 ### `autothresholdr`
@@ -101,7 +101,7 @@ detrendr_downloads <- get_downloads("detrendr")
 filesstrings_downloads <- get_downloads("filesstrings")
 ```
 
-`filesstrings` is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like `well1_cell1_before_drug_addition.tif` is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published in 2017.[@filesstrings] It gets `r filesstrings_downloads$per_month` downloads per month which amounts to `r filesstrings_downloads$total` since it was first released.
+`filesstrings` is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like `well1_cell1_before_drug_addition.tif` is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published [@filesstrings]. It gets `r filesstrings_downloads$per_month` downloads per month which amounts to `r filesstrings_downloads$total` since it was first released.
 
 
 

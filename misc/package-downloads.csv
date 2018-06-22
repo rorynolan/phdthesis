@@ -1,5 +1,10 @@
 package,total,per_month
-exampletestr,6971,461
+exampletestr,6975,461
+filesstrings,12086,760
+detrendr, 3179,401
+autothresholdr, 8965,565
+ijtiff, 2244,369
+exampletestr, 6971,461
 filesstrings,12072,761
 detrendr, 3174,403
 autothresholdr, 8960,566

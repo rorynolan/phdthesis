@@ -77,6 +77,8 @@ Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral researcher 
 
 ## Publications {-}
 
+I hereby list my publications. It is common to do this at the end of a thesis, but I will be referring to these papers frequently, so I think it useful to highlight them here at the start. These can all be downloaded from https://github.com/rorynolan/phdthesis/tree/master/papers, where the naming convention is `JournalYEAR.pdf`.
+
 #### First author {-}
 
 * R. Nolan and S. Padilla-Parra. "filesstrings: An R package for file and
@@ -104,8 +106,8 @@ mechanism drives the HIV-1 prefusion reaction". In: _Nat. Struct. Mol. Biol._
 
 #### Other {-}
 
-* D. M. Jones, L. A. Alvarez, R. Nolan, et al. “Dynamin-2 stabilizes the
-HIV-1 fusion pore with a low oligomeric state”. In: _Cell reports_ 18.2
+* D. M. Jones, L. A. Alvarez, R. Nolan, et al. "Dynamin-2 stabilizes the
+HIV-1 fusion pore with a low oligomeric state". In: _Cell reports_ 18.2
 (2017).
 * G. M. Jakobsdottir, M. Iliopoulou, R. Nolan, et al. "On the whereabouts
 of HIV-1 cellular entry and its fusion ports". In: _Trends in molecular
