@@ -1,3 +1,13 @@
-# Final Words
+# Future plans
 
-We have finished a nice book.
+
+## Robin Hood publication
+
+The _Robin Hood_ algorithm is already incorporated in the R package `detrendr` but it hasn't been published or peer-reviewed. Getting this done is my top priority.
+
+
+## Translate software to _ImageJ_
+
+Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms. I will code my detrending algorithms as _ImageJ_ plugins (and perhaps also as python modules) so that more of the community have easy access to them.
+
+

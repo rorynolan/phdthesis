@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-21">
+<meta name="date" content="2018-06-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -126,7 +126,10 @@
 <li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="5" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>5</b> Future plans</a><ul>
+<li class="chapter" data-level="5.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>5.1</b> Robin Hood publication</a></li>
+<li class="chapter" data-level="5.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>5.2</b> Translate software to <em>ImageJ</em></a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -151,7 +154,7 @@
 <div id="header">
 <h1 class="title">Algorithms for the Correction of Photobleaching</h1>
 <h4 class="author"><em>Rory Nolan</em></h4>
-<h4 class="date"><em>2018-06-21</em></h4>
+<h4 class="date"><em>2018-06-23</em></h4>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -161,7 +164,7 @@
 </div>
 <div id="apportion-of-credit" class="section level2 unnumbered">
 <h2>Apportion of credit</h2>
-<p>Whilst I have attempted to make it clear throughout what I myself did and did not do in relation to all work mentioned, for clarity I include the following rules of thumb:</p>
+<p>Whilst I have attempted to make it clear throughout what I myself did and did not do in relation to all work mentioned, for clarity I include the following reliable rules of thumb:</p>
 <ul>
 <li>The idea for fluorescence fluctuation spectroscopy (FFS) as the main area of my thesis was Sergi Padilla-Parra’s.</li>
 <li>Molecular biology was done by Maro Iliopoulou and Luis Alvarez.</li>
@@ -170,7 +173,7 @@
 <li>I formulated the solutions for how to correctly correct for bleaching, i.e. the automatic parameter choice and the Robin Hood algorithm.</li>
 <li>I wrote all of the software and maintain all of it.</li>
 <li>All FFS analysis was performed using my software. The software was used to analyse data by Maro Iliopoulou, Luis Alvarez, Sergi Padilla Parra and I.</li>
-<li>On all papers where I am the first listed author, I wrote the paper, taking suggested amendments from other listed authors. The NSMB paper <span class="citation">(Iliopoulou et al. <a href="#ref-HIVstoichiometry">2018</a>)</span> was written by Maro and Sergi; I also made significant contributions to the writing of that manuscript but my main role in that project was in data analysis. In all other papers where I am listed as an author, my role was minor.</li>
+<li>On all papers where I am the first listed author, I wrote the paper, taking suggested amendments and augmentation from other listed authors. The NSMB paper <span class="citation">(Iliopoulou et al. <a href="#ref-HIVstoichiometry">2018</a>)</span> was written by Maro and Sergi; I also made significant contributions to the writing of that manuscript but my main role in that project was in data analysis. In all other papers where I am listed as an author, my role was minor.</li>
 </ul>
 <p>Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral researcher in Sergi’s group and Maro Iliopoulou is a research assistant in Sergi’s group.</p>
 </div>
@@ -276,6 +279,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -17,6 +17,9 @@ linestretch: 2
 description: "Rory Nolan's PhD thesis"
 ---
 
+
+# Preface {-}
+
 ```{r load-pkgs, include=FALSE}
 # The dev version of latex2exp is needed
 pkgs <- c("tidyverse", "forcats", "magrittr", "ijtiff", "cranlogs", "lubridate",
@@ -51,9 +54,6 @@ move_to_groups_folder <- function() {
 ```
 
 
-# Preface {-}
-
-
 ## Ways to read {-}
 
 In my opinion, the best way to read this thesis is on the web at https://rorynolan.github.io/phdthesis/. If you are reading this on the web now but would like a pdf version, click on the download symbol at the top left of the page (to the right of the __A__) and select PDF.
@@ -61,7 +61,7 @@ In my opinion, the best way to read this thesis is on the web at https://rorynol
 
 ## Apportion of credit {-}
 
-Whilst I have attempted to make it clear throughout what I myself did and did not do in relation to all work mentioned, for clarity I include the following rules of thumb:
+Whilst I have attempted to make it clear throughout what I myself did and did not do in relation to all work mentioned, for clarity I include the following reliable rules of thumb:
 
 * The idea for fluorescence fluctuation spectroscopy (FFS) as the main area of my thesis was Sergi Padilla-Parra's.
 * Molecular biology was done by Maro Iliopoulou and Luis Alvarez.
@@ -70,7 +70,7 @@ Whilst I have attempted to make it clear throughout what I myself did and did no
 * I formulated the solutions for how to correctly correct for bleaching, i.e. the automatic parameter choice and the Robin Hood algorithm.
 * I wrote all of the software and maintain all of it.
 * All FFS analysis was performed using my software. The software was used to analyse data by Maro Iliopoulou, Luis Alvarez, Sergi Padilla Parra and I. 
-* On all papers where I am the first listed author, I wrote the paper, taking suggested amendments from other listed authors. The NSMB paper [@HIVstoichiometry] was written by Maro and Sergi; I also made significant contributions to the writing of that manuscript but my main role in that project was in data analysis. In all other papers where I am listed as an author, my role was minor.
+* On all papers where I am the first listed author, I wrote the paper, taking suggested amendments and augmentation from other listed authors. The NSMB paper [@HIVstoichiometry] was written by Maro and Sergi; I also made significant contributions to the writing of that manuscript but my main role in that project was in data analysis. In all other papers where I am listed as an author, my role was minor.
 
 Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral researcher in Sergi's group and Maro Iliopoulou is a research assistant in Sergi's group.  
 

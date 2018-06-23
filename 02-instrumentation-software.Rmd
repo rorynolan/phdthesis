@@ -14,12 +14,12 @@ These images were acquired by Luis Alvarez (postdoctoral researcher), Maro Iliop
 
 ### C++
 
-_C++_ [@cpp] is a genaral-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.^[https://en.wikipedia.org/wiki/C%2B%2B] I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important issue.
+_C++_ [@cpp] is a genaral-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.^[https://en.wikipedia.org/wiki/C%2B%2B] I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important consideration.
 
 
 ### R 
 
-_R_ [@R] is a programming language and free software environment for statistical computing and graphics.^[https://en.wikipedia.org/wiki/R_(programming_language)] I use R primarily as a wrapper for my C++ code to make my algorithms more user-friendly. R is best used with the RStudio integrated development environment. 
+_R_ [@R] is a programming language and free software environment for statistical computing and graphics.^[https://en.wikipedia.org/wiki/R_(programming_language)] I use R primarily as a wrapper for my C++ code to make my algorithms more user-friendly. R is best used with the _RStudio_ integrated development environment.^[https://www.rstudio.com]
 
 
 ### ImageJ
@@ -116,6 +116,6 @@ _Unit testing_ is a software testing method by which individual units of source 
 exampletestr_downloads <- get_downloads("exampletestr")
 ```
 
-Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. `exampletestr` is an R package which makes unit testing much easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, `exampletestr` was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.[@exampletestr] It gets `r exampletestr_downloads$per_month` downloads per month which amounts to `r exampletestr_downloads$total` since it was first released.
+Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. `exampletestr` is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, `exampletestr` was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.[@exampletestr] It gets `r exampletestr_downloads$per_month` downloads per month which amounts to `r exampletestr_downloads$total` since it was first released.
 
 
