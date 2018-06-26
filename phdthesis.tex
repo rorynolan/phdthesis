@@ -91,7 +91,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-06-22}
+    \date{2018-06-26}
 
 \usepackage{booktabs}
 
@@ -136,7 +136,7 @@ PDF.
 
 Whilst I have attempted to make it clear throughout what I myself did
 and did not do in relation to all work mentioned, for clarity I include
-the following rules of thumb:
+the following reliable rules of thumb:
 
 \begin{itemize}
 \tightlist
@@ -162,11 +162,11 @@ the following rules of thumb:
   Parra and I.
 \item
   On all papers where I am the first listed author, I wrote the paper,
-  taking suggested amendments from other listed authors. The NSMB paper
-  \citep{HIVstoichiometry} was written by Maro and Sergi; I also made
-  significant contributions to the writing of that manuscript but my
-  main role in that project was in data analysis. In all other papers
-  where I am listed as an author, my role was minor.
+  taking suggested amendments and augmentation from other listed
+  authors. The NSMB paper \citep{HIVstoichiometry} was written by Maro
+  and Sergi; I also made significant contributions to the writing of
+  that manuscript but my main role in that project was in data analysis.
+  In all other papers where I am listed as an author, my role was minor.
 \end{itemize}
 
 Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral
@@ -293,8 +293,7 @@ light upon light excitation.\footnote{\url{https://en.wikipedia.org/wiki/Fluorop
 \EndKnitrBlock{definition}
 
 Fluorophores under constant excitation emit light one photon at a time
-according to a poisson statistics\footnote{\url{https://en.wikipedia.org/wiki/Poisson_distribution}}
-with some poisson rate.
+according to poisson statistics.\footnote{\url{https://en.wikipedia.org/wiki/Poisson_distribution}}
 
 Consider figure \ref{fig:confocal-volume-particle}. A fluorophore enters
 the confocal volume, is excited there and emits photons which are
@@ -364,8 +363,8 @@ N &= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} \lab
 B &= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon \label{eq:NB1-2}
 \end{align}
 
-where \(N\) and \(B\) are referred to as the ``apparent number'' and
-``apparent brightness'' respectively. This gives
+where \(N\) and \(B\) are referred to as the \emph{apparent number} and
+\emph{apparent brightness} respectively. This gives
 
 \begin{align}
 \epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 \label{eq:NB2-1} \\
@@ -451,7 +450,7 @@ distributions have variance equal to mean, this implies \(\sigma^2\) =
 \(B = \frac{\sigma^2}{\langle I \rangle} = 1\).
 
 The N\&B technique is fraught with technical difficulties. Principal of
-these is the problem of photobleaching. Much of my PhD focussed on
+these is the problem of photobleaching. Most of my PhD focussed on
 corrections for photobleaching. This is discussed in chapter
 \ref{photobleaching-correction}.
 
@@ -559,7 +558,8 @@ volume. The convenience of the statistics definitions is that there,
 correlations are guaranteed to be in \([-1, 1]\), with \(0\)
 representing no correlation, \(1\) perfect positive correlation and
 \(-1\) perfect negative correlation; this is lost with the FCS
-definitions.
+definitions: 0 still represents no correlation, but correlation values
+are no longer bounded, so the ideas of perfect correlation are lost.
 
 I felt it necessary to provide these definitions for two reasons:
 
@@ -574,37 +574,66 @@ I felt it necessary to provide these definitions for two reasons:
   In FCS, it's very common for people to mistake correlation for
   cross-correlation. This is unfortunate, but knowing about this common
   mistake is essential for navigating the field in a sensible manner. It
-  seems that when people in the field correlate the signals from two
-  separate channels, the use the term \emph{cross}-correlation, even
+  seems that when people in the FCS field correlate the signals from two
+  separate channels, they use the term \emph{cross}-correlation, even
   though they're only using correlation. I think the idea of working
   \emph{across} two or more channels (and ideas such as
   \emph{cross}-talk) leads to this confustion.
 \end{enumerate}
 
-Henceforth, the FCS defintions of these quantities will be assumed.
+\BeginKnitrBlock{remark}
+\iffalse{} {Remark. } \fi{}Henceforth, the FCS defintions of these
+quantities will be assumed.
+\EndKnitrBlock{remark}
 
 \subsection{Correlation}\label{correlation}
 
 Suppose that two proteins of interest A and B are labelled with red and
 green fluorophores respectively (and there is no bleed-through between
-these red and green channels). 1. If these proteins are interacting,
-then * interaction implies that A and B are \emph{stuck} together * this
-implies that A and B co-diffuse * this implies that for a given volumen
-in the sample - more of A implies more of B - less of A implies less of
-B - more of B implies more of A - less of B implies less of A Since the
-number of photons emitted is proportional to the amount of fluorophores
-present, it follows that * more red photons implies more green photons *
-less red photons implies less green photons * more green photons implies
-more red photons * less green photons implies less red photons
-Altogether, this implies that the intensity traces from the red and
-green channels will be correlated. 2. If these proteins are not
-interacting, then the intensity traces from the red and green channels
-will not be correlated.
+these red and green channels).
 
-Thus, interaction of red A and green B necessarily leads to correlation
-in fluorescent signals from the red and green chanels.\footnote{This
-  correlation may not always be detectable due to weak interaction or
-  weak signal.}
+If these proteins are interacting, then
+
+\begin{itemize}
+\tightlist
+\item
+  interaction implies that A and B are \emph{stuck} together
+\item
+  this implies that A and B co-diffuse
+\item
+  this implies that for a given volumen in the sample
+\item
+  more of A implies more of B
+\item
+  less of A implies less of B
+\item
+  more of B implies more of A
+\item
+  less of B implies less of A
+\end{itemize}
+
+Since the number of photons emitted is proportional to the amount of
+fluorophores present, it follows that
+
+\begin{itemize}
+\tightlist
+\item
+  more red photons implies more green photons
+\item
+  less red photons implies less green photons
+\item
+  more green photons implies more red photons
+\item
+  less green photons implies less red photons
+\end{itemize}
+
+Altogether, this implies that the intensity traces from the red and
+green channels will be correlated. If these proteins are not
+interacting, then the intensity traces from the red and green channels
+will not be correlated. Thus, interaction of red A and green B
+necessarily leads to correlation in fluorescent signals from the red and
+green chanels.\footnote{This correlation may not always be detectable
+  due to weak interaction or weak signal.}
 
 \subsection{Autocorrelation}\label{autocorrelation}
 
@@ -628,7 +657,7 @@ idea (section \ref{correlation}) into the framework of N\&B. Suppose
 there are two channels with intensities \(I_1\) and \(I_2\).
 
 \BeginKnitrBlock{definition}[cross-variance]
-\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
+\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17}
 \iffalse (cross-variance) \fi{} }
 
 \begin{equation}
@@ -638,7 +667,7 @@ there are two channels with intensities \(I_1\) and \(I_2\).
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[cross-correlated brightness]
-\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17}
+\protect\hypertarget{def:unnamed-chunk-18}{}{\label{def:unnamed-chunk-18}
 \iffalse (cross-correlated brightness) \fi{} }
 
 \begin{equation}
@@ -697,15 +726,15 @@ optimized for performance (speed), efficiency (with use of computer
 resources) and flexibility.\footnote{\url{https://en.wikipedia.org/wiki/C\%2B\%2B}}
 I used it for its speed, since many of the algorithms that I developed
 were quite computationally intensive and hence speed was an important
-issue.
+consideration.
 
 \subsection{R}\label{r}
 
 \emph{R} \citep{R} is a programming language and free software
 environment for statistical computing and graphics.\footnote{\url{https://en.wikipedia.org/wiki/R_(programming_language)}}
 I use R primarily as a wrapper for my C++ code to make my algorithms
-more user-friendly. R is best used with the RStudio integrated
-development environment.
+more user-friendly. R is best used with the \emph{RStudio} integrated
+development environment.\footnote{\url{https://www.rstudio.com}}
 
 \hypertarget{imagej}{\subsection{ImageJ}\label{imagej}}
 
@@ -738,7 +767,7 @@ floating point (real-numbered) pixels, and the only package that can
 correctly import TIFF files that were saved from \emph{ImageJ}
 \citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
 capability is a basic need for masses of people. \texttt{ijtiff} gets
-369 downloads per month which amounts to 2253 since it was first
+363 downloads per month which amounts to 2268 since it was first
 released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
@@ -750,7 +779,7 @@ was peer reviewed and published \citep{ijtiff}.
 
 \texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
 \emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 564 downloads per month which amounts to 8971 since it
+users. It gets 561 downloads per month which amounts to 8994 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
@@ -759,7 +788,7 @@ was first released.
 photobleaching). It provides all detrending algorithms mentioned in
 section \ref{photobleaching-correction}. The detrending is done in C++
 in the background for speed but it is wrapped in an R package for ease
-of use. It gets 401 downloads per month which amounts to 3185 since it
+of use. It gets 396 downloads per month which amounts to 3198 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
@@ -774,13 +803,13 @@ is often seen. Using file names for metadata like this is a good idea,
 however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible. This
 package was peer reviewed and published \citep{filesstrings}. It gets
-760 downloads per month which amounts to 12104 since it was first
+756 downloads per month which amounts to 12139 since it was first
 released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19}
+\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
 }\emph{Unit testing} is a software testing method by which individual
 units of source code, sets of one or more computer program modules
 together with associated control data, usage procedures, and operating
@@ -790,13 +819,13 @@ use.\footnote{\url{https://en.wikipedia.org/wiki/Unit_testing}}
 
 Unit testing is a tool to verify that software is performing as
 intended. It is a great way to discover bugs in software.
-\texttt{exampletestr} is an R package which makes unit testing much
-easier for R package developers to write unit tests for their packages.
-It helped me to eradicate many bugs in all of my packages.
-Interestingly, \texttt{exampletestr} was used to unit test and eradicate
-bugs in itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 460 downloads per month which amounts
-to 6978 since it was first released.
+\texttt{exampletestr} is an R package which makes it easier for R
+package developers to write unit tests for their packages. It helped me
+to eradicate many bugs in all of my packages. Interestingly,
+\texttt{exampletestr} was used to unit test and eradicate bugs in
+itself! This package was peer reviewed and published in
+2017.\citep{exampletestr} It gets 457 downloads per month which amounts
+to 6994 since it was first released.
 
 \chapter{Photobleaching Correction}\label{photobleaching-correction}
 
@@ -820,8 +849,8 @@ implicitly assume that there is no bleaching in the data. Hence, data
 corrected prior to the application of equations and algorithms in these
 fields. A main focus of this thesis is on how to correct fluorescent
 image series for the effects of bleaching, given that bleaching
-\emph{does} occur. There is no emphasis on understanding \emph{why}
-and/or \emph{how} photobleaching occurs.
+\emph{does} occur. There is no attempt to understand \emph{why} and/or
+\emph{how} photobleaching occurs.
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remark. } \fi{}All of the current literature mentions
@@ -889,13 +918,12 @@ images \texttt{img1\_bleached} and \texttt{img2\_bleached} have a
 significant \(B_\text{cc} = 0.3686\). This shows that bleaching is
 introducing correlation between otherwise unrelated images. Since
 correlation is used as a proxy for hetero-interaction, bleaching can
-make it appear as though there is interaction when in fact there is not
-when using FCS techniques.
+make it appear as though there is interaction when in fact there is not.
 
 \subsection{FFS}\label{ffs}
 
 \BeginKnitrBlock{definition}[median mean pixel intensity]
-\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
+\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
 \iffalse (median mean pixel intensity) \fi{} }The \emph{median mean
 pixel intensity} of an image series is found by taking the mean
 intensity of each pixel in the image series and then taking the median
@@ -904,7 +932,7 @@ pixel intensity of the image series.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[median pixel intensity variance]
-\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
+\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
 \iffalse (median pixel intensity variance) \fi{} }The \emph{median pixel
 intensity variance} of an image series is found by taking the variance
 in the intensity of each pixel in the image series and then taking the
@@ -914,21 +942,20 @@ for the variance in the pixel intensity of the image series.
 
 In FFS, one is always interested in the mean and variance of pixel
 values (and sometimes other fluctuation quantities like the third
-moment). \texttt{img1} has a median mean pixel intensity of 97.655 and a
-median pixel intensity variance of 487.2476954. The mean brightness is
+moment). \texttt{img1} has a median mean pixel intensity of 98 and a
+median pixel intensity variance of 487. The mean brightness is
 \(\epsilon = 3.9959\) (very close to 4, as expected since the image
 series was simulated with brightness \(\epsilon = 4\)). For
-\texttt{img1\_bleached}, we find a median mean pixel intensity of 90.086
-and a median pixel intensity variance of 468.4618978. The mean
-brightness is \(\epsilon = 4.2026\). Hence, bleaching has altered both
-the means and variances of the pixels, resulting in a change in
-calculated brightness. The non-stationary mean frame intensity
-introduced by bleaching decreases the mean but increases the variance.
-The loss in signal has the effect of slightly decreasing the variance:
-with poisson statistics (such as photon-emission), a loss of signal
-(photons) leads directly to a loss in variance. This is a subtle point
-not discussed anywhere in the literature; it is shown in figure
-\ref{fig:visualize-variance-decrease}.
+\texttt{img1\_bleached}, we find a median mean pixel intensity of 90 and
+a median pixel intensity variance of 468. The mean brightness is
+\(\epsilon = 4.2026\). Hence, bleaching has altered both the means and
+variances of the pixels, resulting in a change in calculated brightness.
+The non-stationary mean frame intensity introduced by bleaching
+decreases the mean but increases the variance. The loss in signal has
+the effect of slightly decreasing the variance: with poisson statistics
+(such as photon-emission), a loss of signal (photons) leads directly to
+a loss in variance. This is a subtle point not discussed anywhere in the
+literature; it is shown in figure \ref{fig:visualize-variance-decrease}.
 
 
 
@@ -993,9 +1020,9 @@ large downward fluctuation at \(t \approx 50\) seconds in both figures.}\label{f
 \end{figure}
 
 We can see that here, in the ideal case where the naive assumptions of
-the exponential decay fitting approach hold, this approach indeed does
-quite well. Let us now examine the case where these assumptions don't
-hold because there are other long-term fluctuations e.g.~due to cell
+the exponential decay fitting approach hold, this approach works quite
+well. Let us now examine the case where these assumptions don't hold
+because there are other long-term fluctuations e.g.~due to cell
 movement. We add these other fluctuations as a gentle sinusiod. See
 figure \ref{fig:exp-decay-with-sin}.
 
@@ -1120,7 +1147,7 @@ to solve for the appropriate choice of \(l\) to use for detrending a
 specific image series.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
+\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24}
 }The \emph{mean intensity profile} of one channel of an image series is
 obtained by calculating the mean intensity of each frame in that image
 series.
@@ -1183,13 +1210,13 @@ point of interest should have greater weights.\footnote{\url{https://en.wikipedi
 The weights fall off with distance \(|t|\) from the point of interest
 according to \(\exp(-\frac{|t|}{\tau})\) where the parameter \(\tau\) is
 a positive real number. This function is visualized in figure
-\ref(fig:exp-smooth-func). For small values of \(\tau\), only values
+\ref{fig:exp-smooth-func}. For small values of \(\tau\), only values
 very close to the point of interest have importance when calculating the
 local average. For larger values of \(\tau\), further values also have
-importance (but closer values always have higher rates). In this sense,
-increasing the value of \(\tau\) has a similar effect to increasing the
-value of \(l\) for the boxcar in that farther away points are taken into
-account.
+importance (but closer values always have higher weights). In this
+sense, increasing the value of \(\tau\) has a similar effect to
+increasing the value of \(l\) for the boxcar in that further away points
+are taken into account.
 
 
 
@@ -1237,7 +1264,7 @@ published \citep{nandb}.
 variance}\label{correcting-for-non-stationary-variance}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24}
+\protect\hypertarget{def:unnamed-chunk-25}{}{\label{def:unnamed-chunk-25}
 }The variance of a random variable \(X\) is the expected value of the
 squared deviation of \(X\) from its mean \(\mu\):
 
@@ -1250,12 +1277,13 @@ squared deviation of \(X\) from its mean \(\mu\):
 All of this chapter so far has focused on correcting for non-stationary
 mean. As shown in figure \ref{fig:visualize-variance-decrease}, as the
 mean decreases, so too does the variance. For an instance \(x\) of the
-random variable \(X\), \(x - \mu\) is the \emph{deviation} of \(x\) from
-\(\mu\). If we write \(x\) as \(x = \mu + \tilde{x}\), then we get the
-deviation \(x - \mu = (\mu + \tilde{x}) - \mu = \tilde{x}\), so
-\(\tilde{x}\) is the deviation. For a given point in figure
+random variable \(X\) with expected value \(E[X] = \mu\), \(x - \mu\) is
+the \emph{deviation} of \(x\) from \(\mu\). If we write \(x\) as
+\(x = \mu + \tilde{x}\), then we get the deviation
+\(x - \mu = (\mu + \tilde{x}) - \mu = \tilde{x}\), so \(\tilde{x}\) is
+the deviation. For a given point in figure
 \ref{fig:visualize-variance-decrease}, its deviation is its distance
-from the black line. For positive real number \(k\), making the
+from the red line. For positive real number \(k\), making the
 transformation \(\tilde{x} \rightarrow \sqrt{k}\tilde{x}\) i.e.
 \(x \rightarrow \mu + \sqrt{k}\tilde{x}\) causes the variance (i.e.~the
 \emph{squared deviation}) to be transformed as
@@ -1360,7 +1388,12 @@ intensity and added to time points with too little intensity. This can
 be done by \emph{taking} counts from frames with too much intensity and
 \emph{giving} them to frames with too little intensity. In this way, no
 counts are gained or lost, they are just moved around the image series.
-See figure \ref{fig:rh-lego}.
+See figure \ref{fig:rh-lego}. Counts are passed from one frame to
+another \emph{along} a given pixel, i.e.~if a count is taken from pixel
+at position \(p\) in some frame \(i\), it must be given to a pixel at
+the same position \(p\) in some other frame \(j\). It is this condition
+that ensures that the mean intensity images of the original and
+detrended image series are the same.
 
 
 
@@ -1398,8 +1431,8 @@ To compare the various detrending methods, I use the following workflow:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Simulate a number \(N\) of particles diffusing with known diffusion
-  rate.
+  Simulate a number \(N = 100,000\) of particles diffusing with known
+  diffusion rate.
 \item
   Simulate photon emmission from these particles with chosen brightness
   \(\epsilon\) and create an image series from this, being careful to
@@ -1409,7 +1442,8 @@ To compare the various detrending methods, I use the following workflow:
   Bleach the simulation with a chosen constant bleaching rate.
 \item
   Simulate photon emission from the bleached simulation (bleached
-  particles don't emit photons) with the same brightness \(\epsilon\).
+  particles don't emit photons) with the same brightness \(\epsilon\)
+  and create an image series.
 \item
   Detrend the bleached image series.
 \item
@@ -1442,7 +1476,7 @@ with the following detrending routines:\footnote{The detrending took 2
 The performance was evaluated using the \emph{mean relative error}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-25}{}{\label{def:unnamed-chunk-25} }
+\protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26} }
 For a given brightness and bleaching fraction,
 
 \begin{equation}
@@ -1470,13 +1504,13 @@ constant-rate bleaching), including the results of not detrending at
 all.}\label{fig:detrend-compare}
 \end{figure}
 
-The most striking thing about \ref{fig:detrend-compare} is that the best
-choice in all cases is to not detrend at all! This is an interesting
-result and seems to render all detrending routines worthless. However,
-when working with real data, not detrending does not work well at all.
-This will be shown in chapter \ref{applications}. This is probably
-because with real data, bleaching is likely not taking place at a
-constant, steady rate and other factors such as cell movement are
+The most striking thing about figure \ref{fig:detrend-compare} is that
+the best choice in all cases is to not detrend at all! This is an
+interesting result and seems to render all detrending routines
+worthless. However, when working with real data, not detrending does not
+work well at all. This will be shown in chapter \ref{applications}. This
+is probably because with real data, bleaching is likely not taking place
+at a constant, steady rate and other factors such as cell movement are
 contributing to medium and long term intensity fluctuations and these
 have a detrimental effect on calculations if not detrended out.
 
@@ -1505,9 +1539,9 @@ situation (\(\epsilon = 1, 10\)) does not arise in practice.
 Myristoylated FKBP12 is known to dimerize upon addition of the drug
 AP1510 \citep{Amara}. As a test application of exponential smoothing
 detrending (section \ref{exponential-smoothing-detrending}) with
-automatically chosen parameter \(\tau\), we used it with number and
-brightness to verify this dimerization. We tested this in 20 Cos7 cells
-with mClover-labelled FKBP12. We found a brightness increase in
+automatically chosen parameter \(\tau\), we used this system with number
+and brightness to verify this dimerization. We tested this in 20 Cos7
+cells with mClover-labelled FKBP12. We found a brightness increase in
 \(\epsilon\) of \(\approx 1.6\)-fold using the \emph{automatic}
 detrending method. The naiive choice of \(\tau=10\) resulted in a
 \(\approx 0.7\)-fold calculated increase, which is indeed a decrease.
@@ -1521,10 +1555,10 @@ because of this, oligomeric state changes calculated from brightness
 must be adjusted by a correction factor specific to the fluorophore.
 Unfortunately, this study did not characterize mClover, so we do not
 know its correction factor. I suspect that applying this correction
-would bring our figure of 1.6 a lot closer to 2. The fact that the naive
-choice of \(\tau=10\) gave a decrease in brightness shows that arbitrary
-parameter choices lead to unpredictable and unreliable results and
-should hence be avoided.
+would bring our figure of 1.6 a lot closer to 2. We also tried the naive
+choice of \(\tau=10\), which gave a decrease in brightness, showing that
+arbitrary parameter choices lead to unpredictable and unreliable results
+and should hence be avoided.
 
 \section{\texorpdfstring{\emph{In vitro} number and
 brightness}{In vitro number and brightness}}\label{in-vitro-number-and-brightness}
@@ -1666,8 +1700,8 @@ lands at \(t \approx 1.7\) minutes is highlighted.}\label{fig:HIVStoichiometryIn
 The virus channel was used to locate the virus at a given point in time.
 The receptor and co-receptor were used to calculate brightness and
 cross-correlated brightness every 100 frames (every 1.7 min). The
-brightness was used to tell the number of receptor and co-receptor units
-involved in a complex. The cross-correlated brightness was used to
+brightness was used to determine the number of receptor and co-receptor
+units involved in a complex. The cross-correlated brightness was used to
 delimit whether or not the receptor and co-receptor units were together
 in the \emph{same} complex. See figure
 \ref{fig:HIVStoichiometryAnalysis}, this is the corresponding brightness
@@ -1805,9 +1839,21 @@ which up to now could not be answered. Being able to correctly correct
 for bleaching is crucial for reliable N\&B analysis, so the development
 of these new algorithms was crucial to this study.
 
-\chapter{Final Words}\label{final-words}
+\chapter{Future plans}\label{future-plans}
 
-We have finished a nice book.
+\section{Robin Hood publication}\label{robin-hood-publication}
+
+The \emph{Robin Hood} algorithm is already incorporated in the R package
+\texttt{detrendr} but it hasn't been published or peer-reviewed. Getting
+this done is my top priority.
+
+\section{\texorpdfstring{Translate software to
+\emph{ImageJ}}{Translate software to ImageJ}}\label{translate-software-to-imagej}
+
+Whilst I really like R, the fluorescence community does not use it,
+which has been a major barrier to the use of my algorithms. I will code
+my detrending algorithms as \emph{ImageJ} plugins (and perhaps also as
+python modules) so that more of the community have easy access to them.
 
 \bibliography{book.bib,packages.bib,papers.bib}
 

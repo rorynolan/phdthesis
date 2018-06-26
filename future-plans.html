@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="intro.html">
+<link rel="prev" href="applications.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -151,67 +151,16 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Algorithms for the Correction of Photobleaching</h1>
-<p class="author"><em>Rory Nolan</em></p>
-<p class="date"><em>2018-06-26</em></p>
+<div id="future-plans" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Future plans</h1>
+<div id="robin-hood-publication" class="section level2">
+<h2><span class="header-section-number">5.1</span> Robin Hood publication</h2>
+<p>The <em>Robin Hood</em> algorithm is already incorporated in the R package <code>detrendr</code> but it hasn’t been published or peer-reviewed. Getting this done is my top priority.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="ways-to-read" class="section level2 unnumbered">
-<h2>Ways to read</h2>
-<p>In my opinion, the best way to read this thesis is on the web at <a href="https://rorynolan.github.io/phdthesis/" class="uri">https://rorynolan.github.io/phdthesis/</a>. If you are reading this on the web now but would like a pdf version, click on the download symbol at the top left of the page (to the right of the <strong>A</strong>) and select PDF.</p>
-</div>
-<div id="apportion-of-credit" class="section level2 unnumbered">
-<h2>Apportion of credit</h2>
-<p>Whilst I have attempted to make it clear throughout what I myself did and did not do in relation to all work mentioned, for clarity I include the following reliable rules of thumb:</p>
-<ul>
-<li>The idea for fluorescence fluctuation spectroscopy (FFS) as the main area of my thesis was Sergi Padilla-Parra’s.</li>
-<li>Molecular biology was done by Maro Iliopoulou and Luis Alvarez.</li>
-<li>Imaging was done by Maro Iliopoulou, Luis Alvarez and Sergi Padilla-Parra.</li>
-<li>The idea that correction for bleaching was the crucial step for FFS analysis was formulated by Luis Alvarez, Sergi Padilla-Parra and I.</li>
-<li>I formulated the solutions for how to correctly correct for bleaching, i.e. the automatic parameter choice and the Robin Hood algorithm.</li>
-<li>I wrote all of the software and maintain all of it.</li>
-<li>All FFS analysis was performed using my software. The software was used to analyse data by Maro Iliopoulou, Luis Alvarez, Sergi Padilla Parra and I.</li>
-<li>On all papers where I am the first listed author, I wrote the paper, taking suggested amendments and augmentation from other listed authors. The NSMB paper <span class="citation">(Iliopoulou et al. <a href="#ref-HIVstoichiometry">2018</a>)</span> was written by Maro and Sergi; I also made significant contributions to the writing of that manuscript but my main role in that project was in data analysis. In all other papers where I am listed as an author, my role was minor.</li>
-</ul>
-<p>Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral researcher in Sergi’s group and Maro Iliopoulou is a research assistant in Sergi’s group.</p>
-</div>
-<div id="publications" class="section level2 unnumbered">
-<h2>Publications</h2>
-<p>I hereby list my publications. It is common to do this at the end of a thesis, but I will be referring to these papers frequently, so I think it useful to highlight them here at the start. These can all be downloaded from <a href="https://github.com/rorynolan/phdthesis/tree/master/papers" class="uri">https://github.com/rorynolan/phdthesis/tree/master/papers</a>, where the naming convention is <code>JournalYEAR.pdf</code>.</p>
-<div id="first-author" class="section level4 unnumbered">
-<h4>First author</h4>
-<ul>
-<li>R. Nolan and S. Padilla-Parra. “filesstrings: An R package for file and string manipulation”. In: <em>Journal of Open Source Software</em> 2.14 (2017).</li>
-<li>R. Nolan and S. Padilla-Parra. “exampletestr—An easy start to unit testing R packages”. In: <em>Wellcome open research</em> 2 (2017).</li>
-<li>R. Nolan, L. Alvarez, J. Elegheert, et al. “nandb—number and brightness in R with a novel automic detrending algorithm”. In: <em>Bioinformatics</em> 33.21 (2017).</li>
-<li>R. Nolan, M. Iliopoulou, L. Alvarez, et al. “Detecting protein aggregation and interactions in live cells: a guide to Number and Brightness”. In: <em>Methods</em> (2017).</li>
-<li>R. Nolan and S. Padilla-Parra. “ijtiff: An R package providing TIFF I/O for ImageJ users”. In: <em>Journal of Open Source Software</em> 3.23 (2018).</li>
-<li>R. Nolan, L. Alvarez, S. C. Griffiths, et al. “Calibration-Free In-Vitro Quantification of Protein Homo-Oligomerization Using Commercial Instrumentation and Free, Open Source Brightness Analysis Software”. In: <em>Journal of Visualized Experiments</em> 0.0 (2018).</li>
-</ul>
-</div>
-<div id="co-first-author" class="section level4 unnumbered">
-<h4>Co-first author</h4>
-<ul>
-<li>M. Iliopoulou, R. Nolan, L. Alvarez, et al. “A dynamic three step mechanism drives the HIV-1 prefusion reaction”. In: <em>Nat. Struct. Mol. Biol.</em> 0.0 (2018).</li>
-</ul>
-</div>
-<div id="other" class="section level4 unnumbered">
-<h4>Other</h4>
-<ul>
-<li>D. M. Jones, L. A. Alvarez, R. Nolan, et al. “Dynamin-2 stabilizes the HIV-1 fusion pore with a low oligomeric state”. In: <em>Cell reports</em> 18.2 (2017).</li>
-<li>G. M. Jakobsdottir, M. Iliopoulou, R. Nolan, et al. “On the whereabouts of HIV-1 cellular entry and its fusion ports”. In: <em>Trends in molecular medicine</em> (2017).</li>
-<li>Q. F. Wills, E. Mellado-Gomez, R. Nolan, et al. “The nature and nurture of cell heterogeneity: accounting for macrophage gene-environment interactions with single-cell RNA-Seq”. In: <em>BMC genomics</em> 18.1 (2017).</li>
-</ul>
+<div id="translate-software-to-imagej" class="section level2">
+<h2><span class="header-section-number">5.2</span> Translate software to <em>ImageJ</em></h2>
+<p>Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms. I will code my detrending algorithms as <em>ImageJ</em> plugins (and perhaps also as python modules) so that more of the community have easy access to them.</p>
 
-</div>
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-HIVstoichiometry">
-<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer1, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 0 (0).</p>
 </div>
 </div>
             </section>
@@ -219,8 +168,8 @@
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="applications.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

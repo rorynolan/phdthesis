@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-22">
+<meta name="date" content="2018-06-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="photobleaching-correction.html">
-<link rel="next" href="final-words.html">
+<link rel="next" href="future-plans.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -126,7 +126,10 @@
 <li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="5" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>5</b> Future plans</a><ul>
+<li class="chapter" data-level="5.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>5.1</b> Robin Hood publication</a></li>
+<li class="chapter" data-level="5.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>5.2</b> Translate software to <em>ImageJ</em></a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -152,7 +155,7 @@
 <h1><span class="header-section-number">Chapter 4</span> Applications</h1>
 <div id="dimerization-of-fkbp12" class="section level2">
 <h2><span class="header-section-number">4.1</span> Dimerization of FKBP12</h2>
-<p>Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 <span class="citation">(Amara et al. <a href="#ref-Amara">1997</a>)</span>. As a test application of exponential smoothing detrending (section <a href="photobleaching-correction.html#exponential-smoothing-detrending">3.6</a>) with automatically chosen parameter <span class="math inline">\(\tau\)</span>, we used it with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12. We found a brightness increase in <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(\approx 1.6\)</span>-fold using the <em>automatic</em> detrending method. The naiive choice of <span class="math inline">\(\tau=10\)</span> resulted in a <span class="math inline">\(\approx 0.7\)</span>-fold calculated increase, which is indeed a decrease. The <span class="math inline">\(\approx 1.6\)</span>-fold increase suggests that dimerization had occurred, however, we expected the increase to be <span class="math inline">\(\approx 2\)</span>-fold upon dimerization. In that publication <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out <span class="citation">(Dunsing et al. <a href="#ref-fpcompare">2018</a>)</span> explaining how the assumption that all fluorophores emit signal is invalid and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. The fact that the naive choice of <span class="math inline">\(\tau=10\)</span> gave a decrease in brightness shows that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.</p>
+<p>Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 <span class="citation">(Amara et al. <a href="#ref-Amara">1997</a>)</span>. As a test application of exponential smoothing detrending (section <a href="photobleaching-correction.html#exponential-smoothing-detrending">3.6</a>) with automatically chosen parameter <span class="math inline">\(\tau\)</span>, we used this system with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12. We found a brightness increase in <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(\approx 1.6\)</span>-fold using the <em>automatic</em> detrending method. The naiive choice of <span class="math inline">\(\tau=10\)</span> resulted in a <span class="math inline">\(\approx 0.7\)</span>-fold calculated increase, which is indeed a decrease. The <span class="math inline">\(\approx 1.6\)</span>-fold increase suggests that dimerization had occurred, however, we expected the increase to be <span class="math inline">\(\approx 2\)</span>-fold upon dimerization. In that publication <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out <span class="citation">(Dunsing et al. <a href="#ref-fpcompare">2018</a>)</span> explaining how the assumption that all fluorophores emit signal is invalid and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. We also tried the naive choice of <span class="math inline">\(\tau=10\)</span>, which gave a decrease in brightness, showing that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.</p>
 </div>
 <div id="in-vitro-number-and-brightness" class="section level2">
 <h2><span class="header-section-number">4.2</span> <em>In vitro</em> number and brightness</h2>
@@ -208,7 +211,7 @@ Figure 4.3: Intensity images from the virus, receptor and co-receptor. Every 100
 </div>
 <div id="analysis" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Analysis</h3>
-<p>The virus channel was used to locate the virus at a given point in time. The receptor and co-receptor were used to calculate brightness and cross-correlated brightness every 100 frames (every 1.7 min). The brightness was used to tell the number of receptor and co-receptor units involved in a complex. The cross-correlated brightness was used to delimit whether or not the receptor and co-receptor units were together in the <em>same</em> complex. See figure <a href="applications.html#fig:HIVStoichiometryAnalysis">4.4</a>, this is the corresponding brightness and cross-correlated brightness image of figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.3</a>. Notice that once the virus lands, the oligomeric state of the receptor and co-receptor increases. We also see significant positive cross-correlated brightness in this area, indicating that the virus has triggered a complex of receptor and co-receptor.</p>
+<p>The virus channel was used to locate the virus at a given point in time. The receptor and co-receptor were used to calculate brightness and cross-correlated brightness every 100 frames (every 1.7 min). The brightness was used to determine the number of receptor and co-receptor units involved in a complex. The cross-correlated brightness was used to delimit whether or not the receptor and co-receptor units were together in the <em>same</em> complex. See figure <a href="applications.html#fig:HIVStoichiometryAnalysis">4.4</a>, this is the corresponding brightness and cross-correlated brightness image of figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.3</a>. Notice that once the virus lands, the oligomeric state of the receptor and co-receptor increases. We also see significant positive cross-correlated brightness in this area, indicating that the virus has triggered a complex of receptor and co-receptor.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryAnalysis"></span>
 <img src="img/HIVStoichiometryAnalysis.png" alt="Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two." width="100%" />
@@ -304,7 +307,7 @@ Figure 4.6: The HIV-1 JR-FL Env glycoprotein (Blue) (PDB ID: 4ZMJ) is present as
         </div>
       </div>
 <a href="photobleaching-correction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="future-plans.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

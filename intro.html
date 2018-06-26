@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-22">
+<meta name="date" content="2018-06-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -126,7 +126,10 @@
 <li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="5" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>5</b> Future plans</a><ul>
+<li class="chapter" data-level="5.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>5.1</b> Robin Hood publication</a></li>
+<li class="chapter" data-level="5.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>5.2</b> Translate software to <em>ImageJ</em></a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -179,7 +182,7 @@ Figure 1.1: Confocal microscope light path showing how out of focus light does n
 <span id="def:unnamed-chunk-3" class="definition"><strong>Definition 1.2  </strong></span>A <em>fluorophore</em> is a fluorescent chemical compound that can re-emit light upon light excitation.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>
 </div>
 
-<p>Fluorophores under constant excitation emit light one photon at a time according to a poisson statistics<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> with some poisson rate.</p>
+<p>Fluorophores under constant excitation emit light one photon at a time according to poisson statistics.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
 <p>Consider figure <a href="intro.html#fig:confocal-volume-particle">1.2</a>. A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:confocal-volume-particle"></span>
@@ -214,7 +217,7 @@ Figure 1.2: Left: a fluorophore diffusing trhough the confocal volume. Right: th
 N &amp;= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} \tag{1.1} \\
 B &amp;= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon \tag{1.2}
 \end{align}\]</span>
-where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)</span> are referred to as the “apparent number” and “apparent brightness” respectively. This gives
+where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)</span> are referred to as the <em>apparent number</em> and <em>apparent brightness</em> respectively. This gives
 <span class="math display" id="eq:NB2-2" id="eq:NB2-1">\[\begin{align}
 \epsilon &amp;= \frac{\sigma^2}{\langle I \rangle} - 1 \tag{1.3} \\
 n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.4}
@@ -248,7 +251,7 @@ Number and brightness has specific pixel dewll-time and frame rate requirements.
 </ol>
 <p>Both of these points are implicitly assumed in the derivation of the N&amp;B equations so it is essential to get these acquisition parameters right. This is discussed at length in <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span>.</p>
 <p>An important property of N&amp;B is that if all fluorescent particles are immobile, then <span class="math inline">\(B = 1\)</span>. This is because photon emission from stationary sources happens according to a poisson distribution. Poisson distributions have variance equal to mean, this implies <span class="math inline">\(\sigma^2\)</span> = <span class="math inline">\(\langle I \rangle\)</span> which gives <span class="math inline">\(B = \frac{\sigma^2}{\langle I \rangle} = 1\)</span>.</p>
-<p>The N&amp;B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Much of my PhD focussed on corrections for photobleaching. This is discussed in chapter <a href="photobleaching-correction.html#photobleaching-correction">3</a>.</p>
+<p>The N&amp;B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Most of my PhD focussed on corrections for photobleaching. This is discussed in chapter <a href="photobleaching-correction.html#photobleaching-correction">3</a>.</p>
 </div>
 </div>
 <div id="fluorescence-correlation-spectroscopy" class="section level2">
@@ -317,17 +320,38 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 G(X; 0) = \frac{1}{n}
 \tag{1.11}
 \end{equation}\]</span>
-<p>where <span class="math inline">\(n\)</span> is the mean number of fluorescent particles in the focal volume. The convenience of the statistics definitions is that there, correlations are guaranteed to be in <span class="math inline">\([-1, 1]\)</span>, with <span class="math inline">\(0\)</span> representing no correlation, <span class="math inline">\(1\)</span> perfect positive correlation and <span class="math inline">\(-1\)</span> perfect negative correlation; this is lost with the FCS definitions.</p>
+<p>where <span class="math inline">\(n\)</span> is the mean number of fluorescent particles in the focal volume. The convenience of the statistics definitions is that there, correlations are guaranteed to be in <span class="math inline">\([-1, 1]\)</span>, with <span class="math inline">\(0\)</span> representing no correlation, <span class="math inline">\(1\)</span> perfect positive correlation and <span class="math inline">\(-1\)</span> perfect negative correlation; this is lost with the FCS definitions: 0 still represents no correlation, but correlation values are no longer bounded, so the ideas of perfect correlation are lost.</p>
 <p>I felt it necessary to provide these definitions for two reasons:</p>
 <ol style="list-style-type: decimal">
 <li>It is important for people from the fields of FCS and pure mathematics/statistics to know that they have different definitions for the same thing.</li>
-<li>In FCS, it’s very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the field correlate the signals from two separate channels, the use the term <em>cross</em>-correlation, even though they’re only using correlation. I think the idea of working <em>across</em> two or more channels (and ideas such as <em>cross</em>-talk) leads to this confustion.</li>
+<li>In FCS, it’s very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the FCS field correlate the signals from two separate channels, they use the term <em>cross</em>-correlation, even though they’re only using correlation. I think the idea of working <em>across</em> two or more channels (and ideas such as <em>cross</em>-talk) leads to this confustion.</li>
 </ol>
-<p>Henceforth, the FCS defintions of these quantities will be assumed.</p>
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> Henceforth, the FCS defintions of these quantities will be assumed.
+</div>
+
 <div id="correlation" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Correlation</h3>
-<p>Suppose that two proteins of interest A and B are labelled with red and green fluorophores respectively (and there is no bleed-through between these red and green channels). 1. If these proteins are interacting, then * interaction implies that A and B are <em>stuck</em> together * this implies that A and B co-diffuse * this implies that for a given volumen in the sample - more of A implies more of B - less of A implies less of B - more of B implies more of A - less of B implies less of A Since the number of photons emitted is proportional to the amount of fluorophores present, it follows that * more red photons implies more green photons * less red photons implies less green photons * more green photons implies more red photons * less green photons implies less red photons Altogether, this implies that the intensity traces from the red and green channels will be correlated. 2. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated.</p>
-<p>Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green chanels.<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a></p>
+<p>Suppose that two proteins of interest A and B are labelled with red and green fluorophores respectively (and there is no bleed-through between these red and green channels).</p>
+<p>If these proteins are interacting, then</p>
+<ul>
+<li>interaction implies that A and B are <em>stuck</em> together</li>
+<li>this implies that A and B co-diffuse</li>
+<li>this implies that for a given volumen in the sample</li>
+<li>more of A implies more of B</li>
+<li>less of A implies less of B</li>
+<li>more of B implies more of A</li>
+<li>less of B implies less of A</li>
+</ul>
+<p>Since the number of photons emitted is proportional to the amount of fluorophores present, it follows that</p>
+<ul>
+<li>more red photons implies more green photons</li>
+<li>less red photons implies less green photons</li>
+<li>more green photons implies more red photons</li>
+<li>less green photons implies less red photons</li>
+</ul>
+<p>Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green chanels.<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a></p>
 </div>
 <div id="autocorrelation" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> Autocorrelation</h3>
@@ -342,7 +366,7 @@ G(X; 0) = \frac{1}{n}
 <p><em>Cross-correlated brightness</em> <span class="citation">(Digman et al. <a href="#ref-ccNB">2009</a>)</span> moulds the correlation idea (section <a href="intro.html#correlation">1.4.1</a>) into the framework of N&amp;B. Suppose there are two channels with intensities <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  (cross-variance)  </strong></span>
+<span id="def:unnamed-chunk-17" class="definition"><strong>Definition 1.15  (cross-variance)  </strong></span>
 <span class="math display" id="eq:cross-var">\[\begin{equation}
 \sigma^2_\text{cc} = E[(I_2 - \langle I_1 \rangle)(I_2 - \langle I_2 \rangle)]
 \tag{1.12}
@@ -351,7 +375,7 @@ G(X; 0) = \frac{1}{n}
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-17" class="definition"><strong>Definition 1.16  (cross-correlated brightness)  </strong></span>
+<span id="def:unnamed-chunk-18" class="definition"><strong>Definition 1.16  (cross-correlated brightness)  </strong></span>
 <span class="math display" id="eq:cross-corr-nb">\[\begin{equation}
 B_\text{cc} = \frac{\sigma^2_\text{cc}}{\sqrt{\langle I_1 \rangle \langle I_2 \rangle}}
 \tag{1.13}
