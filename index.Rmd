@@ -70,6 +70,7 @@ Whilst I have attempted to make it clear throughout what I myself did and did no
 * I formulated the solutions for how to correctly correct for bleaching, i.e. the automatic parameter choice and the Robin Hood algorithm.
 * I wrote all of the software and maintain all of it.
 * All FFS analysis was performed using my software. The software was used to analyse data by Maro Iliopoulou, Luis Alvarez, Sergi Padilla Parra and I. 
+* Structural modelling was done by Thomas Bowden and Yasunori Watanabe.
 * On all papers where I am the first listed author, I wrote the paper, taking suggested amendments and augmentation from other listed authors. The NSMB paper [@HIVstoichiometry] was written by Maro and Sergi; I also made significant contributions to the writing of that manuscript but my main role in that project was in data analysis. In all other papers where I am listed as an author, my role was minor.
 
 Sergi Padilla-Parra is my supervisor. Luis Alvarez is a postdoctoral researcher in Sergi's group and Maro Iliopoulou is a research assistant in Sergi's group.  

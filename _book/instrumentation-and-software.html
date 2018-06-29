@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-06-23">
+<meta name="date" content="2018-06-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -181,20 +181,20 @@
 <h2><span class="header-section-number">2.3</span> My software packages</h2>
 <div id="ijtiff" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> <code>ijtiff</code></h3>
-<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 369 downloads per month which amounts to 2244 since it was first released.</p>
+<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 363 downloads per month which amounts to 2299 since it was first released.</p>
 <p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span>.</p>
 </div>
 <div id="autothresholdr" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> <code>autothresholdr</code></h3>
-<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(LANDINI et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 565 downloads per month which amounts to 8965 since it was first released.</p>
+<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 560 downloads per month which amounts to 9034 since it was first released.</p>
 </div>
 <div id="detrendr" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> <code>detrendr</code></h3>
-<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 401 downloads per month which amounts to 3179 since it was first released.</p>
+<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 394 downloads per month which amounts to 3225 since it was first released.</p>
 </div>
 <div id="filesstrings" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> <code>filesstrings</code></h3>
-<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 760 downloads per month which amounts to 12086 since it was first released.</p>
+<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 755 downloads per month which amounts to 12197 since it was first released.</p>
 </div>
 <div id="exampletestr" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> <code>exampletestr</code></h3>
@@ -203,7 +203,7 @@
 <span id="def:unnamed-chunk-20" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>
 </div>
 
-<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 461 downloads per month which amounts to 6975 since it was first released.</p>
+<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 456 downloads per month which amounts to 7023 since it was first released.</p>
 
 </div>
 </div>
@@ -223,16 +223,16 @@
 <p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1):529. <a href="https://doi.org/10.1186/s12859-017-1934-z" class="uri">https://doi.org/10.1186/s12859-017-1934-z</a>.</p>
 </div>
 <div id="ref-ijtiff">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “Ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal:633. <a href="https://doi.org/10.21105/joss.00633" class="uri">https://doi.org/10.21105/joss.00633</a>.</p>
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal:633. <a href="https://doi.org/10.21105/joss.00633" class="uri">https://doi.org/10.21105/joss.00633</a>.</p>
 </div>
 <div id="ref-autothresholdr">
-<p>LANDINI, G., D.A. RANDELL, S. FOUAD, and A. GALTON. 2016. “Automatic Thresholding from the Gradients of Region Boundaries.” <em>Journal of Microscopy</em> 265 (2). Wiley:185–95. <a href="https://doi.org/10.1111/jmi.12474" class="uri">https://doi.org/10.1111/jmi.12474</a>.</p>
+<p>Landini, G., D.A. Randell, S. Fouad, and A. Galton. 2016. “Automatic Thresholding from the Gradients of Region Boundaries.” <em>Journal of Microscopy</em> 265 (2). Wiley:185–95. <a href="https://doi.org/10.1111/jmi.12474" class="uri">https://doi.org/10.1111/jmi.12474</a>.</p>
 </div>
 <div id="ref-filesstrings">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2017b. “Filesstrings: An R Package for File and String Manipulation.” <em>The Journal of Open Source Software</em> 2 (14). The Open Journal:260. <a href="https://doi.org/10.21105/joss.00260" class="uri">https://doi.org/10.21105/joss.00260</a>.</p>
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017b. “filesstrings: An R Package for File and String Manipulation.” <em>The Journal of Open Source Software</em> 2 (14). The Open Journal:260. <a href="https://doi.org/10.21105/joss.00260" class="uri">https://doi.org/10.21105/joss.00260</a>.</p>
 </div>
 <div id="ref-exampletestr">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2017a. “Exampletestr - an Easy Start to Unit Testing R Packages.” <em>Wellcome Open Research</em> 2 (June). F1000 Research, Ltd.:31. <a href="https://doi.org/10.12688/wellcomeopenres.11635.2" class="uri">https://doi.org/10.12688/wellcomeopenres.11635.2</a>.</p>
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017a. “exampletestr - an Easy Start to Unit Testing R Packages.” <em>Wellcome Open Research</em> 2 (June). F1000 Research, Ltd.:31. <a href="https://doi.org/10.12688/wellcomeopenres.11635.2" class="uri">https://doi.org/10.12688/wellcomeopenres.11635.2</a>.</p>
 </div>
 </div>
 <div class="footnotes">
