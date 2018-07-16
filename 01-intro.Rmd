@@ -1,6 +1,18 @@
 # Introduction {#intro}
 
 
+## Fluorescence 
+
+```{definition}
+Fluorescence is the emission of light by a substance that has absorbed light.
+```
+
+```{definition}
+A _fluorophore_ is a fluorescent chemical compound that can re-emit light upon light excitation.
+```
+
+Fluorophores under constant excitation emit light one photon at a time according to poisson statistics.
+
 ## Confocal light microscopy
 
 All of the images used in my PhD were collected on a confocal microscope. This type of microscope guarantees that only in-focus light is collected at the detector. See figure \@ref(fig:confocal).
@@ -12,23 +24,122 @@ include_graphics(here("img", "quora_confocal.jpeg"))
 ```
 
 ```{definition}
-The _confocal volume_ is the _in-focus_ volume within a sample that is efficiently detected using a system designed with confocal optics.^[http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html]
+The _confocal volume_ is the _in-focus_ volume within a sample that is efficiently detected using a system designed with confocal optics.^[Definition from http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html.]
 ```
 
-An image is acquired on a confocal microscope by scanning this apparatus across a sample, collecting one pixel at a time. Some confocal detectors collect intensity in arbitrary units but others are capable of photon-counting. The work in this thesis was carried out with photon-counting detectors.
+An image is acquired on a confocal microscope by scanning this apparatus across a sample, collecting one pixel at a time. 
+
+
+### Detectors  {#detectors}
+
+There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect  [@photoelectric], a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.
+
+```{definition}
+The quantum efficiency of a detector is the fraction of fluorescent signal that is reported by the detector.
+```
+
+The quantum nature of the photoelectric effect makes it practically impossible for detectors to reach 100% efficiency.
+
+
+#### Photon multiplier tubes
+
+Photon multiplier tubes (PMTs) use the photoelectirc effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [HammamatsuPMT]. See figure \@ref(fig:PMT). This current should correspond to the incident light intensity.
+
+(ref:PMT-caption) PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured [@LeicaDetectors].
+
+```{r PMT, fig.cap='(ref:PMT-caption)', echo=FALSE}
+include_graphics(here("img", "PMT.png"))
+```
+
+The quantum efficiency of standard PMTs is approximately 25% for blue-green light. This is because many incident photons on the multi-alkali material of regular PMT photocathodes fail to free any electrons. This problem gets worse at higher wavelengths where photons have lower energy. PMTs also suffer significantly from thermal noise (whereby dissociated electrons are created due to heat energy).
+
+
+#### Avalanche photo-diodes
+
+```{definition}
+_Avalanche multiplication_ in semiconductors occurs when free electrons which are moving in an electric field across the semiconductor collide with bound electrons, freeing them to move and indeed to free more bound electrons. This compounding increase in free electrons in the electric field leads to an increase in the electric current.
+```
+
+Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure \@ref(fig:APD). They are somewhat analagous to PMTs, using the avalanche effect in place of the series of cathodes. 
+
+(ref:APD-caption) APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche [@LeicaDetectors].
+
+```{r APD, fig.cap='(ref:APD-caption)', echo=FALSE}
+include_graphics(here("img", "APD.png"))
+```
+
+The quantum efficiency of APDs can be as high as 45%, however their dynamic range is low and they can only function with low-intensity light. APDs are less prone to thermal noise than PMTs.
+
+
+#### Hybrid detectors
+
+APDs have better sensitivity and lower noise, however PMTs have a larger dynamic range. Hybrid detectors (HyDs) PMT and APD technology is combined to get the best of both worlds. With HyDs, photons are converted to electrons at the photocathode, then accelerated in vacuum towards a semiconductor where they initiate an electron avalanche. See figure \@ref(fig:HyD). The difference between HyDs and APDs is this acceleration step. 
+
+(ref:HyD-caption) HyD detector setup. A photon dissociates an electron from the photocathode, this electron is then accelerated PMT-style towards an APD-style semiconductor setup, triggering an avalanche [@LeicaDetectors].
+
+```{r HyD, fig.cap='(ref:HyD-caption)', echo=FALSE}
+include_graphics(here("img", "HyD.png"))
+```
+
+HyDs with GaAsP photocathodes achieve a quantum efficiency of up to 50%. They also suffer least from detector afterpulsing, a phenomenon which can cause real signal pulses to be followed by a feedback pulse at a later time [@afterpulsing].
+
+With their superior sensitivity and dynamic range and low noise, HyDs can be calibrated to enable _photon-counting_ mode whereby the readout is in units of photons (not electron current). This is a much more physically relevant readout, given that we are interested in measuring fluorescence, which is very convenient for many biological applications, not least fluorescence fluctuation spectroscopy (FFS, discussed in section \@ref(FFS)).
 
 ```{remark}
 Henceforth, intensity counts will be assumed to be in units of photons.
 ```
 
 
+## Widefield light microscopy
+
+With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera. See figure \@ref(fig:widefield). One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need for scanning across the sample to acquire each pixel (which requires precise robotics). Another example is that images can be acquired faster because all pixels in a frame are acquired in parallel. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).
+
+(ref:widefield-caption) Light travels from the uniformally illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope.
+
+```{r widefield, out.width='50%', fig.cap='(ref:widefield-caption)', echo=FALSE}
+include_graphics(here("img", "Widefield.png"))
+```
+
+
+### Total internal reflection microscopy
+_Total internal reflection microscopy_ (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure \@ref(fig:TIRFig) [@TIRFig]. The huge advantage of TIRF is that only a single plane is illuminated, so when focussing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot get the object of interest right at the cover slip. Looking at figure \@ref(fig:TIRFig), it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.
+
+(ref:TIRFig-caption) The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated.
+
+```{r TIRFig, fig.cap='(ref:TIRFig-caption)', echo=FALSE}
+include_graphics(here("img", "TIRFig.png"))
+```
+
+
+### Cameras
+
+There are many types of camera available for widefield microscopes, the most common being EMCCD, CMOS, and sCMOS cameras.
+
+
+#### EMCCD cameras
+
+A charge-coupled device (CCD) is a device for the movement of electric charge. An EMCCD camera is an array of CCDs (one per pixel). When photons strike a CCD in the camera, electrons are dissociated by the photoelectric effect. These free charges are then moved across the CCD and this current can be measured and used as a measure of light intensity (in arbitrary units) [@EMCCD]. The EM stands for _electron multiplied_ which tells us that EMCCD cameras use an amplification technique, just like PMTs and APDs (section \@ref(detectors)). 
+
+
+#### CMOS cameras
+
+Complementary metal–oxide–semiconductor cameras are arrays of semiconductors (one per pixel), again utilizing the photoelectric effect and the electric field across a semiconductor. CMOS cameras have amplification for each pixel, whereas EMCCDs only have a few amplifiers per camera [@CMOS]. This makes CMOS cameras more sensitive.
+
+
+#### sCMOS cameras 
+
+Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD [@sCMOS]. sCMOS cameras appear to better than anything that has come before.
+
+
+#### Being quantitative with cameras
+
+For electronic reasons, the noise from certain pixels on all of the cameras above may be correlated. This hinders some techniques in the fluorescence correlation spectroscopy (section \@ref(FCS)). However, with careful characterization of the camera and correct mathematical treatment, quantitative studies can be carried out with cameras. Indeed, our group quantified the oligomeric state of the dynamin-2 protein at the HIV-1 fusion pore using data from a TIRF microscope with an EMCCD camera [@DanDynamin].
+
 ## Intensity traces
 
 ```{definition}
-A _fluorophore_ is a fluorescent chemical compound that can re-emit light upon light excitation.^[https://en.wikipedia.org/wiki/Fluorophore]
+A _fluorophore_ is a fluorescent chemical compound that can re-emit light upon light excitation.
 ```
-
-Fluorophores under constant excitation emit light one photon at a time according to poisson statistics.^[https://en.wikipedia.org/wiki/Poisson_distribution]
 
 Consider figure \@ref(fig:confocal-volume-particle). A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here). 
 
@@ -52,9 +163,54 @@ The time-series of intensity counts in a given pixel or image is referred to as 
 ```
 
 
-## Fluorescence fluctuation spectroscopy
+## Diffusion
 
-Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the intensity fluctuation of a fluorescence signal [@FFS]. This very often takes the form of moment analysis^[https://en.wikipedia.org/wiki/Method_of_moments_(statistics)] [@QianElson]. Briefly, moment analysis is an attempt to extract data from a distribution of values using its _moments_. The first moment of a distribution is its mean value, the second moment is its variance and so on. Intensity traces can be viewed as distributions with moments. For example, the intensity trace in figure \@ref(fig:confocal-volume-particle) has mean `r round(mean(df_intensity_trace$intensity), 2)` and variance  `r round(var(df_intensity_trace$intensity), 2)`. 
+```{definition}
+_Diffusion_ is the net movement of molecules or atoms from a region of high concentration (or high chemical potential) to a region of low concentration (or low chemical potential) as a result of random motion of the molecules or atoms.
+```
+
+Fick's first law of diffusion relates the concentration to the diffusive flux, assuming a steady state. It describes how the flux goes from high to low concentration areas, with magnitude proportional to the concentration gradient. The law is:
+
+\begin{equation}
+J = -D\frac{d\varphi}{dx}
+(\#eq:ficksfirst)
+\end{equation}
+
+where
+
+* $J$ is the diffusive flux
+* $D$ is the diffusion constant
+* $x$ is the position in space
+* $\varphi$ is the concentration at position $x$.
+
+```{definition}
+_Brownian motion_ is the random motion of particles suspended in a fluid resulting from their collision with the fast-moving molecules in the fluid [@Brownian].
+```
+
+```{definition}
+In an ensemble of $N$ particles, each of which occupies position $x_i(t)$ at time $t$, the _mean squared displacement_ of the particles in the ensemble is
+
+\begin{equation}
+\text{msd}(t) = \frac{1}{N}\sum_{i = 1}^N [x_i(t) - x_i(0)]^2
+(\#eq:msd)
+\end{equation}
+```
+
+For free brownian motion in 1 dimension, the expected value of the msd is $\text{msd}(t) = 2Dt$, where $D$ is the diffusion constant. For free brownian motion in $d$ dimensions, the expected value of the msd is $\text{msd}(t) = 2dDt$, reflecting the fact that free brownian motion in $d$ dimensions is one-dimensional free brownian motion happening simultaneously and independently in each individual dimension.
+
+These definitions are the fomally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as _diffusion_. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as _diffusion_, it is what is defined as Brownian motion above. Henceforth when I use the term _diffusion_, this brownian motion type of movement can be assumed.
+
+
+### Anomalous diffusion
+
+_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no longer holds and the relationship between msd and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) 
+
+
+## Fluorescence fluctuation spectroscopy {#FFS}
+
+Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the intensity fluctuation of a fluorescence signal [@FFS]. This very often takes the form of moment analysis [@QianElson]. Briefly, moment analysis is an attempt to extract data from a distribution of values using its _moments_. The first moment of a distribution is its mean value, the second moment is its variance. The $n$^th^ moment of a random $X$ with expected value $E[X]=\mu$ for $n>1$ is $E[(X - \mu)^n]$.
+
+Intensity traces can be viewed as distributions with moments. For example, the intensity trace in figure \@ref(fig:confocal-volume-particle) has mean `r round(mean(df_intensity_trace$intensity), 2)` and variance  `r round(var(df_intensity_trace$intensity), 2)`. 
 
 
 ### Number and brightness {#number-and-brightness}
@@ -89,16 +245,22 @@ The way that N&B experiments to determine unknown oligomeric states are generall
 1. With the same laser power and fluorophore but now with a system where the oligomeric state is unknown, measure the brightness $\epsilon$ again. Call this $\epsilon_\text{unknown}$.
 1. The unknown oligomeric state is equal to $\epsilon_\text{unknown} / \epsilon_\text{monomer}$. 
 
-Number and brightness has specific pixel dewll-time and frame rate requirements. These were first articulated in my 2017 review of N&B. 
+Number and brightness has specific pixel dwell-time and frame rate requirements. These were first articulated in my 2017 review of N&B [@NBreview]. 
+
 ```{definition}
 The _pixel dwell time_ $t_\text{dwell}$ of a scanning confocal microscope is the amount of time it spends collecting photons at each given pixel before moving on to the next pixel.
 ```
+
+It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument.
+
 ```{definition}
 The _frame time_ of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detectionion of photons from the first pixel to the end of detection of photons from the last pixel.
 ```
+
 ```{definition}
 The mean _residence time_ $\tau_D$ of a particle in the confocal volume is the average length of time that a particle that enters the confocal volume resides in that volume before exiting.
 ```
+
 The requirement is $t_\text{dwell} \ll \tau_D \ll t_\text{frame}$. This ensures that: 
 
 1. When acquiring photons at a given pixel, the underlying configuration of entities is constant (there's not enough time for the entities to move and change their configuration). 
@@ -111,9 +273,9 @@ An important property of N&B is that if all fluorescent particles are immobile, 
 The N&B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Most of my PhD focussed on corrections for photobleaching. This is discussed in chapter \@ref(photobleaching-correction). 
 
 
-## Fluorescence correlation spectroscopy
+## Fluorescence correlation spectroscopy {#FCS}
 
-Fluorescence correlation spectroscopy (FCS) is the correlation analysis of fluorescence intensity fluctuations.^[https://en.wikipedia.org/wiki/Fluorescence_correlation_spectroscopy] For this reason, FCS can be described as a subfield of FFS [@FFSnewage]. In practice, FFS is mostly used to refer to the non-FCS parts of the whole FFS field. I will follow that convention.
+Fluorescence correlation spectroscopy (FCS) is the correlation analysis of fluorescence intensity fluctuations. For this reason, FCS can be described as a subfield of FFS [@FFSnewage]. In practice, FFS is mostly used to refer to the non-FCS parts of the whole FFS field. I will follow that convention.
 
 First, let us introduce some concepts from statistics.
 
@@ -123,11 +285,11 @@ The _correlation_ between two random variables $X$ and $Y$ with expected values 
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\sigma_X \sigma_Y}
 (\#eq:correlation)
 \end{equation}
-where $E$ is the expectation operator.^[https://en.wikipedia.org/wiki/Correlation_and_dependence]
+where $E$ is the expectation operator.
 ```
 
 ```{definition, name='statistics'}
-_Autocorrelation_ $G(X; \tau)$, is the correlation of a signal $X$ with a delayed copy of itself as a function of the delay $\tau$.^[https://en.wikipedia.org/wiki/Autocorrelation]
+_Autocorrelation_ $G(X; \tau)$, is the correlation of a signal $X$ with a delayed copy of itself as a function of the delay $\tau$.
 \begin{equation}
 G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
 (\#eq:autocorrelation)
@@ -150,11 +312,11 @@ The _correlation_ between two random variables $X$ and $Y$ with expected values 
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\mu_X \mu_Y}
 (\#eq:FCScorrelation)
 \end{equation}
-where $E$ is the expectation operator.^[https://en.wikipedia.org/wiki/Correlation_and_dependence]
+where $E$ is the expectation operator.
 ```
 
 ```{definition, name='FCS'}
-_Autocorrelation_ $G(X; \tau)$, is the correlation of a signal $X$ with a delayed copy of itself as a function of the delay $\tau$.^[https://en.wikipedia.org/wiki/Autocorrelation]
+_Autocorrelation_ $G(X; \tau)$, is the correlation of a signal $X$ with a delayed copy of itself as a function of the delay $\tau$.
 \begin{equation}
 G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\mu^2_X}
 (\#eq:FCSautocorrelation)
@@ -194,7 +356,7 @@ Suppose that two proteins of interest A and B are labelled with red and green fl
 
 If these proteins are interacting, then
 
-* interaction implies that A and B are _stuck_ together
+* interaction implies that A and B _co-diffuse_
 * this implies that A and B co-diffuse
 * this implies that for a given volumen in the sample
   - more of A implies more of B
@@ -219,7 +381,12 @@ As mentioned already, the autocorrelation function (ACF) can be used to count th
 
 ### Cross-correlation
 
-The cross-correlation of intensity traces from nearby pixels can be used to measure the velocity of the movement of the labelled particles between these two pixels [@STICS]. It can also be used to image barriers to diffusion [@PCF].
+The cross-correlation of intensity traces from nearby pixels can be used to measure the velocity of the movement of the labelled particles between these two pixels [@STICS]. 
+
+
+#### Pair correlation function {#PCF}
+
+The phrase _pair correlation function_^[This was needless, it could just be called _cross-correlation function_ (PCF) but for the confusion about the term _cross-correlation_ in the FCS field.] was coined for this idea of cross-correlating intensity traces from nearby pixels. The PCF was used to image barriers to diffusion [@PCF] using the idea that the spatiotemporal correlation caused by particles moving from one place to another will not be present for positions $p_1$ and $p_2$ if they are on opposite sides of a barrier, because the barrier prevents travel from $p_1$ to $p_2$. It has also been used to create _diffusion tensors_: maps of diffusion velocities at every pixel [@DiffusionTensor]; this approach is similar to that of @STICS. 
 
 
 ### Cross-correlated brightness
@@ -249,7 +416,7 @@ $B_\text{cc}$ is related to $\text{corr}(I_1, I_2)$ by
 B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(I_1, I_2)
 (\#eq:bcc-corr)
 \end{equation}
-This means that $B_\text{cc}$ is just a scaled version of correlation. The need for this redefinition is unclear (but it is no harm). It does make the formula look like the brightness formula \@ref(eq:NB1-2), but no such oligomeric state information can be gleaned from $B_\text{cc}$. It is merely useful as a relative measure of interaction: higher $B_\text{cc}$ means more interaction, lower $B_\text{cc}$ means less interaction. It is commonly used to identify interactions. Then, conventional N&B performed on each of the channels (1 and 2) can be used to measure the stoichiometry of the interaction. See @ccNB for details.
+This means that $B_\text{cc}$ is just a scaled version of correlation. The need for this redefinition is unclear (but it is no harm). It does make the formula look like the brightness formula \@ref(eq:NB1-2), but no such oligomeric state information can be gleaned from $B_\text{cc}$. It is merely useful as a relative measure of interaction: higher $B_\text{cc}$ means more interaction, lower $B_\text{cc}$ means less interaction. It is commonly used to identify interactions. Then, conventional N&B performed on each of the channels (1 and 2) can be used to measure the stoichiometry of the interaction.
 
 ```{remark}
 Since cross-correlated brightness uses correlation but not cross-correlation, it is a prime example of the confusing naming that pervades FCS. It should be called _correlated brightness_. Rather than rename it, I will continue to refer to it as cross-correlated brightness.
