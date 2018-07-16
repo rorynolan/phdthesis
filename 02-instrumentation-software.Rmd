@@ -3,9 +3,7 @@
 
 ## Instrumentation 
 
-All of the images used in this thesis were acquired on a Leica SP8 confocal microscope.^[https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8] Importantly, the detectors that we have on this microscope are capable of photon counting. 
-
-These images were acquired by Luis Alvarez (postdoctoral researcher), Maro Iliopoulou (research assistant) and Sergi Padilla-Parra (supervisor).
+All of the images used in this thesis were acquired on a Leica SP8 confocal microscope^[https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8] equipped with hybrid detectors (section \@ref(HyDs)). Importantly, the detectors that we have on this microscope are capable of photon counting. 
 
 
 
@@ -57,7 +55,7 @@ get_downloads <- function(pkg) {
         read_csv() %>% 
         mutate_if(is.numeric, format, scientific = FALSE) %>% 
         bind_rows(out, .) %>% 
-        filter(!duplicated(pkg)) %>% 
+        filter(!duplicated(package)) %>% 
         write_csv(pd_path)
     } else {
       write_csv(out, pd_path)
@@ -65,8 +63,7 @@ get_downloads <- function(pkg) {
   }
   suppressMessages(read_csv(pd_path)) %>% 
     filter(package == pkg) %>% 
-    slice(1) %>% 
-    mutate_if(is.numeric, format, scientific = FALSE)
+    mutate_if(is.numeric, formatC, format = "d", big.mark = ",")
 }
 ijtiff_downloads <- get_downloads("ijtiff")
 ```

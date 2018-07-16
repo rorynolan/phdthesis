@@ -127,11 +127,18 @@
 <li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a></li>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.1.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion"><i class="fa fa-check"></i><b>4.1.2</b> Experimental results and discussion</a></li>
+<li class="chapter" data-level="4.1.3" data-path="applications.html"><a href="applications.html#visualization-of-bleaching-correction-on-real-data"><i class="fa fa-check"></i><b>4.1.3</b> Visualization of bleaching correction on real data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="applications.html"><a href="applications.html#introduction-1"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion-1"><i class="fa fa-check"></i><b>4.2.2</b> Experimental results and discussion</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="applications.html"><a href="applications.html#hiv-1-receptor-stoichiometry"><i class="fa fa-check"></i><b>4.3</b> HIV-1 receptor stoichiometry</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.3.2" data-path="applications.html"><a href="applications.html#expetimental-setup"><i class="fa fa-check"></i><b>4.3.2</b> Expetimental setup</a></li>
+<li class="chapter" data-level="4.3.1" data-path="applications.html"><a href="applications.html#introduction-2"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="applications.html"><a href="applications.html#experimental-setup"><i class="fa fa-check"></i><b>4.3.2</b> Experimental setup</a></li>
 <li class="chapter" data-level="4.3.3" data-path="applications.html"><a href="applications.html#analysis"><i class="fa fa-check"></i><b>4.3.3</b> Analysis</a></li>
 <li class="chapter" data-level="4.3.4" data-path="applications.html"><a href="applications.html#results"><i class="fa fa-check"></i><b>4.3.4</b> Results</a></li>
 <li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
@@ -182,7 +189,7 @@
 <h2><span class="header-section-number">1.2</span> Confocal light microscopy</h2>
 <p>All of the images used in my PhD were collected on a confocal microscope. This type of microscope guarantees that only in-focus light is collected at the detector. See figure <a href="intro.html#fig:confocal">1.1</a>.</p>
 
-<div class="figure"><span id="fig:confocal"></span>
+<div class="figure" style="text-align: left"><span id="fig:confocal"></span>
 <img src="img/quora_confocal.jpeg" alt="Confocal microscope light path showing how out of focus light does not make it to the detector.1" width="70%" />
 <p class="caption">
 Figure 1.1: Confocal microscope light path showing how out of focus light does not make it to the detector.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
@@ -207,8 +214,8 @@ Figure 1.1: Confocal microscope light path showing how out of focus light does n
 <h4><span class="header-section-number">1.2.1.1</span> Photon multiplier tubes</h4>
 <p>Photon multiplier tubes (PMTs) use the photoelectirc effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [HammamatsuPMT]. See figure <a href="intro.html#fig:PMT">1.2</a>. This current should correspond to the incident light intensity.</p>
 
-<div class="figure"><span id="fig:PMT"></span>
-<img src="img/PMT.png" alt="PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured (Leica 2012)." width="400" />
+<div class="figure" style="text-align: left"><span id="fig:PMT"></span>
+<img src="img/PMT.png" alt="PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured (Leica 2012)." width="100%" />
 <p class="caption">
 Figure 1.2: PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>.
 </p>
@@ -224,20 +231,20 @@ Figure 1.2: PMT detector setup. Electrons are dissociated by photons at the phot
 
 <p>Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure <a href="intro.html#fig:APD">1.3</a>. They are somewhat analagous to PMTs, using the avalanche effect in place of the series of cathodes.</p>
 
-<div class="figure"><span id="fig:APD"></span>
-<img src="img/APD.png" alt="APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche (Leica 2012)." width="400" />
+<div class="figure" style="text-align: left"><span id="fig:APD"></span>
+<img src="img/APD.png" alt="APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche (Leica 2012)." width="100%" />
 <p class="caption">
 Figure 1.3: APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>.
 </p>
 </div>
 <p>The quantum efficiency of APDs can be as high as 45%, however their dynamic range is low and they can only function with low-intensity light. APDs are less prone to thermal noise than PMTs.</p>
 </div>
-<div id="hybrid-detectors" class="section level4">
+<div id="HyDs" class="section level4">
 <h4><span class="header-section-number">1.2.1.3</span> Hybrid detectors</h4>
 <p>APDs have better sensitivity and lower noise, however PMTs have a larger dynamic range. Hybrid detectors (HyDs) PMT and APD technology is combined to get the best of both worlds. With HyDs, photons are converted to electrons at the photocathode, then accelerated in vacuum towards a semiconductor where they initiate an electron avalanche. See figure <a href="intro.html#fig:HyD">1.4</a>. The difference between HyDs and APDs is this acceleration step.</p>
 
-<div class="figure"><span id="fig:HyD"></span>
-<img src="img/HyD.png" alt="HyD detector setup. A photon dissociates an electron from the photocathode, this electron is then accelerated PMT-style towards an APD-style semiconductor setup, triggering an avalanche (Leica 2012)." width="400" />
+<div class="figure" style="text-align: left"><span id="fig:HyD"></span>
+<img src="img/HyD.png" alt="HyD detector setup. A photon dissociates an electron from the photocathode, this electron is then accelerated PMT-style towards an APD-style semiconductor setup, triggering an avalanche (Leica 2012)." width="100%" />
 <p class="caption">
 Figure 1.4: HyD detector setup. A photon dissociates an electron from the photocathode, this electron is then accelerated PMT-style towards an APD-style semiconductor setup, triggering an avalanche <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>.
 </p>
@@ -256,7 +263,7 @@ Figure 1.4: HyD detector setup. A photon dissociates an electron from the photoc
 <h2><span class="header-section-number">1.3</span> Widefield light microscopy</h2>
 <p>With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera. See figure <a href="intro.html#fig:widefield">1.5</a>. One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need for scanning across the sample to acquire each pixel (which requires precise robotics). Another example is that images can be acquired faster because all pixels in a frame are acquired in parallel. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).</p>
 
-<div class="figure"><span id="fig:widefield"></span>
+<div class="figure" style="text-align: left"><span id="fig:widefield"></span>
 <img src="img/Widefield.png" alt="Light travels from the uniformally illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope." width="50%" />
 <p class="caption">
 Figure 1.5: Light travels from the uniformally illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope.
@@ -266,8 +273,8 @@ Figure 1.5: Light travels from the uniformally illuminated sample through a lens
 <h3><span class="header-section-number">1.3.1</span> Total internal reflection microscopy</h3>
 <p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure <a href="intro.html#fig:TIRFig">1.6</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focussing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot get the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.6</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
 
-<div class="figure"><span id="fig:TIRFig"></span>
-<img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated." width="452" />
+<div class="figure" style="text-align: left"><span id="fig:TIRFig"></span>
+<img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated." width="100%" />
 <p class="caption">
 Figure 1.6: The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated.
 </p>
@@ -303,7 +310,7 @@ Figure 1.6: The thin evanescent wave close to the boundary (between the cover sl
 
 <p>Consider figure <a href="intro.html#fig:confocal-volume-particle">1.7</a>. A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here).</p>
 
-<div class="figure"><span id="fig:confocal-volume-particle"></span>
+<div class="figure" style="text-align: left"><span id="fig:confocal-volume-particle"></span>
 <img src="img/confocal_volume_particle.png" alt="Left: a fluorophore diffusing trhough the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" /><img src="img/cvp.png" alt="Left: a fluorophore diffusing trhough the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" />
 <p class="caption">
 Figure 1.7: Left: a fluorophore diffusing trhough the confocal volume. Right: the intensity trace due to this fluorophore.
@@ -383,7 +390,7 @@ where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)
 n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 \end{align}\]</span>
 &gt;
-&gt; — <span class="citation">Nolan et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+&gt; — <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The quantity <span class="math inline">\(\epsilon\)</span> is a relative measure of oligomeric state. That is, <span class="math inline">\(\epsilon\)</span> will be twice as big for dimers as it is for monomers, three times as big for trimers as it is for monomers and so on.</p>
 <p>The way that N&amp;B experiments to determine unknown oligomeric states are generally done is as follows:</p>
 <ol style="list-style-type: decimal">
@@ -391,7 +398,7 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <li>With the same laser power and fluorophore but now with a system where the oligomeric state is unknown, measure the brightness <span class="math inline">\(\epsilon\)</span> again. Call this <span class="math inline">\(\epsilon_\text{unknown}\)</span>.</li>
 <li>The unknown oligomeric state is equal to <span class="math inline">\(\epsilon_\text{unknown} / \epsilon_\text{monomer}\)</span>.</li>
 </ol>
-<p>Number and brightness has specific pixel dwell-time and frame rate requirements. These were first articulated in my 2017 review of N&amp;B <span class="citation">(Nolan et al. <a href="#ref-NBreview">2017</a>)</span>.</p>
+<p>Number and brightness has specific pixel dwell-time and frame rate requirements. These were first articulated in my 2017 review of N&amp;B <span class="citation">(Nolan, Iliopoulou, et al. <a href="#ref-NBreview">2017</a>)</span>.</p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-14" class="definition"><strong>Definition 1.13  </strong></span>The <em>pixel dwell time</em> <span class="math inline">\(t_\text{dwell}\)</span> of a scanning confocal microscope is the amount of time it spends collecting photons at each given pixel before moving on to the next pixel.
@@ -413,7 +420,7 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <li>When acquiring photons at a given pixel, the underlying configuration of entities is constant (there’s not enough time for the entities to move and change their configuration).</li>
 <li>When the scanner returns to a given pixel (one frame time later), the underlying configuration has changed totally since the last time the scanner was at this pixel (because so much time has passed, all of the diffusing entities have moved a lot in the meantime).</li>
 </ol>
-<p>Both of these points are implicitly assumed in the derivation of the N&amp;B equations so it is essential to get these acquisition parameters right. This is discussed at length in <span class="citation">Nolan et al. (<a href="#ref-NBreview">2017</a>)</span>.</p>
+<p>Both of these points are implicitly assumed in the derivation of the N&amp;B equations so it is essential to get these acquisition parameters right. This is discussed at length in <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span>.</p>
 <p>An important property of N&amp;B is that if all fluorescent particles are immobile, then <span class="math inline">\(B = 1\)</span>. This is because photon emission from stationary sources happens according to a poisson distribution. Poisson distributions have variance equal to mean, this implies <span class="math inline">\(\sigma^2\)</span> = <span class="math inline">\(\langle I \rangle\)</span> which gives <span class="math inline">\(B = \frac{\sigma^2}{\langle I \rangle} = 1\)</span>.</p>
 <p>The N&amp;B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Most of my PhD focussed on corrections for photobleaching. This is discussed in chapter <a href="photobleaching-correction.html#photobleaching-correction">3</a>.</p>
 </div>

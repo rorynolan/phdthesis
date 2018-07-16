@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-13">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -127,11 +127,18 @@
 <li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a></li>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.1.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion"><i class="fa fa-check"></i><b>4.1.2</b> Experimental results and discussion</a></li>
+<li class="chapter" data-level="4.1.3" data-path="applications.html"><a href="applications.html#visualization-of-bleaching-correction-on-real-data"><i class="fa fa-check"></i><b>4.1.3</b> Visualization of bleaching correction on real data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="applications.html"><a href="applications.html#introduction-1"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion-1"><i class="fa fa-check"></i><b>4.2.2</b> Experimental results and discussion</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="applications.html"><a href="applications.html#hiv-1-receptor-stoichiometry"><i class="fa fa-check"></i><b>4.3</b> HIV-1 receptor stoichiometry</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.3.2" data-path="applications.html"><a href="applications.html#expetimental-setup"><i class="fa fa-check"></i><b>4.3.2</b> Expetimental setup</a></li>
+<li class="chapter" data-level="4.3.1" data-path="applications.html"><a href="applications.html#introduction-2"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="applications.html"><a href="applications.html#experimental-setup"><i class="fa fa-check"></i><b>4.3.2</b> Experimental setup</a></li>
 <li class="chapter" data-level="4.3.3" data-path="applications.html"><a href="applications.html#analysis"><i class="fa fa-check"></i><b>4.3.3</b> Analysis</a></li>
 <li class="chapter" data-level="4.3.4" data-path="applications.html"><a href="applications.html#results"><i class="fa fa-check"></i><b>4.3.4</b> Results</a></li>
 <li class="chapter" data-level="4.3.5" data-path="applications.html"><a href="applications.html#conclusion"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
@@ -166,8 +173,7 @@
 <h1><span class="header-section-number">Chapter 2</span> Instrumentation and Software</h1>
 <div id="instrumentation" class="section level2">
 <h2><span class="header-section-number">2.1</span> Instrumentation</h2>
-<p>All of the images used in this thesis were acquired on a Leica SP8 confocal microscope.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Importantly, the detectors that we have on this microscope are capable of photon counting.</p>
-<p>These images were acquired by Luis Alvarez (postdoctoral researcher), Maro Iliopoulou (research assistant) and Sergi Padilla-Parra (supervisor).</p>
+<p>All of the images used in this thesis were acquired on a Leica SP8 confocal microscope<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> equipped with hybrid detectors (section <a href="intro.html#HyDs">1.2.1.3</a>). Importantly, the detectors that we have on this microscope are capable of photon counting.</p>
 </div>
 <div id="software-programs-languages-and-tools" class="section level2">
 <h2><span class="header-section-number">2.2</span> Software programs, languages and tools</h2>
@@ -192,20 +198,20 @@
 <h2><span class="header-section-number">2.3</span> My software packages</h2>
 <div id="ijtiff" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> <code>ijtiff</code></h3>
-<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 354 downloads per month which amounts to 2405 since it was first released.</p>
+<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 352 downloads per month which amounts to 2,426 since it was first released.</p>
 <p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span>.</p>
 </div>
 <div id="autothresholdr" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> <code>autothresholdr</code></h3>
-<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 649 downloads per month which amounts to 10767 since it was first released.</p>
+<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 648 downloads per month which amounts to 10,809 since it was first released.</p>
 </div>
 <div id="detrendr" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> <code>detrendr</code></h3>
-<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 383 downloads per month which amounts to 3310 since it was first released.</p>
+<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 380 downloads per month which amounts to 3,320 since it was first released.</p>
 </div>
 <div id="filesstrings" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> <code>filesstrings</code></h3>
-<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 822 downloads per month which amounts to 13659 since it was first released.</p>
+<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 820 downloads per month which amounts to 13,713 since it was first released.</p>
 </div>
 <div id="exampletestr" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> <code>exampletestr</code></h3>
@@ -214,7 +220,7 @@
 <span id="def:unnamed-chunk-27" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
 </div>
 
-<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 528 downloads per month which amounts to 8380 since it was first released.</p>
+<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 526 downloads per month which amounts to 8,401 since it was first released.</p>
 
 </div>
 </div>

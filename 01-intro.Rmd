@@ -71,7 +71,7 @@ include_graphics(here("img", "APD.png"))
 The quantum efficiency of APDs can be as high as 45%, however their dynamic range is low and they can only function with low-intensity light. APDs are less prone to thermal noise than PMTs.
 
 
-#### Hybrid detectors
+#### Hybrid detectors {#HyDs}
 
 APDs have better sensitivity and lower noise, however PMTs have a larger dynamic range. Hybrid detectors (HyDs) PMT and APD technology is combined to get the best of both worlds. With HyDs, photons are converted to electrons at the photocathode, then accelerated in vacuum towards a semiconductor where they initiate an electron avalanche. See figure \@ref(fig:HyD). The difference between HyDs and APDs is this acceleration step. 
 
