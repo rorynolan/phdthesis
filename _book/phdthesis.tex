@@ -1259,6 +1259,28 @@ itself! This package was peer reviewed and published in
 2017.\citep{exampletestr} It gets 524 downloads per month which amounts
 to 8,409 since it was first released.
 
+\subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
+
+\texttt{brownded} is an R software package
+(\url{https://github.com/rorynolan/brownded}) for simulating bounded
+brownian motion in any number of dimensions, where \emph{bounded}
+brownian motion is brownian motion in an \(n\)-dimensional box where the
+particles collide elastically (without loss of energy) with the
+boundaries of the box. \texttt{brownded} allows specification of the
+number of dimensions, the number of particles, the size of the box and
+the diffusion coefficient of the particles.
+
+\texttt{brownded} also facilitates the simulation of images created from
+fluorescent particles undergoing bounded brownian motion. It allows
+specification of the time at which each image should be taken, the pixel
+size and the brightness of the particles. Each fluorescent particle
+contributes photon counts to its pixel of residence at that time
+according to a poisson process.
+
+Finally, \texttt{brownded} facilitates the synthetic bleaching of
+fluorescent particles so bleaching can be investigated with images
+produced with \texttt{brownded}.
+
 \chapter{Photobleaching Correction}\label{photobleaching-correction}
 
 \section{Introduction to
@@ -1847,8 +1869,7 @@ previous methods which consist of determining local deviation and adding
 it to a \emph{fixed} global mean: this provides no redistribution of
 variance.
 
-\section{A comparison of detrending
-methods}\label{a-comparison-of-detrending-methods}
+\section{A comparison of detrending methods}\label{detrend-compare}
 
 To compare the various detrending methods, I use the following workflow:
 
@@ -1857,7 +1878,8 @@ To compare the various detrending methods, I use the following workflow:
 \tightlist
 \item
   Simulate a number \(N = 100,000\) of particles diffusing with known
-  diffusion rate.
+  diffusion rate. Simulations were done with the \texttt{brownded}
+  software package (section \ref{brownded}).
 \item
   Simulate photon emmission from these particles with chosen brightness
   \(\epsilon\) and create an image series from this, being careful to
@@ -1937,7 +1959,9 @@ work well at all. This will be shown in chapter \ref{applications}. This
 is probably because with real data, bleaching is likely not taking place
 at a constant, steady rate and other factors such as cell movement are
 contributing to medium and long term intensity fluctuations and these
-have a detrimental effect on calculations if not detrended out.
+have a detrimental effect on calculations if not detrended out. It would
+be possible to study this by mimicking real bleaching profiles with
+simulations (see section \ref{mimick}.
 
 The worst performer by far is \texttt{boxcar10}. For example, at
 \(\epsilon = 0.1\), it makes an error of worse than 40\% and for
@@ -2009,6 +2033,35 @@ The heterogeneity of fold-changes in \(\epsilon\) measured from single
 images as shown in figure \ref{fig:FKBPfoldchanges} shows that many
 replicates are needed in number and brightness experiments in order to
 converge upon the true value of the fold change.
+
+A pair of cells from this study together with their brightness
+statistics are shown in figure \ref{fig:nandb-fig}. Notice how there is
+no discernible change in intensity before and after addition of the
+drug, but there is a discernible change in brightness \(B\), best seen
+using the histogram of pixel brightnesses.
+
+
+
+
+
+
+
+
+
+
+\begin{figure}
+
+\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/nandb-fig} \hfill{}
+
+\caption{mClover-labelled myristoylated FKBP12 before and
+after application of 50nM AP1510. Shown here are intensity (first row),
+brightness (second row), a plot of intensity versus brightness (third
+row) and brightness histograms (fourth row). Notice how the change in
+brightness upon addition of the drug is seen most clearly by comparing
+the brightness histograms. The vertical lines in the histogram plot show
+the means of those histograms. Brightness here refers to B. Scale bar 20
+\(\mu\)m. \citep{nandb}}\label{fig:nandb-fig}
+\end{figure}
 
 \subsection{Visualization of bleaching correction on real
 data}\label{visualization-of-bleaching-correction-on-real-data}
@@ -2176,11 +2229,11 @@ minutes and use this to calculate this temporal stoichiometry.
 
 \subsection{Experimental setup}\label{experimental-setup}
 
-Receptor (mOrange) and co-receptor (mTFP1) were labelled in Cos7 cells.
-Virus was added at time \(t=0\) and imaging proceeded for a number of
-minutes at 100 frames per 1.7 minutes. Alternating laser excitation
-(ALEX, \citet{ALEX}) was used to eliminate the possibility of channel
-bleed-through. See figure \ref{fig:HIVStoichiometryIntensity}.
+Receptor (CD4) and co-receptor (CXCR4 or CCR5) were labelled in Cos7
+cells. Virus was added at time \(t=0\) and imaging proceeded for a
+number of minutes at 100 frames per 1.7 minutes. Alternating laser
+excitation (ALEX, \citet{ALEX}) was used to eliminate the possibility of
+channel bleed-through. See figure \ref{fig:HIVStoichiometryIntensity}.
 
 
 
@@ -2238,59 +2291,51 @@ is hypothesized for each.
 
 
 
+
 \begin{figure}
 
 \includegraphics[width=0.47\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/X4plot} \includegraphics[width=0.47\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/R5plot} \hfill{}
 
 \caption{Number of receptor and co-receptor
 units involved in complexes with virus over time, obtained by brightness
-analysis.}\label{fig:HIVStoichiometryPlots}
+analysis. Left panel: HIV\textsubscript{HXB2}. Right panel:
+HIV\textsubscript{JR-FL}.}\label{fig:HIVStoichiometryPlots}
 \end{figure}
 
 \begin{quote}
-Our studies support a dynamic three step model for both
-HIV\textsubscript{HXB2} and HIV\textsubscript{JR-FL} (figure
-\ref{fig:HIVStoichiometryPlots}). For X4 tropic virions, Env -- CD4
-interactions induce CXCR4 dimerization, CD4 then engages with two Env, -
-as shown by 3 color TIRF-dSTORM microscopy - to generate a hexamer that
-might serve as a scaffold to stabilise a final 4CD4 -- 1/2CXCR4
-conformation, with a single Env. We speculate that for HIVHXB2, step 2
-is crucial to culminate the fusion reaction and there could be an
-anchoring domain and a fusion domain that undergoes gp120 disassembly
-leading to 6 helix bundle formation. For R5 tropic virions, Env -- CD4
-interactions form a the previously described asymmetric pre-hairpin
-intermediate; following binding and oligomerisation of 2 additional CD4
-molecules with concomitant CCR5 dimerization. After this, the secondary
-intermediate leads to the final fusion competent complex with a total of
-\(4\pm0.3\) CD4, \(2 \pm 0.3\) CCR5 and 1 JR-FL Env.
+Our studies support a dynamic three step model for both HIVHXB2 and
+HIVJR-FL (figure \ref{fig:HIVStoichiometryStructure}). For X4 tropic
+virions, Env -- CD4 interactions induce CXCR4 dimerization, CD4 then
+engages with two Env (shown by 3 color TIRF-dSTORM microscopy) to
+generate a hexamer that might serve as a scaffold to stabilise a final 4
+CD4 -- 1/2 CXCR4 conformation, with a single Env. We speculate that for
+HIVHXB2, step 2 is crucial to culminate the fusion reaction and there
+could be an anchoring domain and a fusion domain that undergoes gp120
+disassembly leading to 6 helix bundle formation. For R5 tropic virions,
+Env -- CD4 interactions form a the previously described asymmetric
+pre-hairpin intermediate \citep{Munro} \citep{DoKwon} \citep{Ma};
+following binding and oligomerisation of 2 additional CD4 molecules with
+concomitant CCR5 dimerization. After this, the secondary intermediate
+leads to the final fusion competent complex with a total of 4±0.3 CD4,
+2±0.3 CCR5 and 1 JR-FL Env.
+\end{quote}
+
+\begin{quote}
+Our data indicate that both HXB2 Env and JR-FL Env start with an
+asymmetric intermediate bound to a single CD4, as previously
+suggested27. Our models also support the existence of important
+differences in the entry mechanisms of X4 and R5 strains. In the X4
+strains, CXCR4 dimerization \citep{Tan} {[}Qin{]} occurs prior to CD4
+hexamer formation and following initial Env -- CD4 recognition
+\citep{Liu}. For R5 tropic JR-FL, CCR5 dimerization \citep{Qin} occurs
+after Env-CD4 complexation and recruitment of two additional CD4
+molecules \citep{Wu} around the complex.
 
 --- \citet{HIVstoichiometry}
 \end{quote}
 
-For the X4-tropic case, some structural modelling of the hypothesis has
-been done. See figure \ref{fig:HIVStoichiometryStructure}.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+For the X4 and R5-tropic case, structural modelling of the hypothesis
+has been done. See figure \ref{fig:HIVStoichiometryStructure}.
 
 
 
@@ -2303,32 +2348,10 @@ been done. See figure \ref{fig:HIVStoichiometryStructure}.
 \includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryStructure} \hfill{}
 
 \caption{The HIV-1 JR-FL Env glycoprotein
-(Blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. STEP
-1: The initial attachment of the cognate host receptor, CD4 (Orange) to
-HIV-1 Env (PDB: 5VN3) forms an asymmetric pre-hairpin intermediate. STEP
-2: Subsequent binding and oligomerisation of additional CD4 molecules on
-the trimer forms the secondary intermediate. STEP 3: The formation of
-this penultimate intermediate allows binding and dimerization of CCR5
-co-receptors (green) results in the final fusion competent complex, with
-a total of 4 CD4 and 2 CCR5 molecules bound to a single HIV-1 Env
-trimer. b, Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4
-(red dots) induced by HIVHXB2--Gag-iCherry virions. The HIV-1 Env
-glycoprotein is present as a trimer on the mature virion. Cognate host
-receptors, CD4 and CXCR4, exist as monomers and dimers on the cell
-surface prior to receptor recognition. The gp120 and gp41 subunits of
-the Env spike are colored light and dark blue, respectively. CD4 is
-colored orange. Attachment of the HIV-1 Env spike induces the formation
-of CXCR4 dimers (STEP 1) also seen in the literature \citep{DoKwon}. CD4
-clustering is likely facilitated by homodimerisation in the cytoplasmic
-domain, which enables cross-linking of at least two Env trimers (STEP 2)
-also seen in the literature \citep{Brandenberg2015}. Normal brightness
-analysis reveals the limited degradation of these higher order receptor
-clusters over time (2 -- 5 mins). We hypothesize that 1 Env plays the
-role of the anchoring and signaling domain whilst the other constitutes
-the fusion domain. Disassembly of gp12042 in the fusion domain inciates
-the six helix bundle formation (STEP 3) and leads to the final 4CD4 --
-2CXCR4 conformation in the anchoring domain. (gp120: light blue, gp41:
-dark blue, CD4: orange, CXCR4: green, b12: yellow)}\label{fig:HIVStoichiometryStructure}
+(blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. b,
+Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4 (red dots)
+induced by HIVHXB2--Gag-iCherry virions. (gp120: light blue, gp41: dark
+blue, CD4: orange, CXCR4: green, b12: yellow)}\label{fig:HIVStoichiometryStructure}
 \end{figure}
 
 \subsection{Conclusion}\label{conclusion}
@@ -2456,8 +2479,37 @@ this done is my top priority.
 
 Whilst I really like R, the fluorescence community does not use it,
 which has been a major barrier to the use of my algorithms. I will code
-my detrending algorithms as \emph{ImageJ} plugins (and perhaps also as
-python modules) so that more of the community have easy access to them.
+my detrending algorithms as \emph{ImageJ} plugins and also as python
+modules so that more of the community have easy access to them.
+
+\section{Study real data bleaching profiles with
+simulations}\label{mimick}
+
+It was mentioned in section \ref{detrend-compare} that it would be
+possible to study the effect ofreal bleaching as opposed to simulated
+ideal bleaching and why it is more necessary to detrend in the real data
+case by mimicking real bleaching profiles with simulations. This is
+something I would like to do. It would be difficult because it would
+require the collection and cataloguing of a diverse set of real data
+bleaching profiles from various biological samples. This would be the
+bottleneck because I have already written the simulation and analysis
+pipelines.
+
+\section{Compare FRET with FCS}\label{compare-fret-with-fcs}
+
+I have the idea that when the question ``Do these proteins interact?''
+is answered by Forster resonance energy transfer (FRET, \citet{Frster}),
+it should also be answerable by FCS. I would like to try to reproduce
+some standard FRET results with FCS. I am particularly interested to
+find out if there are instances where one technique succeeds and the
+other fails and why this might be. For example, it might be possible
+that for a given interacting pair of proteins, it is impossible to label
+them such that the FRET couple is close enough for FRET to be detected,
+but that this interaction is detectable by FCS. These techniques have
+been compared before \citep{Sahoo}, but not by trying to reproduce
+previous work. In addition, attempts by new groups to reproduce work
+that is accepted in the literature are always interesting
+\citep{Baker2016}.
 
 \bibliography{book.bib,packages.bib,papers.bib,webpages.bib}
 
