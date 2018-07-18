@@ -116,3 +116,10 @@ exampletestr_downloads <- get_downloads("exampletestr")
 Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. `exampletestr` is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, `exampletestr` was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.[@exampletestr] It gets `r exampletestr_downloads$per_month` downloads per month which amounts to `r exampletestr_downloads$total` since it was first released.
 
 
+### `brownded` {#brownded}
+
+`brownded` is an R software package (https://github.com/rorynolan/brownded) for simulating bounded brownian motion in any number of dimensions, where _bounded_ brownian motion is brownian motion in an $n$-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. `brownded` allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles. 
+
+`brownded` also facilitates the simulation of images created from fluorescent particles undergoing bounded brownian motion. It allows specification of the time at which each image should be taken, the pixel size and the brightness of the particles. Each fluorescent particle contributes photon counts to its pixel of residence at that time according to a poisson process. 
+
+Finally, `brownded` facilitates the synthetic bleaching of fluorescent particles so bleaching can be investigated with images produced with `brownded`.

@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-16">
+<meta name="date" content="2018-07-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -73,7 +73,10 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#fluorescence"><i class="fa fa-check"></i><b>1.1</b> Fluorescence</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#fluorescence"><i class="fa fa-check"></i><b>1.1</b> Fluorescence</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#phosphorescence"><i class="fa fa-check"></i><b>1.1.1</b> Phosphorescence</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#photobleaching"><i class="fa fa-check"></i><b>1.1.2</b> Photobleaching</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#confocal-light-microscopy"><i class="fa fa-check"></i><b>1.2</b> Confocal light microscopy</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#detectors"><i class="fa fa-check"></i><b>1.2.1</b> Detectors</a></li>
 </ul></li>
@@ -94,6 +97,7 @@
 <li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#cross-correlation"><i class="fa fa-check"></i><b>1.7.3</b> Cross-correlation</a></li>
 <li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#cross-correlated-brightness"><i class="fa fa-check"></i><b>1.7.4</b> Cross-correlated brightness</a></li>
 </ul></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#applications-of-fcs-and-ffs"><i class="fa fa-check"></i><b>1.8</b> Applications of FCS and FFS</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html"><i class="fa fa-check"></i><b>2</b> Instrumentation and Software</a><ul>
 <li class="chapter" data-level="2.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#instrumentation"><i class="fa fa-check"></i><b>2.1</b> Instrumentation</a></li>
@@ -109,6 +113,7 @@
 <li class="chapter" data-level="2.3.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#detrendr"><i class="fa fa-check"></i><b>2.3.3</b> <code>detrendr</code></a></li>
 <li class="chapter" data-level="2.3.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#filesstrings"><i class="fa fa-check"></i><b>2.3.4</b> <code>filesstrings</code></a></li>
 <li class="chapter" data-level="2.3.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#exampletestr"><i class="fa fa-check"></i><b>2.3.5</b> <code>exampletestr</code></a></li>
+<li class="chapter" data-level="2.3.6" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#brownded"><i class="fa fa-check"></i><b>2.3.6</b> <code>brownded</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
@@ -124,7 +129,7 @@
 <li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
 <li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
 <li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
-<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
+<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#detrend-compare"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a><ul>
@@ -147,11 +152,18 @@
 <li class="chapter" data-level="5" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>5</b> Discussion</a><ul>
 <li class="chapter" data-level="5.1" data-path="discussion.html"><a href="discussion.html#fluorescence-fluctuation-spectroscopy"><i class="fa fa-check"></i><b>5.1</b> Fluorescence fluctuation spectroscopy</a></li>
 <li class="chapter" data-level="5.2" data-path="discussion.html"><a href="discussion.html#the-evolution-of-detrending-algorithms"><i class="fa fa-check"></i><b>5.2</b> The evolution of detrending algorithms</a></li>
-<li class="chapter" data-level="5.3" data-path="discussion.html"><a href="discussion.html#applications-of-the-new-detrending-techniques"><i class="fa fa-check"></i><b>5.3</b> Applications of the new detrending techniques</a></li>
+<li class="chapter" data-level="5.3" data-path="discussion.html"><a href="discussion.html#applications-of-the-new-detrending-techniques"><i class="fa fa-check"></i><b>5.3</b> Applications of the new detrending techniques</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="discussion.html"><a href="discussion.html#fkbp"><i class="fa fa-check"></i><b>5.3.1</b> FKBP</a></li>
+<li class="chapter" data-level="5.3.2" data-path="discussion.html"><a href="discussion.html#hiv-1-receptor-stoichiometry-1"><i class="fa fa-check"></i><b>5.3.2</b> HIV-1 receptor stoichiometry</a></li>
+<li class="chapter" data-level="5.3.3" data-path="discussion.html"><a href="discussion.html#multiplexing-with-structural-biology"><i class="fa fa-check"></i><b>5.3.3</b> Multiplexing with structural biology</a></li>
+<li class="chapter" data-level="5.3.4" data-path="discussion.html"><a href="discussion.html#fluorescence-fluctuation-spectroscopy-1"><i class="fa fa-check"></i><b>5.3.4</b> Fluorescence fluctuation spectroscopy</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
 <li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.1</b> Robin Hood publication</a></li>
 <li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.2</b> Translate software to <em>ImageJ</em></a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimick"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
+<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.4</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -212,15 +224,15 @@ Figure 3.2: Mean intensity profiles of the simulated image series with and witho
 <h3><span class="header-section-number">3.2.2</span> FFS</h3>
 
 <div class="definition">
-<span id="def:unnamed-chunk-29" class="definition"><strong>Definition 3.1  (median mean pixel intensity)  </strong></span>The <em>median mean pixel intensity</em> of an image series is found by taking the mean intensity of each pixel in the image series and then taking the median of those means. It can be thought of as a summary statistic for the pixel intensity of the image series.
+<span id="def:unnamed-chunk-31" class="definition"><strong>Definition 3.1  (median mean pixel intensity)  </strong></span>The <em>median mean pixel intensity</em> of an image series is found by taking the mean intensity of each pixel in the image series and then taking the median of those means. It can be thought of as a summary statistic for the pixel intensity of the image series.
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-30" class="definition"><strong>Definition 3.2  (median pixel intensity variance)  </strong></span>The <em>median pixel intensity variance</em> of an image series is found by taking the variance in the intensity of each pixel in the image series and then taking the median of those variances. It can be thought of as a summary statistic for the variance in the pixel intensity of the image series.
+<span id="def:unnamed-chunk-32" class="definition"><strong>Definition 3.2  (median pixel intensity variance)  </strong></span>The <em>median pixel intensity variance</em> of an image series is found by taking the variance in the intensity of each pixel in the image series and then taking the median of those variances. It can be thought of as a summary statistic for the variance in the pixel intensity of the image series.
 </div>
 
-<p>In FFS, one is always interested in the mean and variance of pixel values (and sometimes other fluctuation quantities like the third moment). <code>img1</code> has a median mean pixel intensity of 98 and a median pixel intensity variance of 487. The mean brightness is <span class="math inline">\(\epsilon = 3.9959\)</span> (very close to 4, as expected since the image series was simulated with brightness <span class="math inline">\(\epsilon = 4\)</span>). For <code>img1_bleached</code>, we find a median mean pixel intensity of 90 and a median pixel intensity variance of 468. The mean brightness is <span class="math inline">\(\epsilon = 4.2026\)</span>. Hence, bleaching has altered both the means and variances of the pixels, resulting in a change in calculated brightness. The non-stationary mean frame intensity introduced by bleaching decreases the mean but increases the variance. The loss in signal has the effect of slightly decreasing the variance: with poisson statistics (such as photon-emission), a loss of signal (photons) leads directly to a loss in variance. This is a subtle point not discussed anywhere in the literature; it is shown in figure <a href="photobleaching-correction.html#fig:visualize-variance-decrease">3.3</a>.</p>
+<p>In FFS, one is always interested in the mean and variance of pixel values. <code>img1</code> has a median mean pixel intensity of 98 and a median pixel intensity variance of 487. The mean brightness is <span class="math inline">\(\epsilon = 3.9959\)</span> (very close to 4, as expected since the image series was simulated with brightness <span class="math inline">\(\epsilon = 4\)</span>). For <code>img1_bleached</code>, we find a median mean pixel intensity of 90 and a median pixel intensity variance of 468. The mean brightness is <span class="math inline">\(\epsilon = 4.2026\)</span>. Hence, bleaching has altered both the means and variances of the pixels, resulting in a change in calculated brightness. The non-stationary mean frame intensity introduced by bleaching decreases the mean but increases the variance. The loss in signal has the effect of slightly decreasing the variance: with poisson statistics (such as photon-emission), a loss of signal (photons) leads directly to a loss in variance. This is a subtle point not discussed anywhere in the literature; it is shown in figure <a href="photobleaching-correction.html#fig:visualize-variance-decrease">3.3</a>.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:visualize-variance-decrease"></span>
 <img src="phdthesis_files/figure-html/visualize-variance-decrease-1.png" alt="A decrease in the poisson rate (e.g. for emmission of photons) leads to a decrease in the mean (blue line) but also a decrease in fluctuations around the mean. Notice that towards the right where rate is low, fluctuations around the mean are at their smallest." width="90%" />
@@ -293,7 +305,7 @@ Figure 3.9: The original intensity trace is shown in the top-left. The other pan
 <p>In section <a href="intro.html#number-and-brightness">1.6.1</a>, we learned that for immobile particles, the expected brightness is <span class="math inline">\(B = 1\)</span>. This fact can be used to solve for the appropriate choice of <span class="math inline">\(l\)</span> to use for detrending a specific image series.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-31" class="definition"><strong>Definition 3.3  </strong></span>The <em>mean intensity profile</em> of one channel of an image series is obtained by calculating the mean intensity of each frame in that image series.
+<span id="def:unnamed-chunk-33" class="definition"><strong>Definition 3.3  </strong></span>The <em>mean intensity profile</em> of one channel of an image series is obtained by calculating the mean intensity of each frame in that image series.
 </div>
 
 <p>The mean intensity profile can be used to visualise the bleaching of an image series. If the fluorophores are bleaching, the mean intensity should be decreasing over time. To proceed with solving for the appropriate <span class="math inline">\(l\)</span>, we need to make one assumption. This is that any two image series with the same mean intensity profile are appropriately detrended with the same detrending parameter <span class="math inline">\(l\)</span>. This assumption seems reasonable to me, however there is no need to debate its validity because later, detrending with the solved-for parameter <span class="math inline">\(l\)</span> will be evaluated with simulated data and compared to the standard <span class="math inline">\(l = 10\)</span>. If this assumption is bad, then the performance of the detrending that relies on it should also be bad. With this assumption in hand, solving for <span class="math inline">\(l\)</span> proceeds as follows:</p>
@@ -339,7 +351,7 @@ Figure 3.11: The original intensity trace is shown in the top-left. The other pa
 <h2><span class="header-section-number">3.7</span> Correcting for non-stationary variance</h2>
 
 <div class="definition">
-<span id="def:unnamed-chunk-32" class="definition"><strong>Definition 3.4  </strong></span>The variance of a random variable <span class="math inline">\(X\)</span> is the expected value of the squared deviation of <span class="math inline">\(X\)</span> from its mean <span class="math inline">\(\mu\)</span>:
+<span id="def:unnamed-chunk-34" class="definition"><strong>Definition 3.4  </strong></span>The variance of a random variable <span class="math inline">\(X\)</span> is the expected value of the squared deviation of <span class="math inline">\(X\)</span> from its mean <span class="math inline">\(\mu\)</span>:
 <span class="math display" id="eq:variance">\[\begin{equation}
 \text{Var}(X) = E[(X - \mu)^2]
 \tag{3.3}
@@ -381,11 +393,11 @@ Figure 3.14: Robin Hood: counts are taken from frames of higher intensity (usual
 <p>To determine how many swaps need to be made to detrend a given image series, equation <a href="photobleaching-correction.html#eq:detrend-param">(3.2)</a> can be used, with <span class="math inline">\(\alpha\)</span> being the number of swaps.</p>
 <p>The random gifting of counts from higher to lower intensity frames has the effect of redistribution mean intensity but <em>also</em> variance in intensity. With photon statistics (which follow a poisson distribution), random counts provide both mean and variance. This is in contrast to all previous methods which consist of determining local deviation and adding it to a <em>fixed</em> global mean: this provides no redistribution of variance.</p>
 </div>
-<div id="a-comparison-of-detrending-methods" class="section level2">
+<div id="detrend-compare" class="section level2">
 <h2><span class="header-section-number">3.10</span> A comparison of detrending methods</h2>
 <p>To compare the various detrending methods, I use the following workflow:</p>
 <ol style="list-style-type: decimal">
-<li>Simulate a number <span class="math inline">\(N = 100,000\)</span> of particles diffusing with known diffusion rate.</li>
+<li>Simulate a number <span class="math inline">\(N = 100,000\)</span> of particles diffusing with known diffusion rate. Simulations were done with the <code>brownded</code> software package (section <a href="instrumentation-and-software.html#brownded">2.3.6</a>).</li>
 <li>Simulate photon emmission from these particles with chosen brightness <span class="math inline">\(\epsilon\)</span> and create an image series from this, being careful to (virtually) sample at a rate appropriate for number and brightness analysis.</li>
 <li>Bleach the simulation with a chosen constant bleaching rate.</li>
 <li>Simulate photon emission from the bleached simulation (bleached particles don’t emit photons) with the same brightness <span class="math inline">\(\epsilon\)</span> and create an image series.</li>
@@ -401,7 +413,7 @@ Figure 3.14: Robin Hood: counts are taken from frames of higher intensity (usual
 <p>The performance was evaluated using the <em>mean relative error</em>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-33" class="definition"><strong>Definition 3.5  </strong></span>
+<p><span id="def:unnamed-chunk-35" class="definition"><strong>Definition 3.5  </strong></span>
 For a given brightness and bleaching fraction,</p>
 <span class="math display" id="eq:mean-relative-error">\[\begin{equation}
 \text{mean relative error } = \frac{|(\text{calculated brightness after detrending}) - (\text{true brightness})|}{(\text{true brightness})}
@@ -417,8 +429,8 @@ For a given brightness and bleaching fraction,</p>
 Figure 3.15: A comparison of different detrending methods with various brightnesses and bleaching fractions (steady, constant-rate bleaching), including the results of not detrending at all.
 </p>
 </div>
-<p>The most striking thing about figure <a href="photobleaching-correction.html#fig:detrend-compare">3.15</a> is that the best choice in all cases is to not detrend at all! This is an interesting result and seems to render all detrending routines worthless. However, when working with real data, not detrending does not work well at all. This will be shown in chapter <a href="applications.html#applications">4</a>. This is probably because with real data, bleaching is likely not taking place at a constant, steady rate and other factors such as cell movement are contributing to medium and long term intensity fluctuations and these have a detrimental effect on calculations if not detrended out.</p>
-<p>The worst performer by far is <code>boxcar10</code>. For example, at <span class="math inline">\(\epsilon = 0.1\)</span>, it makes an error of worse than 40% and for <span class="math inline">\(\epsilon = 0.001, 0.01\)</span>, its error is worse than 50%, so it does not even appear on the plot. This is good evidence that arbitrarily choosing the parameter <span class="math inline">\(l\)</span> very bad practice. For realistic brightnesses (<span class="math inline">\(\le 0.1\)</span>), <code>robinhood</code> is the best with errors almost always lower than 5%. <code>autotau</code> also performs very well, with errors almost always less than 10%. At the lowest brightness <span class="math inline">\(\epsilon = 0.001\)</span>, all methods are somewhat erratic. That is because at this extremely low brightness, there is a critical lack of information (photons) for the algorithms to work with. Finally, at unrealistically high brightnesses of <span class="math inline">\(\epsilon = 1, 10\)</span>, <code>autotau</code> begins to perform well because at these high photon counts, the caveats of smoothing have totally disappeared. However, I cannot explain the degradation in the performance of <code>robinhood</code> in this case. Fortunately, there is no need to dwell on this, as this situation (<span class="math inline">\(\epsilon = 1, 10\)</span>) does not arise in practice.</p>
+<p>The most striking thing about figure <a href="photobleaching-correction.html#fig:detrend-compare">3.15</a> is that the best choice in all cases is to not detrend at all! This is an interesting result and seems to render all detrending routines worthless. However, when working with real data, not detrending does not work well at all. This will be shown in chapter <a href="applications.html#applications">4</a>. This is probably because with real data, bleaching is likely not taking place at a constant, steady rate and other factors such as cell movement are contributing to medium and long term intensity fluctuations and these have a detrimental effect on calculations if not detrended out. It would be possible to study this by mimicking real bleaching profiles with simulations (see section <a href="future-plans.html#mimick">6.3</a>.</p>
+<p>The worst performer by far is <code>boxcar10</code>. For example, at <span class="math inline">\(\epsilon = 0.1\)</span>, it makes an error of worse than 40% and for <span class="math inline">\(\epsilon = 0.001, 0.01\)</span>, its error is worse than 50%, so it does not even appear on the plot. This is good evidence that arbitrarily choosing the parameter <span class="math inline">\(l\)</span> very bad practice. For realistic brightnesses (<span class="math inline">\(\le 0.1\)</span>), <code>robinhood</code> is the best with errors almost always lower than 5%. <code>autotau</code> also performs very well, with errors almost always less than 10%. At the lowest brightness <span class="math inline">\(\epsilon = 0.001\)</span>, all methods are somewhat erratic. That is because at this extremely low brightness, there is a critical lack of information (photons) for the algorithms to work with. Finally, at unrealistically high brightnesses of <span class="math inline">\(\epsilon = 1, 10\)</span>, <code>autotau</code> begins to perform well because at these high photon counts, the caveats of smoothing have totally disappeared. However, I cannot explain the degradation in the performance of <code>robinhood</code> in this case. Fortunately, there is no need to dwell on this, as this situation (<span class="math inline">\(\epsilon = 1, 10\)</span>) does not arise in practice because available fluorophores are not this bright.</p>
 
 </div>
 </div>

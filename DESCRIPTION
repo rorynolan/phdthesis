@@ -11,7 +11,7 @@ Imports: bookdown,
     abind, 
     here,
     cranlogs,
-    RcppRoll, 
+    RcppRoll (>=0.3.0), 
     abind,
     curl,
     pacman

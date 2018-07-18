@@ -4,7 +4,19 @@
 ## Fluorescence 
 
 ```{definition}
-Fluorescence is the emission of light by a substance that has absorbed light.
+_Fluorescence_ is the emission of photons related to the process of _relaxation_ for a given molecule from an electronically _excited_ state (S~1~) to the _ground_ state (S~0~). 
+```
+
+The two electronic states (S~0~ and S~1~) of a molecule are defined as the highest occupied molecular orbital (S~0~, HOMO) and the lowest unoccupied molecular orbital (S~1~, LUMO). Each electronic state has various associated _vibrational_ states between which _non-radiative_ transitions can occur. An electron can be _excited_ from the ground state S~0~ into the higher energy excited state S~1~ by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative traansitions through vibrational states) for a period of nanoseconds before _relaxing_ to the lower energy ground state, losing energy by means of emmitting a photon of that energy. This is shown by means of a _Jablonski_ diagram (figure \@ref(fig:Jablonski)).
+
+(ref:Jablonski-caption) Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emmision of light.
+
+```{r Jablonski, echo=FALSE, fig.cap='(ref:Jablonski-caption)'}
+include_graphics(here("img", "Jablonski.jpg"))
+```
+
+```{definition}
+The _fluorescence lifetime_ of an electron is the amount of time it remains in the excited state before returning to the ground state.
 ```
 
 ```{definition}
@@ -12,6 +24,19 @@ A _fluorophore_ is a fluorescent chemical compound that can re-emit light upon l
 ```
 
 Fluorophores under constant excitation emit light one photon at a time according to poisson statistics.
+
+
+### Phosphorescence
+
+```{definition}
+Excited electrons can undergo a _forbidden_ transition into the _triplet_ state T~1~, where they remain for a period of milliseconds before relaxing to the ground state with the emission of a photon. This is _phosphorescence_.
+```
+
+
+### Photobleaching
+
+In reality, an incident photon can _break_ the fluorophore such that it is unable to emit light. A fluorophore to which this has happened is said to be _photobleached_.
+
 
 ## Confocal light microscopy
 
@@ -422,3 +447,23 @@ This means that $B_\text{cc}$ is just a scaled version of correlation. The need 
 Since cross-correlated brightness uses correlation but not cross-correlation, it is a prime example of the confusing naming that pervades FCS. It should be called _correlated brightness_. Rather than rename it, I will continue to refer to it as cross-correlated brightness.
 ```
 
+
+## Applications of FCS and FFS
+
+FCS and FFS have been used in thousands of research projects. Here I number but a few for the sake of interest and to give biological context to these techniques.
+
+Number and brightness (the prominent imaging FFS technique) has been used to:
+
+* characterize the state of DNA aggregation in live cells [@Mieruszynski]
+* measure the stoichiometry of scaffold complexes in live neurons [@Moutin]
+* quantify interactions in gene expression networks [@Declerck]
+* measure the oligomeric state of the dynamin-2 protein at the HIV-1 fusion pore [@DanDynamin]
+* measure the stoichiometry of the interaction of HIV-1 with its receptor and co-recptor over time in the pre-fusion process [@HIVstoichiometry]
+
+FCS has been used to:
+
+* reveal structural and functional properties of promyelocytic leukima nuclear bodies [@Hoischen]
+* demonstrate that HIV-1 evades antibody-dependent phagocytosis [@Gach]
+* determine the size of nanodomains [@Fenz]
+* perform chromatograaphic measurements [@Kisley]
+* quantify interactions of membrane proteins [@Ly]

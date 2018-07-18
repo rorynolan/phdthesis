@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-16">
+<meta name="date" content="2018-07-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -73,7 +73,10 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#fluorescence"><i class="fa fa-check"></i><b>1.1</b> Fluorescence</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#fluorescence"><i class="fa fa-check"></i><b>1.1</b> Fluorescence</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#phosphorescence"><i class="fa fa-check"></i><b>1.1.1</b> Phosphorescence</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#photobleaching"><i class="fa fa-check"></i><b>1.1.2</b> Photobleaching</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#confocal-light-microscopy"><i class="fa fa-check"></i><b>1.2</b> Confocal light microscopy</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#detectors"><i class="fa fa-check"></i><b>1.2.1</b> Detectors</a></li>
 </ul></li>
@@ -94,6 +97,7 @@
 <li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#cross-correlation"><i class="fa fa-check"></i><b>1.7.3</b> Cross-correlation</a></li>
 <li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#cross-correlated-brightness"><i class="fa fa-check"></i><b>1.7.4</b> Cross-correlated brightness</a></li>
 </ul></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#applications-of-fcs-and-ffs"><i class="fa fa-check"></i><b>1.8</b> Applications of FCS and FFS</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html"><i class="fa fa-check"></i><b>2</b> Instrumentation and Software</a><ul>
 <li class="chapter" data-level="2.1" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#instrumentation"><i class="fa fa-check"></i><b>2.1</b> Instrumentation</a></li>
@@ -109,6 +113,7 @@
 <li class="chapter" data-level="2.3.3" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#detrendr"><i class="fa fa-check"></i><b>2.3.3</b> <code>detrendr</code></a></li>
 <li class="chapter" data-level="2.3.4" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#filesstrings"><i class="fa fa-check"></i><b>2.3.4</b> <code>filesstrings</code></a></li>
 <li class="chapter" data-level="2.3.5" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#exampletestr"><i class="fa fa-check"></i><b>2.3.5</b> <code>exampletestr</code></a></li>
+<li class="chapter" data-level="2.3.6" data-path="instrumentation-and-software.html"><a href="instrumentation-and-software.html#brownded"><i class="fa fa-check"></i><b>2.3.6</b> <code>brownded</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html"><i class="fa fa-check"></i><b>3</b> Photobleaching Correction</a><ul>
@@ -124,7 +129,7 @@
 <li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
 <li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
 <li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
-<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#a-comparison-of-detrending-methods"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
+<li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#detrend-compare"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a><ul>
@@ -147,11 +152,18 @@
 <li class="chapter" data-level="5" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>5</b> Discussion</a><ul>
 <li class="chapter" data-level="5.1" data-path="discussion.html"><a href="discussion.html#fluorescence-fluctuation-spectroscopy"><i class="fa fa-check"></i><b>5.1</b> Fluorescence fluctuation spectroscopy</a></li>
 <li class="chapter" data-level="5.2" data-path="discussion.html"><a href="discussion.html#the-evolution-of-detrending-algorithms"><i class="fa fa-check"></i><b>5.2</b> The evolution of detrending algorithms</a></li>
-<li class="chapter" data-level="5.3" data-path="discussion.html"><a href="discussion.html#applications-of-the-new-detrending-techniques"><i class="fa fa-check"></i><b>5.3</b> Applications of the new detrending techniques</a></li>
+<li class="chapter" data-level="5.3" data-path="discussion.html"><a href="discussion.html#applications-of-the-new-detrending-techniques"><i class="fa fa-check"></i><b>5.3</b> Applications of the new detrending techniques</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="discussion.html"><a href="discussion.html#fkbp"><i class="fa fa-check"></i><b>5.3.1</b> FKBP</a></li>
+<li class="chapter" data-level="5.3.2" data-path="discussion.html"><a href="discussion.html#hiv-1-receptor-stoichiometry-1"><i class="fa fa-check"></i><b>5.3.2</b> HIV-1 receptor stoichiometry</a></li>
+<li class="chapter" data-level="5.3.3" data-path="discussion.html"><a href="discussion.html#multiplexing-with-structural-biology"><i class="fa fa-check"></i><b>5.3.3</b> Multiplexing with structural biology</a></li>
+<li class="chapter" data-level="5.3.4" data-path="discussion.html"><a href="discussion.html#fluorescence-fluctuation-spectroscopy-1"><i class="fa fa-check"></i><b>5.3.4</b> Fluorescence fluctuation spectroscopy</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
 <li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.1</b> Robin Hood publication</a></li>
 <li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.2</b> Translate software to <em>ImageJ</em></a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimick"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
+<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.4</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -193,15 +205,23 @@ Figure 4.1: The fold changes in brightness <span class="math inline">\(\epsilon\
 </p>
 </div>
 <p>The heterogeneity of fold-changes in <span class="math inline">\(\epsilon\)</span> measured from single images as shown in figure <a href="applications.html#fig:FKBPfoldchanges">4.1</a> shows that many replicates are needed in number and brightness experiments in order to converge upon the true value of the fold change.</p>
+<p>A pair of cells from this study together with their brightness statistics are shown in figure <a href="applications.html#fig:nandb-fig">4.2</a>. Notice how there is no discernible change in intensity before and after addition of the drug, but there is a discernible change in brightness <span class="math inline">\(B\)</span>, best seen using the histogram of pixel brightnesses.</p>
+
+<div class="figure" style="text-align: left"><span id="fig:nandb-fig"></span>
+<img src="img/nandb-fig.png" alt="mClover-labelled myristoylated FKBP12 before and after application of 50nM AP1510. Shown here are intensity (first row), brightness (second row), a plot of intensity versus brightness (third row) and brightness histograms (fourth row). Notice how the change in brightness upon addition of the drug is seen most clearly by comparing the brightness histograms. The vertical lines in the histogram plot show the means of those histograms. Brightness here refers to B. Scale bar 20 \(\mu\)m. (Nolan, Alvarez, et al. 2017)" width="100%" />
+<p class="caption">
+Figure 4.2: mClover-labelled myristoylated FKBP12 before and after application of 50nM AP1510. Shown here are intensity (first row), brightness (second row), a plot of intensity versus brightness (third row) and brightness histograms (fourth row). Notice how the change in brightness upon addition of the drug is seen most clearly by comparing the brightness histograms. The vertical lines in the histogram plot show the means of those histograms. Brightness here refers to B. Scale bar 20 <span class="math inline">\(\mu\)</span>m. <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>
+</p>
+</div>
 </div>
 <div id="visualization-of-bleaching-correction-on-real-data" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Visualization of bleaching correction on real data</h3>
-<p>That publication also includes a visualization of bleaching correction on real data. Figure <a href="applications.html#fig:bleachvis1">4.2</a> shows this, comparing the choice of <span class="math inline">\(\tau=10\)</span> with the automatic detrending algoirthm, which cooses an appropriate <span class="math inline">\(\tau\)</span> based on the data. It is evident that both <span class="math inline">\(\tau=10\)</span> and the automatic choice of <span class="math inline">\(\tau\)</span> give the corrected intensity profile a stationary mean (both the red and green series start and end at <span class="math inline">\(\approx 11\)</span>), however the <span class="math inline">\(\tau = 10\)</span> correction (red line) also has a much decreased variance compared to the auto <span class="math inline">\(\tau\)</span> line (green), which is bad; the <span class="math inline">\(\tau = 10\)</span> line is removing local variation, which is exactly what we’re trying to avoid.</p>
+<p>That publication also includes a visualization of bleaching correction on real data. Figure <a href="applications.html#fig:bleachvis1">4.3</a> shows this, comparing the choice of <span class="math inline">\(\tau=10\)</span> with the automatic detrending algoirthm, which cooses an appropriate <span class="math inline">\(\tau\)</span> based on the data. It is evident that both <span class="math inline">\(\tau=10\)</span> and the automatic choice of <span class="math inline">\(\tau\)</span> give the corrected intensity profile a stationary mean (both the red and green series start and end at <span class="math inline">\(\approx 11\)</span>), however the <span class="math inline">\(\tau = 10\)</span> correction (red line) also has a much decreased variance compared to the auto <span class="math inline">\(\tau\)</span> line (green), which is bad; the <span class="math inline">\(\tau = 10\)</span> line is removing local variation, which is exactly what we’re trying to avoid.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:bleachvis1"></span>
 <img src="img/bleachvis1.png" alt="Real data image series mean intensity profile with bleaching correction with \(\tau = 10\) and auto \(\tau\)." width="100%" />
 <p class="caption">
-Figure 4.2: Real data image series mean intensity profile with bleaching correction with <span class="math inline">\(\tau = 10\)</span> and auto <span class="math inline">\(\tau\)</span>.
+Figure 4.3: Real data image series mean intensity profile with bleaching correction with <span class="math inline">\(\tau = 10\)</span> and auto <span class="math inline">\(\tau\)</span>.
 </p>
 </div>
 </div>
@@ -214,12 +234,12 @@ Figure 4.2: Real data image series mean intensity profile with bleaching correct
 </div>
 <div id="experimental-results-and-discussion-1" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Experimental results and discussion</h3>
-<p>In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> upon addition of the drug. See figure <a href="applications.html#fig:jove">4.3</a>. This analysis was done with exponential smoothing detrending with automatically chosen parameter <span class="math inline">\(\tau\)</span>. Without detrending, the pre-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.026\)</span>, showing that detrending is absolutely necessary and that neglecting this step can lead to nonsensical results.</p>
+<p>In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> upon addition of the drug. See figure <a href="applications.html#fig:jove">4.4</a>. This analysis was done with exponential smoothing detrending with automatically chosen parameter <span class="math inline">\(\tau\)</span>. Without detrending, the pre-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.026\)</span>, showing that detrending is absolutely necessary and that neglecting this step can lead to nonsensical results.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:jove"></span>
 <img src="img/jove-dimerization.png" alt="Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from \(\epsilon = 0.005\) to \(\epsilon = 0.010\) over a period of minutes." width="100%" />
 <p class="caption">
-Figure 4.3: Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> over a period of minutes.
+Figure 4.4: Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> over a period of minutes.
 </p>
 </div>
 
@@ -247,16 +267,16 @@ The <span class="math inline">\(S\)</span> in the denominator was omitted in the
 <div id="the-use-of-number-and-brightness-to-study-hiv-1-cell-entry" class="section level4">
 <h4><span class="header-section-number">4.3.1.2</span> The use of number and brightness to study HIV-1 cell entry</h4>
 <p>Our main motivation for studying N&amp;B in the first place was that we thought it was a valuable method to study the process of HIV-1 fusion in live cells. N&amp;B was first used in our research group to study the oligomeric state of dynamin at the HIV-1 fusion pore in TZM-bl cells <span class="citation">(Jones et al. <a href="#ref-DanDynamin">2017</a>)</span>. This study concluded that dynamin-2 stabilizes the HIV-1 fusion pore with a low oligomeric state.</p>
-<p>Following on from this, we wanted to study the stoichiometry of the interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or CXCR4) upon the engagement of the virus with the cell and to follow this interaction stoichiometry up to the point of fusion. See figure <a href="applications.html#fig:HIVStoichiometrySetup">4.4</a>.</p>
+<p>Following on from this, we wanted to study the stoichiometry of the interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or CXCR4) upon the engagement of the virus with the cell and to follow this interaction stoichiometry up to the point of fusion. See figure <a href="applications.html#fig:HIVStoichiometrySetup">4.5</a>.</p>
 <blockquote>
-<p>Entry of HIV-1 into a host cell requires an initial interaction between the viral-envelope glycoprotein spike complex—Env—with cell surface displayed CD4 and co receptors <span class="citation">(Jakobsdottir et al. <a href="#ref-Jakobsdottir">2017</a>)</span>. Although structural studies have revealed the intra-molecular basis for CD4 receptor and CXCR4/CCR5 co-receptor-induced conformational changes to the HIV-1 Env during host cell entry <span class="citation">(Ozorowski et al. <a href="#ref-Ozorowski">2017</a>)</span>, little is known about how the inter-molecular dynamics and stoichiometry of this process culminates in fusion with the host cell membrane in live cells <span class="citation">(Brandenberg, Magnus, Regoes, et al. <a href="#ref-Brandenberg">2015</a>)</span>. This is due to the difficulty of working with live cells and the lack of temporal resolution of the techniques commonly employed (i.e. crystallography and cryo-EM).</p>
+<p>Entry of HIV-1 into a host cell requires an initial interaction between the viral-envelope glycoprotein spike complex—Env—with cell surface displayed CD4 and co receptors <span class="citation">(Jakobsdottir et al. <a href="#ref-Jakobsdottir">2017</a>)</span>. Although structural studies have revealed the intra-molecular basis for CD4 receptor and CXCR4/CCR5 co-receptor-induced conformational changes to the HIV-1 Env during host cell entry <span class="citation">(Ozorowski et al. <a href="#ref-Ozorowski">2017</a>)</span>, little is known about how the inter-molecular dynamics and stoichiometry of this process culminates in fusion with the host cell membrane in live cells <span class="citation">(Brandenberg et al. <a href="#ref-Brandenberg">2015</a>)</span>. This is due to the difficulty of working with live cells and the lack of temporal resolution of the techniques commonly employed (i.e. crystallography and cryo-EM).</p>
 <p>— <span class="citation">Iliopoulou et al. (<a href="#ref-HIVstoichiometry">2018</a>)</span></p>
 </blockquote>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometrySetup"></span>
 <img src="img/HIVStoichiometrySetup.png" alt="The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labelling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-recptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction." width="100%" />
 <p class="caption">
-Figure 4.4: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labelling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-recptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction.
+Figure 4.5: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labelling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-recptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction.
 </p>
 </div>
 <p>We saw N&amp;B as the ideal technique to probe this stoichiometry temporally. With our microscope, we could acquire 100 frames per 1.7 minutes, therefore, using each consecutive sequence of 100 frames to create a brightness image, we could obtain 1 brightness image every 1.7 minutes and use this to calculate this temporal stoichiometry.</p>
@@ -264,46 +284,49 @@ Figure 4.4: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and
 </div>
 <div id="experimental-setup" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Experimental setup</h3>
-<p>Receptor (mOrange) and co-receptor (mTFP1) were labelled in Cos7 cells. Virus was added at time <span class="math inline">\(t=0\)</span> and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, <span class="citation">Kapanidis et al. (<a href="#ref-ALEX">2005</a>)</span>) was used to eliminate the possibility of channel bleed-through. See figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a>.</p>
+<p>Receptor (CD4) and co-receptor (CXCR4 or CCR5) were labelled in Cos7 cells. Virus was added at time <span class="math inline">\(t=0\)</span> and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, <span class="citation">Kapanidis et al. (<a href="#ref-ALEX">2005</a>)</span>) was used to eliminate the possibility of channel bleed-through. See figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.6</a>.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryIntensity"></span>
 <img src="img/HIVStoichiometryIntensity.png" alt="Intensity images from the virus, receptor and co-receptor. Every 100th frame is shown. A virus which lands at \(t \approx 1.7\) minutes is highlighted." width="100%" />
 <p class="caption">
-Figure 4.5: Intensity images from the virus, receptor and co-receptor. Every 100th frame is shown. A virus which lands at <span class="math inline">\(t \approx 1.7\)</span> minutes is highlighted.
+Figure 4.6: Intensity images from the virus, receptor and co-receptor. Every 100th frame is shown. A virus which lands at <span class="math inline">\(t \approx 1.7\)</span> minutes is highlighted.
 </p>
 </div>
 </div>
 <div id="analysis" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Analysis</h3>
-<p>The virus channel was used to locate the virus at a given point in time. The receptor and co-receptor were used to calculate brightness and cross-correlated brightness every 100 frames (every 1.7 min). The brightness was used to determine the number of receptor and co-receptor units involved in a complex. The cross-correlated brightness was used to delimit whether or not the receptor and co-receptor units were together in the <em>same</em> complex. See figure <a href="applications.html#fig:HIVStoichiometryAnalysis">4.6</a>, this is the corresponding brightness and cross-correlated brightness image of figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a>. Notice that once the virus lands, the oligomeric state of the receptor and co-receptor increases. We also see significant positive cross-correlated brightness in this area, indicating that the virus has triggered a complex of receptor and co-receptor.</p>
+<p>The virus channel was used to locate the virus at a given point in time. The receptor and co-receptor were used to calculate brightness and cross-correlated brightness every 100 frames (every 1.7 min). The brightness was used to determine the number of receptor and co-receptor units involved in a complex. The cross-correlated brightness was used to delimit whether or not the receptor and co-receptor units were together in the <em>same</em> complex. See figure <a href="applications.html#fig:HIVStoichiometryAnalysis">4.7</a>, this is the corresponding brightness and cross-correlated brightness image of figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.6</a>. Notice that once the virus lands, the oligomeric state of the receptor and co-receptor increases. We also see significant positive cross-correlated brightness in this area, indicating that the virus has triggered a complex of receptor and co-receptor.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryAnalysis"></span>
 <img src="img/HIVStoichiometryAnalysis.png" alt="Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two." width="100%" />
 <p class="caption">
-Figure 4.6: Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two.
+Figure 4.7: Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two.
 </p>
 </div>
 </div>
 <div id="results" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Results</h3>
-<p>Figure <a href="applications.html#fig:HIVStoichiometryPlots">4.7</a> shows the results of the analysis detailed in figures <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a> and <a href="applications.html#fig:HIVStoichiometryAnalysis">4.6</a> for <span class="math inline">\(n=10\)</span> cases where virus triggered receptor and co-receptor complexes in the X4-tropic setting and <span class="math inline">\(n=12\)</span> in the R5-tropic setting. A three-step pre-fusion process is hypothesized for each.</p>
+<p>Figure <a href="applications.html#fig:HIVStoichiometryPlots">4.8</a> shows the results of the analysis detailed in figures <a href="applications.html#fig:HIVStoichiometryIntensity">4.6</a> and <a href="applications.html#fig:HIVStoichiometryAnalysis">4.7</a> for <span class="math inline">\(n=10\)</span> cases where virus triggered receptor and co-receptor complexes in the X4-tropic setting and <span class="math inline">\(n=12\)</span> in the R5-tropic setting. A three-step pre-fusion process is hypothesized for each.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryPlots"></span>
-<img src="img/X4plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis." width="47%" /><img src="img/R5plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis." width="47%" />
+<img src="img/X4plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIVHXB2. Right panel: HIVJR-FL." width="47%" /><img src="img/R5plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIVHXB2. Right panel: HIVJR-FL." width="47%" />
 <p class="caption">
-Figure 4.7: Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis.
+Figure 4.8: Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIV<sub>HXB2</sub>. Right panel: HIV<sub>JR-FL</sub>.
 </p>
 </div>
 <blockquote>
-<p>Our studies support a dynamic three step model for both HIV<sub>HXB2</sub> and HIV<sub>JR-FL</sub> (figure <a href="applications.html#fig:HIVStoichiometryPlots">4.7</a>). For X4 tropic virions, Env – CD4 interactions induce CXCR4 dimerization, CD4 then engages with two Env, - as shown by 3 color TIRF-dSTORM microscopy - to generate a hexamer that might serve as a scaffold to stabilise a final 4CD4 – 1/2CXCR4 conformation, with a single Env. We speculate that for HIVHXB2, step 2 is crucial to culminate the fusion reaction and there could be an anchoring domain and a fusion domain that undergoes gp120 disassembly leading to 6 helix bundle formation. For R5 tropic virions, Env – CD4 interactions form a the previously described asymmetric pre-hairpin intermediate; following binding and oligomerisation of 2 additional CD4 molecules with concomitant CCR5 dimerization. After this, the secondary intermediate leads to the final fusion competent complex with a total of <span class="math inline">\(4\pm0.3\)</span> CD4, <span class="math inline">\(2 \pm 0.3\)</span> CCR5 and 1 JR-FL Env.</p>
+<p>Our studies support a dynamic three step model for both HIVHXB2 and HIVJR-FL (figure <a href="applications.html#fig:HIVStoichiometryStructure">4.9</a>). For X4 tropic virions, Env – CD4 interactions induce CXCR4 dimerization, CD4 then engages with two Env (shown by 3 color TIRF-dSTORM microscopy) to generate a hexamer that might serve as a scaffold to stabilise a final 4 CD4 – 1/2 CXCR4 conformation, with a single Env. We speculate that for HIVHXB2, step 2 is crucial to culminate the fusion reaction and there could be an anchoring domain and a fusion domain that undergoes gp120 disassembly leading to 6 helix bundle formation. For R5 tropic virions, Env – CD4 interactions form a the previously described asymmetric pre-hairpin intermediate <span class="citation">(Munro et al. <a href="#ref-Munro">2014</a>)</span> <span class="citation">(Kwon et al. <a href="#ref-DoKwon">2015</a>)</span> <span class="citation">(Ma et al. <a href="#ref-Ma">2018</a>)</span>; following binding and oligomerisation of 2 additional CD4 molecules with concomitant CCR5 dimerization. After this, the secondary intermediate leads to the final fusion competent complex with a total of 4±0.3 CD4, 2±0.3 CCR5 and 1 JR-FL Env.</p>
+</blockquote>
+<blockquote>
+<p>Our data indicate that both HXB2 Env and JR-FL Env start with an asymmetric intermediate bound to a single CD4, as previously suggested27. Our models also support the existence of important differences in the entry mechanisms of X4 and R5 strains. In the X4 strains, CXCR4 dimerization <span class="citation">(Tan et al. <a href="#ref-Tan">2013</a>)</span> [Qin] occurs prior to CD4 hexamer formation and following initial Env – CD4 recognition <span class="citation">(Liu et al. <a href="#ref-Liu">2017</a>)</span>. For R5 tropic JR-FL, CCR5 dimerization <span class="citation">(Qin et al. <a href="#ref-Qin">2015</a>)</span> occurs after Env-CD4 complexation and recruitment of two additional CD4 molecules <span class="citation">(Wu et al. <a href="#ref-Wu">1996</a>)</span> around the complex.</p>
 <p>— <span class="citation">Iliopoulou et al. (<a href="#ref-HIVstoichiometry">2018</a>)</span></p>
 </blockquote>
-<p>For the X4-tropic case, some structural modelling of the hypothesis has been done. See figure <a href="applications.html#fig:HIVStoichiometryStructure">4.8</a>.</p>
+<p>For the X4 and R5-tropic case, structural modelling of the hypothesis has been done. See figure <a href="applications.html#fig:HIVStoichiometryStructure">4.9</a>.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryStructure"></span>
-<img src="img/HIVStoichiometryStructure.png" alt="The HIV-1 JR-FL Env glycoprotein (Blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. STEP 1: The initial attachment of the cognate host receptor, CD4 (Orange) to HIV-1 Env (PDB: 5VN3) forms an asymmetric pre-hairpin intermediate. STEP 2: Subsequent binding and oligomerisation of additional CD4 molecules on the trimer forms the secondary intermediate. STEP 3: The formation of this penultimate intermediate allows binding and dimerization of CCR5 co-receptors (green) results in the final fusion competent complex, with a total of 4 CD4 and 2 CCR5 molecules bound to a single HIV-1 Env trimer. b, Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4 (red dots) induced by HIVHXB2–Gag-iCherry virions. The HIV-1 Env glycoprotein is present as a trimer on the mature virion. Cognate host receptors, CD4 and CXCR4, exist as monomers and dimers on the cell surface prior to receptor recognition. The gp120 and gp41 subunits of the Env spike are colored light and dark blue, respectively. CD4 is colored orange. Attachment of the HIV-1 Env spike induces the formation of CXCR4 dimers (STEP 1) also seen in the literature (Kwon et al. 2015). CD4 clustering is likely facilitated by homodimerisation in the cytoplasmic domain, which enables cross-linking of at least two Env trimers (STEP 2) also seen in the literature (Brandenberg, Magnus, Rusert, et al. 2015). Normal brightness analysis reveals the limited degradation of these higher order receptor clusters over time (2 – 5 mins). We hypothesize that 1 Env plays the role of the anchoring and signaling domain whilst the other constitutes the fusion domain. Disassembly of gp12042 in the fusion domain inciates the six helix bundle formation (STEP 3) and leads to the final 4CD4 – 2CXCR4 conformation in the anchoring domain. (gp120: light blue, gp41: dark blue, CD4: orange, CXCR4: green, b12: yellow)" width="100%" />
+<img src="img/HIVStoichiometryStructure.png" alt="The HIV-1 JR-FL Env glycoprotein (blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. b, Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4 (red dots) induced by HIVHXB2–Gag-iCherry virions. (gp120: light blue, gp41: dark blue, CD4: orange, CXCR4: green, b12: yellow)" width="100%" />
 <p class="caption">
-Figure 4.8: The HIV-1 JR-FL Env glycoprotein (Blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. STEP 1: The initial attachment of the cognate host receptor, CD4 (Orange) to HIV-1 Env (PDB: 5VN3) forms an asymmetric pre-hairpin intermediate. STEP 2: Subsequent binding and oligomerisation of additional CD4 molecules on the trimer forms the secondary intermediate. STEP 3: The formation of this penultimate intermediate allows binding and dimerization of CCR5 co-receptors (green) results in the final fusion competent complex, with a total of 4 CD4 and 2 CCR5 molecules bound to a single HIV-1 Env trimer. b, Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4 (red dots) induced by HIVHXB2–Gag-iCherry virions. The HIV-1 Env glycoprotein is present as a trimer on the mature virion. Cognate host receptors, CD4 and CXCR4, exist as monomers and dimers on the cell surface prior to receptor recognition. The gp120 and gp41 subunits of the Env spike are colored light and dark blue, respectively. CD4 is colored orange. Attachment of the HIV-1 Env spike induces the formation of CXCR4 dimers (STEP 1) also seen in the literature <span class="citation">(Kwon et al. <a href="#ref-DoKwon">2015</a>)</span>. CD4 clustering is likely facilitated by homodimerisation in the cytoplasmic domain, which enables cross-linking of at least two Env trimers (STEP 2) also seen in the literature <span class="citation">(Brandenberg, Magnus, Rusert, et al. <a href="#ref-Brandenberg2015">2015</a>)</span>. Normal brightness analysis reveals the limited degradation of these higher order receptor clusters over time (2 – 5 mins). We hypothesize that 1 Env plays the role of the anchoring and signaling domain whilst the other constitutes the fusion domain. Disassembly of gp12042 in the fusion domain inciates the six helix bundle formation (STEP 3) and leads to the final 4CD4 – 2CXCR4 conformation in the anchoring domain. (gp120: light blue, gp41: dark blue, CD4: orange, CXCR4: green, b12: yellow)
+Figure 4.9: The HIV-1 JR-FL Env glycoprotein (blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. b, Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4 (red dots) induced by HIVHXB2–Gag-iCherry virions. (gp120: light blue, gp41: dark blue, CD4: orange, CXCR4: green, b12: yellow)
 </p>
 </div>
 </div>
@@ -353,7 +376,7 @@ Figure 4.8: The HIV-1 JR-FL Env glycoprotein (Blue) (PDB ID: 4ZMJ) is present as
 <p>Ménager, Mickaël M., and Dan R. Littman. 2016. “Actin Dynamics Regulates Dendritic Cell-Mediated Transfer of HIV-1 to T Cells.” <em>Cell</em> 164 (4). Elsevier BV:695–709. <a href="https://doi.org/10.1016/j.cell.2015.12.036" class="uri">https://doi.org/10.1016/j.cell.2015.12.036</a>.</p>
 </div>
 <div id="ref-Herold">
-<p>Herold, N., M. Anders-Osswein, B. Glass, M. Eckhardt, B. Muller, and H.-G. Krausslich. 2014. “HIV-1 Entry in SupT1-R5, CEM-Ss, and Primary CD4<span class="math inline">\(\mathplus\)</span> T Cells Occurs at the Plasma Membrane and Does Not Require Endocytosis.” <em>Journal of Virology</em> 88 (24). American Society for Microbiology:13956–70. <a href="https://doi.org/10.1128/jvi.01543-14" class="uri">https://doi.org/10.1128/jvi.01543-14</a>.</p>
+<p>Herold, N., M. Anders-Osswein, B. Glass, M. Eckhardt, B. Muller, and H.-G. Krausslich. 2014. “HIV-1 Entry in SupT1-R5, CEM-Ss, and Primary CD4 T Cells Occurs at the Plasma Membrane and Does Not Require Endocytosis.” <em>Journal of Virology</em> 88 (24). American Society for Microbiology:13956–70. <a href="https://doi.org/10.1128/jvi.01543-14" class="uri">https://doi.org/10.1128/jvi.01543-14</a>.</p>
 </div>
 <div id="ref-DanDynamin">
 <p>Jones, Daniel M, Luis A Alvarez, Rory Nolan, Margarita Ferriz, Raquel Sainz Urruela, Xènia Massana-Muñoz, Hila Novak-Kotzer, Michael L Dustin, and Sergi Padilla-Parra. 2017. “Dynamin-2 Stabilizes the Hiv-1 Fusion Pore with a Low Oligomeric State.” <em>Cell Reports</em> 18 (2). Elsevier:443–53. <a href="https://doi.org/10.1016/j.celrep.2016.12.032" class="uri">https://doi.org/10.1016/j.celrep.2016.12.032</a>.</p>
@@ -370,11 +393,26 @@ Figure 4.8: The HIV-1 JR-FL Env glycoprotein (Blue) (PDB ID: 4ZMJ) is present as
 <div id="ref-ALEX">
 <p>Kapanidis, Achillefs N., Ted A. Laurence, Nam Ki Lee, Emmanuel Margeat, Xiangxu Kong, and Shimon Weiss. 2005. “Alternating-Laser Excitation of Single Molecules.” <em>Accounts of Chemical Research</em> 38 (7). American Chemical Society (ACS):523–33. <a href="https://doi.org/10.1021/ar0401348" class="uri">https://doi.org/10.1021/ar0401348</a>.</p>
 </div>
+<div id="ref-Munro">
+<p>Munro, J. B., J. Gorman, X. Ma, Z. Zhou, J. Arthos, D. R. Burton, W. C. Koff, et al. 2014. “Conformational Dynamics of Single HIV-1 Envelope Trimers on the Surface of Native Virions.” <em>Science</em> 346 (6210). American Association for the Advancement of Science (AAAS):759–63. <a href="https://doi.org/10.1126/science.1254426" class="uri">https://doi.org/10.1126/science.1254426</a>.</p>
+</div>
 <div id="ref-DoKwon">
 <p>Kwon, Young Do, Marie Pancera, Priyamvada Acharya, Ivelin S Georgiev, Emma T Crooks, Jason Gorman, M Gordon Joyce, et al. 2015. “Crystal Structure, Conformational Fixation and Entry-Related Interactions of Mature Ligand-Free HIV-1 Env.” <em>Nature Structural &amp; Molecular Biology</em> 22 (7). Springer Nature:522–31. <a href="https://doi.org/10.1038/nsmb.3051" class="uri">https://doi.org/10.1038/nsmb.3051</a>.</p>
 </div>
-<div id="ref-Brandenberg2015">
-<p>Brandenberg, Oliver F., Carsten Magnus, Peter Rusert, Roland R. Regoes, and Alexandra Trkola. 2015. “Different Infectivity of HIV-1 Strains Is Linked to Number of Envelope Trimers Required for Entry.” Edited by Michael Emerman. <em>PLoS Pathogens</em> 11 (1). Public Library of Science (PLoS):e1004595. <a href="https://doi.org/10.1371/journal.ppat.1004595" class="uri">https://doi.org/10.1371/journal.ppat.1004595</a>.</p>
+<div id="ref-Ma">
+<p>Ma, Xiaochu, Maolin Lu, Jason Gorman, Daniel S Terry, Xinyu Hong, Zhou Zhou, Hong Zhao, et al. 2018. “HIV-1 Env Trimer Opens Through an Asymmetric Intermediate in Which Individual Protomers Adopt Distinct Conformations.” <em>eLife</em> 7 (March). eLife Sciences Organisation, Ltd. <a href="https://doi.org/10.7554/elife.34271" class="uri">https://doi.org/10.7554/elife.34271</a>.</p>
+</div>
+<div id="ref-Tan">
+<p>Tan, Q., Y. Zhu, J. Li, Z. Chen, G. W. Han, I. Kufareva, T. Li, et al. 2013. “Structure of the CCR5 Chemokine Receptor-HIV Entry Inhibitor Maraviroc Complex.” <em>Science</em> 341 (6152). American Association for the Advancement of Science (AAAS):1387–90. <a href="https://doi.org/10.1126/science.1241475" class="uri">https://doi.org/10.1126/science.1241475</a>.</p>
+</div>
+<div id="ref-Liu">
+<p>Liu, Qingbo, Priyamvada Acharya, Michael A Dolan, Peng Zhang, Christina Guzzo, Jacky Lu, Alice Kwon, et al. 2017. “Quaternary Contact in the Initial Interaction of CD4 with the HIV-1 Envelope Trimer.” <em>Nature Structural &amp; Molecular Biology</em> 24 (4). Springer Nature:370–78. <a href="https://doi.org/10.1038/nsmb.3382" class="uri">https://doi.org/10.1038/nsmb.3382</a>.</p>
+</div>
+<div id="ref-Qin">
+<p>Qin, L., I. Kufareva, L. G. Holden, C. Wang, Y. Zheng, C. Zhao, G. Fenalti, et al. 2015. “Crystal Structure of the Chemokine Receptor CXCR4 in Complex with a Viral Chemokine.” <em>Science</em> 347 (6226). American Association for the Advancement of Science (AAAS):1117–22. <a href="https://doi.org/10.1126/science.1261064" class="uri">https://doi.org/10.1126/science.1261064</a>.</p>
+</div>
+<div id="ref-Wu">
+<p>Wu, Lijun, Norma P. Gerard, Richard Wyatt, Hyeryun Choe, Cristina Parolin, Nancy Ruffing, Alessândra Borsetti, et al. 1996. “CD4-Induced Interaction of Primary HIV-1 Gp120 Glycoproteins with the Chemokine Receptor CCR-5.” <em>Nature</em> 384 (6605). Springer Nature:179–83. <a href="https://doi.org/10.1038/384179a0" class="uri">https://doi.org/10.1038/384179a0</a>.</p>
 </div>
 </div>
             </section>

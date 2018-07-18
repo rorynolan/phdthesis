@@ -35,11 +35,6 @@ gg_color_hue <- function(n) {
   hcl(h = hues, l = 65, c = 100)[1:n]
 }
 
-roll_mean_n_by_nofill <- function(x, n_by) {
-  roll_mean(x, n = n_by, by = n_by) %>% 
-    {.[seq_along(.) %% n_by == 1]}
-}
-
 move_to_groups_folder <- function() {
   groups_theses_path <- str_c("/Volumes/groups/cellular-imaging/",
                               "ReadingList/Theses/Rory")
@@ -101,7 +96,7 @@ _Journal of Visualized Experiments_ 0.0 (2018).
 
 #### Co-first author {-}
 
-* M. Iliopoulou, R. Nolan, L. Alvarez, et al. "A dynamic three step
+* M. Iliopoulou, R. Nolan, et al. "A dynamic three step
 mechanism drives the HIV-1 prefusion reaction". In: _Nat. Struct. Mol. Biol._
 0.0 (2018).
 

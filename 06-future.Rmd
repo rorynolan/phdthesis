@@ -8,6 +8,15 @@ The _Robin Hood_ algorithm is already incorporated in the R package `detrendr` b
 
 ## Translate software to _ImageJ_
 
-Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms. I will code my detrending algorithms as _ImageJ_ plugins (and perhaps also as python modules) so that more of the community have easy access to them.
+Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms. I will code my detrending algorithms as _ImageJ_ plugins and also as python modules so that more of the community have easy access to them.
 
+
+## Study real data bleaching profiles with simulations {#mimick}
+
+It was mentioned in section \@ref(detrend-compare) that it would be possible to study the effect ofreal bleaching as opposed to simulated ideal bleaching and why it is more necessary to detrend in the real data case by mimicking real bleaching profiles with simulations. This is something I would like to do. It would be difficult because it would require the collection and cataloguing of a diverse set of real data bleaching profiles from various biological samples. This would be the bottleneck because I have already written the simulation and analysis pipelines. 
+
+
+## Compare FRET with FCS
+
+I have the idea that when the question "Do these proteins interact?" is answered by Forster resonance energy transfer (FRET, @Frster), it should also be answerable by FCS. I would like to try to reproduce some standard FRET results with FCS. I am particularly interested to find out if there are instances where one technique succeeds and the other fails and why this might be. For example, it might be possible that for a given interacting pair of proteins, it is impossible to label them such that the FRET couple is close enough for FRET to be detected, but that this interaction is detectable by FCS. These techniques have been compared before [@Sahoo], but not by trying to reproduce previous work. In addition, attempts by new groups to reproduce work that is accepted in the literature are always interesting [@Baker2016]. 
 
