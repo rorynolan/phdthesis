@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Algorithms for the Correction of Photobleaching</title>
   <meta name="description" content="Rory Nolan’s PhD thesis">
-  <meta name="generator" content="bookdown 0.7.14 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Algorithms for the Correction of Photobleaching" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-18">
+<meta name="date" content="2018-07-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -162,7 +162,7 @@
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
 <li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.1</b> Robin Hood publication</a></li>
 <li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.2</b> Translate software to <em>ImageJ</em></a></li>
-<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimick"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
 <li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.4</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -196,7 +196,7 @@
 <h2><span class="header-section-number">2.2</span> Software programs, languages and tools</h2>
 <div id="c" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> C++</h3>
-<p><em>C++</em> <span class="citation">(Stroustrup <a href="#ref-cpp">2013</a>)</span> is a genaral-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important consideration.</p>
+<p><em>C++</em> <span class="citation">(Stroustrup <a href="#ref-cpp">2013</a>)</span> is a general-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important consideration.</p>
 </div>
 <div id="r" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> R</h3>
@@ -215,20 +215,20 @@
 <h2><span class="header-section-number">2.3</span> My software packages</h2>
 <div id="ijtiff" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> <code>ijtiff</code></h3>
-<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 349 downloads per month which amounts to 2,433 since it was first released.</p>
+<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 348 downloads per month which amounts to 2,479 since it was first released.</p>
 <p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span>.</p>
 </div>
 <div id="autothresholdr" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> <code>autothresholdr</code></h3>
-<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 646 downloads per month which amounts to 10,823 since it was first released.</p>
+<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 643 downloads per month which amounts to 10,873 since it was first released.</p>
 </div>
 <div id="detrendr" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> <code>detrendr</code></h3>
-<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 378 downloads per month which amounts to 3,326 since it was first released.</p>
+<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 373 downloads per month which amounts to 3,349 since it was first released.</p>
 </div>
 <div id="filesstrings" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> <code>filesstrings</code></h3>
-<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 818 downloads per month which amounts to 13,733 since it was first released.</p>
+<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 815 downloads per month which amounts to 13,818 since it was first released.</p>
 </div>
 <div id="exampletestr" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> <code>exampletestr</code></h3>
@@ -237,12 +237,12 @@
 <span id="def:unnamed-chunk-29" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>
 </div>
 
-<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 524 downloads per month which amounts to 8,409 since it was first released.</p>
+<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 521 downloads per month which amounts to 8,441 since it was first released.</p>
 </div>
 <div id="brownded" class="section level3">
 <h3><span class="header-section-number">2.3.6</span> <code>brownded</code></h3>
-<p><code>brownded</code> is an R software package (<a href="https://github.com/rorynolan/brownded" class="uri">https://github.com/rorynolan/brownded</a>) for simulating bounded brownian motion in any number of dimensions, where <em>bounded</em> brownian motion is brownian motion in an <span class="math inline">\(n\)</span>-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. <code>brownded</code> allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles.</p>
-<p><code>brownded</code> also facilitates the simulation of images created from fluorescent particles undergoing bounded brownian motion. It allows specification of the time at which each image should be taken, the pixel size and the brightness of the particles. Each fluorescent particle contributes photon counts to its pixel of residence at that time according to a poisson process.</p>
+<p><code>brownded</code> is an R software package (<a href="https://github.com/rorynolan/brownded" class="uri">https://github.com/rorynolan/brownded</a>) for simulating bounded Brownian motion in any number of dimensions, where <em>bounded</em> Brownian motion is Brownian motion in an <span class="math inline">\(n\)</span>-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. <code>brownded</code> allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles.</p>
+<p><code>brownded</code> also facilitates the simulation of images created from fluorescent particles undergoing bounded Brownian motion. It allows specification of the time at which each image should be taken, the pixel size and the brightness of the particles. Each fluorescent particle contributes photon counts to its pixel of residence at that time according to a Poisson process.</p>
 <p>Finally, <code>brownded</code> facilitates the synthetic bleaching of fluorescent particles so bleaching can be investigated with images produced with <code>brownded</code>.</p>
 
 </div>
@@ -278,7 +278,7 @@
 <div class="footnotes">
 <hr />
 <ol start="6">
-<li id="fn6"><p><a href="https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8" class="uri">https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8</a><a href="instrumentation-and-software.html#fnref6">↩</a></p></li>
+<li id="fn6"><p><a href="https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8" class="uri">https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8</a><a href="instrumentation-and-software.html#fnref6">↩</a></p></li>
 <li id="fn7"><p><a href="https://en.wikipedia.org/wiki/C%2B%2B">https://en.wikipedia.org/wiki/C%2B%2B</a><a href="instrumentation-and-software.html#fnref7">↩</a></p></li>
 <li id="fn8"><p><a href="https://en.wikipedia.org/wiki/R_(programming_language)" class="uri">https://en.wikipedia.org/wiki/R_(programming_language)</a><a href="instrumentation-and-software.html#fnref8">↩</a></p></li>
 <li id="fn9"><p><a href="https://www.rstudio.com" class="uri">https://www.rstudio.com</a><a href="instrumentation-and-software.html#fnref9">↩</a></p></li>

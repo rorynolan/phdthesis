@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Algorithms for the Correction of Photobleaching</title>
   <meta name="description" content="Rory Nolan’s PhD thesis">
-  <meta name="generator" content="bookdown 0.7.14 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Algorithms for the Correction of Photobleaching" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-18">
+<meta name="date" content="2018-07-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -162,7 +162,7 @@
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
 <li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.1</b> Robin Hood publication</a></li>
 <li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.2</b> Translate software to <em>ImageJ</em></a></li>
-<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimick"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
 <li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.4</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -195,12 +195,12 @@
 <span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.1  </strong></span><em>Fluorescence</em> is the emission of photons related to the process of <em>relaxation</em> for a given molecule from an electronically <em>excited</em> state (S<sub>1</sub>) to the <em>ground</em> state (S<sub>0</sub>).
 </div>
 
-<p>The two electronic states (S<sub>0</sub> and S<sub>1</sub>) of a molecule are defined as the highest occupied molecular orbital (S<sub>0</sub>, HOMO) and the lowest unoccupied molecular orbital (S<sub>1</sub>, LUMO). Each electronic state has various associated <em>vibrational</em> states between which <em>non-radiative</em> transitions can occur. An electron can be <em>excited</em> from the ground state S<sub>0</sub> into the higher energy excited state S<sub>1</sub> by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative traansitions through vibrational states) for a period of nanoseconds before <em>relaxing</em> to the lower energy ground state, losing energy by means of emmitting a photon of that energy. This is shown by means of a <em>Jablonski</em> diagram (figure <a href="intro.html#fig:Jablonski">1.1</a>).</p>
+<p>The two electronic states (S<sub>0</sub> and S<sub>1</sub>) of a molecule are defined as the highest occupied molecular orbital (S<sub>0</sub>, HOMO) and the lowest unoccupied molecular orbital (S<sub>1</sub>, LUMO). Each electronic state has various associated <em>vibrational</em> states between which <em>non-radiative</em> transitions can occur. An electron can be <em>excited</em> from the ground state S<sub>0</sub> into the higher energy excited state S<sub>1</sub> by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before <em>relaxing</em> to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a <em>Jablonski</em> diagram (figure <a href="intro.html#fig:Jablonski">1.1</a>).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:Jablonski"></span>
-<img src="img/Jablonski.jpg" alt="Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emmision of light." width="100%" />
+<img src="img/Jablonski.jpg" alt="Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emission of light." width="100%" />
 <p class="caption">
-Figure 1.1: Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emmision of light.
+Figure 1.1: Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emission of light.
 </p>
 </div>
 
@@ -213,7 +213,7 @@ Figure 1.1: Jablonski diagram of the process of fluorescence. Absorption causes 
 <span id="def:unnamed-chunk-3" class="definition"><strong>Definition 1.3  </strong></span>A <em>fluorophore</em> is a fluorescent chemical compound that can re-emit light upon light excitation.
 </div>
 
-<p>Fluorophores under constant excitation emit light one photon at a time according to poisson statistics.</p>
+<p>Fluorophores under constant excitation emit light one photon at a time according to Poisson statistics.</p>
 <div id="phosphorescence" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Phosphorescence</h3>
 
@@ -254,7 +254,7 @@ Figure 1.2: Confocal microscope light path showing how out of focus light does n
 <p>The quantum nature of the photoelectric effect makes it practically impossible for detectors to reach 100% efficiency.</p>
 <div id="photon-multiplier-tubes" class="section level4">
 <h4><span class="header-section-number">1.2.1.1</span> Photon multiplier tubes</h4>
-<p>Photon multiplier tubes (PMTs) use the photoelectirc effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [HammamatsuPMT]. See figure <a href="intro.html#fig:PMT">1.3</a>. This current should correspond to the incident light intensity.</p>
+<p>Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [HammamatsuPMT]. See figure <a href="intro.html#fig:PMT">1.3</a>. This current should correspond to the incident light intensity.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:PMT"></span>
 <img src="img/PMT.png" alt="PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured (Leica 2012)." width="100%" />
@@ -271,7 +271,7 @@ Figure 1.3: PMT detector setup. Electrons are dissociated by photons at the phot
 <span id="def:unnamed-chunk-7" class="definition"><strong>Definition 1.7  </strong></span><em>Avalanche multiplication</em> in semiconductors occurs when free electrons which are moving in an electric field across the semiconductor collide with bound electrons, freeing them to move and indeed to free more bound electrons. This compounding increase in free electrons in the electric field leads to an increase in the electric current.
 </div>
 
-<p>Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure <a href="intro.html#fig:APD">1.4</a>. They are somewhat analagous to PMTs, using the avalanche effect in place of the series of cathodes.</p>
+<p>Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure <a href="intro.html#fig:APD">1.4</a>. They are somewhat analogous to PMTs, using the avalanche effect in place of the series of cathodes.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:APD"></span>
 <img src="img/APD.png" alt="APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche (Leica 2012)." width="100%" />
@@ -306,14 +306,14 @@ Figure 1.5: HyD detector setup. A photon dissociates an electron from the photoc
 <p>With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera. See figure <a href="intro.html#fig:widefield">1.6</a>. One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need for scanning across the sample to acquire each pixel (which requires precise robotics). Another example is that images can be acquired faster because all pixels in a frame are acquired in parallel. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:widefield"></span>
-<img src="img/Widefield.png" alt="Light travels from the uniformally illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope." width="50%" />
+<img src="img/Widefield.png" alt="Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope." width="50%" />
 <p class="caption">
-Figure 1.6: Light travels from the uniformally illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope.
+Figure 1.6: Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope.
 </p>
 </div>
 <div id="total-internal-reflection-microscopy" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Total internal reflection microscopy</h3>
-<p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure <a href="intro.html#fig:TIRFig">1.7</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focussing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot get the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.7</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
+<p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure <a href="intro.html#fig:TIRFig">1.7</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot get the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.7</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:TIRFig"></span>
 <img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated." width="100%" />
@@ -353,9 +353,9 @@ Figure 1.7: The thin evanescent wave close to the boundary (between the cover sl
 <p>Consider figure <a href="intro.html#fig:confocal-volume-particle">1.8</a>. A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:confocal-volume-particle"></span>
-<img src="img/confocal_volume_particle.png" alt="Left: a fluorophore diffusing trhough the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" /><img src="img/cvp.png" alt="Left: a fluorophore diffusing trhough the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" />
+<img src="img/confocal_volume_particle.png" alt="Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" /><img src="img/cvp.png" alt="Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" />
 <p class="caption">
-Figure 1.8: Left: a fluorophore diffusing trhough the confocal volume. Right: the intensity trace due to this fluorophore.
+Figure 1.8: Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore.
 </p>
 </div>
 
@@ -397,11 +397,11 @@ J = -D\frac{d\varphi}{dx}
 \end{equation}\]</span>
 </div>
 
-<p>For free brownian motion in 1 dimension, the expected value of the msd is <span class="math inline">\(\text{msd}(t) = 2Dt\)</span>, where <span class="math inline">\(D\)</span> is the diffusion constant. For free brownian motion in <span class="math inline">\(d\)</span> dimensions, the expected value of the msd is <span class="math inline">\(\text{msd}(t) = 2dDt\)</span>, reflecting the fact that free brownian motion in <span class="math inline">\(d\)</span> dimensions is one-dimensional free brownian motion happening simultaneously and independently in each individual dimension.</p>
-<p>These definitions are the fomally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as <em>diffusion</em>. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as <em>diffusion</em>, it is what is defined as Brownian motion above. Henceforth when I use the term <em>diffusion</em>, this brownian motion type of movement can be assumed.</p>
+<p>For free Brownian motion in 1 dimension, the expected value of the MSD is <span class="math inline">\(\text{msd}(t) = 2Dt\)</span>, where <span class="math inline">\(D\)</span> is the diffusion constant. For free Brownian motion in <span class="math inline">\(d\)</span> dimensions, the expected value of the MSD is <span class="math inline">\(\text{msd}(t) = 2dDt\)</span>, reflecting the fact that free Brownian motion in <span class="math inline">\(d\)</span> dimensions is one-dimensional free Brownian motion happening simultaneously and independently in each individual dimension.</p>
+<p>These definitions are the formally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as <em>diffusion</em>. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as <em>diffusion</em>, it is what is defined as Brownian motion above. Henceforth when I use the term <em>diffusion</em>, this Brownian motion type of movement can be assumed.</p>
 <div id="anomalous-diffusion" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> Anomalous diffusion</h3>
-<p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="intro.html#eq:msd">(1.2)</a> no longer holds and the relationship between msd and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section <a href="intro.html#FCS">1.7</a>) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells <span class="citation">(Honigmann et al. <a href="#ref-EggSTEDFCS">2014</a>)</span>. The pair correlation function approach (section <a href="intro.html#PCF">1.7.3.1</a>)</p>
+<p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="#eq:MSD">(<strong>??</strong>)</a> no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section <a href="intro.html#FCS">1.7</a>) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells <span class="citation">(Honigmann et al. <a href="#ref-EggSTEDFCS">2014</a>)</span>. The pair correlation function approach (section <a href="intro.html#PCF">1.7.3.1</a>)</p>
 </div>
 </div>
 <div id="FFS" class="section level2">
@@ -463,8 +463,8 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <li>When the scanner returns to a given pixel (one frame time later), the underlying configuration has changed totally since the last time the scanner was at this pixel (because so much time has passed, all of the diffusing entities have moved a lot in the meantime).</li>
 </ol>
 <p>Both of these points are implicitly assumed in the derivation of the N&amp;B equations so it is essential to get these acquisition parameters right. This is discussed at length in <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span>.</p>
-<p>An important property of N&amp;B is that if all fluorescent particles are immobile, then <span class="math inline">\(B = 1\)</span>. This is because photon emission from stationary sources happens according to a poisson distribution. Poisson distributions have variance equal to mean, this implies <span class="math inline">\(\sigma^2\)</span> = <span class="math inline">\(\langle I \rangle\)</span> which gives <span class="math inline">\(B = \frac{\sigma^2}{\langle I \rangle} = 1\)</span>.</p>
-<p>The N&amp;B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Most of my PhD focussed on corrections for photobleaching. This is discussed in chapter <a href="photobleaching-correction.html#photobleaching-correction">3</a>.</p>
+<p>An important property of N&amp;B is that if all fluorescent particles are immobile, then <span class="math inline">\(B = 1\)</span>. This is because photon emission from stationary sources happens according to a Poisson distribution. Poisson distributions have variance equal to mean, this implies <span class="math inline">\(\sigma^2\)</span> = <span class="math inline">\(\langle I \rangle\)</span> which gives <span class="math inline">\(B = \frac{\sigma^2}{\langle I \rangle} = 1\)</span>.</p>
+<p>The N&amp;B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Most of my PhD focused on corrections for photobleaching. This is discussed in chapter <a href="photobleaching-correction.html#photobleaching-correction">3</a>.</p>
 </div>
 </div>
 <div id="FCS" class="section level2">
@@ -537,7 +537,7 @@ G(X; 0) = \frac{1}{n}
 <p>I felt it necessary to provide these definitions for two reasons:</p>
 <ol style="list-style-type: decimal">
 <li>It is important for people from the fields of FCS and pure mathematics/statistics to know that they have different definitions for the same thing.</li>
-<li>In FCS, it’s very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the FCS field correlate the signals from two separate channels, they use the term <em>cross</em>-correlation, even though they’re only using correlation. I think the idea of working <em>across</em> two or more channels (and ideas such as <em>cross</em>-talk) leads to this confustion.</li>
+<li>In FCS, it’s very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the FCS field correlate the signals from two separate channels, they use the term <em>cross</em>-correlation, even though they’re only using correlation. I think the idea of working <em>across</em> two or more channels (and ideas such as <em>cross</em>-talk) leads to this confusion.</li>
 </ol>
 
 <div class="remark">
@@ -551,7 +551,7 @@ G(X; 0) = \frac{1}{n}
 <ul>
 <li>interaction implies that A and B <em>co-diffuse</em></li>
 <li>this implies that A and B co-diffuse</li>
-<li>this implies that for a given volumen in the sample</li>
+<li>this implies that for a given volume in the sample</li>
 <li>more of A implies more of B</li>
 <li>less of A implies less of B</li>
 <li>more of B implies more of A</li>
@@ -564,7 +564,7 @@ G(X; 0) = \frac{1}{n}
 <li>more green photons implies more red photons</li>
 <li>less green photons implies less red photons</li>
 </ul>
-<p>Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green chanels.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+<p>Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green channels.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
 </div>
 <div id="autocorrelation" class="section level3">
 <h3><span class="header-section-number">1.7.2</span> Autocorrelation</h3>
@@ -580,7 +580,7 @@ G(X; 0) = \frac{1}{n}
 </div>
 <div id="cross-correlated-brightness" class="section level3">
 <h3><span class="header-section-number">1.7.4</span> Cross-correlated brightness</h3>
-<p><em>Cross-correlated brightness</em> <span class="citation">(Digman et al. <a href="#ref-ccNB">2009</a>)</span> moulds the correlation idea (section <a href="intro.html#correlation">1.7.1</a>) into the framework of N&amp;B. Suppose there are two channels with intensities <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>.</p>
+<p><em>Cross-correlated brightness</em> <span class="citation">(Digman et al. <a href="#ref-ccNB">2009</a>)</span> molds the correlation idea (section <a href="intro.html#correlation">1.7.1</a>) into the framework of N&amp;B. Suppose there are two channels with intensities <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>.</p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-26" class="definition"><strong>Definition 1.24  (cross-variance)  </strong></span>
@@ -621,14 +621,14 @@ B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(
 <li>measure the stoichiometry of scaffold complexes in live neurons <span class="citation">(Moutin et al. <a href="#ref-Moutin">2014</a>)</span></li>
 <li>quantify interactions in gene expression networks <span class="citation">(Declerck and Royer <a href="#ref-Declerck">2013</a>)</span></li>
 <li>measure the oligomeric state of the dynamin-2 protein at the HIV-1 fusion pore <span class="citation">(Jones et al. <a href="#ref-DanDynamin">2017</a>)</span></li>
-<li>measure the stoichiometry of the interaction of HIV-1 with its receptor and co-recptor over time in the pre-fusion process <span class="citation">(Iliopoulou et al. <a href="#ref-HIVstoichiometry">2018</a>)</span></li>
+<li>measure the stoichiometry of the interaction of HIV-1 with its receptor and co-receptor over time in the pre-fusion process <span class="citation">(Iliopoulou et al. <a href="#ref-HIVstoichiometry">2018</a>)</span></li>
 </ul>
 <p>FCS has been used to:</p>
 <ul>
-<li>reveal structural and functional properties of promyelocytic leukima nuclear bodies <span class="citation">(Hoischen et al. <a href="#ref-Hoischen">2018</a>)</span></li>
+<li>reveal structural and functional properties of promyelocytic leukemia nuclear bodies <span class="citation">(Hoischen et al. <a href="#ref-Hoischen">2018</a>)</span></li>
 <li>demonstrate that HIV-1 evades antibody-dependent phagocytosis <span class="citation">(Gach et al. <a href="#ref-Gach">2017</a>)</span></li>
 <li>determine the size of nanodomains <span class="citation">(Fenz, Smith, and Monzel <a href="#ref-Fenz">2017</a>)</span></li>
-<li>perform chromatograaphic measurements <span class="citation">(Kisley and Landes <a href="#ref-Kisley">2014</a>)</span></li>
+<li>perform chromatographic measurements <span class="citation">(Kisley and Landes <a href="#ref-Kisley">2014</a>)</span></li>
 <li>quantify interactions of membrane proteins <span class="citation">(Ly et al. <a href="#ref-Ly">2014</a>)</span></li>
 </ul>
 
