@@ -57,7 +57,7 @@ An image is acquired on a confocal microscope by scanning this apparatus across 
 
 ### Detectors  {#detectors}
 
-There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect  [@photoelectric], a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.
+There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect [@photoelectric], a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.
 
 ```{definition}
 The quantum efficiency of a detector is the fraction of fluorescent signal that is reported by the detector.
@@ -160,11 +160,8 @@ Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imagin
 
 For electronic reasons, the noise from certain pixels on all of the cameras above may be correlated. This hinders some techniques in the fluorescence correlation spectroscopy (section \@ref(FCS)). However, with careful characterization of the camera and correct mathematical treatment, quantitative studies can be carried out with cameras. Indeed, our group quantified the oligomeric state of the dynamin-2 protein at the HIV-1 fusion pore using data from a TIRF microscope with an EMCCD camera [@DanDynamin].
 
-## Intensity traces
 
-```{definition}
-A _fluorophore_ is a fluorescent chemical compound that can re-emit light upon light excitation.
-```
+## Intensity traces
 
 Consider figure \@ref(fig:confocal-volume-particle). A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here). 
 
@@ -228,7 +225,7 @@ These definitions are the formally correct ones. In biophysics, however, both of
 
 ### Anomalous diffusion
 
-_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:MSD) no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) 
+_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) 
 
 
 ## Fluorescence fluctuation spectroscopy {#FFS}

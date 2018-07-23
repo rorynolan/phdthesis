@@ -1,0 +1,16 @@
+# Abstract {-}
+
+The measured intensity (ideally in units of photon counts) of a fluorescent sample over time constitutes a time-series called an _intensity trace_. The idea of _fluorescence fluctuation spectroscopy_ (FFS) is to extract information from intensity traces.
+
+Photobleaching is the phenomenon of the breaking of fluorophores (light emitters) over time. Photobleaching causes fluorescent signal to diminish over time. This changes the intensity trace, introducing a downward trend.    
+
+Many quantitative methods in FFS implicitly assume that there is no bleaching in the data. Hence, data with significant levels of photobleaching must be corrected prior to the application of equations and algorithms in these fields. This correction is often termed _detrending_, since its aim is to remove the downward trend in the data introduced by photobleaching. 
+
+Previous detrending methods have two main caveats. 
+
+1. They rely on either fitting or smoothing, both of which approximate data as continuous. This is inappropriate for fluorescence intensity data, which is count data (i.e. discrete, not continuous).
+1. They require the user to choose a detrending parameter. The choice of this parameter is crucial to the success or failure of the detrending routine, yet instructions on how to choose it did not exist.
+
+The work in this thesis solves problems 1 and 2 above by means of an automatic (no user input required) parameter finding routine and a new detrending algorithm which treats the data as discrete and avoids fitting and smoothing, thereby avoiding the approximation of non-continuous data as continuous. 
+
+These advancements are then used in a study investigating the stoichiometry of the interaction of the HIV-1 virus' envelope with its cellular receptors and co-receptors over time. This is the first study of its kind in live cells and it was facilitated by the advances in detrending presented in this thesis.
