@@ -247,6 +247,53 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   \emph{BMC genomics} 18.1 (2017).
 \end{itemize}
 
+\chapter*{Abstract}\label{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+The measured intensity (ideally in units of photon counts) of a
+fluorescent sample over time constitutes a time-series called an
+\emph{intensity trace}. The idea of \emph{fluorescence fluctuation
+spectroscopy} (FFS) is to extract information from intensity traces.
+
+Photobleaching is the phenomenon of the breaking of fluorophores (light
+emitters) over time. Photobleaching causes fluorescent signal to
+diminish over time. This changes the intensity trace, introducing a
+downward trend.
+
+Many quantitative methods in FFS implicitly assume that there is no
+bleaching in the data. Hence, data with significant levels of
+photobleaching must be corrected prior to the application of equations
+and algorithms in these fields. This correction is often termed
+\emph{detrending}, since its aim is to remove the downward trend in the
+data introduced by photobleaching.
+
+Previous detrending methods have two main caveats.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  They rely on either fitting or smoothing, both of which approximate
+  data as continuous. This is inappropriate for fluorescence intensity
+  data, which is count data (i.e.~discrete, not continuous).
+\item
+  They require the user to choose a detrending parameter. The choice of
+  this parameter is crucial to the success or failure of the detrending
+  routine, yet instructions on how to choose it did not exist.
+\end{enumerate}
+
+The work in this thesis solves problems 1 and 2 above by means of an
+automatic (no user input required) parameter finding routine and a new
+detrending algorithm which treats the data as discrete and avoids
+fitting and smoothing, thereby avoiding the approximation of
+non-continuous data as continuous.
+
+These advancements are then used in a study investigating the
+stoichiometry of the interaction of the HIV-1 virus' envelope with its
+cellular receptors and co-receptors over time. This is the first study
+of its kind in live cells and it was facilitated by the advances in
+detrending presented in this thesis.
+
 \chapter{Introduction}\label{intro}
 
 \section{Fluorescence}\label{fluorescence}
@@ -575,12 +622,6 @@ camera \citep{DanDynamin}.
 
 \section{Intensity traces}\label{intensity-traces}
 
-\BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-9}{}{\label{def:unnamed-chunk-9} }A
-\emph{fluorophore} is a fluorescent chemical compound that can re-emit
-light upon light excitation.
-\EndKnitrBlock{definition}
-
 Consider figure \ref{fig:confocal-volume-particle}. A fluorophore enters
 the confocal volume, is excited there and emits photons which are
 collected by the detector. When the fluorophore is not in the confocal
@@ -602,15 +643,15 @@ fluorophore.}\label{fig:confocal-volume-particle}
 \end{figure}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-10}{}{\label{def:unnamed-chunk-10}
-}The time-series of intensity counts in a given pixel or image is
-referred to as its \emph{intensity trace}.
+\protect\hypertarget{def:unnamed-chunk-9}{}{\label{def:unnamed-chunk-9} }The
+time-series of intensity counts in a given pixel or image is referred to
+as its \emph{intensity trace}.
 \EndKnitrBlock{definition}
 
 \section{Diffusion}\label{diffusion}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-11}{}{\label{def:unnamed-chunk-11}
+\protect\hypertarget{def:unnamed-chunk-10}{}{\label{def:unnamed-chunk-10}
 }\emph{Diffusion} is the net movement of molecules or atoms from a
 region of high concentration (or high chemical potential) to a region of
 low concentration (or low chemical potential) as a result of random
@@ -642,14 +683,14 @@ where
 \end{itemize}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-12}{}{\label{def:unnamed-chunk-12}
+\protect\hypertarget{def:unnamed-chunk-11}{}{\label{def:unnamed-chunk-11}
 }\emph{Brownian motion} is the random motion of particles suspended in a
 fluid resulting from their collision with the fast-moving molecules in
 the fluid \citep{Brownian}.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-13}{}{\label{def:unnamed-chunk-13}
+\protect\hypertarget{def:unnamed-chunk-12}{}{\label{def:unnamed-chunk-12}
 }In an ensemble of \(N\) particles, each of which occupies position
 \(x_i(t)\) at time \(t\), the \emph{mean squared displacement} of the
 particles in the ensemble is
@@ -679,7 +720,7 @@ assumed.
 \subsection{Anomalous diffusion}\label{anomalous-diffusion}
 
 \emph{Anomalous diffusion} is a diffusion process whereby equation
-\eqref{eq:MSD} no longer holds and the relationship between MSD and time
+\eqref{eq:msd} no longer holds and the relationship between MSD and time
 becomes non-linear. Knowing whether diffusion is anomalous or free can
 offer biological insight. For example, regions of free and anomalous
 diffusion were measured with FCS (section \ref{FCS}) to investigate the
@@ -709,12 +750,12 @@ quantifying the oligomeric states of fluorescently labelled proteins.
 What follows is a mathematical description of the technique.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-14}{}{\label{def:unnamed-chunk-14}
+\protect\hypertarget{def:unnamed-chunk-13}{}{\label{def:unnamed-chunk-13}
 }An \emph{entity} is a set of molecules which are chemically bound.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-15}{}{\label{def:unnamed-chunk-15}
+\protect\hypertarget{def:unnamed-chunk-14}{}{\label{def:unnamed-chunk-14}
 }The brightness \(\epsilon\) of an entity is the mean number of photon
 detector counts it gives per unit time when in the illumination
 (confocal) volume.
@@ -773,7 +814,7 @@ requirements. These were first articulated in my 2017 review of N\&B
 \citep{NBreview}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
+\protect\hypertarget{def:unnamed-chunk-15}{}{\label{def:unnamed-chunk-15}
 }The \emph{pixel dwell time} \(t_\text{dwell}\) of a scanning confocal
 microscope is the amount of time it spends collecting photons at each
 given pixel before moving on to the next pixel.
@@ -784,7 +825,7 @@ particularly for FFS. This is something that must be carefully verified
 on each instrument.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17}
+\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
 }The \emph{frame time} of a scanning confocal microscope is the amount
 of time it takes to acquire the data for all of the pixels in a whole
 frame. That is the length of time from the start of detectionion of
@@ -793,7 +834,7 @@ last pixel.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-18}{}{\label{def:unnamed-chunk-18}
+\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17}
 }The mean \emph{residence time} \(\tau_D\) of a particle in the confocal
 volume is the average length of time that a particle that enters the
 confocal volume resides in that volume before exiting.
@@ -843,7 +884,7 @@ follow that convention.
 First, let us introduce some concepts from statistics.
 
 \BeginKnitrBlock{definition}[statistics]
-\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19}
+\protect\hypertarget{def:unnamed-chunk-18}{}{\label{def:unnamed-chunk-18}
 \iffalse (statistics) \fi{} }The \emph{correlation} between two random
 variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
 and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
@@ -857,7 +898,7 @@ where \(E\) is the expectation operator.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[statistics]
-\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
+\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19}
 \iffalse (statistics) \fi{} }\emph{Autocorrelation} \(G(X; \tau)\), is
 the correlation of a signal \(X\) with a delayed copy of itself as a
 function of the delay \(\tau\).
@@ -869,7 +910,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[statistics]
-\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
+\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
 \iffalse (statistics) \fi{} }The \emph{cross-correlation} of two series
 is the correlation of one with a delayed copy of the other as a function
 of the delay.
@@ -883,7 +924,7 @@ of the delay.
 For the purposes of FCS, these quantities were redefined as follows.
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
+\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
 \iffalse (FCS) \fi{} }The \emph{correlation} between two random
 variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
 and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
@@ -897,7 +938,7 @@ where \(E\) is the expectation operator.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
+\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
 \iffalse (FCS) \fi{} }\emph{Autocorrelation} \(G(X; \tau)\), is the
 correlation of a signal \(X\) with a delayed copy of itself as a
 function of the delay \(\tau\).
@@ -909,7 +950,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24}
+\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
 \iffalse (FCS) \fi{} }The \emph{cross-correlation} of two series is the
 correlation of one with a delayed copy of the other as a function of the
 delay.
@@ -1048,7 +1089,7 @@ idea (section \ref{correlation}) into the framework of N\&B. Suppose
 there are two channels with intensities \(I_1\) and \(I_2\).
 
 \BeginKnitrBlock{definition}[cross-variance]
-\protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26}
+\protect\hypertarget{def:unnamed-chunk-25}{}{\label{def:unnamed-chunk-25}
 \iffalse (cross-variance) \fi{} }
 
 \begin{equation}
@@ -1058,7 +1099,7 @@ there are two channels with intensities \(I_1\) and \(I_2\).
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[cross-correlated brightness]
-\protect\hypertarget{def:unnamed-chunk-27}{}{\label{def:unnamed-chunk-27}
+\protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26}
 \iffalse (cross-correlated brightness) \fi{} }
 
 \begin{equation}
@@ -1242,7 +1283,7 @@ released.
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-29}{}{\label{def:unnamed-chunk-29}
+\protect\hypertarget{def:unnamed-chunk-28}{}{\label{def:unnamed-chunk-28}
 }\emph{Unit testing} is a software testing method by which individual
 units of source code, sets of one or more computer program modules
 together with associated control data, usage procedures, and operating
@@ -1378,7 +1419,7 @@ make it appear as though there is interaction when in fact there is not.
 \subsection{FFS}\label{ffs}
 
 \BeginKnitrBlock{definition}[median mean pixel intensity]
-\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
+\protect\hypertarget{def:unnamed-chunk-30}{}{\label{def:unnamed-chunk-30}
 \iffalse (median mean pixel intensity) \fi{} }The \emph{median mean
 pixel intensity} of an image series is found by taking the mean
 intensity of each pixel in the image series and then taking the median
@@ -1387,7 +1428,7 @@ pixel intensity of the image series.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[median pixel intensity variance]
-\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
+\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
 \iffalse (median pixel intensity variance) \fi{} }The \emph{median pixel
 intensity variance} of an image series is found by taking the variance
 in the intensity of each pixel in the image series and then taking the
@@ -1595,7 +1636,7 @@ to solve for the appropriate choice of \(l\) to use for detrending a
 specific image series.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
+\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
 }The \emph{mean intensity profile} of one channel of an image series is
 obtained by calculating the mean intensity of each frame in that image
 series.
@@ -1712,7 +1753,7 @@ published \citep{nandb}.
 variance}\label{correcting-for-non-stationary-variance}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34}
+\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
 }The variance of a random variable \(X\) is the expected value of the
 squared deviation of \(X\) from its mean \(\mu\):
 
@@ -1924,7 +1965,7 @@ with the following detrending routines:\footnote{The detrending took 2
 The performance was evaluated using the \emph{mean relative error}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-35}{}{\label{def:unnamed-chunk-35} }
+\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34} }
 For a given brightness and bleaching fraction,
 
 \begin{equation}

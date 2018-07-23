@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
+<link rel="prev" href="abstract.html">
 <link rel="next" href="instrumentation-and-software.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -72,6 +72,7 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#apportion-of-credit"><i class="fa fa-check"></i>Apportion of credit</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#fluorescence"><i class="fa fa-check"></i><b>1.1</b> Fluorescence</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#phosphorescence"><i class="fa fa-check"></i><b>1.1.1</b> Phosphorescence</a></li>
@@ -345,11 +346,6 @@ Figure 1.7: The thin evanescent wave close to the boundary (between the cover sl
 </div>
 <div id="intensity-traces" class="section level2">
 <h2><span class="header-section-number">1.4</span> Intensity traces</h2>
-
-<div class="definition">
-<span id="def:unnamed-chunk-9" class="definition"><strong>Definition 1.8  </strong></span>A <em>fluorophore</em> is a fluorescent chemical compound that can re-emit light upon light excitation.
-</div>
-
 <p>Consider figure <a href="intro.html#fig:confocal-volume-particle">1.8</a>. A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:confocal-volume-particle"></span>
@@ -360,7 +356,7 @@ Figure 1.8: Left: a fluorophore diffusing through the confocal volume. Right: th
 </div>
 
 <div class="definition">
-<span id="def:unnamed-chunk-10" class="definition"><strong>Definition 1.9  </strong></span>The time-series of intensity counts in a given pixel or image is referred to as its <em>intensity trace</em>.
+<span id="def:unnamed-chunk-9" class="definition"><strong>Definition 1.8  </strong></span>The time-series of intensity counts in a given pixel or image is referred to as its <em>intensity trace</em>.
 </div>
 
 </div>
@@ -368,7 +364,7 @@ Figure 1.8: Left: a fluorophore diffusing through the confocal volume. Right: th
 <h2><span class="header-section-number">1.5</span> Diffusion</h2>
 
 <div class="definition">
-<span id="def:unnamed-chunk-11" class="definition"><strong>Definition 1.10  </strong></span><em>Diffusion</em> is the net movement of molecules or atoms from a region of high concentration (or high chemical potential) to a region of low concentration (or low chemical potential) as a result of random motion of the molecules or atoms.
+<span id="def:unnamed-chunk-10" class="definition"><strong>Definition 1.9  </strong></span><em>Diffusion</em> is the net movement of molecules or atoms from a region of high concentration (or high chemical potential) to a region of low concentration (or low chemical potential) as a result of random motion of the molecules or atoms.
 </div>
 
 <p>Fick’s first law of diffusion relates the concentration to the diffusive flux, assuming a steady state. It describes how the flux goes from high to low concentration areas, with magnitude proportional to the concentration gradient. The law is:</p>
@@ -385,12 +381,12 @@ J = -D\frac{d\varphi}{dx}
 </ul>
 
 <div class="definition">
-<span id="def:unnamed-chunk-12" class="definition"><strong>Definition 1.11  </strong></span><em>Brownian motion</em> is the random motion of particles suspended in a fluid resulting from their collision with the fast-moving molecules in the fluid <span class="citation">(A. Einstein <a href="#ref-Brownian">1905</a>)</span>.
+<span id="def:unnamed-chunk-11" class="definition"><strong>Definition 1.10  </strong></span><em>Brownian motion</em> is the random motion of particles suspended in a fluid resulting from their collision with the fast-moving molecules in the fluid <span class="citation">(A. Einstein <a href="#ref-Brownian">1905</a>)</span>.
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-13" class="definition"><strong>Definition 1.12  </strong></span>In an ensemble of <span class="math inline">\(N\)</span> particles, each of which occupies position <span class="math inline">\(x_i(t)\)</span> at time <span class="math inline">\(t\)</span>, the <em>mean squared displacement</em> of the particles in the ensemble is</p>
+<p><span id="def:unnamed-chunk-12" class="definition"><strong>Definition 1.11  </strong></span>In an ensemble of <span class="math inline">\(N\)</span> particles, each of which occupies position <span class="math inline">\(x_i(t)\)</span> at time <span class="math inline">\(t\)</span>, the <em>mean squared displacement</em> of the particles in the ensemble is</p>
 <span class="math display" id="eq:msd">\[\begin{equation}
 \text{msd}(t) = \frac{1}{N}\sum_{i = 1}^N [x_i(t) - x_i(0)]^2
 \tag{1.2}
@@ -401,7 +397,7 @@ J = -D\frac{d\varphi}{dx}
 <p>These definitions are the formally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as <em>diffusion</em>. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as <em>diffusion</em>, it is what is defined as Brownian motion above. Henceforth when I use the term <em>diffusion</em>, this Brownian motion type of movement can be assumed.</p>
 <div id="anomalous-diffusion" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> Anomalous diffusion</h3>
-<p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="#eq:MSD">(<strong>??</strong>)</a> no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section <a href="intro.html#FCS">1.7</a>) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells <span class="citation">(Honigmann et al. <a href="#ref-EggSTEDFCS">2014</a>)</span>. The pair correlation function approach (section <a href="intro.html#PCF">1.7.3.1</a>)</p>
+<p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="intro.html#eq:msd">(1.2)</a> no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section <a href="intro.html#FCS">1.7</a>) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells <span class="citation">(Honigmann et al. <a href="#ref-EggSTEDFCS">2014</a>)</span>. The pair correlation function approach (section <a href="intro.html#PCF">1.7.3.1</a>)</p>
 </div>
 </div>
 <div id="FFS" class="section level2">
@@ -413,12 +409,12 @@ J = -D\frac{d\varphi}{dx}
 <p><em>Number and brightness</em> (N&amp;B, <span class="citation">Digman et al. (<a href="#ref-NB">2008</a>)</span>) is an FFS technique for quantifying the oligomeric states of fluorescently labelled proteins. What follows is a mathematical description of the technique.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-14" class="definition"><strong>Definition 1.13  </strong></span>An <em>entity</em> is a set of molecules which are chemically bound.
+<span id="def:unnamed-chunk-13" class="definition"><strong>Definition 1.12  </strong></span>An <em>entity</em> is a set of molecules which are chemically bound.
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-15" class="definition"><strong>Definition 1.14  </strong></span>The brightness <span class="math inline">\(\epsilon\)</span> of an entity is the mean number of photon detector counts it gives per unit time when in the illumination (confocal) volume.
+<span id="def:unnamed-chunk-14" class="definition"><strong>Definition 1.13  </strong></span>The brightness <span class="math inline">\(\epsilon\)</span> of an entity is the mean number of photon detector counts it gives per unit time when in the illumination (confocal) volume.
 </div>
  For an image series where the <span class="math inline">\(i\)</span><sup>th</sup> slice in the stack is the image acquired at time <span class="math inline">\(t = i\)</span>, for a given pixel position <span class="math inline">\((x, y)\)</span>, we define <span class="math inline">\(\langle I \rangle\)</span> as the mean intensity of that pixel over the image series and <span class="math inline">\(\sigma^2\)</span> as the variance in that intensity. Define <span class="math inline">\(n\)</span> as the mean number of entities in the illumination volume corresponding to that pixel. Assuming that all entities are mobile, we have
 <span class="math display" id="eq:NB1-2" id="eq:NB1-1">\[\begin{align}
@@ -443,18 +439,18 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <p>Number and brightness has specific pixel dwell-time and frame rate requirements. These were first articulated in my 2017 review of N&amp;B <span class="citation">(Nolan, Iliopoulou, et al. <a href="#ref-NBreview">2017</a>)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  </strong></span>The <em>pixel dwell time</em> <span class="math inline">\(t_\text{dwell}\)</span> of a scanning confocal microscope is the amount of time it spends collecting photons at each given pixel before moving on to the next pixel.
+<span id="def:unnamed-chunk-15" class="definition"><strong>Definition 1.14  </strong></span>The <em>pixel dwell time</em> <span class="math inline">\(t_\text{dwell}\)</span> of a scanning confocal microscope is the amount of time it spends collecting photons at each given pixel before moving on to the next pixel.
 </div>
 
 <p>It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-17" class="definition"><strong>Definition 1.16  </strong></span>The <em>frame time</em> of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detectionion of photons from the first pixel to the end of detection of photons from the last pixel.
+<span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  </strong></span>The <em>frame time</em> of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detectionion of photons from the first pixel to the end of detection of photons from the last pixel.
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-18" class="definition"><strong>Definition 1.17  </strong></span>The mean <em>residence time</em> <span class="math inline">\(\tau_D\)</span> of a particle in the confocal volume is the average length of time that a particle that enters the confocal volume resides in that volume before exiting.
+<span id="def:unnamed-chunk-17" class="definition"><strong>Definition 1.16  </strong></span>The mean <em>residence time</em> <span class="math inline">\(\tau_D\)</span> of a particle in the confocal volume is the average length of time that a particle that enters the confocal volume resides in that volume before exiting.
 </div>
 
 <p>The requirement is <span class="math inline">\(t_\text{dwell} \ll \tau_D \ll t_\text{frame}\)</span>. This ensures that:</p>
@@ -473,7 +469,7 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <p>First, let us introduce some concepts from statistics.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-19" class="definition"><strong>Definition 1.18  (statistics)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
+<span id="def:unnamed-chunk-18" class="definition"><strong>Definition 1.17  (statistics)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
 <span class="math display" id="eq:correlation">\[\begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\sigma_X \sigma_Y}
 \tag{1.7}
@@ -483,7 +479,7 @@ where <span class="math inline">\(E\)</span> is the expectation operator.
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-20" class="definition"><strong>Definition 1.19  (statistics)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
+<span id="def:unnamed-chunk-19" class="definition"><strong>Definition 1.18  (statistics)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
 <span class="math display" id="eq:autocorrelation">\[\begin{equation}
 G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
 \tag{1.8}
@@ -492,7 +488,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-21" class="definition"><strong>Definition 1.20  (statistics)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
+<span id="def:unnamed-chunk-20" class="definition"><strong>Definition 1.19  (statistics)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
 <span class="math display" id="eq:crosscorrelation">\[\begin{equation}
 \text{crosscorr}(X, Y; \tau) = \text{corr}(X_t, Y_{t + \tau}) = \frac{E[(X_t - \mu_X)(Y_{t + \tau} - \mu_Y)]}{\sigma_X \sigma_Y}
 \tag{1.9}
@@ -502,7 +498,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 <p>For the purposes of FCS, these quantities were redefined as follows.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-22" class="definition"><strong>Definition 1.21  (FCS)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
+<span id="def:unnamed-chunk-21" class="definition"><strong>Definition 1.20  (FCS)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
 <span class="math display" id="eq:FCScorrelation">\[\begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\mu_X \mu_Y}
 \tag{1.10}
@@ -512,7 +508,7 @@ where <span class="math inline">\(E\)</span> is the expectation operator.
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-23" class="definition"><strong>Definition 1.22  (FCS)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
+<span id="def:unnamed-chunk-22" class="definition"><strong>Definition 1.21  (FCS)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
 <span class="math display" id="eq:FCSautocorrelation">\[\begin{equation}
 G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\mu^2_X}
 \tag{1.11}
@@ -521,7 +517,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-24" class="definition"><strong>Definition 1.23  (FCS)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
+<span id="def:unnamed-chunk-23" class="definition"><strong>Definition 1.22  (FCS)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
 <span class="math display" id="eq:FCScrosscorrelation">\[\begin{equation}
 \text{crosscorr}(X, Y; \tau) = \text{corr}(X_t, Y_{t + \tau}) = \frac{E[(X_t - \mu_X)(Y_{t + \tau} - \mu_Y)]}{\mu_X \mu_Y}
 \tag{1.12}
@@ -583,7 +579,7 @@ G(X; 0) = \frac{1}{n}
 <p><em>Cross-correlated brightness</em> <span class="citation">(Digman et al. <a href="#ref-ccNB">2009</a>)</span> molds the correlation idea (section <a href="intro.html#correlation">1.7.1</a>) into the framework of N&amp;B. Suppose there are two channels with intensities <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-26" class="definition"><strong>Definition 1.24  (cross-variance)  </strong></span>
+<span id="def:unnamed-chunk-25" class="definition"><strong>Definition 1.23  (cross-variance)  </strong></span>
 <span class="math display" id="eq:cross-var">\[\begin{equation}
 \sigma^2_\text{cc} = E[(I_2 - \langle I_1 \rangle)(I_2 - \langle I_2 \rangle)]
 \tag{1.14}
@@ -592,7 +588,7 @@ G(X; 0) = \frac{1}{n}
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-27" class="definition"><strong>Definition 1.25  (cross-correlated brightness)  </strong></span>
+<span id="def:unnamed-chunk-26" class="definition"><strong>Definition 1.24  (cross-correlated brightness)  </strong></span>
 <span class="math display" id="eq:cross-corr-nb">\[\begin{equation}
 B_\text{cc} = \frac{\sigma^2_\text{cc}}{\sqrt{\langle I_1 \rangle \langle I_2 \rangle}}
 \tag{1.15}
@@ -736,7 +732,7 @@ B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="abstract.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="instrumentation-and-software.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
