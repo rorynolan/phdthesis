@@ -7,9 +7,9 @@
 _Fluorescence_ is the emission of photons related to the process of _relaxation_ for a given molecule from an electronically _excited_ state (S~1~) to the _ground_ state (S~0~). 
 ```
 
-The two electronic states (S~0~ and S~1~) of a molecule are defined as the highest occupied molecular orbital (S~0~, HOMO) and the lowest unoccupied molecular orbital (S~1~, LUMO). Each electronic state has various associated _vibrational_ states between which _non-radiative_ transitions can occur. An electron can be _excited_ from the ground state S~0~ into the higher energy excited state S~1~ by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative traansitions through vibrational states) for a period of nanoseconds before _relaxing_ to the lower energy ground state, losing energy by means of emmitting a photon of that energy. This is shown by means of a _Jablonski_ diagram (figure \@ref(fig:Jablonski)).
+The two electronic states (S~0~ and S~1~) of a molecule are defined as the highest occupied molecular orbital (S~0~, HOMO) and the lowest unoccupied molecular orbital (S~1~, LUMO). Each electronic state has various associated _vibrational_ states between which _non-radiative_ transitions can occur. An electron can be _excited_ from the ground state S~0~ into the higher energy excited state S~1~ by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before _relaxing_ to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a _Jablonski_ diagram (figure \@ref(fig:Jablonski)).
 
-(ref:Jablonski-caption) Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emmision of light.
+(ref:Jablonski-caption) Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emission of light.
 
 ```{r Jablonski, echo=FALSE, fig.cap='(ref:Jablonski-caption)'}
 include_graphics(here("img", "Jablonski.jpg"))
@@ -23,7 +23,7 @@ The _fluorescence lifetime_ of an electron is the amount of time it remains in t
 A _fluorophore_ is a fluorescent chemical compound that can re-emit light upon light excitation.
 ```
 
-Fluorophores under constant excitation emit light one photon at a time according to poisson statistics.
+Fluorophores under constant excitation emit light one photon at a time according to Poisson statistics.
 
 
 ### Phosphorescence
@@ -68,7 +68,7 @@ The quantum nature of the photoelectric effect makes it practically impossible f
 
 #### Photon multiplier tubes
 
-Photon multiplier tubes (PMTs) use the photoelectirc effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [HammamatsuPMT]. See figure \@ref(fig:PMT). This current should correspond to the incident light intensity.
+Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [HammamatsuPMT]. See figure \@ref(fig:PMT). This current should correspond to the incident light intensity.
 
 (ref:PMT-caption) PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured [@LeicaDetectors].
 
@@ -85,7 +85,7 @@ The quantum efficiency of standard PMTs is approximately 25% for blue-green ligh
 _Avalanche multiplication_ in semiconductors occurs when free electrons which are moving in an electric field across the semiconductor collide with bound electrons, freeing them to move and indeed to free more bound electrons. This compounding increase in free electrons in the electric field leads to an increase in the electric current.
 ```
 
-Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure \@ref(fig:APD). They are somewhat analagous to PMTs, using the avalanche effect in place of the series of cathodes. 
+Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure \@ref(fig:APD). They are somewhat analogous to PMTs, using the avalanche effect in place of the series of cathodes. 
 
 (ref:APD-caption) APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche [@LeicaDetectors].
 
@@ -119,7 +119,7 @@ Henceforth, intensity counts will be assumed to be in units of photons.
 
 With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera. See figure \@ref(fig:widefield). One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need for scanning across the sample to acquire each pixel (which requires precise robotics). Another example is that images can be acquired faster because all pixels in a frame are acquired in parallel. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).
 
-(ref:widefield-caption) Light travels from the uniformally illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope.
+(ref:widefield-caption) Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope.
 
 ```{r widefield, out.width='50%', fig.cap='(ref:widefield-caption)', echo=FALSE}
 include_graphics(here("img", "Widefield.png"))
@@ -127,7 +127,7 @@ include_graphics(here("img", "Widefield.png"))
 
 
 ### Total internal reflection microscopy
-_Total internal reflection microscopy_ (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure \@ref(fig:TIRFig) [@TIRFig]. The huge advantage of TIRF is that only a single plane is illuminated, so when focussing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot get the object of interest right at the cover slip. Looking at figure \@ref(fig:TIRFig), it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.
+_Total internal reflection microscopy_ (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure \@ref(fig:TIRFig) [@TIRFig]. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot get the object of interest right at the cover slip. Looking at figure \@ref(fig:TIRFig), it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.
 
 (ref:TIRFig-caption) The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated.
 
@@ -168,7 +168,7 @@ A _fluorophore_ is a fluorescent chemical compound that can re-emit light upon l
 
 Consider figure \@ref(fig:confocal-volume-particle). A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here). 
 
-(ref:confocal-volume-particle-caption) Left: a fluorophore diffusing trhough the confocal volume. Right: the intensity trace due to this fluorophore. 
+(ref:confocal-volume-particle-caption) Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore. 
 
 ```{r confocal-volume-particle, message=FALSE, fig.show='hold', out.width='50%', fig.cap='(ref:confocal-volume-particle-caption)', echo=FALSE}
 set.seed(9)
@@ -221,14 +221,14 @@ In an ensemble of $N$ particles, each of which occupies position $x_i(t)$ at tim
 \end{equation}
 ```
 
-For free brownian motion in 1 dimension, the expected value of the msd is $\text{msd}(t) = 2Dt$, where $D$ is the diffusion constant. For free brownian motion in $d$ dimensions, the expected value of the msd is $\text{msd}(t) = 2dDt$, reflecting the fact that free brownian motion in $d$ dimensions is one-dimensional free brownian motion happening simultaneously and independently in each individual dimension.
+For free Brownian motion in 1 dimension, the expected value of the MSD is $\text{msd}(t) = 2Dt$, where $D$ is the diffusion constant. For free Brownian motion in $d$ dimensions, the expected value of the MSD is $\text{msd}(t) = 2dDt$, reflecting the fact that free Brownian motion in $d$ dimensions is one-dimensional free Brownian motion happening simultaneously and independently in each individual dimension.
 
-These definitions are the fomally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as _diffusion_. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as _diffusion_, it is what is defined as Brownian motion above. Henceforth when I use the term _diffusion_, this brownian motion type of movement can be assumed.
+These definitions are the formally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as _diffusion_. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as _diffusion_, it is what is defined as Brownian motion above. Henceforth when I use the term _diffusion_, this Brownian motion type of movement can be assumed.
 
 
 ### Anomalous diffusion
 
-_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no longer holds and the relationship between msd and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) 
+_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:MSD) no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) 
 
 
 ## Fluorescence fluctuation spectroscopy {#FFS}
@@ -293,9 +293,9 @@ The requirement is $t_\text{dwell} \ll \tau_D \ll t_\text{frame}$. This ensures 
 
 Both of these points are implicitly assumed in the derivation of the N&B equations so it is essential to get these acquisition parameters right. This is discussed at length in @NBreview.
 
-An important property of N&B is that if all fluorescent particles are immobile, then $B = 1$. This is because photon emission from stationary sources happens according to a poisson distribution. Poisson distributions have variance equal to mean, this implies $\sigma^2$ = $\langle I \rangle$ which gives $B = \frac{\sigma^2}{\langle I \rangle} = 1$.
+An important property of N&B is that if all fluorescent particles are immobile, then $B = 1$. This is because photon emission from stationary sources happens according to a Poisson distribution. Poisson distributions have variance equal to mean, this implies $\sigma^2$ = $\langle I \rangle$ which gives $B = \frac{\sigma^2}{\langle I \rangle} = 1$.
 
-The N&B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Most of my PhD focussed on corrections for photobleaching. This is discussed in chapter \@ref(photobleaching-correction). 
+The N&B technique is fraught with technical difficulties. Principal of these is the problem of photobleaching. Most of my PhD focused on corrections for photobleaching. This is discussed in chapter \@ref(photobleaching-correction). 
 
 
 ## Fluorescence correlation spectroscopy {#FCS}
@@ -368,7 +368,7 @@ where $n$ is the mean number of fluorescent particles in the focal volume. The c
 I felt it necessary to provide these definitions for two reasons:
 
 1. It is important for people from the fields of FCS and pure mathematics/statistics to know that they have different definitions for the same thing.
-1. In FCS, it's very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the FCS field correlate the signals from two separate channels, they use the term _cross_-correlation, even though they're only using correlation. I think the idea of working _across_ two or more channels (and ideas such as _cross_-talk) leads to this confustion.
+1. In FCS, it's very common for people to mistake correlation for cross-correlation. This is unfortunate, but knowing about this common mistake is essential for navigating the field in a sensible manner. It seems that when people in the FCS field correlate the signals from two separate channels, they use the term _cross_-correlation, even though they're only using correlation. I think the idea of working _across_ two or more channels (and ideas such as _cross_-talk) leads to this confusion.
 
 ```{remark}
 Henceforth, the FCS defintions of these quantities will be assumed.
@@ -383,7 +383,7 @@ If these proteins are interacting, then
 
 * interaction implies that A and B _co-diffuse_
 * this implies that A and B co-diffuse
-* this implies that for a given volumen in the sample
+* this implies that for a given volume in the sample
   - more of A implies more of B
   - less of A implies less of B
   - more of B implies more of A
@@ -396,7 +396,7 @@ Since the number of photons emitted is proportional to the amount of fluorophore
 * more green photons implies more red photons
 * less green photons implies less red photons
 
-Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green chanels.^[This correlation may not always be detectable due to weak interaction or weak signal.]
+Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green channels.^[This correlation may not always be detectable due to weak interaction or weak signal.]
 
 
 ### Autocorrelation
@@ -416,7 +416,7 @@ The phrase _pair correlation function_^[This was needless, it could just be call
 
 ### Cross-correlated brightness
 
-_Cross-correlated brightness_ [@ccNB] moulds the correlation idea (section \@ref(correlation)) into the framework of N&B. Suppose there are two channels with intensities $I_1$ and $I_2$. 
+_Cross-correlated brightness_ [@ccNB] molds the correlation idea (section \@ref(correlation)) into the framework of N&B. Suppose there are two channels with intensities $I_1$ and $I_2$. 
 
 ```{definition, name='cross-variance'}
 
@@ -458,12 +458,12 @@ Number and brightness (the prominent imaging FFS technique) has been used to:
 * measure the stoichiometry of scaffold complexes in live neurons [@Moutin]
 * quantify interactions in gene expression networks [@Declerck]
 * measure the oligomeric state of the dynamin-2 protein at the HIV-1 fusion pore [@DanDynamin]
-* measure the stoichiometry of the interaction of HIV-1 with its receptor and co-recptor over time in the pre-fusion process [@HIVstoichiometry]
+* measure the stoichiometry of the interaction of HIV-1 with its receptor and co-receptor over time in the pre-fusion process [@HIVstoichiometry]
 
 FCS has been used to:
 
-* reveal structural and functional properties of promyelocytic leukima nuclear bodies [@Hoischen]
+* reveal structural and functional properties of promyelocytic leukemia nuclear bodies [@Hoischen]
 * demonstrate that HIV-1 evades antibody-dependent phagocytosis [@Gach]
 * determine the size of nanodomains [@Fenz]
-* perform chromatograaphic measurements [@Kisley]
+* perform chromatographic measurements [@Kisley]
 * quantify interactions of membrane proteins [@Ly]

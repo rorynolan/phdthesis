@@ -25,7 +25,7 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-18">
+<meta name="date" content="2018-07-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -162,7 +162,7 @@
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
 <li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.1</b> Robin Hood publication</a></li>
 <li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.2</b> Translate software to <em>ImageJ</em></a></li>
-<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimick"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
 <li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.4</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -196,9 +196,9 @@
 <h2><span class="header-section-number">6.2</span> Translate software to <em>ImageJ</em></h2>
 <p>Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms. I will code my detrending algorithms as <em>ImageJ</em> plugins and also as python modules so that more of the community have easy access to them.</p>
 </div>
-<div id="mimick" class="section level2">
+<div id="mimic" class="section level2">
 <h2><span class="header-section-number">6.3</span> Study real data bleaching profiles with simulations</h2>
-<p>It was mentioned in section <a href="photobleaching-correction.html#detrend-compare">3.10</a> that it would be possible to study the effect ofreal bleaching as opposed to simulated ideal bleaching and why it is more necessary to detrend in the real data case by mimicking real bleaching profiles with simulations. This is something I would like to do. It would be difficult because it would require the collection and cataloguing of a diverse set of real data bleaching profiles from various biological samples. This would be the bottleneck because I have already written the simulation and analysis pipelines.</p>
+<p>It was mentioned in section <a href="photobleaching-correction.html#detrend-compare">3.10</a> that it would be possible to study the effect of real bleaching as opposed to simulated ideal bleaching and why it is more necessary to detrend in the real data case by mimicking real bleaching profiles with simulations. This is something I would like to do. It would be difficult because it would require the collection and cataloging of a diverse set of real data bleaching profiles from various biological samples. This would be the bottleneck because I have already written the simulation and analysis pipelines.</p>
 </div>
 <div id="compare-fret-with-fcs" class="section level2">
 <h2><span class="header-section-number">6.4</span> Compare FRET with FCS</h2>
@@ -209,13 +209,13 @@
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Frster">
-<p>Förster, Th. 1948. “Zwischenmolekulare Energiewanderung Und Fluoreszenz.” <em>Annalen Der Physik</em> 437 (1-2). Wiley: 55–75. doi:<a href="https://doi.org/10.1002/andp.19484370105">10.1002/andp.19484370105</a>.</p>
+<p>Förster, Th. 1948. “Zwischenmolekulare Energiewanderung Und Fluoreszenz.” <em>Annalen Der Physik</em> 437 (1-2). Wiley:55–75. <a href="https://doi.org/10.1002/andp.19484370105" class="uri">https://doi.org/10.1002/andp.19484370105</a>.</p>
 </div>
 <div id="ref-Sahoo">
-<p>Sahoo, Harekrushna, and Petra Schwille. 2011. “FRET and FCS-Friends or Foes?” <em>ChemPhysChem</em> 12 (3). Wiley: 532–41. doi:<a href="https://doi.org/10.1002/cphc.201000776">10.1002/cphc.201000776</a>.</p>
+<p>Sahoo, Harekrushna, and Petra Schwille. 2011. “FRET and FCS-Friends or Foes?” <em>ChemPhysChem</em> 12 (3). Wiley:532–41. <a href="https://doi.org/10.1002/cphc.201000776" class="uri">https://doi.org/10.1002/cphc.201000776</a>.</p>
 </div>
 <div id="ref-Baker2016">
-<p>Baker, Monya. 2016. “1,500 Scientists Lift the Lid on Reproducibility.” <em>Nature</em> 533 (7604). Springer Nature: 452–54. doi:<a href="https://doi.org/10.1038/533452a">10.1038/533452a</a>.</p>
+<p>Baker, Monya. 2016. “1,500 Scientists Lift the Lid on Reproducibility.” <em>Nature</em> 533 (7604). Springer Nature:452–54. <a href="https://doi.org/10.1038/533452a" class="uri">https://doi.org/10.1038/533452a</a>.</p>
 </div>
 </div>
             </section>
@@ -270,7 +270,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

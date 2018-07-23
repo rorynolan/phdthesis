@@ -32,7 +32,7 @@ The study of HIV-1 receptor stoichiometry [@HIVstoichiometry] is a _real-life_ a
 
 ### Multiplexing with structural biology
 
-Our collaboration with structural biologists [@HIVstoichiometry] is a demonstration of how live cell fluorescence microscopy and structural biology can be coplementary. The sub-molecular insight from structural biology is not available from live cell fluorescence microscopy, while the dynamic information from live cell fluorescence microscopy cannot be gotten from structural biology.
+Our collaboration with structural biologists [@HIVstoichiometry] is a demonstration of how live cell fluorescence microscopy and structural biology can be complementary. The sub-molecular insight from structural biology is not available from live cell fluorescence microscopy, while the dynamic information from live cell fluorescence microscopy cannot be gotten from structural biology.
 
 
 ### Fluorescence fluctuation spectroscopy

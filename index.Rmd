@@ -50,7 +50,7 @@ move_to_groups_folder <- function() {
 
 ## Ways to read {-}
 
-This thesis may be read on the web at https://rorynolan.github.io/phdthesis/. If you are reading this on the web now but would like a pdf version, click on the download symbol at the top left of the page (to the right of the __A__) and select PDF.
+This thesis may be read on the web at https://rorynolan.github.io/phdthesis/. If you are reading this on the web now but would like a PDF version, click on the download symbol at the top left of the page (to the right of the __A__) and select PDF.
 
 
 ## Note to the reader {-}
@@ -82,7 +82,7 @@ string manipulation". In: _Journal of Open Source Software_ 2.14 (2017).
 * R. Nolan and S. Padilla-Parra. "exampletestr—An easy start to unit
 testing R packages". In: _Wellcome open research_ 2 (2017).
 * R. Nolan, L. Alvarez, J. Elegheert, et al. "nandb—number and brightness
-in R with a novel automic detrending algorithm". In: _Bioinformatics_ 33.21
+in R with a novel automatic detrending algorithm". In: _Bioinformatics_ 33.21
 (2017).
 * R. Nolan, M. Iliopoulou, L. Alvarez, et al. "Detecting protein
 aggregation and interactions in live cells: a guide to Number and
@@ -97,7 +97,7 @@ _Journal of Visualized Experiments_ 0.0 (2018).
 #### Co-first author {-}
 
 * M. Iliopoulou, R. Nolan, et al. "A dynamic three step
-mechanism drives the HIV-1 prefusion reaction". In: _Nat. Struct. Mol. Biol._
+mechanism drives the HIV-1 pre-fusion reaction". In: _Nat. Struct. Mol. Biol._
 0.0 (2018).
 
 #### Other {-}

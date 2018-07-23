@@ -32,7 +32,7 @@ include_graphics(here("img", "nandb-fig.png"))
 
 ### Visualization of bleaching correction on real data
 
-That publication also includes a visualization of bleaching correction on real data. Figure \@ref(fig:bleachvis1) shows this, comparing the choice of $\tau=10$ with the automatic detrending algoirthm, which cooses an appropriate $\tau$ based on the data. It is evident that both $\tau=10$ and the automatic choice of $\tau$ give the corrected intensity profile a stationary mean (both the red and green series start and end at $\approx 11$), however the $\tau = 10$ correction (red line) also has a much decreased variance compared to the auto $\tau$ line (green), which is bad; the $\tau = 10$ line is removing local variation, which is exactly what we're trying to avoid.
+That publication also includes a visualization of bleaching correction on real data. Figure \@ref(fig:bleachvis1) shows this, comparing the choice of $\tau=10$ with the automatic detrending algorithm, which chooses an appropriate $\tau$ based on the data. It is evident that both $\tau=10$ and the automatic choice of $\tau$ give the corrected intensity profile a stationary mean (both the red and green series start and end at $\approx 11$), however the $\tau = 10$ correction (red line) also has a much decreased variance compared to the auto $\tau$ line (green), which is bad; the $\tau = 10$ line is removing local variation, which is exactly what we're trying to avoid.
 
 (ref:bleachvis-caption) Real data image series mean intensity profile with bleaching correction with $\tau = 10$ and auto $\tau$. 
 
@@ -46,7 +46,7 @@ include_graphics(here("img", "bleachvis1.png"))
 
 ### Introduction
 
-In our research group, we believe that the most practical quantitative method for measuring homo-dimerization _in vivo_ and _in vitro_ is N&B [@NB] because it is callibration-free and does not require specialised instrumentation. There are many examples of the application of N&B _in vivo_ (the original N&B paper has over 250 citations, most of which are _in vivo_ applications) but none _in vitro_. Hence, we published a protocol [@JOVE] detailing how N&B can be applied _in vitro_. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known coloquially as the _BB dimerizer_); this pair is designed to have better specificity than the original [@Clackson]. 
+In our research group, we believe that the most practical quantitative method for measuring homo-dimerization _in vivo_ and _in vitro_ is N&B [@NB] because it is calibration-free and does not require specialized instrumentation. There are many examples of the application of N&B _in vivo_ (the original N&B paper has over 250 citations, most of which are _in vivo_ applications) but none _in vitro_. Hence, we published a protocol [@JOVE] detailing how N&B can be applied _in vitro_. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known colloquially as the _BB dimerizer_); this pair is designed to have better specificity than the original [@Clackson]. 
 
 
 ### Experimental results and discussion
@@ -81,7 +81,7 @@ The $S$ in the denominator was omitted in the original paper [@Dalal] and this e
 
 #### HIV-1 cell entry
 
-HIV-1 infects many cell types (e.g. CD4 T cells, macrophages, dendritic cells) and has different modes of entry for each cell type and indeed possible more than one mode of entry in any given cell type [@Jakobsdottir]. Endocytosis is thought to be a common entry route [@Miyauchi], particularly in macrophages [@Marechal] and dentritic cells [@Mnager]. In CD4 T cells, HIV-1 has been shown to fuse at the plasma membrane without needing endocytosis [@Herold].
+HIV-1 infects many cell types (e.g. CD4 T cells, macrophages, dendritic cells) and has different modes of entry for each cell type and indeed possible more than one mode of entry in any given cell type [@Jakobsdottir]. Endocytosis is thought to be a common entry route [@Miyauchi], particularly in macrophages [@Marechal] and Dendritic cells [@Mnager]. In CD4 T cells, HIV-1 has been shown to fuse at the plasma membrane without needing endocytosis [@Herold].
 
 Entry of HIV into any cell involves the initial binding of the CD4 receptor on that cell by the HIV-1 virus. Subsequently, a co-receptor (often CCR5 or CXCR4) is used in the fusion process [@Jakobsdottir]. The question of how many receptors and co-receptors are required to facilitate fusion (the _stoichiometry_ of the interaction of HIV-1 with its receptor and co-receptor, possibly different for different cell types) had not been answered. 
 
@@ -96,7 +96,7 @@ Following on from this, we wanted to study the stoichiometry of the interaction 
 > 
 > --- @HIVstoichiometry
 
-(ref:HIVStoichiometrySetup-caption) The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labelling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-recptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction. 
+(ref:HIVStoichiometrySetup-caption) The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labeling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction. 
 
 ```{r HIVStoichiometrySetup, fig.cap='(ref:HIVStoichiometrySetup-caption)', echo=FALSE}
 include_graphics(here("img", "HIVStoichiometrySetup.png"))
@@ -108,7 +108,7 @@ We saw N&B as the ideal technique to probe this stoichiometry temporally. With o
 
 Receptor (CD4) and co-receptor (CXCR4 or CCR5) were labelled in Cos7 cells. Virus was added at time $t=0$ and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, @ALEX) was used to eliminate the possibility of channel bleed-through. See figure \@ref(fig:HIVStoichiometryIntensity).
 
-(ref:HIVStoichiometryIntensity) Intensity images from the virus, receptor and co-receptor. Every 100th frame is shown. A virus which lands at $t \approx 1.7$ minutes is highlighted.
+(ref:HIVStoichiometryIntensity) Intensity images from the virus, receptor and co-receptor. Every 100^th^ frame is shown. A virus which lands at $t \approx 1.7$ minutes is highlighted.
 
 ```{r HIVStoichiometryIntensity, fig.cap='(ref:HIVStoichiometryIntensity)', echo=FALSE}
 include_graphics(here("img", "HIVStoichiometryIntensity.png"))

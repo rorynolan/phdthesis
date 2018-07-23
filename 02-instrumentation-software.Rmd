@@ -3,7 +3,7 @@
 
 ## Instrumentation 
 
-All of the images used in this thesis were acquired on a Leica SP8 confocal microscope^[https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8] equipped with hybrid detectors (section \@ref(HyDs)). Importantly, the detectors that we have on this microscope are capable of photon counting. 
+All of the images used in this thesis were acquired on a Leica SP8 confocal microscope^[https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8] equipped with hybrid detectors (section \@ref(HyDs)). Importantly, the detectors that we have on this microscope are capable of photon counting. 
 
 
 
@@ -12,7 +12,7 @@ All of the images used in this thesis were acquired on a Leica SP8 confocal micr
 
 ### C++
 
-_C++_ [@cpp] is a genaral-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.^[https://en.wikipedia.org/wiki/C%2B%2B] I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important consideration.
+_C++_ [@cpp] is a general-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.^[https://en.wikipedia.org/wiki/C%2B%2B] I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important consideration.
 
 
 ### R 
@@ -98,7 +98,7 @@ detrendr_downloads <- get_downloads("detrendr")
 filesstrings_downloads <- get_downloads("filesstrings")
 ```
 
-`filesstrings` is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a filename like `well1_cell1_before_drug_addition.tif` is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published [@filesstrings]. It gets `r filesstrings_downloads$per_month` downloads per month which amounts to `r filesstrings_downloads$total` since it was first released.
+`filesstrings` is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like `well1_cell1_before_drug_addition.tif` is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published [@filesstrings]. It gets `r filesstrings_downloads$per_month` downloads per month which amounts to `r filesstrings_downloads$total` since it was first released.
 
 
 
@@ -118,8 +118,8 @@ Unit testing is a tool to verify that software is performing as intended. It is 
 
 ### `brownded` {#brownded}
 
-`brownded` is an R software package (https://github.com/rorynolan/brownded) for simulating bounded brownian motion in any number of dimensions, where _bounded_ brownian motion is brownian motion in an $n$-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. `brownded` allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles. 
+`brownded` is an R software package (https://github.com/rorynolan/brownded) for simulating bounded Brownian motion in any number of dimensions, where _bounded_ Brownian motion is Brownian motion in an $n$-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. `brownded` allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles. 
 
-`brownded` also facilitates the simulation of images created from fluorescent particles undergoing bounded brownian motion. It allows specification of the time at which each image should be taken, the pixel size and the brightness of the particles. Each fluorescent particle contributes photon counts to its pixel of residence at that time according to a poisson process. 
+`brownded` also facilitates the simulation of images created from fluorescent particles undergoing bounded Brownian motion. It allows specification of the time at which each image should be taken, the pixel size and the brightness of the particles. Each fluorescent particle contributes photon counts to its pixel of residence at that time according to a Poisson process. 
 
 Finally, `brownded` facilitates the synthetic bleaching of fluorescent particles so bleaching can be investigated with images produced with `brownded`.
