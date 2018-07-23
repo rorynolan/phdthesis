@@ -25,7 +25,6 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -225,12 +224,12 @@ Figure 3.2: Mean intensity profiles of the simulated image series with and witho
 <h3><span class="header-section-number">3.2.2</span> FFS</h3>
 
 <div class="definition">
-<span id="def:unnamed-chunk-31" class="definition"><strong>Definition 3.1  (median mean pixel intensity)  </strong></span>The <em>median mean pixel intensity</em> of an image series is found by taking the mean intensity of each pixel in the image series and then taking the median of those means. It can be thought of as a summary statistic for the pixel intensity of the image series.
+<span id="def:unnamed-chunk-30" class="definition"><strong>Definition 3.1  (median mean pixel intensity)  </strong></span>The <em>median mean pixel intensity</em> of an image series is found by taking the mean intensity of each pixel in the image series and then taking the median of those means. It can be thought of as a summary statistic for the pixel intensity of the image series.
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-32" class="definition"><strong>Definition 3.2  (median pixel intensity variance)  </strong></span>The <em>median pixel intensity variance</em> of an image series is found by taking the variance in the intensity of each pixel in the image series and then taking the median of those variances. It can be thought of as a summary statistic for the variance in the pixel intensity of the image series.
+<span id="def:unnamed-chunk-31" class="definition"><strong>Definition 3.2  (median pixel intensity variance)  </strong></span>The <em>median pixel intensity variance</em> of an image series is found by taking the variance in the intensity of each pixel in the image series and then taking the median of those variances. It can be thought of as a summary statistic for the variance in the pixel intensity of the image series.
 </div>
 
 <p>In FFS, one is always interested in the mean and variance of pixel values. <code>img1</code> has a median mean pixel intensity of 98 and a median pixel intensity variance of 487. The mean brightness is <span class="math inline">\(\epsilon = 3.9959\)</span> (very close to 4, as expected since the image series was simulated with brightness <span class="math inline">\(\epsilon = 4\)</span>). For <code>img1_bleached</code>, we find a median mean pixel intensity of 90 and a median pixel intensity variance of 468. The mean brightness is <span class="math inline">\(\epsilon = 4.2026\)</span>. Hence, bleaching has altered both the means and variances of the pixels, resulting in a change in calculated brightness. The non-stationary mean frame intensity introduced by bleaching decreases the mean but increases the variance. The loss in signal has the effect of slightly decreasing the variance: with Poisson statistics (such as photon-emission), a loss of signal (photons) leads directly to a loss in variance. This is a subtle point not discussed anywhere in the literature; it is shown in figure <a href="photobleaching-correction.html#fig:visualize-variance-decrease">3.3</a>.</p>
@@ -306,7 +305,7 @@ Figure 3.9: The original intensity trace is shown in the top-left. The other pan
 <p>In section <a href="intro.html#number-and-brightness">1.6.1</a>, we learned that for immobile particles, the expected brightness is <span class="math inline">\(B = 1\)</span>. This fact can be used to solve for the appropriate choice of <span class="math inline">\(l\)</span> to use for detrending a specific image series.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-33" class="definition"><strong>Definition 3.3  </strong></span>The <em>mean intensity profile</em> of one channel of an image series is obtained by calculating the mean intensity of each frame in that image series.
+<span id="def:unnamed-chunk-32" class="definition"><strong>Definition 3.3  </strong></span>The <em>mean intensity profile</em> of one channel of an image series is obtained by calculating the mean intensity of each frame in that image series.
 </div>
 
 <p>The mean intensity profile can be used to visualize the bleaching of an image series. If the fluorophores are bleaching, the mean intensity should be decreasing over time. To proceed with solving for the appropriate <span class="math inline">\(l\)</span>, we need to make one assumption. This is that any two image series with the same mean intensity profile are appropriately detrended with the same detrending parameter <span class="math inline">\(l\)</span>. This assumption seems reasonable to me, however there is no need to debate its validity because later, detrending with the solved-for parameter <span class="math inline">\(l\)</span> will be evaluated with simulated data and compared to the standard <span class="math inline">\(l = 10\)</span>. If this assumption is bad, then the performance of the detrending that relies on it should also be bad. With this assumption in hand, solving for <span class="math inline">\(l\)</span> proceeds as follows:</p>
@@ -352,7 +351,7 @@ Figure 3.11: The original intensity trace is shown in the top-left. The other pa
 <h2><span class="header-section-number">3.7</span> Correcting for non-stationary variance</h2>
 
 <div class="definition">
-<span id="def:unnamed-chunk-34" class="definition"><strong>Definition 3.4  </strong></span>The variance of a random variable <span class="math inline">\(X\)</span> is the expected value of the squared deviation of <span class="math inline">\(X\)</span> from its mean <span class="math inline">\(\mu\)</span>:
+<span id="def:unnamed-chunk-33" class="definition"><strong>Definition 3.4  </strong></span>The variance of a random variable <span class="math inline">\(X\)</span> is the expected value of the squared deviation of <span class="math inline">\(X\)</span> from its mean <span class="math inline">\(\mu\)</span>:
 <span class="math display" id="eq:variance">\[\begin{equation}
 \text{Var}(X) = E[(X - \mu)^2]
 \tag{3.3}
@@ -414,7 +413,7 @@ Figure 3.14: Robin Hood: counts are taken from frames of higher intensity (usual
 <p>The performance was evaluated using the <em>mean relative error</em>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-35" class="definition"><strong>Definition 3.5  </strong></span>
+<p><span id="def:unnamed-chunk-34" class="definition"><strong>Definition 3.5  </strong></span>
 For a given brightness and bleaching fraction,</p>
 <span class="math display" id="eq:mean-relative-error">\[\begin{equation}
 \text{mean relative error } = \frac{|(\text{calculated brightness after detrending}) - (\text{true brightness})|}{(\text{true brightness})}

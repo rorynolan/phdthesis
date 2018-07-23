@@ -91,7 +91,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-07-18}
+    \date{University of Oxford}
 
 \usepackage{booktabs}
 
@@ -126,7 +126,7 @@
 
 This thesis may be read on the web at
 \url{https://rorynolan.github.io/phdthesis/}. If you are reading this on
-the web now but would like a pdf version, click on the download symbol
+the web now but would like a PDF version, click on the download symbol
 at the top left of the page (to the right of the \textbf{A}) and select
 PDF.
 
@@ -198,7 +198,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   testing R packages''. In: \emph{Wellcome open research} 2 (2017).
 \item
   R. Nolan, L. Alvarez, J. Elegheert, et al. ``nandb---number and
-  brightness in R with a novel automic detrending algorithm''. In:
+  brightness in R with a novel automatic detrending algorithm''. In:
   \emph{Bioinformatics} 33.21 (2017).
 \item
   R. Nolan, M. Iliopoulou, L. Alvarez, et al. ``Detecting protein
@@ -222,7 +222,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
 \tightlist
 \item
   M. Iliopoulou, R. Nolan, et al. ``A dynamic three step mechanism
-  drives the HIV-1 prefusion reaction''. In: \emph{Nat. Struct. Mol.
+  drives the HIV-1 pre-fusion reaction''. In: \emph{Nat. Struct. Mol.
   Biol.} 0.0 (2018).
 \end{itemize}
 
@@ -246,6 +246,53 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   \emph{BMC genomics} 18.1 (2017).
 \end{itemize}
 
+\chapter*{Abstract}\label{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+The measured intensity (ideally in units of photon counts) of a
+fluorescent sample over time constitutes a time-series called an
+\emph{intensity trace}. The idea of \emph{fluorescence fluctuation
+spectroscopy} (FFS) is to extract information from intensity traces.
+
+Photobleaching is the phenomenon of the breaking of fluorophores (light
+emitters) over time. Photobleaching causes fluorescent signal to
+diminish over time. This changes the intensity trace, introducing a
+downward trend.
+
+Many quantitative methods in FFS implicitly assume that there is no
+bleaching in the data. Hence, data with significant levels of
+photobleaching must be corrected prior to the application of equations
+and algorithms in these fields. This correction is often termed
+\emph{detrending}, since its aim is to remove the downward trend in the
+data introduced by photobleaching.
+
+Previous detrending methods have two main caveats.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  They rely on either fitting or smoothing, both of which approximate
+  data as continuous. This is inappropriate for fluorescence intensity
+  data, which is count data (i.e.~discrete, not continuous).
+\item
+  They require the user to choose a detrending parameter. The choice of
+  this parameter is crucial to the success or failure of the detrending
+  routine, yet instructions on how to choose it did not exist.
+\end{enumerate}
+
+The work in this thesis solves problems 1 and 2 above by means of an
+automatic (no user input required) parameter finding routine and a new
+detrending algorithm which treats the data as discrete and avoids
+fitting and smoothing, thereby avoiding the approximation of
+non-continuous data as continuous.
+
+These advancements are then used in a study investigating the
+stoichiometry of the interaction of the HIV-1 virus' envelope with its
+cellular receptors and co-receptors over time. This is the first study
+of its kind in live cells and it was facilitated by the advances in
+detrending presented in this thesis.
+
 \chapter{Introduction}\label{intro}
 
 \section{Fluorescence}\label{fluorescence}
@@ -267,9 +314,9 @@ can occur. An electron can be \emph{excited} from the ground state
 S\textsubscript{0} into the higher energy excited state
 S\textsubscript{1} by absorption of a photon of the appropriate energy.
 The electron will remain in the excited state (possibly undergoing
-non-radiative traansitions through vibrational states) for a period of
+non-radiative transitions through vibrational states) for a period of
 nanoseconds before \emph{relaxing} to the lower energy ground state,
-losing energy by means of emmitting a photon of that energy. This is
+losing energy by means of emitting a photon of that energy. This is
 shown by means of a \emph{Jablonski} diagram (figure
 \ref{fig:Jablonski}).
 
@@ -283,7 +330,7 @@ shown by means of a \emph{Jablonski} diagram (figure
 
 \caption{Jablonski diagram of the process of
 fluorescence. Absorption causes excitation, relaxation causes the
-emmision of light.}\label{fig:Jablonski}
+emission of light.}\label{fig:Jablonski}
 \end{figure}
 
 \BeginKnitrBlock{definition}
@@ -299,7 +346,7 @@ light upon light excitation.
 \EndKnitrBlock{definition}
 
 Fluorophores under constant excitation emit light one photon at a time
-according to poisson statistics.
+according to Poisson statistics.
 
 \subsection{Phosphorescence}\label{phosphorescence}
 
@@ -365,7 +412,7 @@ impossible for detectors to reach 100\% efficiency.
 
 \subsubsection{Photon multiplier tubes}\label{photon-multiplier-tubes}
 
-Photon multiplier tubes (PMTs) use the photoelectirc effect. Dissociated
+Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated
 electrons are accelerated through a potential difference towards a
 cathode where their accumulated kinetic energy is used to to release
 more electrons. These are then accelerated in vacuum towards another
@@ -411,7 +458,7 @@ Avalanche photo-diodes (APDs) are semiconductors that exploit the
 photoelectric effect together with avalanche multiplication (the
 photoelectric effect starts the avalanche) to convert light into
 measurable electric current. See figure \ref{fig:APD}. They are somewhat
-analagous to PMTs, using the avalanche effect in place of the series of
+analogous to PMTs, using the avalanche effect in place of the series of
 cathodes.
 
 
@@ -494,7 +541,7 @@ make it to the detection device (camera).
 
 \includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/Widefield} \hfill{}
 
-\caption{Light travels from the uniformally illuminated
+\caption{Light travels from the uniformly illuminated
 sample through a lens (or a few lenses) to the camera. Not the
 simplicity of this setup relative to that of a confocal microscope.}\label{fig:widefield}
 \end{figure}
@@ -507,7 +554,7 @@ when total internal reflection (TIR) is occurring, an evanescent wave is
 produced at the media boundary, but this evanescent wave is only present
 very close to the boundary. See figure \ref{fig:TIRFig} \citep{TIRFig}.
 The huge advantage of TIRF is that only a single plane is illuminated,
-so when focussing on that plane, only in-focus light is collected
+so when focusing on that plane, only in-focus light is collected
 (because only the in-focus plane is illuminated). The main disadvantage
 is that it is not applicable when one cannot get the object of interest
 right at the cover slip. Looking at figure \ref{fig:TIRFig}, it is
@@ -574,12 +621,6 @@ camera \citep{DanDynamin}.
 
 \section{Intensity traces}\label{intensity-traces}
 
-\BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-9}{}{\label{def:unnamed-chunk-9} }A
-\emph{fluorophore} is a fluorescent chemical compound that can re-emit
-light upon light excitation.
-\EndKnitrBlock{definition}
-
 Consider figure \ref{fig:confocal-volume-particle}. A fluorophore enters
 the confocal volume, is excited there and emits photons which are
 collected by the detector. When the fluorophore is not in the confocal
@@ -596,20 +637,20 @@ Different numbers of photons are collected per unit time (per ms here).
 \includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/confocal_volume_particle} \includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/cvp} \hfill{}
 
 \caption{Left: a fluorophore diffusing
-trhough the confocal volume. Right: the intensity trace due to this
+through the confocal volume. Right: the intensity trace due to this
 fluorophore.}\label{fig:confocal-volume-particle}
 \end{figure}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-10}{}{\label{def:unnamed-chunk-10}
-}The time-series of intensity counts in a given pixel or image is
-referred to as its \emph{intensity trace}.
+\protect\hypertarget{def:unnamed-chunk-9}{}{\label{def:unnamed-chunk-9} }The
+time-series of intensity counts in a given pixel or image is referred to
+as its \emph{intensity trace}.
 \EndKnitrBlock{definition}
 
 \section{Diffusion}\label{diffusion}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-11}{}{\label{def:unnamed-chunk-11}
+\protect\hypertarget{def:unnamed-chunk-10}{}{\label{def:unnamed-chunk-10}
 }\emph{Diffusion} is the net movement of molecules or atoms from a
 region of high concentration (or high chemical potential) to a region of
 low concentration (or low chemical potential) as a result of random
@@ -641,14 +682,14 @@ where
 \end{itemize}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-12}{}{\label{def:unnamed-chunk-12}
+\protect\hypertarget{def:unnamed-chunk-11}{}{\label{def:unnamed-chunk-11}
 }\emph{Brownian motion} is the random motion of particles suspended in a
 fluid resulting from their collision with the fast-moving molecules in
 the fluid \citep{Brownian}.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-13}{}{\label{def:unnamed-chunk-13}
+\protect\hypertarget{def:unnamed-chunk-12}{}{\label{def:unnamed-chunk-12}
 }In an ensemble of \(N\) particles, each of which occupies position
 \(x_i(t)\) at time \(t\), the \emph{mean squared displacement} of the
 particles in the ensemble is
@@ -659,26 +700,26 @@ particles in the ensemble is
 \end{equation}
 \EndKnitrBlock{definition}
 
-For free brownian motion in 1 dimension, the expected value of the msd
+For free Brownian motion in 1 dimension, the expected value of the MSD
 is \(\text{msd}(t) = 2Dt\), where \(D\) is the diffusion constant. For
-free brownian motion in \(d\) dimensions, the expected value of the msd
-is \(\text{msd}(t) = 2dDt\), reflecting the fact that free brownian
-motion in \(d\) dimensions is one-dimensional free brownian motion
+free Brownian motion in \(d\) dimensions, the expected value of the MSD
+is \(\text{msd}(t) = 2dDt\), reflecting the fact that free Brownian
+motion in \(d\) dimensions is one-dimensional free Brownian motion
 happening simultaneously and independently in each individual dimension.
 
-These definitions are the fomally correct ones. In biophysics, however,
+These definitions are the formally correct ones. In biophysics, however,
 both of these processes (diffusion and Brownian motion) are most often
 referred to as \emph{diffusion}. Usually, in biophysics one is
 interested in proteins which move around in a medium like the cytoplasm
 or the cell membrane. When this is referred to as \emph{diffusion}, it
 is what is defined as Brownian motion above. Henceforth when I use the
-term \emph{diffusion}, this brownian motion type of movement can be
+term \emph{diffusion}, this Brownian motion type of movement can be
 assumed.
 
 \subsection{Anomalous diffusion}\label{anomalous-diffusion}
 
 \emph{Anomalous diffusion} is a diffusion process whereby equation
-\eqref{eq:msd} no longer holds and the relationship between msd and time
+\eqref{eq:msd} no longer holds and the relationship between MSD and time
 becomes non-linear. Knowing whether diffusion is anomalous or free can
 offer biological insight. For example, regions of free and anomalous
 diffusion were measured with FCS (section \ref{FCS}) to investigate the
@@ -708,12 +749,12 @@ quantifying the oligomeric states of fluorescently labelled proteins.
 What follows is a mathematical description of the technique.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-14}{}{\label{def:unnamed-chunk-14}
+\protect\hypertarget{def:unnamed-chunk-13}{}{\label{def:unnamed-chunk-13}
 }An \emph{entity} is a set of molecules which are chemically bound.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-15}{}{\label{def:unnamed-chunk-15}
+\protect\hypertarget{def:unnamed-chunk-14}{}{\label{def:unnamed-chunk-14}
 }The brightness \(\epsilon\) of an entity is the mean number of photon
 detector counts it gives per unit time when in the illumination
 (confocal) volume.
@@ -772,7 +813,7 @@ requirements. These were first articulated in my 2017 review of N\&B
 \citep{NBreview}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
+\protect\hypertarget{def:unnamed-chunk-15}{}{\label{def:unnamed-chunk-15}
 }The \emph{pixel dwell time} \(t_\text{dwell}\) of a scanning confocal
 microscope is the amount of time it spends collecting photons at each
 given pixel before moving on to the next pixel.
@@ -783,7 +824,7 @@ particularly for FFS. This is something that must be carefully verified
 on each instrument.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17}
+\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
 }The \emph{frame time} of a scanning confocal microscope is the amount
 of time it takes to acquire the data for all of the pixels in a whole
 frame. That is the length of time from the start of detectionion of
@@ -792,7 +833,7 @@ last pixel.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-18}{}{\label{def:unnamed-chunk-18}
+\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17}
 }The mean \emph{residence time} \(\tau_D\) of a particle in the confocal
 volume is the average length of time that a particle that enters the
 confocal volume resides in that volume before exiting.
@@ -821,13 +862,13 @@ right. This is discussed at length in \citet{NBreview}.
 
 An important property of N\&B is that if all fluorescent particles are
 immobile, then \(B = 1\). This is because photon emission from
-stationary sources happens according to a poisson distribution. Poisson
+stationary sources happens according to a Poisson distribution. Poisson
 distributions have variance equal to mean, this implies \(\sigma^2\) =
 \(\langle I \rangle\) which gives
 \(B = \frac{\sigma^2}{\langle I \rangle} = 1\).
 
 The N\&B technique is fraught with technical difficulties. Principal of
-these is the problem of photobleaching. Most of my PhD focussed on
+these is the problem of photobleaching. Most of my PhD focused on
 corrections for photobleaching. This is discussed in chapter
 \ref{photobleaching-correction}.
 
@@ -842,7 +883,7 @@ follow that convention.
 First, let us introduce some concepts from statistics.
 
 \BeginKnitrBlock{definition}[statistics]
-\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19}
+\protect\hypertarget{def:unnamed-chunk-18}{}{\label{def:unnamed-chunk-18}
 \iffalse (statistics) \fi{} }The \emph{correlation} between two random
 variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
 and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
@@ -856,7 +897,7 @@ where \(E\) is the expectation operator.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[statistics]
-\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
+\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19}
 \iffalse (statistics) \fi{} }\emph{Autocorrelation} \(G(X; \tau)\), is
 the correlation of a signal \(X\) with a delayed copy of itself as a
 function of the delay \(\tau\).
@@ -868,7 +909,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[statistics]
-\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
+\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
 \iffalse (statistics) \fi{} }The \emph{cross-correlation} of two series
 is the correlation of one with a delayed copy of the other as a function
 of the delay.
@@ -882,7 +923,7 @@ of the delay.
 For the purposes of FCS, these quantities were redefined as follows.
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
+\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
 \iffalse (FCS) \fi{} }The \emph{correlation} between two random
 variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
 and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
@@ -896,7 +937,7 @@ where \(E\) is the expectation operator.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
+\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
 \iffalse (FCS) \fi{} }\emph{Autocorrelation} \(G(X; \tau)\), is the
 correlation of a signal \(X\) with a delayed copy of itself as a
 function of the delay \(\tau\).
@@ -908,7 +949,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24}
+\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
 \iffalse (FCS) \fi{} }The \emph{cross-correlation} of two series is the
 correlation of one with a delayed copy of the other as a function of the
 delay.
@@ -954,7 +995,7 @@ I felt it necessary to provide these definitions for two reasons:
   separate channels, they use the term \emph{cross}-correlation, even
   though they're only using correlation. I think the idea of working
   \emph{across} two or more channels (and ideas such as
-  \emph{cross}-talk) leads to this confustion.
+  \emph{cross}-talk) leads to this confusion.
 \end{enumerate}
 
 \BeginKnitrBlock{remark}
@@ -977,7 +1018,7 @@ If these proteins are interacting, then
 \item
   this implies that A and B co-diffuse
 \item
-  this implies that for a given volumen in the sample
+  this implies that for a given volume in the sample
 \item
   more of A implies more of B
 \item
@@ -1008,7 +1049,7 @@ green channels will be correlated. If these proteins are not
 interacting, then the intensity traces from the red and green channels
 will not be correlated. Thus, interaction of red A and green B
 necessarily leads to correlation in fluorescent signals from the red and
-green chanels.\footnote{This correlation may not always be detectable
+green channels.\footnote{This correlation may not always be detectable
   due to weak interaction or weak signal.}
 
 \subsection{Autocorrelation}\label{autocorrelation}
@@ -1042,12 +1083,12 @@ similar to that of \citet{STICS}.
 \subsection{Cross-correlated
 brightness}\label{cross-correlated-brightness}
 
-\emph{Cross-correlated brightness} \citep{ccNB} moulds the correlation
+\emph{Cross-correlated brightness} \citep{ccNB} molds the correlation
 idea (section \ref{correlation}) into the framework of N\&B. Suppose
 there are two channels with intensities \(I_1\) and \(I_2\).
 
 \BeginKnitrBlock{definition}[cross-variance]
-\protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26}
+\protect\hypertarget{def:unnamed-chunk-25}{}{\label{def:unnamed-chunk-25}
 \iffalse (cross-variance) \fi{} }
 
 \begin{equation}
@@ -1057,7 +1098,7 @@ there are two channels with intensities \(I_1\) and \(I_2\).
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[cross-correlated brightness]
-\protect\hypertarget{def:unnamed-chunk-27}{}{\label{def:unnamed-chunk-27}
+\protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26}
 \iffalse (cross-correlated brightness) \fi{} }
 
 \begin{equation}
@@ -1115,7 +1156,7 @@ used to:
   fusion pore \citep{DanDynamin}
 \item
   measure the stoichiometry of the interaction of HIV-1 with its
-  receptor and co-recptor over time in the pre-fusion process
+  receptor and co-receptor over time in the pre-fusion process
   \citep{HIVstoichiometry}
 \end{itemize}
 
@@ -1124,7 +1165,7 @@ FCS has been used to:
 \begin{itemize}
 \tightlist
 \item
-  reveal structural and functional properties of promyelocytic leukima
+  reveal structural and functional properties of promyelocytic leukemia
   nuclear bodies \citep{Hoischen}
 \item
   demonstrate that HIV-1 evades antibody-dependent phagocytosis
@@ -1132,7 +1173,7 @@ FCS has been used to:
 \item
   determine the size of nanodomains \citep{Fenz}
 \item
-  perform chromatograaphic measurements \citep{Kisley}
+  perform chromatographic measurements \citep{Kisley}
 \item
   quantify interactions of membrane proteins \citep{Ly}
 \end{itemize}
@@ -1143,7 +1184,7 @@ Software}\label{instrumentation-and-software}
 \section{Instrumentation}\label{instrumentation}
 
 All of the images used in this thesis were acquired on a Leica SP8
-confocal microscope\footnote{\url{https://www.leica-microsystems.com/products/confocal-microscopes/details/product/leica-tcs-sp8}}
+confocal microscope\footnote{\url{https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8}}
 equipped with hybrid detectors (section \ref{HyDs}). Importantly, the
 detectors that we have on this microscope are capable of photon
 counting.
@@ -1153,7 +1194,7 @@ tools}\label{software-programs-languages-and-tools}
 
 \subsection{C++}\label{c}
 
-\emph{C++} \citep{cpp} is a genaral-purpose programming language
+\emph{C++} \citep{cpp} is a general-purpose programming language
 optimized for performance (speed), efficiency (with use of computer
 resources) and flexibility.\footnote{\url{https://en.wikipedia.org/wiki/C\%2B\%2B}}
 I used it for its speed, since many of the algorithms that I developed
@@ -1199,7 +1240,7 @@ floating point (real-numbered) pixels, and the only package that can
 correctly import TIFF files that were saved from \emph{ImageJ}
 \citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
 capability is a basic need for masses of people. \texttt{ijtiff} gets
-349 downloads per month which amounts to 2,433 since it was first
+348 downloads per month which amounts to 2,479 since it was first
 released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
@@ -1211,7 +1252,7 @@ was peer reviewed and published \citep{ijtiff}.
 
 \texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
 \emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 646 downloads per month which amounts to 10,823 since it
+users. It gets 643 downloads per month which amounts to 10,873 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
@@ -1220,7 +1261,7 @@ was first released.
 photobleaching). It provides all detrending algorithms mentioned in
 section \ref{photobleaching-correction}. The detrending is done in C++
 in the background for speed but it is wrapped in an R package for ease
-of use. It gets 378 downloads per month which amounts to 3,326 since it
+of use. It gets 373 downloads per month which amounts to 3,349 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
@@ -1230,18 +1271,18 @@ moving files, deleting directories, and a variety of string operations
 that facilitate manipulating file names and extracting information from
 strings. The motivation for making this package was to facilitate the
 use of file names for metadata. This is very common in microscopy,
-e.g.~a filename like \texttt{well1\_cell1\_before\_drug\_addition.tif}
+e.g.~a file name like \texttt{well1\_cell1\_before\_drug\_addition.tif}
 is often seen. Using file names for metadata like this is a good idea,
 however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible. This
 package was peer reviewed and published \citep{filesstrings}. It gets
-818 downloads per month which amounts to 13,733 since it was first
+815 downloads per month which amounts to 13,818 since it was first
 released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-29}{}{\label{def:unnamed-chunk-29}
+\protect\hypertarget{def:unnamed-chunk-28}{}{\label{def:unnamed-chunk-28}
 }\emph{Unit testing} is a software testing method by which individual
 units of source code, sets of one or more computer program modules
 together with associated control data, usage procedures, and operating
@@ -1256,26 +1297,26 @@ package developers to write unit tests for their packages. It helped me
 to eradicate many bugs in all of my packages. Interestingly,
 \texttt{exampletestr} was used to unit test and eradicate bugs in
 itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 524 downloads per month which amounts
-to 8,409 since it was first released.
+2017.\citep{exampletestr} It gets 521 downloads per month which amounts
+to 8,441 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
 
 \texttt{brownded} is an R software package
 (\url{https://github.com/rorynolan/brownded}) for simulating bounded
-brownian motion in any number of dimensions, where \emph{bounded}
-brownian motion is brownian motion in an \(n\)-dimensional box where the
+Brownian motion in any number of dimensions, where \emph{bounded}
+Brownian motion is Brownian motion in an \(n\)-dimensional box where the
 particles collide elastically (without loss of energy) with the
 boundaries of the box. \texttt{brownded} allows specification of the
 number of dimensions, the number of particles, the size of the box and
 the diffusion coefficient of the particles.
 
 \texttt{brownded} also facilitates the simulation of images created from
-fluorescent particles undergoing bounded brownian motion. It allows
+fluorescent particles undergoing bounded Brownian motion. It allows
 specification of the time at which each image should be taken, the pixel
 size and the brightness of the particles. Each fluorescent particle
 contributes photon counts to its pixel of residence at that time
-according to a poisson process.
+according to a Poisson process.
 
 Finally, \texttt{brownded} facilitates the synthetic bleaching of
 fluorescent particles so bleaching can be investigated with images
@@ -1377,7 +1418,7 @@ make it appear as though there is interaction when in fact there is not.
 \subsection{FFS}\label{ffs}
 
 \BeginKnitrBlock{definition}[median mean pixel intensity]
-\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
+\protect\hypertarget{def:unnamed-chunk-30}{}{\label{def:unnamed-chunk-30}
 \iffalse (median mean pixel intensity) \fi{} }The \emph{median mean
 pixel intensity} of an image series is found by taking the mean
 intensity of each pixel in the image series and then taking the median
@@ -1386,7 +1427,7 @@ pixel intensity of the image series.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[median pixel intensity variance]
-\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
+\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
 \iffalse (median pixel intensity variance) \fi{} }The \emph{median pixel
 intensity variance} of an image series is found by taking the variance
 in the intensity of each pixel in the image series and then taking the
@@ -1405,7 +1446,7 @@ a median pixel intensity variance of 468. The mean brightness is
 variances of the pixels, resulting in a change in calculated brightness.
 The non-stationary mean frame intensity introduced by bleaching
 decreases the mean but increases the variance. The loss in signal has
-the effect of slightly decreasing the variance: with poisson statistics
+the effect of slightly decreasing the variance: with Poisson statistics
 (such as photon-emission), a loss of signal (photons) leads directly to
 a loss in variance. This is a subtle point not discussed anywhere in the
 literature; it is shown in figure \ref{fig:visualize-variance-decrease}.
@@ -1420,8 +1461,8 @@ literature; it is shown in figure \ref{fig:visualize-variance-decrease}.
 
 \includegraphics[width=0.9\linewidth]{phdthesis_files/figure-latex/visualize-variance-decrease-1} \hfill{}
 
-\caption{A decrease in the poisson rate
-(e.g.~for emmission of photons) leads to a decrease in the mean (blue
+\caption{A decrease in the Poisson rate
+(e.g.~for emission of photons) leads to a decrease in the mean (blue
 line) but also a decrease in fluctuations around the mean. Notice that
 towards the right where rate is low, fluctuations around the mean are at
 their smallest.}\label{fig:visualize-variance-decrease}
@@ -1476,7 +1517,7 @@ We can see that here, in the ideal case where the naive assumptions of
 the exponential decay fitting approach hold, this approach works quite
 well. Let us now examine the case where these assumptions don't hold
 because there are other long-term fluctuations e.g.~due to cell
-movement. We add these other fluctuations as a gentle sinusiod. See
+movement. We add these other fluctuations as a gentle sinusoid. See
 figure \ref{fig:exp-decay-with-sin}.
 
 
@@ -1524,7 +1565,7 @@ deviations/fluctuations (as in the red line in figure
 \ref{fig:exp-fit-bleach}) is to \emph{smooth} the time series,
 i.e.~construct the line by taking a \emph{local average} at each point.
 This is often referred to as \emph{boxcar smoothing} because it can be
-visualised as drawing a box around a neighbourhood of points, taking
+visualized as drawing a box around a neighborhood of points, taking
 their average as the smoothed value at that point and then moving the
 box onto the next series of points and repeating the procedure. See
 figure \ref{fig:boxcar-explanation}.
@@ -1545,16 +1586,16 @@ figure \ref{fig:boxcar-explanation}.
 \caption{The original time series is depicted by
 the red dots. The blue rectangles represent the \emph{boxcar}. This
 boxcar is said to be of length 3 because it is wide enough to encompass
-3 points at a time. The boxcar is centred on a point and then the
+3 points at a time. The boxcar is centered on a point and then the
 smoothed value at that point (blue dot) is calculated as the mean value
 of all points within the boxcar. In reality, every point gets a smoothed
 value which means that the boxcar \emph{overlaps} but in this figure,
 for the sake of clarity, they are not overlapped.}\label{fig:boxcar-explanation}
 \end{figure}
 
-The paremeter \(l\) of a boxcar is such that the length of the boxcar is
+The parameter \(l\) of a boxcar is such that the length of the boxcar is
 equal to \(2l + 1\). This ensures that the length of the boxcar is
-always odd) which means it can always be centred upon a point). Hence
+always odd) which means it can always be centered upon a point). Hence
 the allowable lengths of a boxcar are \(3,5,7,9,\) etc.
 
 The boxcar parameter \(l\) has a large effect on the type of smoothing
@@ -1594,13 +1635,13 @@ to solve for the appropriate choice of \(l\) to use for detrending a
 specific image series.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
+\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
 }The \emph{mean intensity profile} of one channel of an image series is
 obtained by calculating the mean intensity of each frame in that image
 series.
 \EndKnitrBlock{definition}
 
-The mean intensity profile can be used to visualise the bleaching of an
+The mean intensity profile can be used to visualize the bleaching of an
 image series. If the fluorophores are bleaching, the mean intensity
 should be decreasing over time. To proceed with solving for the
 appropriate \(l\), we need to make one assumption. This is that any two
@@ -1675,7 +1716,7 @@ are taken into account.
 \includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/exp-smooth-func-1} \hfill{}
 
 \caption{The function \(\exp(-\frac{|t|}{\tau})\)
-visualised with \(\tau = 3\) and \(\tau = 9\). For \(\tau = 3\), points
+visualized with \(\tau = 3\) and \(\tau = 9\). For \(\tau = 3\), points
 at distance \(|t| = 10\) have approximately zero weight, whereas for
 \(\tau = 9\), these points have significant weight.}\label{fig:exp-smooth-func}
 \end{figure}
@@ -1698,7 +1739,7 @@ top-left. The other panels show the result of exponential smoothing for
 \(\tau = 1, 3, 75, 300\) and \(1000\).}\label{fig:tau-values}
 \end{figure}
 
-Heuristically, exponential smoothing detrending seems favourable to
+Heuristically, exponential smoothing detrending seems favorable to
 boxcar detrending because the idea that points further away from the
 point of interest are less important (but still somewhat important) when
 computing the local average is reasonable. Indeed, this was the method
@@ -1711,7 +1752,7 @@ published \citep{nandb}.
 variance}\label{correcting-for-non-stationary-variance}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34}
+\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
 }The variance of a random variable \(X\) is the expected value of the
 squared deviation of \(X\) from its mean \(\mu\):
 
@@ -1739,11 +1780,11 @@ way to modify the variance of a time series as a whole by modifying the
 deviation of each time point from the mean. For months, I toyed with
 this idea as a solution of correcting for non-stationary variance.
 However, in reality the contribution to the variance in intensity at a
-given pixel is down to both poisson photon statistics and fluorophore
+given pixel is down to both Poisson photon statistics and fluorophore
 movement. This combination of factors makes it very difficult to
 ascertain the amount by which the variance should be altered. I
-eventually abandoned my efforts to alter the variance like this in
-favour of the \emph{Robin Hood} detrending algorithm (section
+eventually abandoned my efforts to alter the variance like this in favor
+of the \emph{Robin Hood} detrending algorithm (section
 \ref{robin-hood-detrending}) which includes correction for
 non-stationary variance as an intrinsic part of its detrending routine.
 
@@ -1863,7 +1904,7 @@ being the number of swaps.
 
 The random gifting of counts from higher to lower intensity frames has
 the effect of redistribution mean intensity but \emph{also} variance in
-intensity. With photon statistics (which follow a poisson distribution),
+intensity. With photon statistics (which follow a Poisson distribution),
 random counts provide both mean and variance. This is in contrast to all
 previous methods which consist of determining local deviation and adding
 it to a \emph{fixed} global mean: this provides no redistribution of
@@ -1881,7 +1922,7 @@ To compare the various detrending methods, I use the following workflow:
   diffusion rate. Simulations were done with the \texttt{brownded}
   software package (section \ref{brownded}).
 \item
-  Simulate photon emmission from these particles with chosen brightness
+  Simulate photon emission from these particles with chosen brightness
   \(\epsilon\) and create an image series from this, being careful to
   (virtually) sample at a rate appropriate for number and brightness
   analysis.
@@ -1923,7 +1964,7 @@ with the following detrending routines:\footnote{The detrending took 2
 The performance was evaluated using the \emph{mean relative error}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-35}{}{\label{def:unnamed-chunk-35} }
+\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34} }
 For a given brightness and bleaching fraction,
 
 \begin{equation}
@@ -1961,7 +2002,7 @@ at a constant, steady rate and other factors such as cell movement are
 contributing to medium and long term intensity fluctuations and these
 have a detrimental effect on calculations if not detrended out. It would
 be possible to study this by mimicking real bleaching profiles with
-simulations (see section \ref{mimick}.
+simulations (see section \ref{mimic}.
 
 The worst performer by far is \texttt{boxcar10}. For example, at
 \(\epsilon = 0.1\), it makes an error of worse than 40\% and for
@@ -2068,8 +2109,8 @@ data}\label{visualization-of-bleaching-correction-on-real-data}
 
 That publication also includes a visualization of bleaching correction
 on real data. Figure \ref{fig:bleachvis1} shows this, comparing the
-choice of \(\tau=10\) with the automatic detrending algoirthm, which
-cooses an appropriate \(\tau\) based on the data. It is evident that
+choice of \(\tau=10\) with the automatic detrending algorithm, which
+chooses an appropriate \(\tau\) based on the data. It is evident that
 both \(\tau=10\) and the automatic choice of \(\tau\) give the corrected
 intensity profile a stationary mean (both the red and green series start
 and end at \(\approx 11\)), however the \(\tau = 10\) correction (red
@@ -2095,14 +2136,14 @@ brightness}{In vitro number and brightness}}\label{in-vitro-number-and-brightnes
 
 In our research group, we believe that the most practical quantitative
 method for measuring homo-dimerization \emph{in vivo} and \emph{in
-vitro} is N\&B \citep{NB} because it is callibration-free and does not
-require specialised instrumentation. There are many examples of the
+vitro} is N\&B \citep{NB} because it is calibration-free and does not
+require specialized instrumentation. There are many examples of the
 application of N\&B \emph{in vivo} (the original N\&B paper has over 250
 citations, most of which are \emph{in vivo} applications) but none
 \emph{in vitro}. Hence, we published a protocol \citep{JOVE} detailing
 how N\&B can be applied \emph{in vitro}. This time, we used FKBP12F36V
 which is an FKBP mutant with a new dimerizing drug AP20187 (known
-coloquially as the \emph{BB dimerizer}); this pair is designed to have
+colloquially as the \emph{BB dimerizer}); this pair is designed to have
 better specificity than the original \citep{Clackson}.
 
 \subsection{Experimental results and
@@ -2157,7 +2198,7 @@ cells) and has different modes of entry for each cell type and indeed
 possible more than one mode of entry in any given cell type
 \citep{Jakobsdottir}. Endocytosis is thought to be a common entry route
 \citep{Miyauchi}, particularly in macrophages \citep{Marechal} and
-dentritic cells \citep{Mnager}. In CD4 T cells, HIV-1 has been shown to
+Dendritic cells \citep{Mnager}. In CD4 T cells, HIV-1 has been shown to
 fuse at the plasma membrane without needing endocytosis \citep{Herold}.
 
 Entry of HIV into any cell involves the initial binding of the CD4
@@ -2215,8 +2256,8 @@ temporal resolution of the techniques commonly employed
 \caption{The HIV-1 envelope glycoprotein Env
 must bind the receptor (CD4) and form a complex with the co-receptor
 (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to
-initiate the fusion process. Labelling the viral Gag protein with
-mCherry, the receptor with mTFP1 and the co-recptor with mOrange, it is
+initiate the fusion process. Labeling the viral Gag protein with
+mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is
 possible to follow these three players in the fusion reaction and to
 quantify their interaction.}\label{fig:HIVStoichiometrySetup}
 \end{figure}
@@ -2244,8 +2285,8 @@ channel bleed-through. See figure \ref{fig:HIVStoichiometryIntensity}.
 \includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryIntensity} \hfill{}
 
 \caption{Intensity images from the virus,
-receptor and co-receptor. Every 100th frame is shown. A virus which
-lands at \(t \approx 1.7\) minutes is highlighted.}\label{fig:HIVStoichiometryIntensity}
+receptor and co-receptor. Every 100\textsuperscript{th} frame is shown.
+A virus which lands at \(t \approx 1.7\) minutes is highlighted.}\label{fig:HIVStoichiometryIntensity}
 \end{figure}
 
 \subsection{Analysis}\label{analysis}
@@ -2449,7 +2490,7 @@ biology}\label{multiplexing-with-structural-biology}
 
 Our collaboration with structural biologists \citep{HIVstoichiometry} is
 a demonstration of how live cell fluorescence microscopy and structural
-biology can be coplementary. The sub-molecular insight from structural
+biology can be complementary. The sub-molecular insight from structural
 biology is not available from live cell fluorescence microscopy, while
 the dynamic information from live cell fluorescence microscopy cannot be
 gotten from structural biology.
@@ -2483,14 +2524,14 @@ my detrending algorithms as \emph{ImageJ} plugins and also as python
 modules so that more of the community have easy access to them.
 
 \section{Study real data bleaching profiles with
-simulations}\label{mimick}
+simulations}\label{mimic}
 
 It was mentioned in section \ref{detrend-compare} that it would be
-possible to study the effect ofreal bleaching as opposed to simulated
+possible to study the effect of real bleaching as opposed to simulated
 ideal bleaching and why it is more necessary to detrend in the real data
 case by mimicking real bleaching profiles with simulations. This is
 something I would like to do. It would be difficult because it would
-require the collection and cataloguing of a diverse set of real data
+require the collection and cataloging of a diverse set of real data
 bleaching profiles from various biological samples. This would be the
 bottleneck because I have already written the simulation and analysis
 pipelines.

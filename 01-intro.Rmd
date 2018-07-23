@@ -7,7 +7,7 @@
 _Fluorescence_ is the emission of photons related to the process of _relaxation_ for a given molecule from an electronically _excited_ state (S~1~) to the _ground_ state (S~0~). 
 ```
 
-The two electronic states (S~0~ and S~1~) of a molecule are defined as the highest occupied molecular orbital (S~0~, HOMO) and the lowest unoccupied molecular orbital (S~1~, LUMO). Each electronic state has various associated _vibrational_ states between which _non-radiative_ transitions can occur. An electron can be _excited_ from the ground state S~0~ into the higher energy excited state S~1~ by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before _relaxing_ to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a _Jablonski_ diagram (figure \@ref(fig:Jablonski)).
+These two electronic states (S~0~ and S~1~) of a molecule are defined as the highest occupied molecular orbital (S~0~, HOMO) and the lowest unoccupied molecular orbital (S~1~, LUMO). Each electronic state has various associated _vibrational_ states between which _non-radiative_ transitions can occur. An electron can be _excited_ from the ground state S~0~ into the higher energy excited state S~1~ by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before _relaxing_ to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a _Jablonski_ diagram (figure \@ref(fig:Jablonski)).
 
 (ref:Jablonski-caption) Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emission of light.
 
@@ -60,7 +60,7 @@ An image is acquired on a confocal microscope by scanning this apparatus across 
 There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect [@photoelectric], a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.
 
 ```{definition}
-The quantum efficiency of a detector is the fraction of fluorescent signal that is reported by the detector.
+The _quantum efficiency_ of a detector is the fraction of fluorescent signal that is reported by the detector.
 ```
 
 The quantum nature of the photoelectric effect makes it practically impossible for detectors to reach 100% efficiency.
@@ -153,7 +153,7 @@ Complementary metal–oxide–semiconductor cameras are arrays of semiconductors
 
 #### sCMOS cameras 
 
-Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD [@sCMOS]. sCMOS cameras appear to better than anything that has come before.
+Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer 95% quantum efficiency [@photometrics], very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD [@sCMOS]. sCMOS cameras appear to better than anything that has come before.
 
 
 #### Being quantitative with cameras
@@ -165,7 +165,7 @@ For electronic reasons, the noise from certain pixels on all of the cameras abov
 
 Consider figure \@ref(fig:confocal-volume-particle). A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here). 
 
-(ref:confocal-volume-particle-caption) Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore. 
+(ref:confocal-volume-particle-caption) Left: a fluorophore diffusing through the confocal volume [@sphd]. Right: the intensity trace due to this fluorophore. 
 
 ```{r confocal-volume-particle, message=FALSE, fig.show='hold', out.width='50%', fig.cap='(ref:confocal-volume-particle-caption)', echo=FALSE}
 set.seed(9)
@@ -225,7 +225,7 @@ These definitions are the formally correct ones. In biophysics, however, both of
 
 ### Anomalous diffusion
 
-_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) 
+_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) can be used to image barriers to diffusion [@PCF]; diffusion barriers necessarily lead to anomalous diffusion.
 
 
 ## Fluorescence fluctuation spectroscopy {#FFS}
@@ -273,7 +273,7 @@ Number and brightness has specific pixel dwell-time and frame rate requirements.
 The _pixel dwell time_ $t_\text{dwell}$ of a scanning confocal microscope is the amount of time it spends collecting photons at each given pixel before moving on to the next pixel.
 ```
 
-It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument.
+It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument. This can be done with a chroma-slide. The photon counts measured from a chroma-slide should follow a Poisson distribution. If instead the distribution is super-Poissonian (has a greater variance than its mean), this is indicative of a non-constant dwell-time.
 
 ```{definition}
 The _frame time_ of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detectionion of photons from the first pixel to the end of detection of photons from the last pixel.

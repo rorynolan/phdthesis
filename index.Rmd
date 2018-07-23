@@ -1,10 +1,10 @@
 --- 
 title: "Algorithms for the Correction of Photobleaching"
 author: "Rory Nolan"
-date: "`r Sys.Date()`"
+date: "University of Oxford"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib, papers.bib, webpages.bib]
+bibliography: [book.bib, packages.bib, papers.bib, webpages.bib, theses.bib]
 biblio-style: apalike
 link-citations: yes
 fontsize: 12pt
@@ -111,3 +111,8 @@ medicine_ (2017).
 * Q. F. Wills, E. Mellado-Gomez, R. Nolan, et al. "The nature and nurture
 of cell heterogeneity: accounting for macrophage gene-environment
 interactions with single-cell RNA-Seq". In: _BMC genomics_ 18.1 (2017).
+
+
+#### In preparation
+
+* The _Robin Hood_ algorithm (described in section \@ref(robin-hood-detrending)) will be submitted to a journal after the submission of this thesis but before the end of my PhD contract.

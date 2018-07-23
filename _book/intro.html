@@ -25,7 +25,6 @@
 <meta name="author" content="Rory Nolan">
 
 
-<meta name="date" content="2018-07-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -196,7 +195,7 @@
 <span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.1  </strong></span><em>Fluorescence</em> is the emission of photons related to the process of <em>relaxation</em> for a given molecule from an electronically <em>excited</em> state (S<sub>1</sub>) to the <em>ground</em> state (S<sub>0</sub>).
 </div>
 
-<p>The two electronic states (S<sub>0</sub> and S<sub>1</sub>) of a molecule are defined as the highest occupied molecular orbital (S<sub>0</sub>, HOMO) and the lowest unoccupied molecular orbital (S<sub>1</sub>, LUMO). Each electronic state has various associated <em>vibrational</em> states between which <em>non-radiative</em> transitions can occur. An electron can be <em>excited</em> from the ground state S<sub>0</sub> into the higher energy excited state S<sub>1</sub> by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before <em>relaxing</em> to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a <em>Jablonski</em> diagram (figure <a href="intro.html#fig:Jablonski">1.1</a>).</p>
+<p>These two electronic states (S<sub>0</sub> and S<sub>1</sub>) of a molecule are defined as the highest occupied molecular orbital (S<sub>0</sub>, HOMO) and the lowest unoccupied molecular orbital (S<sub>1</sub>, LUMO). Each electronic state has various associated <em>vibrational</em> states between which <em>non-radiative</em> transitions can occur. An electron can be <em>excited</em> from the ground state S<sub>0</sub> into the higher energy excited state S<sub>1</sub> by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before <em>relaxing</em> to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a <em>Jablonski</em> diagram (figure <a href="intro.html#fig:Jablonski">1.1</a>).</p>
 
 <div class="figure"><span id="fig:Jablonski"></span>
 <img src="img/Jablonski.jpg" alt="Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emission of light." width="960" />
@@ -249,7 +248,7 @@ Figure 1.2: Confocal microscope light path showing how out of focus light does n
 <p>There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect <span class="citation">(Albert Einstein <a href="#ref-photoelectric">1905</a>)</span>, a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.6  </strong></span>The quantum efficiency of a detector is the fraction of fluorescent signal that is reported by the detector.
+<span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.6  </strong></span>The <em>quantum efficiency</em> of a detector is the fraction of fluorescent signal that is reported by the detector.
 </div>
 
 <p>The quantum nature of the photoelectric effect makes it practically impossible for detectors to reach 100% efficiency.</p>
@@ -336,7 +335,7 @@ Figure 1.7: The thin evanescent wave close to the boundary (between the cover sl
 </div>
 <div id="scmos-cameras" class="section level4">
 <h4><span class="header-section-number">1.3.2.3</span> sCMOS cameras</h4>
-<p>Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD <span class="citation">(Andor <a href="#ref-sCMOS">2018</a><a href="#ref-sCMOS">b</a>)</span>. sCMOS cameras appear to better than anything that has come before.</p>
+<p>Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer 95% quantum efficiency <span class="citation">(Photometrics, <a href="#ref-photometrics">n.d.</a>)</span>, very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD <span class="citation">(Andor <a href="#ref-sCMOS">2018</a><a href="#ref-sCMOS">b</a>)</span>. sCMOS cameras appear to better than anything that has come before.</p>
 </div>
 <div id="being-quantitative-with-cameras" class="section level4">
 <h4><span class="header-section-number">1.3.2.4</span> Being quantitative with cameras</h4>
@@ -349,9 +348,9 @@ Figure 1.7: The thin evanescent wave close to the boundary (between the cover sl
 <p>Consider figure <a href="intro.html#fig:confocal-volume-particle">1.8</a>. A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here).</p>
 
 <div class="figure"><span id="fig:confocal-volume-particle"></span>
-<img src="img/confocal_volume_particle.png" alt="Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" /><img src="img/cvp.png" alt="Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore." width="50%" />
+<img src="img/confocal_volume_particle.png" alt="Left: a fluorophore diffusing through the confocal volume (Padilla-Parra 2009). Right: the intensity trace due to this fluorophore." width="50%" /><img src="img/cvp.png" alt="Left: a fluorophore diffusing through the confocal volume (Padilla-Parra 2009). Right: the intensity trace due to this fluorophore." width="50%" />
 <p class="caption">
-Figure 1.8: Left: a fluorophore diffusing through the confocal volume. Right: the intensity trace due to this fluorophore.
+Figure 1.8: Left: a fluorophore diffusing through the confocal volume <span class="citation">(Padilla-Parra <a href="#ref-sphd">2009</a>)</span>. Right: the intensity trace due to this fluorophore.
 </p>
 </div>
 
@@ -397,7 +396,7 @@ J = -D\frac{d\varphi}{dx}
 <p>These definitions are the formally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as <em>diffusion</em>. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as <em>diffusion</em>, it is what is defined as Brownian motion above. Henceforth when I use the term <em>diffusion</em>, this Brownian motion type of movement can be assumed.</p>
 <div id="anomalous-diffusion" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> Anomalous diffusion</h3>
-<p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="intro.html#eq:msd">(1.2)</a> no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section <a href="intro.html#FCS">1.7</a>) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells <span class="citation">(Honigmann et al. <a href="#ref-EggSTEDFCS">2014</a>)</span>. The pair correlation function approach (section <a href="intro.html#PCF">1.7.3.1</a>)</p>
+<p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="intro.html#eq:msd">(1.2)</a> no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section <a href="intro.html#FCS">1.7</a>) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells <span class="citation">(Honigmann et al. <a href="#ref-EggSTEDFCS">2014</a>)</span>. The pair correlation function approach (section <a href="intro.html#PCF">1.7.3.1</a>) can be used to image barriers to diffusion <span class="citation">(M. A. Digman and Gratton <a href="#ref-PCF">2009</a>)</span>; diffusion barriers necessarily lead to anomalous diffusion.</p>
 </div>
 </div>
 <div id="FFS" class="section level2">
@@ -442,7 +441,7 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <span id="def:unnamed-chunk-15" class="definition"><strong>Definition 1.14  </strong></span>The <em>pixel dwell time</em> <span class="math inline">\(t_\text{dwell}\)</span> of a scanning confocal microscope is the amount of time it spends collecting photons at each given pixel before moving on to the next pixel.
 </div>
 
-<p>It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument.</p>
+<p>It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument. This can be done with a chroma-slide. The photon counts measured from a chroma-slide should follow a Poisson distribution. If instead the distribution is super-Poissonian (has a greater variance than its mean), this is indicative of a non-constant dwell-time.</p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  </strong></span>The <em>frame time</em> of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detectionion of photons from the first pixel to the end of detection of photons from the last pixel.
@@ -652,17 +651,26 @@ This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scale
 <div id="ref-CMOS">
 <p>Baker, R. 2005. <em>CMOS Circuit Design, Layout, and Simulation</em>. New York: IEEE Press.</p>
 </div>
+<div id="ref-photometrics">
+<p>Photometrics. n.d. “Photometrics Launches Next Generation Scientific Cmos Camera with 95 Percent Quantum Efficiency.” <em>Photometrics</em>. <a href="https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera" class="uri">https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera</a>.</p>
+</div>
 <div id="ref-sCMOS">
 <p>Andor. 2018b. “SCMOS Cameras.” <a href="http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras" class="uri">http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras</a>.</p>
 </div>
 <div id="ref-DanDynamin">
 <p>Jones, Daniel M, Luis A Alvarez, Rory Nolan, Margarita Ferriz, Raquel Sainz Urruela, Xènia Massana-Muñoz, Hila Novak-Kotzer, Michael L Dustin, and Sergi Padilla-Parra. 2017. “Dynamin-2 Stabilizes the Hiv-1 Fusion Pore with a Low Oligomeric State.” <em>Cell Reports</em> 18 (2). Elsevier:443–53. <a href="https://doi.org/10.1016/j.celrep.2016.12.032" class="uri">https://doi.org/10.1016/j.celrep.2016.12.032</a>.</p>
 </div>
+<div id="ref-sphd">
+<p>Padilla-Parra, Sergi. 2009. “Developpments Methodologiques Pour La Quantification Des Interactions Proteiques En Cellules Vivantes Par Microscopie de Fluorescence.” PhD thesis, Universite Paris Diderot.</p>
+</div>
 <div id="ref-Brownian">
 <p>Einstein, A. 1905. “Über Die von Der Molekularkinetischen Theorie Der Wärme Geforderte Bewegung von in Ruhenden Flüssigkeiten Suspendierten Teilchen.” <em>Annalen Der Physik</em> 322 (8). Wiley:549–60. <a href="https://doi.org/10.1002/andp.19053220806" class="uri">https://doi.org/10.1002/andp.19053220806</a>.</p>
 </div>
 <div id="ref-EggSTEDFCS">
 <p>Honigmann, A., V. Mueller, H. Ta, A. Schoenle, E. Sezgin, S. W. Hell, and C. Eggeling. 2014. “Scanning STED-FCS reveals spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells.” <em>Nat Commun</em> 5 (November):5412.</p>
+</div>
+<div id="ref-PCF">
+<p>Digman, M. A., and E. Gratton. 2009. “Imaging barriers to diffusion by pair correlation functions.” <em>Biophys. J.</em> 97 (2):665–73. <a href="https://doi.org/10.1016/j.bpj.2009.04.048" class="uri">https://doi.org/10.1016/j.bpj.2009.04.048</a>.</p>
 </div>
 <div id="ref-FFS">
 <p>Chen, Y., J. D. Muller, K. M. Berland, and E. Gratton. 1999. “Fluorescence fluctuation spectroscopy.” <em>Methods</em> 19 (2):234–52. <a href="https://doi.org/10.1006/meth.1999.0854" class="uri">https://doi.org/10.1006/meth.1999.0854</a>.</p>
@@ -681,9 +689,6 @@ This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scale
 </div>
 <div id="ref-STICS">
 <p>Hebert, B., S. Costantino, and P. W. Wiseman. 2005. “Spatiotemporal image correlation spectroscopy (STICS) theory, verification, and application to protein velocity mapping in living CHO cells.” <em>Biophys. J.</em> 88 (5):3601–14. <a href="https://doi.org/10.1529/biophysj.104.054874" class="uri">https://doi.org/10.1529/biophysj.104.054874</a>.</p>
-</div>
-<div id="ref-PCF">
-<p>Digman, M. A., and E. Gratton. 2009. “Imaging barriers to diffusion by pair correlation functions.” <em>Biophys. J.</em> 97 (2):665–73. <a href="https://doi.org/10.1016/j.bpj.2009.04.048" class="uri">https://doi.org/10.1016/j.bpj.2009.04.048</a>.</p>
 </div>
 <div id="ref-DiffusionTensor">
 <p>Rienzo, Carmine Di, Francesco Cardarelli, Mariagrazia Di Luca, Fabio Beltram, and Enrico Gratton. 2016. “Diffusion Tensor Analysis by Two-Dimensional Pair Correlation of Fluorescence Fluctuations in Cells.” <em>Biophysical Journal</em> 111 (4). Elsevier BV:841–51. <a href="https://doi.org/10.1016/j.bpj.2016.07.005" class="uri">https://doi.org/10.1016/j.bpj.2016.07.005</a>.</p>
