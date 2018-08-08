@@ -118,7 +118,7 @@ Unit testing is a tool to verify that software is performing as intended. It is 
 
 ### `brownded` {#brownded}
 
-`brownded` is an R software package (https://github.com/rorynolan/brownded) for simulating bounded Brownian motion in any number of dimensions, where _bounded_ Brownian motion is Brownian motion in an $n$-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. `brownded` allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles. 
+`brownded` is an R software package (https://github.com/rorynolan/brownded) for simulating bounded Brownian motion in any number of dimensions, where _bounded_ Brownian motion is Brownian motion in an $d$-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. `brownded` allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles. 
 
 `brownded` also facilitates the simulation of images created from fluorescent particles undergoing bounded Brownian motion. It allows specification of the time at which each image should be taken, the pixel size and the brightness of the particles. Each fluorescent particle contributes photon counts to its pixel of residence at that time according to a Poisson process. 
 

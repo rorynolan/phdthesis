@@ -24,7 +24,7 @@ description: "Rory Nolan's PhD thesis"
 # The dev version of latex2exp is needed
 pacman::p_load(tidyverse, forcats, magrittr, ijtiff, cranlogs, lubridate,
                curl, detrendr, nandb, filesstrings, knitr, latex2exp,
-               janitor, RcppRoll, abind, brownded, here)
+               janitor, RcppRoll, abind, brownded, here, readxl)
 
 opts_chunk$set(comment = "#>", fig.asp = 0.6, 
                out.width = "100%", fig.align = "left",
@@ -50,12 +50,8 @@ move_to_groups_folder <- function() {
 
 ## Ways to read {-}
 
-This thesis may be read on the web at https://rorynolan.github.io/phdthesis/. If you are reading this on the web now but would like a PDF version, click on the download symbol at the top left of the page (to the right of the __A__) and select PDF.
+This thesis may be read on the web at https://rorynolan.github.io/phdthesis/. If you are reading this on the web now but would like a PDF version, click on the download symbol at the top left of the page (to the right of the __A__) and select PDF. 
 
-
-## Note to the reader {-}
-
-It is important to distinguish between footnotes and references. References are cited inline using the name of the author and the year. A full list of references in alphabetical order of author is given at the end of the thesis. Anything appearing numbered at the end of a page and not under a heading __References__ is a footnote. 
 
 ## Apportion of credit {-}
 
@@ -116,3 +112,24 @@ interactions with single-cell RNA-Seq". In: _BMC genomics_ 18.1 (2017).
 #### In preparation {-}
 
 * The _Robin Hood_ algorithm (described in section \@ref(robin-hood-detrending)) will be submitted to a journal after the submission of this thesis but before the end of my PhD contract.
+
+
+## Acronyms used in this thesis {-}
+
+```{r acro, echo=FALSE}
+read_excel(here("misc", "AcroMath.xlsx"), sheet = "Acro") %>% 
+  arrange(Acronym) %>% 
+  filter(!duplicated(Acronym)) %>% 
+  kable()
+```
+
+
+## Mathematical symbols used in this thesis {-}
+
+```{r math-symbols, echo=FALSE}
+read_excel(here("misc", "AcroMath.xlsx"), sheet = "Math") %>% 
+  arrange(Meaning) %>% 
+  filter(!duplicated(Symbol)) %>%
+  mutate(Symbol = str_c("$", Symbol, "$")) %>% 
+  kable()
+```
