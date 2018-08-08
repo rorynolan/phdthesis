@@ -98,10 +98,11 @@
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
 \newtheorem{corollary}{Corollary}[chapter]
 \newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
 \theoremstyle{definition}
@@ -137,11 +138,7 @@ It is important to distinguish between footnotes and references.
 References are cited inline using the name of the author and the year. A
 full list of references in alphabetical order of author is given at the
 end of the thesis. Anything appearing numbered at the end of a page and
-not under a heading \textbf{References} is a footnote. These are
-sometimes used to cite sources that are not proper references. For
-example, I could not find a definition of the \emph{confocal volume}
-anywhere in the literature, so I acknowledged the website from which I
-got that definition in a footnote.
+not under a heading \textbf{References} is a footnote.
 
 \section*{Apportion of credit}\label{apportion-of-credit}
 \addcontentsline{toc}{section}{Apportion of credit}
@@ -195,7 +192,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   2.14 (2017).
 \item
   R. Nolan and S. Padilla-Parra. ``exampletestr---An easy start to unit
-  testing R packages''. In: \emph{Wellcome open research} 2 (2017).
+  testing R packages''. In: \emph{Wellcome Open Research} 2 (2017).
 \item
   R. Nolan, L. Alvarez, J. Elegheert, et al. ``nandb---number and
   brightness in R with a novel automatic detrending algorithm''. In:
@@ -244,6 +241,17 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   nurture of cell heterogeneity: accounting for macrophage
   gene-environment interactions with single-cell RNA-Seq''. In:
   \emph{BMC genomics} 18.1 (2017).
+\end{itemize}
+
+\subsubsection*{In preparation}\label{in-preparation}
+\addcontentsline{toc}{subsubsection}{In preparation}
+
+\begin{itemize}
+\tightlist
+\item
+  The \emph{Robin Hood} algorithm (described in section
+  \ref{robin-hood-detrending}) will be submitted to a journal after the
+  submission of this thesis but before the end of my PhD contract.
 \end{itemize}
 
 \chapter*{Abstract}\label{abstract}
@@ -305,8 +313,8 @@ of \emph{relaxation} for a given molecule from an electronically
 (S\textsubscript{0}).
 \EndKnitrBlock{definition}
 
-The two electronic states (S\textsubscript{0} and S\textsubscript{1}) of
-a molecule are defined as the highest occupied molecular orbital
+These two electronic states (S\textsubscript{0} and S\textsubscript{1})
+of a molecule are defined as the highest occupied molecular orbital
 (S\textsubscript{0}, HOMO) and the lowest unoccupied molecular orbital
 (S\textsubscript{1}, LUMO). Each electronic state has various associated
 \emph{vibrational} states between which \emph{non-radiative} transitions
@@ -326,7 +334,7 @@ shown by means of a \emph{Jablonski} diagram (figure
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/Jablonski} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/Jablonski} \hfill{}
 
 \caption{Jablonski diagram of the process of
 fluorescence. Absorption causes excitation, relaxation causes the
@@ -361,8 +369,8 @@ a photon. This is \emph{phosphorescence}.
 \subsection{Photobleaching}\label{photobleaching}
 
 In reality, an incident photon can \emph{break} the fluorophore such
-that it is unable to emit light. A fluorophore to which this has
-happened is said to be \emph{photobleached}.
+that it is subsequently unable to emit light. A fluorophore to which
+this has happened is said to be \emph{photobleached}.
 
 \section{Confocal light microscopy}\label{confocal-light-microscopy}
 
@@ -376,7 +384,7 @@ is collected at the detector. See figure \ref{fig:confocal}.
 
 \begin{figure}
 
-\includegraphics[width=0.7\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/quora_confocal} \hfill{}
+\includegraphics[width=0.7\linewidth]{/home/travis/build/rorynolan/phdthesis/img/quora_confocal} \hfill{}
 
 \caption{Confocal microscope light path showing how out of
 focus light does not make it to the detector.\footnote{Image courtesy of
@@ -387,8 +395,7 @@ focus light does not make it to the detector.\footnote{Image courtesy of
 \protect\hypertarget{def:unnamed-chunk-5}{}{\label{def:unnamed-chunk-5} }The
 \emph{confocal volume} is the \emph{in-focus} volume within a sample
 that is efficiently detected using a system designed with confocal
-optics.\footnote{Definition from
-  \url{http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html}.}
+optics \citep{fcsxpert}.
 \EndKnitrBlock{definition}
 
 An image is acquired on a confocal microscope by scanning this apparatus
@@ -403,8 +410,8 @@ certain material causes electrons to dissociate from that material.
 
 \BeginKnitrBlock{definition}
 \protect\hypertarget{def:unnamed-chunk-6}{}{\label{def:unnamed-chunk-6} }The
-quantum efficiency of a detector is the fraction of fluorescent signal
-that is reported by the detector.
+\emph{quantum efficiency} (QE) of a detector is the fraction of
+fluorescent signal that is reported by the detector.
 \EndKnitrBlock{definition}
 
 The quantum nature of the photoelectric effect makes it practically
@@ -418,8 +425,8 @@ cathode where their accumulated kinetic energy is used to to release
 more electrons. These are then accelerated in vacuum towards another
 cathode and so on for a predefined number of these accelerations until
 at last the electrons are discharged into an anode where the current is
-measured {[}HammamatsuPMT{]}. See figure \ref{fig:PMT}. This current
-should correspond to the incident light intensity.
+measured \citep{HammamatsuPMT}. See figure \ref{fig:PMT}. This current
+corresponds to the incident light intensity.
 
 
 
@@ -428,7 +435,7 @@ should correspond to the incident light intensity.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/PMT} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/PMT} \hfill{}
 
 \caption{PMT detector setup. Electrons are dissociated by
 photons at the photocathode, accelerated towards various other cathodes
@@ -436,12 +443,12 @@ where more and more are freed and then finally they arrive at the anode
 where the current is measured \citep{LeicaDetectors}.}\label{fig:PMT}
 \end{figure}
 
-The quantum efficiency of standard PMTs is approximately 25\% for
-blue-green light. This is because many incident photons on the
-multi-alkali material of regular PMT photocathodes fail to free any
-electrons. This problem gets worse at higher wavelengths where photons
-have lower energy. PMTs also suffer significantly from thermal noise
-(whereby dissociated electrons are created due to heat energy).
+The QE of standard PMTs is approximately 25\% for blue-green light. This
+is because many incident photons on the multi-alkali material of regular
+PMT photocathodes fail to free any electrons. This problem gets worse at
+higher wavelengths where photons have lower energy. PMTs also suffer
+significantly from thermal noise (whereby dissociated electrons are
+created due to heat energy).
 
 \subsubsection{Avalanche photo-diodes}\label{avalanche-photo-diodes}
 
@@ -467,21 +474,21 @@ cathodes.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/APD} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/APD} \hfill{}
 
 \caption{APD detector setup. The incident photon dissociates an
-electron. Given the electric field across the semiconductor this
+electron. Given the electric field across the semiconductor, this
 electron is accelerated, initiating an avalanche \citep{LeicaDetectors}.}\label{fig:APD}
 \end{figure}
 
-The quantum efficiency of APDs can be as high as 45\%, however their
-dynamic range is low and they can only function with low-intensity
-light. APDs are less prone to thermal noise than PMTs.
+The QE of APDs can be as high as 45\%, however their dynamic range is
+low and they can only function with low-intensity light. APDs are less
+prone to thermal noise than PMTs.
 
 \subsubsection{Hybrid detectors}\label{HyDs}
 
 APDs have better sensitivity and lower noise, however PMTs have a larger
-dynamic range. Hybrid detectors (HyDs) PMT and APD technology is
+dynamic range. In hybrid detectors (HyDs), PMT and APD technology is
 combined to get the best of both worlds. With HyDs, photons are
 converted to electrons at the photocathode, then accelerated in vacuum
 towards a semiconductor where they initiate an electron avalanche. See
@@ -495,7 +502,7 @@ acceleration step.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HyD} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/HyD} \hfill{}
 
 \caption{HyD detector setup. A photon dissociates an electron
 from the photocathode, this electron is then accelerated PMT-style
@@ -503,35 +510,36 @@ towards an APD-style semiconductor setup, triggering an avalanche
 \citep{LeicaDetectors}.}\label{fig:HyD}
 \end{figure}
 
-HyDs with GaAsP photocathodes achieve a quantum efficiency of up to
-50\%. They also suffer least from detector afterpulsing, a phenomenon
-which can cause real signal pulses to be followed by a feedback pulse at
-a later time \citep{afterpulsing}.
+HyDs with GaAsP (gallium arsenide phosphide) photocathodes achieve a
+quantum efficiency of up to 50\% \citep{LeicaDetectors}. They also
+suffer least from detector afterpulsing, a phenomenon which can cause
+real signal pulses to be followed by a feedback pulse at a later time
+\citep{afterpulsing}.
 
 With their superior sensitivity and dynamic range and low noise, HyDs
 can be calibrated to enable \emph{photon-counting} mode whereby the
 readout is in units of photons (not electron current). This is a much
-more physically relevant readout, given that we are interested in
-measuring fluorescence, which is very convenient for many biological
+more physically relevant readout --- given that we are interested in
+measuring fluorescence --- which is very convenient for many biological
 applications, not least fluorescence fluctuation spectroscopy (FFS,
 discussed in section \ref{FFS}).
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remark. } \fi{}Henceforth, intensity counts will be assumed
-to be in units of photons.
+to be in units of photons unless otherwise stated.
 \EndKnitrBlock{remark}
 
 \section{Widefield light microscopy}\label{widefield-light-microscopy}
 
 With widefield microscopy, the entire sample is illuminated
-simultaneously and the image is acquired by a camera. See figure
-\ref{fig:widefield}. One advantage of this is the general simplicity of
-the setup: the optics are less complex and there is no need for scanning
+simultaneously and the image is acquired by a camera (see figure
+\ref{fig:widefield}). One advantage of this is the general simplicity of
+the setup: the optics are less complex and there is no need to scan
 across the sample to acquire each pixel (which requires precise
 robotics). Another example is that images can be acquired faster because
-all pixels in a frame are acquired in parallel. The disadvantage of this
-is that the absence of confocal optics means that out of focus light can
-make it to the detection device (camera).
+all pixels in a frame are acquired simultaneously. The disadvantage of
+this is that the absence of confocal optics means that out of focus
+light can make it to the detection device (camera).
 
 
 
@@ -539,10 +547,10 @@ make it to the detection device (camera).
 
 \begin{figure}
 
-\includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/Widefield} \hfill{}
+\includegraphics[width=0.5\linewidth]{/home/travis/build/rorynolan/phdthesis/img/Widefield} \hfill{}
 
 \caption{Light travels from the uniformly illuminated
-sample through a lens (or a few lenses) to the camera. Not the
+sample through a lens (or a few lenses) to the camera. Note the
 simplicity of this setup relative to that of a confocal microscope.}\label{fig:widefield}
 \end{figure}
 
@@ -556,7 +564,7 @@ very close to the boundary. See figure \ref{fig:TIRFig} \citep{TIRFig}.
 The huge advantage of TIRF is that only a single plane is illuminated,
 so when focusing on that plane, only in-focus light is collected
 (because only the in-focus plane is illuminated). The main disadvantage
-is that it is not applicable when one cannot get the object of interest
+is that it is not applicable when one cannot have the object of interest
 right at the cover slip. Looking at figure \ref{fig:TIRFig}, it is
 evident that TIRF would be ideal for imaging the membrane but useless
 for imaging the nucleus.
@@ -565,13 +573,21 @@ for imaging the nucleus.
 
 
 
+
+
+
+
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/TIRFig} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/TIRFig} \hfill{}
 
 \caption{The thin evanescent wave close to the boundary
 (between the cover slip and sample) where TIR is occurring. Only the
-part of the sample within this thin evanescent wave is illuminated.}\label{fig:TIRFig}
+part of the sample within this thin evanescent wave is illuminated.
+\(n_1\) is the refractive index of the sample and \(n_2\) is the
+refractive index of the cover slip; \(n_1<n_2\) is assumed. \(\theta_c\)
+is the critical angle and \(\theta\) is the incident angle of the laser
+light; \(\theta < \theta_c\) is assumed.}\label{fig:TIRFig}
 \end{figure}
 
 \subsection{Cameras}\label{cameras}
@@ -593,7 +609,7 @@ amplification technique, just like PMTs and APDs (section
 
 \subsubsection{CMOS cameras}\label{cmos-cameras}
 
-Complementary metal--oxide--semiconductor cameras are arrays of
+Complementary metal--oxide semiconductor cameras are arrays of
 semiconductors (one per pixel), again utilizing the photoelectric effect
 and the electric field across a semiconductor. CMOS cameras have
 amplification for each pixel, whereas EMCCDs only have a few amplifiers
@@ -602,10 +618,10 @@ per camera \citep{CMOS}. This makes CMOS cameras more sensitive.
 \subsubsection{sCMOS cameras}\label{scmos-cameras}
 
 Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a
-CCD imaging substrate. These relatively new cameras offer very low
-noise, rapid frame rates, large dynamic range, high resolution and wide
-field of view, all cheaper than a regular CCD \citep{sCMOS}. sCMOS
-cameras appear to better than anything that has come before.
+CCD imaging substrate. These relatively new cameras offer 95\% quantum
+efficiency \citep{photometrics}, very low noise, rapid frame rates,
+large dynamic range, high resolution and wide field of view, all cheaper
+than a regular CCD \citep{sCMOS}.
 
 \subsubsection{Being quantitative with
 cameras}\label{being-quantitative-with-cameras}
@@ -634,11 +650,11 @@ Different numbers of photons are collected per unit time (per ms here).
 
 \begin{figure}
 
-\includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/confocal_volume_particle} \includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/cvp} \hfill{}
+\includegraphics[width=0.5\linewidth]{/home/travis/build/rorynolan/phdthesis/img/confocal_volume_particle} \includegraphics[width=0.5\linewidth]{/home/travis/build/rorynolan/phdthesis/img/cvp} \hfill{}
 
 \caption{Left: a fluorophore diffusing
-through the confocal volume. Right: the intensity trace due to this
-fluorophore.}\label{fig:confocal-volume-particle}
+through the confocal volume \citep{sphd}. Right: the intensity trace due
+to this fluorophore.}\label{fig:confocal-volume-particle}
 \end{figure}
 
 \BeginKnitrBlock{definition}
@@ -725,7 +741,8 @@ offer biological insight. For example, regions of free and anomalous
 diffusion were measured with FCS (section \ref{FCS}) to investigate the
 spatiotemporal heterogeneity of lipid interaction in the plasma membrane
 of living cells \citep{EggSTEDFCS}. The pair correlation function
-approach (section \ref{PCF})
+approach (section \ref{PCF}) can be used to image barriers to diffusion
+\citep{PCF}; diffusion barriers necessarily lead to anomalous diffusion.
 
 \section{Fluorescence fluctuation spectroscopy}\label{FFS}
 
@@ -740,7 +757,7 @@ its mean value, the second moment is its variance. The
 
 Intensity traces can be viewed as distributions with moments. For
 example, the intensity trace in figure
-\ref{fig:confocal-volume-particle} has mean 0.27 and variance 0.48.
+\ref{fig:confocal-volume-particle} has mean 0.35 and variance 0.69.
 
 \subsection{Number and brightness}\label{number-and-brightness}
 
@@ -821,7 +838,11 @@ given pixel before moving on to the next pixel.
 
 It is essential that the pixel dwell time is the same for each pixel,
 particularly for FFS. This is something that must be carefully verified
-on each instrument.
+on each instrument. This can be done with a chroma-slide. The photon
+counts measured from a chroma-slide should follow a Poisson
+distribution. If instead the distribution is super-Poissonian (has a
+greater variance than its mean), this is indicative of a non-constant
+dwell-time.
 
 \BeginKnitrBlock{definition}
 \protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
@@ -1068,10 +1089,10 @@ between these two pixels \citep{STICS}.
 \subsubsection{Pair correlation function}\label{PCF}
 
 The phrase \emph{pair correlation function}\footnote{This was needless,
-  it could just be called \emph{cross-correlation function} (PCF) but
-  for the confusion about the term \emph{cross-correlation} in the FCS
-  field.} was coined for this idea of cross-correlating intensity traces
-from nearby pixels. The PCF was used to image barriers to diffusion
+  it could just be called \emph{cross-correlation function} but for the
+  confusion about the term \emph{cross-correlation} in the FCS field.}
+was coined for this idea of cross-correlating intensity traces from
+nearby pixels. The PCF was used to image barriers to diffusion
 \citep{PCF} using the idea that the spatiotemporal correlation caused by
 particles moving from one place to another will not be present for
 positions \(p_1\) and \(p_2\) if they are on opposite sides of a
@@ -1240,7 +1261,7 @@ floating point (real-numbered) pixels, and the only package that can
 correctly import TIFF files that were saved from \emph{ImageJ}
 \citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
 capability is a basic need for masses of people. \texttt{ijtiff} gets
-348 downloads per month which amounts to 2,479 since it was first
+335 downloads per month which amounts to 2,563 since it was first
 released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
@@ -1252,7 +1273,7 @@ was peer reviewed and published \citep{ijtiff}.
 
 \texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
 \emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 643 downloads per month which amounts to 10,873 since it
+users. It gets 630 downloads per month which amounts to 10,995 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
@@ -1261,7 +1282,7 @@ was first released.
 photobleaching). It provides all detrending algorithms mentioned in
 section \ref{photobleaching-correction}. The detrending is done in C++
 in the background for speed but it is wrapped in an R package for ease
-of use. It gets 373 downloads per month which amounts to 3,349 since it
+of use. It gets 360 downloads per month which amounts to 3,421 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
@@ -1276,7 +1297,7 @@ is often seen. Using file names for metadata like this is a good idea,
 however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible. This
 package was peer reviewed and published \citep{filesstrings}. It gets
-815 downloads per month which amounts to 13,818 since it was first
+802 downloads per month which amounts to 14,017 since it was first
 released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
@@ -1297,8 +1318,8 @@ package developers to write unit tests for their packages. It helped me
 to eradicate many bugs in all of my packages. Interestingly,
 \texttt{exampletestr} was used to unit test and eradicate bugs in
 itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 521 downloads per month which amounts
-to 8,441 since it was first released.
+2017.\citep{exampletestr} It gets 509 downloads per month which amounts
+to 8,509 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
 
@@ -1890,7 +1911,7 @@ detrended image series are the same.
 
 \begin{figure}
 
-\includegraphics[width=0.48\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/rh} \includegraphics[width=0.48\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/rh_lego_plot} \hfill{}
+\includegraphics[width=0.48\linewidth]{/home/travis/build/rorynolan/phdthesis/img/rh} \includegraphics[width=0.48\linewidth]{/home/travis/build/rorynolan/phdthesis/img/rh_lego_plot} \hfill{}
 
 \caption{Robin Hood: counts are taken from frames of higher
 intensity (usually closer to the start of the image series) and given to
@@ -1984,7 +2005,7 @@ them, note that the common brightnesses that we see are in the range
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/detrend_compare} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/detrend_compare} \hfill{}
 
 \caption{A comparison of different detrending
 methods with various brightnesses and bleaching fractions (steady,
@@ -2063,7 +2084,7 @@ unpredictable and unreliable results and should hence be avoided.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/foldchanges} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/foldchanges} \hfill{}
 
 \caption{The fold changes in brightness
 \(\epsilon\) upon addition of AP1510 drug shown for different detrending
@@ -2092,7 +2113,7 @@ using the histogram of pixel brightnesses.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/nandb-fig} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/nandb-fig} \hfill{}
 
 \caption{mClover-labelled myristoylated FKBP12 before and
 after application of 50nM AP1510. Shown here are intensity (first row),
@@ -2123,7 +2144,7 @@ variation, which is exactly what we're trying to avoid.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/bleachvis1} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/bleachvis1} \hfill{}
 
 \caption{Real data image series mean intensity profile
 with bleaching correction with \(\tau = 10\) and auto \(\tau\).}\label{fig:bleachvis1}
@@ -2164,7 +2185,7 @@ and that neglecting this step can lead to nonsensical results.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/jove-dimerization} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/jove-dimerization} \hfill{}
 
 \caption{Dimerization of FKBP12F36V upon BB addition is seen
 by a brightness doubling from \(\epsilon = 0.005\) to
@@ -2251,7 +2272,7 @@ temporal resolution of the techniques commonly employed
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometrySetup} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/HIVStoichiometrySetup} \hfill{}
 
 \caption{The HIV-1 envelope glycoprotein Env
 must bind the receptor (CD4) and form a complex with the co-receptor
@@ -2282,7 +2303,7 @@ channel bleed-through. See figure \ref{fig:HIVStoichiometryIntensity}.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryIntensity} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/HIVStoichiometryIntensity} \hfill{}
 
 \caption{Intensity images from the virus,
 receptor and co-receptor. Every 100\textsuperscript{th} frame is shown.
@@ -2312,7 +2333,7 @@ co-receptor.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryAnalysis} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/HIVStoichiometryAnalysis} \hfill{}
 
 \caption{Brightness images of receptor and
 co-receptor and cross-correlated brightness image of the interaction
@@ -2335,7 +2356,7 @@ is hypothesized for each.
 
 \begin{figure}
 
-\includegraphics[width=0.47\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/X4plot} \includegraphics[width=0.47\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/R5plot} \hfill{}
+\includegraphics[width=0.47\linewidth]{/home/travis/build/rorynolan/phdthesis/img/X4plot} \includegraphics[width=0.47\linewidth]{/home/travis/build/rorynolan/phdthesis/img/R5plot} \hfill{}
 
 \caption{Number of receptor and co-receptor
 units involved in complexes with virus over time, obtained by brightness
@@ -2386,7 +2407,7 @@ has been done. See figure \ref{fig:HIVStoichiometryStructure}.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryStructure} \hfill{}
+\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/HIVStoichiometryStructure} \hfill{}
 
 \caption{The HIV-1 JR-FL Env glycoprotein
 (blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. b,
@@ -2552,7 +2573,7 @@ previous work. In addition, attempts by new groups to reproduce work
 that is accepted in the literature are always interesting
 \citep{Baker2016}.
 
-\bibliography{book.bib,packages.bib,papers.bib,webpages.bib}
+\bibliography{book.bib,packages.bib,papers.bib,webpages.bib,theses.bib}
 
 
 \end{document}
