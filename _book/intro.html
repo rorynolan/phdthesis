@@ -224,7 +224,7 @@ Figure 1.1: Jablonski diagram of the process of fluorescence. Absorption causes 
 </div>
 <div id="photobleaching" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Photobleaching</h3>
-<p>In reality, an incident photon can <em>break</em> the fluorophore such that it is unable to emit light. A fluorophore to which this has happened is said to be <em>photobleached</em>.</p>
+<p>In reality, an incident photon can <em>break</em> the fluorophore such that it is subsequently unable to emit light. A fluorophore to which this has happened is said to be <em>photobleached</em>.</p>
 </div>
 </div>
 <div id="confocal-light-microscopy" class="section level2">
@@ -239,7 +239,7 @@ Figure 1.2: Confocal microscope light path showing how out of focus light does n
 </div>
 
 <div class="definition">
-<span id="def:unnamed-chunk-5" class="definition"><strong>Definition 1.5  </strong></span>The <em>confocal volume</em> is the <em>in-focus</em> volume within a sample that is efficiently detected using a system designed with confocal optics.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+<span id="def:unnamed-chunk-5" class="definition"><strong>Definition 1.5  </strong></span>The <em>confocal volume</em> is the <em>in-focus</em> volume within a sample that is efficiently detected using a system designed with confocal optics <span class="citation">(FCSXpert <a href="#ref-fcsxpert">2018</a>)</span>.
 </div>
 
 <p>An image is acquired on a confocal microscope by scanning this apparatus across a sample, collecting one pixel at a time.</p>
@@ -248,13 +248,13 @@ Figure 1.2: Confocal microscope light path showing how out of focus light does n
 <p>There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect <span class="citation">(Albert Einstein <a href="#ref-photoelectric">1905</a>)</span>, a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.6  </strong></span>The <em>quantum efficiency</em> of a detector is the fraction of fluorescent signal that is reported by the detector.
+<span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.6  </strong></span>The <em>quantum efficiency</em> (QE) of a detector is the fraction of fluorescent signal that is reported by the detector.
 </div>
 
 <p>The quantum nature of the photoelectric effect makes it practically impossible for detectors to reach 100% efficiency.</p>
 <div id="photon-multiplier-tubes" class="section level4">
 <h4><span class="header-section-number">1.2.1.1</span> Photon multiplier tubes</h4>
-<p>Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [HammamatsuPMT]. See figure <a href="intro.html#fig:PMT">1.3</a>. This current should correspond to the incident light intensity.</p>
+<p>Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured <span class="citation">(Hammamatsu <a href="#ref-HammamatsuPMT">2007</a>)</span>. See figure <a href="intro.html#fig:PMT">1.3</a>. This current corresponds to the incident light intensity.</p>
 
 <div class="figure"><span id="fig:PMT"></span>
 <img src="img/PMT.png" alt="PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured (Leica 2012)." width="400" />
@@ -262,7 +262,7 @@ Figure 1.2: Confocal microscope light path showing how out of focus light does n
 Figure 1.3: PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>.
 </p>
 </div>
-<p>The quantum efficiency of standard PMTs is approximately 25% for blue-green light. This is because many incident photons on the multi-alkali material of regular PMT photocathodes fail to free any electrons. This problem gets worse at higher wavelengths where photons have lower energy. PMTs also suffer significantly from thermal noise (whereby dissociated electrons are created due to heat energy).</p>
+<p>The QE of standard PMTs is approximately 25% for blue-green light. This is because many incident photons on the multi-alkali material of regular PMT photocathodes fail to free any electrons. This problem gets worse at higher wavelengths where photons have lower energy. PMTs also suffer significantly from thermal noise (whereby dissociated electrons are created due to heat energy).</p>
 </div>
 <div id="avalanche-photo-diodes" class="section level4">
 <h4><span class="header-section-number">1.2.1.2</span> Avalanche photo-diodes</h4>
@@ -274,16 +274,16 @@ Figure 1.3: PMT detector setup. Electrons are dissociated by photons at the phot
 <p>Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure <a href="intro.html#fig:APD">1.4</a>. They are somewhat analogous to PMTs, using the avalanche effect in place of the series of cathodes.</p>
 
 <div class="figure"><span id="fig:APD"></span>
-<img src="img/APD.png" alt="APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche (Leica 2012)." width="400" />
+<img src="img/APD.png" alt="APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor, this electron is accelerated, initiating an avalanche (Leica 2012)." width="400" />
 <p class="caption">
-Figure 1.4: APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor this electron is accelerated, initiating an avalanche <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>.
+Figure 1.4: APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor, this electron is accelerated, initiating an avalanche <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>.
 </p>
 </div>
-<p>The quantum efficiency of APDs can be as high as 45%, however their dynamic range is low and they can only function with low-intensity light. APDs are less prone to thermal noise than PMTs.</p>
+<p>The QE of APDs can be as high as 45%, however their dynamic range is low and they can only function with low-intensity light. APDs are less prone to thermal noise than PMTs.</p>
 </div>
 <div id="HyDs" class="section level4">
 <h4><span class="header-section-number">1.2.1.3</span> Hybrid detectors</h4>
-<p>APDs have better sensitivity and lower noise, however PMTs have a larger dynamic range. Hybrid detectors (HyDs) PMT and APD technology is combined to get the best of both worlds. With HyDs, photons are converted to electrons at the photocathode, then accelerated in vacuum towards a semiconductor where they initiate an electron avalanche. See figure <a href="intro.html#fig:HyD">1.5</a>. The difference between HyDs and APDs is this acceleration step.</p>
+<p>APDs have better sensitivity and lower noise, however PMTs have a larger dynamic range. In hybrid detectors (HyDs), PMT and APD technology is combined to get the best of both worlds. With HyDs, photons are converted to electrons at the photocathode, then accelerated in vacuum towards a semiconductor where they initiate an electron avalanche. See figure <a href="intro.html#fig:HyD">1.5</a>. The difference between HyDs and APDs is this acceleration step.</p>
 
 <div class="figure"><span id="fig:HyD"></span>
 <img src="img/HyD.png" alt="HyD detector setup. A photon dissociates an electron from the photocathode, this electron is then accelerated PMT-style towards an APD-style semiconductor setup, triggering an avalanche (Leica 2012)." width="400" />
@@ -291,11 +291,11 @@ Figure 1.4: APD detector setup. The incident photon dissociates an electron. Giv
 Figure 1.5: HyD detector setup. A photon dissociates an electron from the photocathode, this electron is then accelerated PMT-style towards an APD-style semiconductor setup, triggering an avalanche <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>.
 </p>
 </div>
-<p>HyDs with GaAsP photocathodes achieve a quantum efficiency of up to 50%. They also suffer least from detector afterpulsing, a phenomenon which can cause real signal pulses to be followed by a feedback pulse at a later time <span class="citation">(Zhao et al. <a href="#ref-afterpulsing">2003</a>)</span>.</p>
-<p>With their superior sensitivity and dynamic range and low noise, HyDs can be calibrated to enable <em>photon-counting</em> mode whereby the readout is in units of photons (not electron current). This is a much more physically relevant readout, given that we are interested in measuring fluorescence, which is very convenient for many biological applications, not least fluorescence fluctuation spectroscopy (FFS, discussed in section <a href="intro.html#FFS">1.6</a>).</p>
+<p>HyDs with GaAsP (gallium arsenide phosphide) photocathodes achieve a quantum efficiency of up to 50% <span class="citation">(Leica <a href="#ref-LeicaDetectors">2012</a>)</span>. They also suffer least from detector afterpulsing, a phenomenon which can cause real signal pulses to be followed by a feedback pulse at a later time <span class="citation">(Zhao et al. <a href="#ref-afterpulsing">2003</a>)</span>.</p>
+<p>With their superior sensitivity and dynamic range and low noise, HyDs can be calibrated to enable <em>photon-counting</em> mode whereby the readout is in units of photons (not electron current). This is a much more physically relevant readout — given that we are interested in measuring fluorescence — which is very convenient for many biological applications, not least fluorescence fluctuation spectroscopy (FFS, discussed in section <a href="intro.html#FFS">1.6</a>).</p>
 
 <div class="remark">
- <span class="remark"><em>Remark. </em></span> Henceforth, intensity counts will be assumed to be in units of photons.
+ <span class="remark"><em>Remark. </em></span> Henceforth, intensity counts will be assumed to be in units of photons unless otherwise stated.
 </div>
 
 </div>
@@ -303,22 +303,22 @@ Figure 1.5: HyD detector setup. A photon dissociates an electron from the photoc
 </div>
 <div id="widefield-light-microscopy" class="section level2">
 <h2><span class="header-section-number">1.3</span> Widefield light microscopy</h2>
-<p>With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera. See figure <a href="intro.html#fig:widefield">1.6</a>. One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need for scanning across the sample to acquire each pixel (which requires precise robotics). Another example is that images can be acquired faster because all pixels in a frame are acquired in parallel. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).</p>
+<p>With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera (see figure <a href="intro.html#fig:widefield">1.6</a>). One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need to scan across the sample to acquire each pixel (which requires precise robotics). Another example is that images can be acquired faster because all pixels in a frame are acquired simultaneously. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).</p>
 
 <div class="figure"><span id="fig:widefield"></span>
-<img src="img/Widefield.png" alt="Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope." width="50%" />
+<img src="img/Widefield.png" alt="Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Note the simplicity of this setup relative to that of a confocal microscope." width="50%" />
 <p class="caption">
-Figure 1.6: Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Not the simplicity of this setup relative to that of a confocal microscope.
+Figure 1.6: Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Note the simplicity of this setup relative to that of a confocal microscope.
 </p>
 </div>
 <div id="total-internal-reflection-microscopy" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Total internal reflection microscopy</h3>
-<p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure <a href="intro.html#fig:TIRFig">1.7</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot get the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.7</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
+<p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure <a href="intro.html#fig:TIRFig">1.7</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot have the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.7</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
 
 <div class="figure"><span id="fig:TIRFig"></span>
-<img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated." width="452" />
+<img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. \(n_1\) is the refractive index of the sample and \(n_2\) is the refractive index of the cover slip; \(n_1&lt;n_2\) is assumed. \(\theta_c\) is the critical angle and \(\theta\) is the incident angle of the laser light; \(\theta &lt; \theta_c\) is assumed." width="452" />
 <p class="caption">
-Figure 1.7: The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated.
+Figure 1.7: The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. <span class="math inline">\(n_1\)</span> is the refractive index of the sample and <span class="math inline">\(n_2\)</span> is the refractive index of the cover slip; <span class="math inline">\(n_1&lt;n_2\)</span> is assumed. <span class="math inline">\(\theta_c\)</span> is the critical angle and <span class="math inline">\(\theta\)</span> is the incident angle of the laser light; <span class="math inline">\(\theta &lt; \theta_c\)</span> is assumed.
 </p>
 </div>
 </div>
@@ -331,11 +331,11 @@ Figure 1.7: The thin evanescent wave close to the boundary (between the cover sl
 </div>
 <div id="cmos-cameras" class="section level4">
 <h4><span class="header-section-number">1.3.2.2</span> CMOS cameras</h4>
-<p>Complementary metal–oxide–semiconductor cameras are arrays of semiconductors (one per pixel), again utilizing the photoelectric effect and the electric field across a semiconductor. CMOS cameras have amplification for each pixel, whereas EMCCDs only have a few amplifiers per camera <span class="citation">(Baker <a href="#ref-CMOS">2005</a>)</span>. This makes CMOS cameras more sensitive.</p>
+<p>Complementary metal–oxide semiconductor cameras are arrays of semiconductors (one per pixel), again utilizing the photoelectric effect and the electric field across a semiconductor. CMOS cameras have amplification for each pixel, whereas EMCCDs only have a few amplifiers per camera <span class="citation">(Baker <a href="#ref-CMOS">2005</a>)</span>. This makes CMOS cameras more sensitive.</p>
 </div>
 <div id="scmos-cameras" class="section level4">
 <h4><span class="header-section-number">1.3.2.3</span> sCMOS cameras</h4>
-<p>Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer 95% quantum efficiency <span class="citation">(Photometrics, <a href="#ref-photometrics">n.d.</a>)</span>, very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD <span class="citation">(Andor <a href="#ref-sCMOS">2018</a><a href="#ref-sCMOS">b</a>)</span>. sCMOS cameras appear to better than anything that has come before.</p>
+<p>Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer 95% quantum efficiency <span class="citation">(Photometrics <a href="#ref-photometrics">2018</a>)</span>, very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD <span class="citation">(Andor <a href="#ref-sCMOS">2018</a><a href="#ref-sCMOS">b</a>)</span>.</p>
 </div>
 <div id="being-quantitative-with-cameras" class="section level4">
 <h4><span class="header-section-number">1.3.2.4</span> Being quantitative with cameras</h4>
@@ -427,7 +427,7 @@ where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)
 n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 \end{align}\]</span>
 &gt;
-&gt; — <span class="citation">Nolan et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+&gt; — <span class="citation">Nolan et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>The quantity <span class="math inline">\(\epsilon\)</span> is a relative measure of oligomeric state. That is, <span class="math inline">\(\epsilon\)</span> will be twice as big for dimers as it is for monomers, three times as big for trimers as it is for monomers and so on.</p>
 <p>The way that N&amp;B experiments to determine unknown oligomeric states are generally done is as follows:</p>
 <ol style="list-style-type: decimal">
@@ -561,7 +561,7 @@ G(X; 0) = \frac{1}{n}
 <li>more green photons implies more red photons</li>
 <li>less green photons implies less red photons</li>
 </ul>
-<p>Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green channels.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green channels.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 </div>
 <div id="autocorrelation" class="section level3">
 <h3><span class="header-section-number">1.7.2</span> Autocorrelation</h3>
@@ -572,7 +572,7 @@ G(X; 0) = \frac{1}{n}
 <p>The cross-correlation of intensity traces from nearby pixels can be used to measure the velocity of the movement of the labelled particles between these two pixels <span class="citation">(Hebert, Costantino, and Wiseman <a href="#ref-STICS">2005</a>)</span>.</p>
 <div id="PCF" class="section level4">
 <h4><span class="header-section-number">1.7.3.1</span> Pair correlation function</h4>
-<p>The phrase <em>pair correlation function</em><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> was coined for this idea of cross-correlating intensity traces from nearby pixels. The PCF was used to image barriers to diffusion <span class="citation">(M. A. Digman and Gratton <a href="#ref-PCF">2009</a>)</span> using the idea that the spatiotemporal correlation caused by particles moving from one place to another will not be present for positions <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> if they are on opposite sides of a barrier, because the barrier prevents travel from <span class="math inline">\(p_1\)</span> to <span class="math inline">\(p_2\)</span>. It has also been used to create <em>diffusion tensors</em>: maps of diffusion velocities at every pixel <span class="citation">(Rienzo et al. <a href="#ref-DiffusionTensor">2016</a>)</span>; this approach is similar to that of <span class="citation">Hebert, Costantino, and Wiseman (<a href="#ref-STICS">2005</a>)</span>.</p>
+<p>The phrase <em>pair correlation function</em><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> was coined for this idea of cross-correlating intensity traces from nearby pixels. The PCF was used to image barriers to diffusion <span class="citation">(M. A. Digman and Gratton <a href="#ref-PCF">2009</a>)</span> using the idea that the spatiotemporal correlation caused by particles moving from one place to another will not be present for positions <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> if they are on opposite sides of a barrier, because the barrier prevents travel from <span class="math inline">\(p_1\)</span> to <span class="math inline">\(p_2\)</span>. It has also been used to create <em>diffusion tensors</em>: maps of diffusion velocities at every pixel <span class="citation">(Rienzo et al. <a href="#ref-DiffusionTensor">2016</a>)</span>; this approach is similar to that of <span class="citation">Hebert, Costantino, and Wiseman (<a href="#ref-STICS">2005</a>)</span>.</p>
 </div>
 </div>
 <div id="cross-correlated-brightness" class="section level3">
@@ -633,8 +633,14 @@ This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scale
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-fcsxpert">
+<p>FCSXpert. 2018. “What Is the Confocal Volume?” Sensor Technologies LLC. <a href="http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html" class="uri">http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html</a>.</p>
+</div>
 <div id="ref-photoelectric">
 <p>Einstein, Albert. 1905. “Concerning an Heuristic Point of View Toward the Emission and Transformation of Light.” <em>Annalen Der Physik</em> 17:132–48.</p>
+</div>
+<div id="ref-HammamatsuPMT">
+<p>Hammamatsu. 2007. “Photomultiplier Tubes: Basics and Applications.” <em>Hammamatsu</em>. <a href="https://www.hamamatsu.com/resources/pdf/etd/PMT_handbook_v3aE.pdf" class="uri">https://www.hamamatsu.com/resources/pdf/etd/PMT_handbook_v3aE.pdf</a>.</p>
 </div>
 <div id="ref-LeicaDetectors">
 <p>Leica. 2012. “Sensors for True Confocal Scanning.” <em>Leica Microsystems</em>. <a href="https://www.leica-microsystems.com/science-lab/sensors-for-true-confocal-scanning/" class="uri">https://www.leica-microsystems.com/science-lab/sensors-for-true-confocal-scanning/</a>.</p>
@@ -652,7 +658,7 @@ This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scale
 <p>Baker, R. 2005. <em>CMOS Circuit Design, Layout, and Simulation</em>. New York: IEEE Press.</p>
 </div>
 <div id="ref-photometrics">
-<p>Photometrics. n.d. “Photometrics Launches Next Generation Scientific Cmos Camera with 95 Percent Quantum Efficiency.” <em>Photometrics</em>. <a href="https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera" class="uri">https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera</a>.</p>
+<p>Photometrics. 2018. “Photometrics Launches Next Generation Scientific Cmos Camera with 95 Percent Quantum Efficiency.” <em>Photometrics</em>. <a href="https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera" class="uri">https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera</a>.</p>
 </div>
 <div id="ref-sCMOS">
 <p>Andor. 2018b. “SCMOS Cameras.” <a href="http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras" class="uri">http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras</a>.</p>
@@ -728,10 +734,9 @@ This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scale
 <hr />
 <ol start="1">
 <li id="fn1"><p>Image courtesy of Quora: <a href="https://www.quora.com/How-does-confocal-microscopy-work" class="uri">https://www.quora.com/How-does-confocal-microscopy-work</a><a href="intro.html#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>Definition from <a href="http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html" class="uri">http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html</a>.<a href="intro.html#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>This is a formulation of N&amp;B that I wrote in a 2017 review of the technique.<a href="intro.html#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>This correlation may not always be detectable due to weak interaction or weak signal.<a href="intro.html#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p>This was needless, it could just be called <em>cross-correlation function</em> (PCF) but for the confusion about the term <em>cross-correlation</em> in the FCS field.<a href="intro.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>This is a formulation of N&amp;B that I wrote in a 2017 review of the technique.<a href="intro.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>This correlation may not always be detectable due to weak interaction or weak signal.<a href="intro.html#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>This was needless, it could just be called <em>cross-correlation function</em> but for the confusion about the term <em>cross-correlation</em> in the FCS field.<a href="intro.html#fnref4" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>

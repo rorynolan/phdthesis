@@ -55,7 +55,7 @@ This thesis may be read on the web at https://rorynolan.github.io/phdthesis/. If
 
 ## Note to the reader {-}
 
-It is important to distinguish between footnotes and references. References are cited inline using the name of the author and the year. A full list of references in alphabetical order of author is given at the end of the thesis. Anything appearing numbered at the end of a page and not under a heading __References__ is a footnote. These are sometimes used to cite sources that are not proper references. For example, I could not find a definition of the _confocal volume_ anywhere in the literature, so I acknowledged the website from which I got that definition in a footnote. 
+It is important to distinguish between footnotes and references. References are cited inline using the name of the author and the year. A full list of references in alphabetical order of author is given at the end of the thesis. Anything appearing numbered at the end of a page and not under a heading __References__ is a footnote. 
 
 ## Apportion of credit {-}
 
@@ -80,7 +80,7 @@ I hereby list my publications. These can all be downloaded from https://github.c
 * R. Nolan and S. Padilla-Parra. "filesstrings: An R package for file and
 string manipulation". In: _Journal of Open Source Software_ 2.14 (2017).
 * R. Nolan and S. Padilla-Parra. "exampletestr—An easy start to unit
-testing R packages". In: _Wellcome open research_ 2 (2017).
+testing R packages". In: _Wellcome Open Research_ 2 (2017).
 * R. Nolan, L. Alvarez, J. Elegheert, et al. "nandb—number and brightness
 in R with a novel automatic detrending algorithm". In: _Bioinformatics_ 33.21
 (2017).
@@ -113,6 +113,6 @@ of cell heterogeneity: accounting for macrophage gene-environment
 interactions with single-cell RNA-Seq". In: _BMC genomics_ 18.1 (2017).
 
 
-#### In preparation
+#### In preparation {-}
 
 * The _Robin Hood_ algorithm (described in section \@ref(robin-hood-detrending)) will be submitted to a journal after the submission of this thesis but before the end of my PhD contract.
