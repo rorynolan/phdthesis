@@ -191,54 +191,54 @@
 <h1><span class="header-section-number">Chapter 2</span> Instrumentation and Software</h1>
 <div id="instrumentation" class="section level2">
 <h2><span class="header-section-number">2.1</span> Instrumentation</h2>
-<p>All of the images used in this thesis were acquired on a Leica SP8 confocal microscope<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> equipped with hybrid detectors (section <a href="intro.html#HyDs">1.2.1.3</a>). Importantly, the detectors that we have on this microscope are capable of photon counting.</p>
+<p>All of the images used in this thesis were acquired on a Leica SP8 confocal microscope<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> equipped with hybrid detectors (section <a href="intro.html#HyDs">1.2.1.3</a>). Importantly, the detectors that we have on this microscope are capable of photon counting.</p>
 </div>
 <div id="software-programs-languages-and-tools" class="section level2">
 <h2><span class="header-section-number">2.2</span> Software programs, languages and tools</h2>
 <div id="c" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> C++</h3>
-<p><em>C++</em> <span class="citation">(Stroustrup <a href="#ref-cpp">2013</a>)</span> is a general-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important consideration.</p>
+<p><em>C++</em> <span class="citation">(Stroustrup <a href="#ref-cpp">2013</a>)</span> is a general-purpose programming language optimized for performance (speed), efficiency (with use of computer resources) and flexibility.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> I used it for its speed, since many of the algorithms that I developed were quite computationally intensive and hence speed was an important consideration.</p>
 </div>
 <div id="r" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> R</h3>
-<p><em>R</em> <span class="citation">(R Core Team <a href="#ref-R">2016</a>)</span> is a programming language and free software environment for statistical computing and graphics.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> I use R primarily as a wrapper for my C++ code to make my algorithms more user-friendly. R is best used with the <em>RStudio</em> integrated development environment.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a></p>
+<p><em>R</em> <span class="citation">(R Core Team <a href="#ref-R">2016</a>)</span> is a programming language and free software environment for statistical computing and graphics.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> I use R primarily as a wrapper for my C++ code to make my algorithms more user-friendly. R is best used with the <em>RStudio</em> integrated development environment.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
 </div>
 <div id="imagej" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> ImageJ</h3>
-<p><em>ImageJ</em> <a href="instrumentation-and-software.html#imagej">ImageJ</a> is an open source image processing program designed for scientific multidimensional images.<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a> It is the preferred image viewing and analysis software in the community. I have written my software in C++ and R because they are easier for developers, but I still intend to translate my image-related algorithms ImageJ plugins. ImageJ is best used via the FIJI <span class="citation">(Schindelin et al. <a href="#ref-FIJI">2012</a>)</span> distribution.<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a></p>
+<p><em>ImageJ</em> <a href="instrumentation-and-software.html#imagej">ImageJ</a> is an open source image processing program designed for scientific multidimensional images.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> It is the preferred image viewing and analysis software in the community. I have written my software in C++ and R because they are easier for developers, but I still intend to translate my image-related algorithms ImageJ plugins. ImageJ is best used via the FIJI <span class="citation">(Schindelin et al. <a href="#ref-FIJI">2012</a>)</span> distribution.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
 </div>
 <div id="git-and-github" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Git and GitHub</h3>
-<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a> GitHub is a web-based hosting service for version control using Git.<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a> All of the computer code used during my thesis can be found on my GitHub at <a href="https://github.com/rorynolan" class="uri">https://github.com/rorynolan</a>. The vast majority of my time during my thesis was spent writing code so this GitHub account is the best record of the work that I have done.</p>
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> GitHub is a web-based hosting service for version control using Git.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> All of the computer code used during my thesis can be found on my GitHub at <a href="https://github.com/rorynolan" class="uri">https://github.com/rorynolan</a>. The vast majority of my time during my thesis was spent writing code so this GitHub account is the best record of the work that I have done.</p>
 </div>
 </div>
 <div id="my-software-packages" class="section level2">
 <h2><span class="header-section-number">2.3</span> My software packages</h2>
 <div id="ijtiff" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> <code>ijtiff</code></h3>
-<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 335 downloads per month which amounts to 2,563 since it was first released.</p>
-<p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a> This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span>.</p>
+<p>An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 333 downloads per month which amounts to 2,563 since it was first released.</p>
+<p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span>.</p>
 </div>
 <div id="autothresholdr" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> <code>autothresholdr</code></h3>
-<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 630 downloads per month which amounts to 10,995 since it was first released.</p>
+<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 629 downloads per month which amounts to 10,995 since it was first released.</p>
 </div>
 <div id="detrendr" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> <code>detrendr</code></h3>
-<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 360 downloads per month which amounts to 3,421 since it was first released.</p>
+<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 359 downloads per month which amounts to 3,421 since it was first released.</p>
 </div>
 <div id="filesstrings" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> <code>filesstrings</code></h3>
-<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 802 downloads per month which amounts to 14,017 since it was first released.</p>
+<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 800 downloads per month which amounts to 14,017 since it was first released.</p>
 </div>
 <div id="exampletestr" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> <code>exampletestr</code></h3>
 
 <div class="definition">
-<span id="def:unnamed-chunk-28" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>
+<span id="def:unnamed-chunk-28" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
 </div>
 
-<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 509 downloads per month which amounts to 8,509 since it was first released.</p>
+<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 508 downloads per month which amounts to 8,509 since it was first released.</p>
 </div>
 <div id="brownded" class="section level3">
 <h3><span class="header-section-number">2.3.6</span> <code>brownded</code></h3>
@@ -258,37 +258,37 @@
 <p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-FIJI">
-<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7): 676–82. doi:<a href="https://doi.org/10.1038/nmeth.2019">10.1038/nmeth.2019</a>.</p>
+<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7):676–82. <a href="https://doi.org/10.1038/nmeth.2019" class="uri">https://doi.org/10.1038/nmeth.2019</a>.</p>
 </div>
 <div id="ref-ImageJ">
-<p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1): 529. doi:<a href="https://doi.org/10.1186/s12859-017-1934-z">10.1186/s12859-017-1934-z</a>.</p>
+<p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1):529. <a href="https://doi.org/10.1186/s12859-017-1934-z" class="uri">https://doi.org/10.1186/s12859-017-1934-z</a>.</p>
 </div>
 <div id="ref-ijtiff">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal: 633. doi:<a href="https://doi.org/10.21105/joss.00633">10.21105/joss.00633</a>.</p>
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal:633. <a href="https://doi.org/10.21105/joss.00633" class="uri">https://doi.org/10.21105/joss.00633</a>.</p>
 </div>
 <div id="ref-autothresholdr">
-<p>Landini, G., D.A. Randell, S. Fouad, and A. Galton. 2016. “Automatic Thresholding from the Gradients of Region Boundaries.” <em>Journal of Microscopy</em> 265 (2). Wiley: 185–95. doi:<a href="https://doi.org/10.1111/jmi.12474">10.1111/jmi.12474</a>.</p>
+<p>Landini, G., D.A. Randell, S. Fouad, and A. Galton. 2016. “Automatic Thresholding from the Gradients of Region Boundaries.” <em>Journal of Microscopy</em> 265 (2). Wiley:185–95. <a href="https://doi.org/10.1111/jmi.12474" class="uri">https://doi.org/10.1111/jmi.12474</a>.</p>
 </div>
 <div id="ref-filesstrings">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2017b. “filesstrings: An R Package for File and String Manipulation.” <em>The Journal of Open Source Software</em> 2 (14). The Open Journal: 260. doi:<a href="https://doi.org/10.21105/joss.00260">10.21105/joss.00260</a>.</p>
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017b. “filesstrings: An R Package for File and String Manipulation.” <em>The Journal of Open Source Software</em> 2 (14). The Open Journal:260. <a href="https://doi.org/10.21105/joss.00260" class="uri">https://doi.org/10.21105/joss.00260</a>.</p>
 </div>
 <div id="ref-exampletestr">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2017a. “exampletestr - an Easy Start to Unit Testing R Packages.” <em>Wellcome Open Research</em> 2 (June). F1000 Research, Ltd.: 31. doi:<a href="https://doi.org/10.12688/wellcomeopenres.11635.2">10.12688/wellcomeopenres.11635.2</a>.</p>
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017a. “exampletestr - an Easy Start to Unit Testing R Packages.” <em>Wellcome Open Research</em> 2 (June). F1000 Research, Ltd.:31. <a href="https://doi.org/10.12688/wellcomeopenres.11635.2" class="uri">https://doi.org/10.12688/wellcomeopenres.11635.2</a>.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="5">
-<li id="fn5"><p><a href="https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8" class="uri">https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8</a><a href="instrumentation-and-software.html#fnref5">↩</a></p></li>
-<li id="fn6"><p><a href="https://en.wikipedia.org/wiki/C%2B%2B">https://en.wikipedia.org/wiki/C%2B%2B</a><a href="instrumentation-and-software.html#fnref6">↩</a></p></li>
-<li id="fn7"><p><a href="https://en.wikipedia.org/wiki/R_(programming_language)" class="uri">https://en.wikipedia.org/wiki/R_(programming_language)</a><a href="instrumentation-and-software.html#fnref7">↩</a></p></li>
-<li id="fn8"><p><a href="https://www.rstudio.com" class="uri">https://www.rstudio.com</a><a href="instrumentation-and-software.html#fnref8">↩</a></p></li>
-<li id="fn9"><p><a href="https://imagej.net" class="uri">https://imagej.net</a><a href="instrumentation-and-software.html#fnref9">↩</a></p></li>
-<li id="fn10"><p><a href="https://imagej.net/Fiji" class="uri">https://imagej.net/Fiji</a><a href="instrumentation-and-software.html#fnref10">↩</a></p></li>
-<li id="fn11"><p><a href="https://git-scm.com/" class="uri">https://git-scm.com/</a><a href="instrumentation-and-software.html#fnref11">↩</a></p></li>
-<li id="fn12"><p><a href="https://en.wikipedia.org/wiki/GitHub" class="uri">https://en.wikipedia.org/wiki/GitHub</a><a href="instrumentation-and-software.html#fnref12">↩</a></p></li>
-<li id="fn13"><p><a href="https://ropensci.org/about" class="uri">https://ropensci.org/about</a><a href="instrumentation-and-software.html#fnref13">↩</a></p></li>
-<li id="fn14"><p><a href="https://en.wikipedia.org/wiki/Unit_testing" class="uri">https://en.wikipedia.org/wiki/Unit_testing</a><a href="instrumentation-and-software.html#fnref14">↩</a></p></li>
+<li id="fn5"><p><a href="https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8" class="uri">https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8</a><a href="instrumentation-and-software.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p><a href="https://en.wikipedia.org/wiki/C%2B%2B">https://en.wikipedia.org/wiki/C%2B%2B</a><a href="instrumentation-and-software.html#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p><a href="https://en.wikipedia.org/wiki/R_(programming_language)" class="uri">https://en.wikipedia.org/wiki/R_(programming_language)</a><a href="instrumentation-and-software.html#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p><a href="https://www.rstudio.com" class="uri">https://www.rstudio.com</a><a href="instrumentation-and-software.html#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p><a href="https://imagej.net" class="uri">https://imagej.net</a><a href="instrumentation-and-software.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p><a href="https://imagej.net/Fiji" class="uri">https://imagej.net/Fiji</a><a href="instrumentation-and-software.html#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p><a href="https://git-scm.com/" class="uri">https://git-scm.com/</a><a href="instrumentation-and-software.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn12"><p><a href="https://en.wikipedia.org/wiki/GitHub" class="uri">https://en.wikipedia.org/wiki/GitHub</a><a href="instrumentation-and-software.html#fnref12" class="footnote-back">↩</a></p></li>
+<li id="fn13"><p><a href="https://ropensci.org/about" class="uri">https://ropensci.org/about</a><a href="instrumentation-and-software.html#fnref13" class="footnote-back">↩</a></p></li>
+<li id="fn14"><p><a href="https://en.wikipedia.org/wiki/Unit_testing" class="uri">https://en.wikipedia.org/wiki/Unit_testing</a><a href="instrumentation-and-software.html#fnref14" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -343,7 +343,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
