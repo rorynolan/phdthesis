@@ -304,7 +304,7 @@ Figure 1.5: HyD detector setup. A photon dissociates an electron from the photoc
 </div>
 <div id="widefield-light-microscopy" class="section level2">
 <h2><span class="header-section-number">1.3</span> Widefield light microscopy</h2>
-<p>With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera (see figure <a href="intro.html#fig:widefield">1.6</a>). One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need to scan across the sample to acquire each pixel (which requires precise robotics). Another example is that images can be acquired faster because all pixels in a frame are acquired simultaneously. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).</p>
+<p>With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera (see figure <a href="intro.html#fig:widefield">1.6</a>). One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need to scan across the sample to acquire each pixel (which requires precise robotics). Another advantage is that images can be acquired faster because all pixels in a frame are acquired simultaneously. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:widefield"></span>
 <img src="img/Widefield.png" alt="Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Note the simplicity of this setup relative to that of a confocal microscope." width="50%" />
@@ -317,9 +317,9 @@ Figure 1.6: Light travels from the uniformly illuminated sample through a lens (
 <p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure <a href="intro.html#fig:TIRFig">1.7</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot have the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.7</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:TIRFig"></span>
-<img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. \(n_1\) is the refractive index of the sample and \(n_2\) is the refractive index of the cover slip; \(n_1&lt;n_2\) is assumed. \(\theta_c\) is the critical angle and \(\theta\) is the incident angle of the laser light; \(\theta &lt; \theta_c\) is assumed." width="100%" />
+<img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. \(n_1\) is the refractive index of the sample and \(n_2\) is the refractive index of the cover slip; \(n_1&lt;n_2\) is assumed. \(\theta_c\) is the critical angle and \(\theta\) is the incident angle of the laser light; \(\theta &gt; \theta_c\) is assumed." width="100%" />
 <p class="caption">
-Figure 1.7: The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. <span class="math inline">\(n_1\)</span> is the refractive index of the sample and <span class="math inline">\(n_2\)</span> is the refractive index of the cover slip; <span class="math inline">\(n_1&lt;n_2\)</span> is assumed. <span class="math inline">\(\theta_c\)</span> is the critical angle and <span class="math inline">\(\theta\)</span> is the incident angle of the laser light; <span class="math inline">\(\theta &lt; \theta_c\)</span> is assumed.
+Figure 1.7: The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. <span class="math inline">\(n_1\)</span> is the refractive index of the sample and <span class="math inline">\(n_2\)</span> is the refractive index of the cover slip; <span class="math inline">\(n_1&lt;n_2\)</span> is assumed. <span class="math inline">\(\theta_c\)</span> is the critical angle and <span class="math inline">\(\theta\)</span> is the incident angle of the laser light; <span class="math inline">\(\theta &gt; \theta_c\)</span> is assumed.
 </p>
 </div>
 </div>
@@ -394,7 +394,7 @@ J = -D\frac{d\varphi}{dx}
 </div>
 
 <p>For free Brownian motion in 1 dimension, the expected value of the MSD is <span class="math inline">\(\text{msd}(t) = 2Dt\)</span>, where <span class="math inline">\(D\)</span> is the diffusion constant. For free Brownian motion in <span class="math inline">\(d\)</span> dimensions, the expected value of the MSD is <span class="math inline">\(\text{msd}(t) = 2dDt\)</span>, reflecting the fact that free Brownian motion in <span class="math inline">\(d\)</span> dimensions is one-dimensional free Brownian motion happening simultaneously and independently in each individual dimension.</p>
-<p>These definitions are the formally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as <em>diffusion</em>. Usually, in biophysics one is interested in proteins which move around in a medium like the cytoplasm or the cell membrane. When this is referred to as <em>diffusion</em>, it is what is defined as Brownian motion above. Henceforth when I use the term <em>diffusion</em>, this Brownian motion type of movement can be assumed.</p>
+<p>These definitions are the formally correct ones. In biophysics, however, both of these processes (diffusion and Brownian motion) are most often referred to as <em>diffusion</em>. I will follow this convention.</p>
 <div id="anomalous-diffusion" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> Anomalous diffusion</h3>
 <p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="intro.html#eq:msd">(1.2)</a> no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section <a href="intro.html#FCS">1.7</a>) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells <span class="citation">(Honigmann et al. <a href="#ref-EggSTEDFCS">2014</a>)</span>. The pair correlation function approach (section <a href="intro.html#PCF">1.7.3.1</a>) can be used to image barriers to diffusion <span class="citation">(Digman and Gratton <a href="#ref-PCF">2009</a>)</span>; diffusion barriers necessarily lead to anomalous diffusion.</p>
@@ -445,7 +445,7 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <p>It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument. This can be done with a chroma-slide. The photon counts measured from a chroma-slide should follow a Poisson distribution. If instead the distribution is super-Poissonian (has a greater variance than its mean), this is indicative of a non-constant dwell-time.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  </strong></span>The <em>frame time</em> of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detectionion of photons from the first pixel to the end of detection of photons from the last pixel.
+<span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  </strong></span>The <em>frame time</em> of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detection of photons from the first pixel to the end of detection of photons from the last pixel.
 </div>
 
 
@@ -545,8 +545,7 @@ G(X; 0) = \frac{1}{n}
 <p>Suppose that two proteins of interest A and B are labelled with red and green fluorophores respectively (and there is no bleed-through between these red and green channels).</p>
 <p>If these proteins are interacting, then</p>
 <ul>
-<li>interaction implies that A and B <em>co-diffuse</em></li>
-<li>this implies that A and B co-diffuse</li>
+<li>interaction implies that A and B co-diffuse</li>
 <li>this implies that for a given volume in the sample</li>
 <li>more of A implies more of B</li>
 <li>less of A implies less of B</li>

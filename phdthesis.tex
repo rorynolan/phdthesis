@@ -255,7 +255,7 @@ Acronym & Term\\
 \hline
 ACF & AutoCorrelation Function\\
 \hline
-ALEX & Alternating Laser Excitation\\
+ALEX & Alternating Laser EXcitation\\
 \hline
 APD & Avalanche Photo-Diode\\
 \hline
@@ -265,7 +265,7 @@ CCD & Charge-Coupled Device\\
 \hline
 ccN\&B & cross-correlated Number and Brightness\\
 \hline
-CCR & C-Chemokyne Receptor 5\\
+CCR5 & C-Chemokyne Receptor 5\\
 \hline
 CD4 & Cluster of Differentiation 4\\
 \hline
@@ -291,7 +291,7 @@ FKBP & FK Binding Protein\\
 \hline
 FRET & Forster Resonance Energy Transfer\\
 \hline
-GaAsP & Gallium arsenide phosphide\\
+GaAsP & Gallium Arsenide Phosphide\\
 \hline
 GFP & Green Fluorescent Protein\\
 \hline
@@ -725,10 +725,10 @@ simultaneously and the image is acquired by a camera (see figure
 \ref{fig:widefield}). One advantage of this is the general simplicity of
 the setup: the optics are less complex and there is no need to scan
 across the sample to acquire each pixel (which requires precise
-robotics). Another example is that images can be acquired faster because
-all pixels in a frame are acquired simultaneously. The disadvantage of
-this is that the absence of confocal optics means that out of focus
-light can make it to the detection device (camera).
+robotics). Another advantage is that images can be acquired faster
+because all pixels in a frame are acquired simultaneously. The
+disadvantage of this is that the absence of confocal optics means that
+out of focus light can make it to the detection device (camera).
 
 
 
@@ -776,7 +776,7 @@ part of the sample within this thin evanescent wave is illuminated.
 \(n_1\) is the refractive index of the sample and \(n_2\) is the
 refractive index of the cover slip; \(n_1<n_2\) is assumed. \(\theta_c\)
 is the critical angle and \(\theta\) is the incident angle of the laser
-light; \(\theta < \theta_c\) is assumed.}\label{fig:TIRFig}
+light; \(\theta > \theta_c\) is assumed.}\label{fig:TIRFig}
 \end{figure}
 
 \subsection{Cameras}\label{cameras}
@@ -914,12 +914,7 @@ happening simultaneously and independently in each individual dimension.
 
 These definitions are the formally correct ones. In biophysics, however,
 both of these processes (diffusion and Brownian motion) are most often
-referred to as \emph{diffusion}. Usually, in biophysics one is
-interested in proteins which move around in a medium like the cytoplasm
-or the cell membrane. When this is referred to as \emph{diffusion}, it
-is what is defined as Brownian motion above. Henceforth when I use the
-term \emph{diffusion}, this Brownian motion type of movement can be
-assumed.
+referred to as \emph{diffusion}. I will follow this convention.
 
 \subsection{Anomalous diffusion}\label{anomalous-diffusion}
 
@@ -1037,9 +1032,9 @@ dwell-time.
 \protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
 }The \emph{frame time} of a scanning confocal microscope is the amount
 of time it takes to acquire the data for all of the pixels in a whole
-frame. That is the length of time from the start of detectionion of
-photons from the first pixel to the end of detection of photons from the
-last pixel.
+frame. That is the length of time from the start of detection of photons
+from the first pixel to the end of detection of photons from the last
+pixel.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
@@ -1224,9 +1219,7 @@ If these proteins are interacting, then
 \begin{itemize}
 \tightlist
 \item
-  interaction implies that A and B \emph{co-diffuse}
-\item
-  this implies that A and B co-diffuse
+  interaction implies that A and B co-diffuse
 \item
   this implies that for a given volume in the sample
 \item
@@ -1450,7 +1443,7 @@ floating point (real-numbered) pixels, and the only package that can
 correctly import TIFF files that were saved from \emph{ImageJ}
 \citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
 capability is a basic need for masses of people. \texttt{ijtiff} gets
-335 downloads per month which amounts to 2,563 since it was first
+333 downloads per month which amounts to 2,563 since it was first
 released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
@@ -1462,7 +1455,7 @@ was peer reviewed and published \citep{ijtiff}.
 
 \texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
 \emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 630 downloads per month which amounts to 10,995 since it
+users. It gets 629 downloads per month which amounts to 10,995 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
@@ -1471,7 +1464,7 @@ was first released.
 photobleaching). It provides all detrending algorithms mentioned in
 section \ref{photobleaching-correction}. The detrending is done in C++
 in the background for speed but it is wrapped in an R package for ease
-of use. It gets 360 downloads per month which amounts to 3,421 since it
+of use. It gets 359 downloads per month which amounts to 3,421 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
@@ -1486,7 +1479,7 @@ is often seen. Using file names for metadata like this is a good idea,
 however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible. This
 package was peer reviewed and published \citep{filesstrings}. It gets
-802 downloads per month which amounts to 14,017 since it was first
+800 downloads per month which amounts to 14,017 since it was first
 released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
@@ -1507,7 +1500,7 @@ package developers to write unit tests for their packages. It helped me
 to eradicate many bugs in all of my packages. Interestingly,
 \texttt{exampletestr} was used to unit test and eradicate bugs in
 itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 509 downloads per month which amounts
+2017.\citep{exampletestr} It gets 508 downloads per month which amounts
 to 8,509 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
