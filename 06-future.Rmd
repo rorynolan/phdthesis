@@ -13,7 +13,7 @@ Whilst I really like R, the fluorescence community does not use it, which has be
 
 ## Study real data bleaching profiles with simulations {#mimic}
 
-It was mentioned in section \@ref(detrend-compare) that it would be possible to study the effect of real bleaching as opposed to simulated ideal bleaching and why it is more necessary to detrend in the real data case by mimicking real bleaching profiles with simulations. This is something I would like to do. It would be difficult because it would require the collection and cataloging of a diverse set of real data bleaching profiles from various biological samples. This would be the bottleneck because I have already written the simulation and analysis pipelines. 
+It was mentioned in section \@ref(detrend-compare) that it would be possible to study the effect of real bleaching as opposed to simulated ideal bleaching and why it is more necessary to detrend in the real data case, by mimicking real bleaching profiles with simulations. This is something I would like to do. It would be difficult because it would require the collection and cataloging of a diverse set of real data bleaching profiles from various biological samples. This would be the bottleneck because I have already written the simulation and analysis pipelines. 
 
 
 ## Compare FRET with FCS

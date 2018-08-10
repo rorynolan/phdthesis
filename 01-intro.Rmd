@@ -380,10 +380,10 @@ If these proteins are interacting, then
 
 * interaction implies that A and B co-diffuse
 * this implies that for a given volume in the sample
-  - more of A implies more of B
-  - less of A implies less of B
-  - more of B implies more of A
-  - less of B implies less of A
+    - more of A implies more of B
+    - less of A implies less of B
+    - more of B implies more of A
+    - less of B implies less of A
   
 Since the number of photons emitted is proportional to the amount of fluorophores present, it follows that
 
