@@ -1222,14 +1222,18 @@ If these proteins are interacting, then
   interaction implies that A and B co-diffuse
 \item
   this implies that for a given volume in the sample
-\item
-  more of A implies more of B
-\item
-  less of A implies less of B
-\item
-  more of B implies more of A
-\item
-  less of B implies less of A
+
+  \begin{itemize}
+  \tightlist
+  \item
+    more of A implies more of B
+  \item
+    less of A implies less of B
+  \item
+    more of B implies more of A
+  \item
+    less of B implies less of A
+  \end{itemize}
 \end{itemize}
 
 Since the number of photons emitted is proportional to the amount of
@@ -1443,7 +1447,7 @@ floating point (real-numbered) pixels, and the only package that can
 correctly import TIFF files that were saved from \emph{ImageJ}
 \citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
 capability is a basic need for masses of people. \texttt{ijtiff} gets
-333 downloads per month which amounts to 2,563 since it was first
+332 downloads per month which amounts to 2,563 since it was first
 released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
@@ -1455,7 +1459,7 @@ was peer reviewed and published \citep{ijtiff}.
 
 \texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
 \emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 629 downloads per month which amounts to 10,995 since it
+users. It gets 628 downloads per month which amounts to 10,995 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
@@ -1464,7 +1468,7 @@ was first released.
 photobleaching). It provides all detrending algorithms mentioned in
 section \ref{photobleaching-correction}. The detrending is done in C++
 in the background for speed but it is wrapped in an R package for ease
-of use. It gets 359 downloads per month which amounts to 3,421 since it
+of use. It gets 358 downloads per month which amounts to 3,421 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
@@ -1477,10 +1481,11 @@ use of file names for metadata. This is very common in microscopy,
 e.g.~a file name like \texttt{well1\_cell1\_before\_drug\_addition.tif}
 is often seen. Using file names for metadata like this is a good idea,
 however if the naming or the extraction of data from these names is
-inconsistent, analysis becomes a nightmare and less reproducible. This
-package was peer reviewed and published \citep{filesstrings}. It gets
-800 downloads per month which amounts to 14,017 since it was first
-released.
+inconsistent, analysis becomes a nightmare and less reproducible.
+\texttt{filesstrings} is provides a consistent means of working with
+such file names. This package was peer reviewed and published
+\citep{filesstrings}. It gets 799 downloads per month which amounts to
+14,017 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
@@ -1500,7 +1505,7 @@ package developers to write unit tests for their packages. It helped me
 to eradicate many bugs in all of my packages. Interestingly,
 \texttt{exampletestr} was used to unit test and eradicate bugs in
 itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 508 downloads per month which amounts
+2017.\citep{exampletestr} It gets 507 downloads per month which amounts
 to 8,509 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
@@ -1522,7 +1527,7 @@ contributes photon counts to its pixel of residence at that time
 according to a Poisson process.
 
 Finally, \texttt{brownded} facilitates the synthetic bleaching of
-fluorescent particles so bleaching can be investigated with images
+fluorescent particles, so bleaching can be investigated with images
 produced with \texttt{brownded}.
 
 \chapter{Photobleaching Correction}\label{photobleaching-correction}
@@ -1537,7 +1542,7 @@ emitting a photon. In reality, it is possible that the incident photon
 can \emph{break} the fluorophore with the result that it will no longer
 emit light. This breaking is referred to as \emph{photobleaching} (or
 \emph{bleaching} for short). Bleaching causes a diminution in the number
-of effective fluorophores which is a direct cause of a loss of
+of effective fluorophores, which is a direct cause of a loss of
 fluorescent signal.
 
 Many quantitative methods in fields such as fluorescence fluctuation
@@ -1850,7 +1855,7 @@ should be decreasing over time. To proceed with solving for the
 appropriate \(l\), we need to make one assumption; this is that any two
 image series with the same mean intensity profile are appropriately
 detrended with the same detrending parameter \(l\). This assumption
-seems reasonable to me, however there is no need to debate its validity
+seems reasonable, however there is no need to debate its validity
 because later, detrending with the solved-for parameter \(l\) will be
 evaluated with simulated data and compared to the standard \(l = 10\).
 If this assumption is bad, then the performance of the detrending that
@@ -1877,7 +1882,7 @@ for \(l\) proceeds as follows:
 Mathematically, this can be expressed as
 
 \begin{equation}
-l = \text{argmin}_{\tilde{l}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{l}|)
+l = \text{argmin}_{\tilde{l}} |1 - (\text{ mean brightness of simulated series detrended with parameter } \tilde{l})|
 \label{eq:leq}
 \end{equation}
 
@@ -1885,7 +1890,7 @@ In fact, what I have done here is to give a general method for solving
 for any detrending parameter \(\alpha\):
 
 \begin{equation}
-\alpha = \text{argmin}_{\tilde{\alpha}} (1 - |\text{ mean brightness of simulated series detrended with parameter } \tilde{\alpha}|)
+\alpha = \text{argmin}_{\tilde{\alpha}} |1 - (\text{ mean brightness of simulated series detrended with parameter } \tilde{\alpha})|
 \label{eq:detrend-param}
 \end{equation}
 
@@ -2106,7 +2111,7 @@ series, equation \eqref{eq:detrend-param} can be used, with \(\alpha\)
 being the number of swaps.
 
 The random gifting of counts from higher to lower intensity frames has
-the effect of redistribution mean intensity but \emph{also} variance in
+the effect of redistributing mean intensity but \emph{also} variance in
 intensity. With photon statistics (which follow a Poisson distribution),
 random counts provide both mean and variance. This is in contrast to all
 previous methods which consist of determining local deviation and adding
@@ -2398,7 +2403,7 @@ stoichiometry}\label{hiv-1-receptor-stoichiometry}
 
 HIV-1 infects many cell types (e.g.~CD4 T cells, macrophages, dendritic
 cells) and has different modes of entry for each cell type and indeed
-possible more than one mode of entry in any given cell type
+possibly more than one mode of entry in any given cell type
 \citep{Jakobsdottir}. Endocytosis is thought to be a common entry route
 \citep{Miyauchi}, particularly in macrophages \citep{Marechal} and
 Dendritic cells \citep{Mnager}. In CD4 T cells, HIV-1 has been shown to
@@ -2409,7 +2414,7 @@ receptor on that cell by the HIV-1 virus. Subsequently, a co-receptor
 (often CCR5 or CXCR4) is used in the fusion process
 \citep{Jakobsdottir}. The question of how many receptors and
 co-receptors are required to facilitate fusion (the \emph{stoichiometry}
-of the interaction of HIV-1 with its receptor and co-receptor, possibly
+of the interaction of HIV-1 with its receptor and co-receptor---possibly
 different for different cell types) had not been answered.
 
 \subsubsection{The use of number and brightness to study HIV-1 cell
@@ -2557,9 +2562,9 @@ conformation, with a single Env. We speculate that for
 HIV\textsubscript{HXB2}, step 2 is crucial to culminate the fusion
 reaction and there could be an anchoring domain and a fusion domain that
 undergoes gp120 disassembly leading to 6 helix bundle formation. For R5
-tropic virions, Env -- CD4 interactions form a the previously described
+tropic virions, Env -- CD4 interactions form the previously described
 asymmetric pre-hairpin intermediate \citep{Munro} \citep{DoKwon}
-\citep{Ma}; following binding and oligomerisation of 2 additional CD4
+\citep{Ma}, following binding and oligomerisation of 2 additional CD4
 molecules with concomitant CCR5 dimerization. After this, the secondary
 intermediate leads to the final fusion competent complex with a total of
 4±0.3 CD4, 2±0.3 CCR5 and 1 JR-FL Env.
@@ -2567,23 +2572,20 @@ intermediate leads to the final fusion competent complex with a total of
 
 \begin{quote}
 Our data indicate that both HXB2 Env and JR-FL Env start with an
-asymmetric intermediate bound to a single CD4, as previously
-suggested27. Our models also support the existence of important
-differences in the entry mechanisms of X4 and R5 strains. In the X4
-strains, CXCR4 dimerization \citep{Tan} \citep{Qin} occurs prior to CD4
-hexamer formation and following initial Env -- CD4 recognition
-\citep{Liu}. For R5 tropic JR-FL, CCR5 dimerization \citep{Qin} occurs
-after Env-CD4 complexation and recruitment of two additional CD4
-molecules \citep{Wu} around the complex.
+asymmetric intermediate bound to a single CD4, as previously suggested.
+Our models also support the existence of important differences in the
+entry mechanisms of X4 and R5 strains. In the X4 strains, CXCR4
+dimerization \citep{Tan} \citep{Qin} occurs prior to CD4 hexamer
+formation and following initial Env -- CD4 recognition \citep{Liu}. For
+R5 tropic JR-FL, CCR5 dimerization \citep{Qin} occurs after Env-CD4
+complexation and recruitment of two additional CD4 molecules \citep{Wu}
+around the complex.
 
 --- \citet{HIVstoichiometry}
 \end{quote}
 
-For the X4 and R5-tropic case, structural modelling of the hypothesis
+For the X4 and R5-tropic cases, structural modelling of the hypothesis
 has been done. See figure \ref{fig:HIVStoichiometryStructure}.
-
-
-
 
 
 
@@ -2592,11 +2594,8 @@ has been done. See figure \ref{fig:HIVStoichiometryStructure}.
 
 \includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/HIVStoichiometryStructure} \hfill{}
 
-\caption{The HIV-1 JR-FL Env glycoprotein
-(blue) (PDB ID: 4ZMJ) is present as a trimer on the mature virion. b,
-Time-resolved stoichiometry pre-fusion reaction for CXCR4-CD4 (red dots)
-induced by HIVHXB2--Gag-iCherry virions. (gp120: light blue, gp41: dark
-blue, CD4: orange, CXCR4: green, b12: yellow)}\label{fig:HIVStoichiometryStructure}
+\caption{Pre-fusion reaction sequences
+for the R5 (a) and X4 (B) tropic cases.}\label{fig:HIVStoichiometryStructure}
 \end{figure}
 
 \subsection{Conclusion}\label{conclusion}
@@ -2704,12 +2703,12 @@ spectroscopy}\label{fluorescence-fluctuation-spectroscopy-1}
 
 FFS has many applications. Indeed the original N\&B paper \citep{NB}
 alone has over 250 citations. All of these and future FFS studies
-require correct detrending to be reliable. \emph{Robin Hood} detrending
-is the answer for this. A major challenge will be making \emph{Robin
-Hood} visible, available and easy to use for the community. This means
-that the algorithm must be peer-reviewed, made available in all of the
-major free imaging softwares (ImageJ, python, R) and very well
-documented: a good manual is essential with any software package.
+require detrending to be reliable. \emph{Robin Hood} detrending is the
+answer for this. A major challenge will be making \emph{Robin Hood}
+visible, available and easy to use for the community. This means that
+the algorithm must be peer-reviewed, made available in all of the major
+free imaging softwares (ImageJ, python, R) and very well documented: a
+good manual is essential with any software package.
 
 \chapter{Future plans}\label{future-plans}
 
@@ -2733,7 +2732,7 @@ simulations}\label{mimic}
 It was mentioned in section \ref{detrend-compare} that it would be
 possible to study the effect of real bleaching as opposed to simulated
 ideal bleaching and why it is more necessary to detrend in the real data
-case by mimicking real bleaching profiles with simulations. This is
+case, by mimicking real bleaching profiles with simulations. This is
 something I would like to do. It would be difficult because it would
 require the collection and cataloging of a diverse set of real data
 bleaching profiles from various biological samples. This would be the
