@@ -68,7 +68,12 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#ways-to-read"><i class="fa fa-check"></i>Ways to read</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#apportion-of-credit"><i class="fa fa-check"></i>Apportion of credit</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#first-author"><i class="fa fa-check"></i>First author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#co-first-author"><i class="fa fa-check"></i>Co-first author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#other"><i class="fa fa-check"></i>Other</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#in-preparation"><i class="fa fa-check"></i>In preparation</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
 </ul></li>
@@ -125,10 +130,10 @@
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-fitting-detrending"><i class="fa fa-check"></i><b>3.3</b> Exponential fitting detrending</a></li>
 <li class="chapter" data-level="3.4" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#boxcar-smoothing-detrending"><i class="fa fa-check"></i><b>3.4</b> Boxcar smoothing detrending</a></li>
-<li class="chapter" data-level="3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#choosing-the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.5</b> Choosing the correct smoothing parameter for detrending</a></li>
+<li class="chapter" data-level="3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.5</b> The correct smoothing parameter for detrending</a></li>
 <li class="chapter" data-level="3.6" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-smoothing-detrending"><i class="fa fa-check"></i><b>3.6</b> Exponential smoothing detrending</a></li>
 <li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
-<li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
+<li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches</a></li>
 <li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
 <li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#detrend-compare"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
@@ -195,7 +200,7 @@
 </div>
 <div id="translate-software-to-imagej" class="section level2">
 <h2><span class="header-section-number">6.2</span> Translate software to <em>ImageJ</em></h2>
-<p>Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms. I will code my detrending algorithms as <em>ImageJ</em> plugins and also as python modules so that more of the community have easy access to them.</p>
+<p>Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms by others. I will code my detrending algorithms as <em>ImageJ</em> plugins and also as python modules so that more of the community have easy access to them.</p>
 </div>
 <div id="mimic" class="section level2">
 <h2><span class="header-section-number">6.3</span> Study real data bleaching profiles with simulations</h2>
@@ -203,7 +208,7 @@
 </div>
 <div id="compare-fret-with-fcs" class="section level2">
 <h2><span class="header-section-number">6.4</span> Compare FRET with FCS</h2>
-<p>I have the idea that when the question “Do these proteins interact?” is answered by Forster resonance energy transfer (FRET, <span class="citation">Förster (<a href="#ref-Frster">1948</a>)</span>), it should also be answerable by FCS. I would like to try to reproduce some standard FRET results with FCS. I am particularly interested to find out if there are instances where one technique succeeds and the other fails and why this might be. For example, it might be possible that for a given interacting pair of proteins, it is impossible to label them such that the FRET couple is close enough for FRET to be detected, but that this interaction is detectable by FCS. These techniques have been compared before <span class="citation">(Sahoo and Schwille <a href="#ref-Sahoo">2011</a>)</span>, but not by trying to reproduce previous work. In addition, attempts by new groups to reproduce work that is accepted in the literature are always interesting <span class="citation">(Baker <a href="#ref-Baker2016">2016</a>)</span>.</p>
+<p>I have the idea that when the question “Do these proteins interact?” is answered by Forster resonance energy transfer (FRET, <span class="citation">Förster (<a href="#ref-Frster">1948</a>)</span>), it should also be answerable by FCS. I would like to try to reproduce some standard FRET results with FCS. I am particularly interested to find out if there are instances where one technique succeeds in detecting interaction and the other fails, and why this might be. For example, it might be possible that for a given interacting pair of proteins, it is impossible to label them such that the FRET couple is close enough for FRET to be detected, but that this interaction is detectable by FCS. These techniques have been compared before <span class="citation">(Sahoo and Schwille <a href="#ref-Sahoo">2011</a>)</span>, but not by trying to reproduce previous work. In addition, attempts by new groups to reproduce work that is accepted in the literature are always interesting <span class="citation">(Baker <a href="#ref-Baker2016">2016</a>)</span>.</p>
 
 </div>
 </div>

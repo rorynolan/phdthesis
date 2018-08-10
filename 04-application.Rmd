@@ -11,7 +11,7 @@ Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 [@Ama
 
 ### Experimental results and discussion
 
-We found a brightness increase in $\epsilon$ of $\approx 1.6$-fold using the _automatic_ detrending method. The choice of $\tau=10$ resulted in a $\approx 0.7$-fold calculated increase, which is indeed a decrease. The $\approx 1.6$-fold increase suggests that dimerization had occurred (see figure \@ref(fig:FKBPfoldchanges)), however, we expected the increase to be $\approx 2$-fold upon dimerization. In that publication [@nandb], we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out [@fpcompare] explaining how the assumption that all fluorophores emit signal is invalid and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. We also tried $\tau=10$, which gave a decrease in brightness, showing that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.
+We found a brightness increase in $\epsilon$ of $\approx 1.6$-fold using the _automatic_ detrending method. The $\approx 1.6$-fold increase suggests that dimerization had occurred (see figure \@ref(fig:FKBPfoldchanges)), however, we expected the increase to be $\approx 2$-fold upon dimerization. In that publication [@nandb], we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out [@fpcompare] explaining how the assumption that all fluorophores emit signal is invalid (because many never function properly) and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. We also tried $\tau=10$, which gave a decrease in brightness, showing that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.
 
 (ref:FKBPfoldchanges-caption) The fold changes in brightness $\epsilon$ upon addition of AP1510 drug shown for different detrending routines. $\tau=$ NA is no detrend.
 
@@ -25,7 +25,7 @@ A pair of cells from this study together with their brightness statistics are sh
 
 (ref:nandb-fig-caption) mClover-labelled myristoylated FKBP12 before and after application of 50nM AP1510. Shown here are intensity (first row), brightness (second row), a plot of intensity versus brightness (third row) and brightness histograms (fourth row). Notice how the change in brightness upon addition of the drug is seen most clearly by comparing the brightness histograms. The vertical lines in the histogram plot show the means of those histograms. Brightness here refers to B. Scale bar 20 $\mu$m. [@nandb]
 
-```{r nandb-fig, echo=FALSE, fig.cap='(ref:nandb-fig-caption)'}
+```{r nandb-fig, echo=FALSE, fig.cap='(ref:nandb-fig-caption)', out.width='85%'}
 include_graphics(here("img", "nandb-fig.png"))
 ```
 
@@ -90,7 +90,7 @@ Entry of HIV into any cell involves the initial binding of the CD4 receptor on t
 
 Our main motivation for studying N&B in the first place was that we thought it was a valuable method to study the process of HIV-1 fusion in live cells. N&B was first used in our research group to study the oligomeric state of dynamin at the HIV-1 fusion pore in TZM-bl cells [@DanDynamin]. This study concluded that dynamin-2 stabilizes the HIV-1 fusion pore with a low oligomeric state.
 
-Following on from this, we wanted to study the stoichiometry of the interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or CXCR4) upon the engagement of the virus with the cell and to follow this interaction stoichiometry up to the point of fusion. See figure \@ref(fig:HIVStoichiometrySetup). 
+Following on from this, we wanted to study the stoichiometry of the interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or CXCR4) upon the engagement of the virus with the cell and to follow this interaction stoichiometry up to the point of fusion; see figure \@ref(fig:HIVStoichiometrySetup). 
 
 > Entry of HIV-1 into a host cell requires an initial interaction between the viral-envelope glycoprotein spike complex---Env---with cell surface displayed CD4 and co receptors [@Jakobsdottir]. Although structural studies have revealed the intra-molecular basis for CD4 receptor and CXCR4/CCR5 co-receptor-induced conformational changes to the HIV-1 Env during host cell entry [@Ozorowski], little is known about how the inter-molecular dynamics and stoichiometry of this process culminates in fusion with the host cell membrane in live cells [@Brandenberg]. This is due to the difficulty of working with live cells and the lack of temporal resolution of the techniques commonly employed (i.e. crystallography and cryo-EM).
 > 
@@ -135,15 +135,15 @@ Figure \@ref(fig:HIVStoichiometryPlots) shows the results of the analysis detail
 include_graphics(here("img", str_c(c("X4", "R5"), "plot.png")))
 ```
 
-> Our studies support a dynamic three step model for both HIV~HXB2~ and HIV~JR-FL~ (figure \@ref(fig:HIVStoichiometryStructure)). For X4 tropic virions, Env – CD4 interactions induce CXCR4 dimerization, CD4 then engages with two Env (shown by 3 color TIRF-dSTORM microscopy) to generate a hexamer that might serve as a scaffold to stabilise a final 4 CD4 – 1/2 CXCR4 conformation, with a single Env. We speculate that for HIV~HXB2~, step 2 is crucial to culminate the fusion reaction and there could be an anchoring domain and a fusion domain that undergoes gp120 disassembly leading to 6 helix bundle formation. For R5 tropic virions, Env – CD4 interactions form the previously described asymmetric pre-hairpin intermediate [@Munro] [@DoKwon] [@Ma], following binding and oligomerisation of 2 additional CD4 molecules with concomitant CCR5 dimerization. After this, the secondary intermediate leads to the final fusion competent complex with a total of 4±0.3  CD4, 2±0.3  CCR5 and 1 JR-FL Env.
+> Our studies support a dynamic three step model for both HIV~HXB2~ and HIV~JR-FL~ (figure \@ref(fig:HIVStoichiometryStructure)). For X4 tropic virions, Env – CD4 interactions induce CXCR4 dimerization, CD4 then engages with two Env (shown by 3 color TIRF-dSTORM microscopy) to generate a hexamer that might serve as a scaffold to stabilise a final 4 CD4 – 1/2 CXCR4 conformation, with a single Env. We speculate that for HIV~HXB2~, step 2 is crucial to culminate the fusion reaction and there could be an anchoring domain and a fusion domain that undergoes gp120 disassembly leading to 6 helix bundle formation. For R5-tropic virions, Env – CD4 interactions form the previously described asymmetric pre-hairpin intermediate [@Munro] [@DoKwon] [@Ma], following binding and oligomerisation of 2 additional CD4 molecules with concomitant CCR5 dimerization. After this, the secondary intermediate leads to the final fusion competent complex with a total of 4±0.3  CD4, 2±0.3  CCR5 and 1 JR-FL Env.
 
 > Our data indicate that both HXB2 Env and JR-FL Env start with an asymmetric intermediate bound to a single CD4, as previously suggested. Our models also support the existence of  important differences in the entry mechanisms of X4 and R5 strains. In the X4 strains, CXCR4 dimerization [@Tan] [@Qin] occurs prior to CD4 hexamer formation and following initial Env – CD4 recognition [@Liu]. For R5 tropic JR-FL, CCR5 dimerization [@Qin] occurs after Env-CD4 complexation and recruitment of two additional CD4 molecules [@Wu] around the complex. 
 > 
 > --- @HIVstoichiometry
 
-For the X4 and R5-tropic cases, structural modelling of the hypothesis has been done. See figure \@ref(fig:HIVStoichiometryStructure). 
+For the X4 and R5-tropic cases, structural modelling of the hypothesis has been done to visualize our findings and to assess their viability; this produced figure \@ref(fig:HIVStoichiometryStructure). 
 
-(ref:HIVStoichiometryStructure-caption) Pre-fusion reaction sequences for the R5 (a) and X4 (B) tropic cases.
+(ref:HIVStoichiometryStructure-caption) Pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases.
 
 
 ```{r, HIVStoichiometryStructure, fig.cap='(ref:HIVStoichiometryStructure-caption)', echo=FALSE}

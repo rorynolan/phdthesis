@@ -146,7 +146,7 @@ One can see by eye that this is not a good fit for the data. This has disastrous
 
 ```{r exp-fit-decay-with-sin-corr, fig.cap='(ref:exp-fit-decay-with-sin-corr-caption)', echo=FALSE}
 df_exp_fit_bleach_sin_corr <- df_exp_fit_bleach_sin %>% 
-  mutate(mean = round(mean(sin_means)), 
+  mutate(mean = 90, 
          intensity_value = mean + intensity_value - means) %>% 
   select(time, intensity_value, mean) %>% 
   gather(line, intensity_value, c(intensity_value, mean)) %>% 
@@ -162,9 +162,9 @@ One can see in figure \@ref(fig:exp-fit-decay-with-sin-corr) that the exponentia
 
 ## Boxcar smoothing detrending
 
-A common approach to obtaining the line from which to measure deviations/fluctuations (as in the red line in figure \@ref(fig:exp-fit-bleach)) is to _smooth_ the time series, i.e. construct the line by taking a _local average_ at each point. This is often referred to as _boxcar smoothing_ because it can be visualized as drawing a box around a neighborhood of points, taking their average as the smoothed value at that point and then moving the box onto the next series of points and repeating the procedure. See figure \@ref(fig:boxcar-explanation).
+A common approach to obtaining the line from which to measure deviations/fluctuations (as in the red line in figure \@ref(fig:exp-fit-bleach)) is to _smooth_ the time series, i.e. construct the line by taking a _local average_ at each point. This is often referred to as _boxcar smoothing_ because it can be visualized as drawing a box around a neighborhood of points, taking their average as the smoothed value at that point and then moving the box onto the next series of points and repeating the procedure; see figure \@ref(fig:boxcar-explanation).
 
-(ref:boxcar-explanation-caption) The original time series is depicted by the red dots. The blue rectangles represent the _boxcar_. This boxcar is said to be of length 3 because it is wide enough to encompass 3 points at a time. The boxcar is centered on a point and then the smoothed value at that point (blue dot) is calculated as the mean value of all points within the boxcar. In reality, every point gets a smoothed value which means that the boxcar _overlaps_ but in this figure, for the sake of clarity, they are not overlapped.
+(ref:boxcar-explanation-caption) The original time series is depicted by the red dots. The blue rectangles represent the _boxcar_. This boxcar is said to be of length 3 because it is wide enough to encompass 3 points at a time. The boxcar is centered on a point and then the smoothed value at that point (blue dot) is calculated as the mean value of all points within the boxcar. In reality, every point gets a smoothed value which means that the boxcar _overlaps_ but in this figure---for the sake of clarity---they are not overlapped.
 
 ```{r boxcar-explanation, fig.cap='(ref:boxcar-explanation-caption)', echo=FALSE}  
 set.seed(9)
@@ -191,7 +191,7 @@ ggplot(boxcar_explain_df, aes(t, y)) +
   ylim(-0.3, 3) + xlab("time")
 ```
 
-The parameter $l$ of a boxcar is such that the length of the boxcar is equal to $2l + 1$. This ensures that the length of the boxcar is always odd) which means it can always be centered upon a point). Hence the allowable lengths of a boxcar are $3,5,7,9,$ etc. 
+The length of the boxcar is equal to $2l + 1$ for natural numbered parameter $l \in \mathbb{N}$. This ensures that the length of the boxcar is always odd) which means it can always be centered upon a point). Hence the allowable lengths of a boxcar are $3,5,7,9,$ etc. 
 
 The boxcar parameter $l$ has a large effect on the type of smoothing achieved. This can be seen in figure \@ref(fig:boxcar-sizes) where boxcar smoothing is applied to the trace in figure \@ref(fig:exp-fit-bleach). The traces for $l=1$ and $l=3$ are far too wiggly (not smooth enough); the trace for $l=75$ is better but perhaps still slightly wiggly; finally, the traces for $l=300$ and $l=1000$ are too close to straight horizontal lines (too smooth). 
 
@@ -219,9 +219,9 @@ df_exp_fit_bleach %>%
 This begs the question: what is the correct smoothing parameter $l$? 
 
 
-## Choosing the correct smoothing parameter for detrending
+## The correct smoothing parameter for detrending
 
-Figure \@ref(fig:boxcar-sizes) shows that the choice of boxcar size is crucial because different sizes lead to very different "smoothed" lines. The most common choice in the community is to choose $l = 10$ [@SimFCS]. There is no justification for this choice.
+Figure \@ref(fig:boxcar-sizes) shows that the choice of boxcar size is crucial because different sizes lead to very different _smoothed_ lines. The most common choice in the community is to choose $l = 10$ [@SimFCS]. There is no justification for this choice.
 
 In section \@ref(number-and-brightness), we learned that for immobile particles, the expected brightness is $B = 1$. This fact can be used to solve for the appropriate choice of $l$ to use for detrending a specific image series. 
 
@@ -239,14 +239,14 @@ The mean intensity profile can be used to visualize the bleaching of an image se
 Mathematically, this can be expressed as
 
 \begin{equation}
-l = \text{argmin}_{\tilde{l}} |1 - (\text{ mean brightness of simulated series detrended with parameter } \tilde{l})|
+l = \text{argmin}_{\tilde{l}} |1 - (\text{mean brightness of simulated series detrended with parameter } \tilde{l})|
 (\#eq:leq)
 \end{equation}
 
 In fact, what I have done here is to give a general method for solving for any detrending parameter $\alpha$:
 
 \begin{equation}
-\alpha = \text{argmin}_{\tilde{\alpha}} |1 - (\text{ mean brightness of simulated series detrended with parameter } \tilde{\alpha})|
+\alpha = \text{argmin}_{\tilde{\alpha}} |1 - (\text{mean brightness of simulated series detrended with parameter } \tilde{\alpha})|
 (\#eq:detrend-param)
 \end{equation}
 
@@ -255,7 +255,7 @@ This will be useful later when other detrending regimes with their own parameter
 
 ## Exponential smoothing detrending {#exponential-smoothing-detrending}
 
-_Exponential smoothing_ is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights.^[https://en.wikipedia.org/wiki/Weighted_arithmetic_mean] The weights fall off with distance $|t|$ from the point of interest according to $\exp(-\frac{|t|}{\tau})$ where the parameter $\tau$ is a positive real number. This function is visualized in figure \@ref(fig:exp-smooth-func). For small values of $\tau$, only values very close to the point of interest have importance when calculating the local average. For larger values of $\tau$, further values also have importance (but closer values always have higher weights). In this sense, increasing the value of $\tau$ has a similar effect to increasing the value of $l$ for the boxcar in that further away points are taken into account. 
+_Exponential smoothing_ is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights. The weights fall off with distance $|t|$ from the point of interest according to $\exp(-\frac{|t|}{\tau})$ where the parameter $\tau$ is a positive real number. This function is visualized in figure \@ref(fig:exp-smooth-func). For small values of $\tau$, only values very close to the point of interest have importance when calculating the local average. For larger values of $\tau$, further values also have importance (but closer values always have higher weights). In this sense, increasing the value of $\tau$ has a similar effect to increasing the value of $l$ for the boxcar in that further away points are taken into account. 
 
 (ref:exp-smooth-func-caption) The function $\exp(-\frac{|t|}{\tau})$ visualized with $\tau = 3$ and $\tau = 9$. For $\tau = 3$, points at distance $|t| = 10$ have approximately zero weight, whereas for $\tau = 9$, these points have significant weight.
 
@@ -320,7 +320,7 @@ The variance of a random variable $X$ is the expected value of the squared devia
 All of this chapter so far has focused on correcting for non-stationary mean. As shown in figure \@ref(fig:visualize-variance-decrease), as the mean decreases, so too does the variance. For an instance $x$ of the random variable $X$ with expected value $E[X] = \mu$, $x - \mu$ is the _deviation_ of $x$ from $\mu$. If we write $x$ as $x = \mu + \tilde{x}$, then we get the deviation $x - \mu = (\mu + \tilde{x}) - \mu = \tilde{x}$, so $\tilde{x}$ is the deviation. For a given point in figure \@ref(fig:visualize-variance-decrease), its deviation is its distance from the red line. For positive real number $k$, making the transformation $\tilde{x} \rightarrow \sqrt{k}\tilde{x}$ i.e. $x \rightarrow \mu + \sqrt{k}\tilde{x}$ causes the variance (i.e. the _squared deviation_) to be transformed as $\text{Var}(X) \rightarrow k \times \text{Var}(X)$. Hence, we have a way to modify the variance of a time series as a whole by modifying the deviation of each time point from the mean. For months, I toyed with this idea as a solution of correcting for non-stationary variance. However, in reality the contribution to the variance in intensity at a given pixel is down to both Poisson photon statistics and fluorophore movement. This combination of factors makes it very difficult to ascertain the amount by which the variance should be altered. I eventually abandoned my efforts to alter the variance like this in favor of the _Robin Hood_ detrending algorithm (section \@ref(robin-hood-detrending)) which includes correction for non-stationary variance as an intrinsic part of its detrending routine.
 
 
-## Caveats of fitting and smoothing approaches to detrending
+## Caveats of fitting and smoothing approaches
 
 Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently [@nandb], but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities---where most pixel values are either 0 or 1---are quasi-binary^[By _quasi-binary_, I just mean that almost all values are 0 or 1.] and hence a continuous approximation does not make sense (see figure \@ref(fig:fit-smooth-caveats)). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities. 
 
@@ -343,7 +343,7 @@ tibble(t = seq_len(100), y = detrendr:::myrpois(seq(0.5, 0, length = 100))) %>%
 
 Intensity images in units of photons are count data. This means that the values are all natural numbers, i.e. elements of $\mathbb{N}_0=\{0, 1, 2, 3, \ldots\}$. Fitting and smoothing give real-numbered values (elements of $\mathbb{R}$), which must then be transformed back into count data (elements of $\mathbb{N}_0$), normally by rounding. This means that fitting and smoothing methods of detrending push values through $\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0$. When current methods were failing to properly detrend low-intensity images, I began to wonder was it necessary to go through the real numbers $\mathbb{R}$, given that the start and end points were the natural numbers $\mathbb{N}_0$?
 
-Consider figure \@ref(fig:rh-detrend-eg). There is a bleached and unbleached version of an intensity trace. Suppose that our real data is the bleached trace, but we _wish_ it looked like the unbleached trace. You may wonder why the unbleached trace is not at the starting intensity of the bleached series. For reasons that will become clear, the Robin Hood algorithm can only place the detrended image at the mean intensity of the original image. This is not a problem because the issue with bleaching in FCS and FFS is mainly that the changing signal leads to incorrect calculations, not that the loss in signal leads to a chronic lack of information (photons). Indeed a feature of the Robin Hood algorithm is that it preserves the mean intensity of the real data on a pixel-by pixel basis.
+Consider figure \@ref(fig:rh-detrend-eg). There is a bleached and unbleached version of an intensity trace. Suppose that our real data is the bleached trace, but we _wish_ it looked like the unbleached trace. You may wonder why the unbleached trace is not at the starting intensity of the bleached series. For reasons that will become clear, the Robin Hood algorithm can only place the detrended image at the mean intensity of the original image. This is not a problem because the issue with bleaching in FCS and FFS is mainly that the changing signal leads to incorrect calculations, not that the loss in signal leads to a critical lack of information (photons). Indeed, a feature of the Robin Hood algorithm is that it preserves the mean intensity of the real data on a pixel-by pixel basis.
 
 (ref:rh-detrend-eg-caption) Bleached and unbleached intensity traces.
 
@@ -378,7 +378,7 @@ include_graphics(here("img", rev(c("rh_lego_plot.png", "rh.png"))))
 
 To determine how many swaps need to be made to detrend a given image series, equation \@ref(eq:detrend-param) can be used, with $\alpha$ being the number of swaps.
 
-The random gifting of counts from higher to lower intensity frames has the effect of redistributing mean intensity but _also_ variance in intensity. With photon statistics (which follow a Poisson distribution), random counts provide both mean and variance. This is in contrast to all previous methods which consist of determining local deviation and adding it to a _fixed_ global mean: this provides no redistribution of variance.
+The random gifting of counts from higher to lower intensity frames has the effect of temporally redistributing mean intensity but _also_ variance in intensity. With photon statistics (which follow a Poisson distribution), random counts provide both mean and variance. This is in contrast to all previous methods which consist of determining local deviation and adding it to a _fixed_ global mean: this provides no temporal redistribution of variance.
 
 
 ## A comparison of detrending methods {#detrend-compare}

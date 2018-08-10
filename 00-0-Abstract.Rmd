@@ -6,7 +6,7 @@ Photobleaching is the phenomenon of the breaking of fluorophores (light emitters
 
 Many quantitative methods in FFS implicitly assume that there is no bleaching in the data. Hence, data with significant levels of photobleaching must be corrected prior to the application of equations and algorithms in these fields. This correction is often termed _detrending_, since its aim is to remove the downward trend in the data introduced by photobleaching. 
 
-Previous detrending methods have two main caveats. 
+Previous detrending methods have two main caveats:
 
 1. They rely on either fitting or smoothing, both of which approximate data as continuous. This is inappropriate for fluorescence intensity data, which is count data (i.e. discrete, not continuous).
 1. They require the user to choose a detrending parameter. The choice of this parameter is crucial to the success or failure of the detrending routine, yet instructions on how to choose it did not exist.

@@ -55,7 +55,7 @@ This thesis may be read on the web at https://rorynolan.github.io/phdthesis/. If
 
 ## Apportion of credit {-}
 
-For clarity I include the following reliable rules of thumb:
+For clarity, I include the following reliable rules of thumb:
 
 * Molecular biology was done by Maro Iliopoulou and Luis Alvarez.
 * Imaging was done by Maro Iliopoulou, Luis Alvarez and Sergi Padilla-Parra.
@@ -71,15 +71,14 @@ For clarity I include the following reliable rules of thumb:
 
 I hereby list my publications. These can all be downloaded from https://github.com/rorynolan/phdthesis/tree/master/papers, where the naming convention is `JournalYEAR.pdf`.
 
-#### First author {-}
+### First author {-}
 
 * R. Nolan and S. Padilla-Parra. "filesstrings: An R package for file and
 string manipulation". In: _Journal of Open Source Software_ 2.14 (2017).
 * R. Nolan and S. Padilla-Parra. "exampletestr—An easy start to unit
 testing R packages". In: _Wellcome Open Research_ 2 (2017).
 * R. Nolan, L. Alvarez, J. Elegheert, et al. "nandb—number and brightness
-in R with a novel automatic detrending algorithm". In: _Bioinformatics_ 33.21
-(2017).
+in R with a novel automatic detrending algorithm". In: _Bioinformatics_ 33.21 (2017).
 * R. Nolan, M. Iliopoulou, L. Alvarez, et al. "Detecting protein
 aggregation and interactions in live cells: a guide to Number and
 Brightness". In: _Methods_ (2017).
@@ -90,13 +89,13 @@ Quantification of Protein Homo-Oligomerization Using Commercial
 Instrumentation and Free, Open Source Brightness Analysis Software”. In:
 _Journal of Visualized Experiments_ 0.0 (2018).
 
-#### Co-first author {-}
+### Co-first author {-}
 
 * M. Iliopoulou, R. Nolan, et al. "A dynamic three step
 mechanism drives the HIV-1 pre-fusion reaction". In: _Nat. Struct. Mol. Biol._
 0.0 (2018).
 
-#### Other {-}
+### Other {-}
 
 * D. M. Jones, L. A. Alvarez, R. Nolan, et al. "Dynamin-2 stabilizes the
 HIV-1 fusion pore with a low oligomeric state". In: _Cell reports_ 18.2
@@ -109,7 +108,7 @@ of cell heterogeneity: accounting for macrophage gene-environment
 interactions with single-cell RNA-Seq". In: _BMC genomics_ 18.1 (2017).
 
 
-#### In preparation {-}
+### In preparation {-}
 
 * The _Robin Hood_ algorithm (described in section \@ref(robin-hood-detrending)) will be submitted to a journal after the submission of this thesis but before the end of my PhD contract.
 
@@ -120,7 +119,7 @@ interactions with single-cell RNA-Seq". In: _BMC genomics_ 18.1 (2017).
 read_excel(here("misc", "AcroMath.xlsx"), sheet = "Acro") %>% 
   arrange(Acronym) %>% 
   filter(!duplicated(Acronym)) %>% 
-  kable()
+  kable(longtable = TRUE)
 ```
 
 
@@ -131,5 +130,5 @@ read_excel(here("misc", "AcroMath.xlsx"), sheet = "Math") %>%
   arrange(Meaning) %>% 
   filter(!duplicated(Symbol)) %>%
   mutate(Symbol = str_c("$", Symbol, "$")) %>% 
-  kable()
+  kable(escape = FALSE, longtable = TRUE)
 ```

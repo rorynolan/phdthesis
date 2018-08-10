@@ -68,7 +68,12 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#ways-to-read"><i class="fa fa-check"></i>Ways to read</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#apportion-of-credit"><i class="fa fa-check"></i>Apportion of credit</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#first-author"><i class="fa fa-check"></i>First author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#co-first-author"><i class="fa fa-check"></i>Co-first author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#other"><i class="fa fa-check"></i>Other</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#in-preparation"><i class="fa fa-check"></i>In preparation</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
 </ul></li>
@@ -125,10 +130,10 @@
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-fitting-detrending"><i class="fa fa-check"></i><b>3.3</b> Exponential fitting detrending</a></li>
 <li class="chapter" data-level="3.4" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#boxcar-smoothing-detrending"><i class="fa fa-check"></i><b>3.4</b> Boxcar smoothing detrending</a></li>
-<li class="chapter" data-level="3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#choosing-the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.5</b> Choosing the correct smoothing parameter for detrending</a></li>
+<li class="chapter" data-level="3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.5</b> The correct smoothing parameter for detrending</a></li>
 <li class="chapter" data-level="3.6" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-smoothing-detrending"><i class="fa fa-check"></i><b>3.6</b> Exponential smoothing detrending</a></li>
 <li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
-<li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
+<li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches</a></li>
 <li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
 <li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#detrend-compare"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
@@ -193,10 +198,10 @@
 <h2><span class="header-section-number">1.1</span> Fluorescence</h2>
 
 <div class="definition">
-<span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.1  </strong></span><em>Fluorescence</em> is the emission of photons related to the process of <em>relaxation</em> for a given molecule from an electronically <em>excited</em> state (S<sub>1</sub>) to the <em>ground</em> state (S<sub>0</sub>).
+<span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.1  </strong></span><em>Fluorescence</em> is the emission of photons related to the process of <em>relaxation</em> for a given molecule from an electronically <em>excited</em> state (<span class="math inline">\(S_1\)</span>) to the <em>ground</em> state (<span class="math inline">\(S_0\)</span>).
 </div>
 
-<p>These two electronic states (S<sub>0</sub> and S<sub>1</sub>) of a molecule are defined as the highest occupied molecular orbital (S<sub>0</sub>, HOMO) and the lowest unoccupied molecular orbital (S<sub>1</sub>, LUMO). Each electronic state has various associated <em>vibrational</em> states between which <em>non-radiative</em> transitions can occur. An electron can be <em>excited</em> from the ground state S<sub>0</sub> into the higher energy excited state S<sub>1</sub> by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before <em>relaxing</em> to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a <em>Jablonski</em> diagram (figure <a href="intro.html#fig:Jablonski">1.1</a>).</p>
+<p>These two electronic states (<span class="math inline">\(S_0\)</span> and <span class="math inline">\(S_1\)</span>) of a molecule are defined as the highest occupied molecular orbital (<span class="math inline">\(S_0\)</span>, HOMO) and the lowest unoccupied molecular orbital (<span class="math inline">\(S_1\)</span>, LUMO). Each electronic state has various associated <em>vibrational</em> states between which <em>non-radiative</em> transitions can occur. An electron can be <em>excited</em> from the ground state <span class="math inline">\(S_0\)</span> into the higher energy excited state <span class="math inline">\(S_1\)</span> by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before <em>relaxing</em> to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a <em>Jablonski</em> diagram (figure <a href="intro.html#fig:Jablonski">1.1</a>).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:Jablonski"></span>
 <img src="img/Jablonski.jpg" alt="Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emission of light." width="100%" />
@@ -219,7 +224,7 @@ Figure 1.1: Jablonski diagram of the process of fluorescence. Absorption causes 
 <h3><span class="header-section-number">1.1.1</span> Phosphorescence</h3>
 
 <div class="definition">
-<span id="def:unnamed-chunk-4" class="definition"><strong>Definition 1.4  </strong></span>Excited electrons can undergo a <em>forbidden</em> transition into the <em>triplet</em> state T<sub>1</sub>, where they remain for a period of milliseconds before relaxing to the ground state with the emission of a photon. This is <em>phosphorescence</em>.
+<span id="def:unnamed-chunk-4" class="definition"><strong>Definition 1.4  </strong></span>Excited electrons can undergo a <em>forbidden</em> transition into the <em>triplet</em> state <span class="math inline">\(T_1\)</span>, where they remain for a period of milliseconds before relaxing to the ground state with the emission of a photon. This is <em>phosphorescence</em>.
 </div>
 
 </div>
@@ -246,16 +251,15 @@ Figure 1.2: Confocal microscope light path showing how out of focus light does n
 <p>An image is acquired on a confocal microscope by scanning this apparatus across a sample, collecting one pixel at a time.</p>
 <div id="detectors" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Detectors</h3>
-<p>There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect <span class="citation">(Albert Einstein <a href="#ref-photoelectric">1905</a>)</span>, a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.</p>
+<p>There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect <span class="citation">(Albert Einstein <a href="#ref-photoelectric">1905</a>)</span>, a phenomenon whereby incident light upon a material causes electrons to dissociate from that material.</p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.6  </strong></span>The <em>quantum efficiency</em> (QE) of a detector is the fraction of fluorescent signal that is reported by the detector.
 </div>
 
-<p>The quantum nature of the photoelectric effect makes it practically impossible for detectors to reach 100% efficiency.</p>
 <div id="photon-multiplier-tubes" class="section level4">
 <h4><span class="header-section-number">1.2.1.1</span> Photon multiplier tubes</h4>
-<p>Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured <span class="citation">(Hammamatsu <a href="#ref-HammamatsuPMT">2007</a>)</span>. See figure <a href="intro.html#fig:PMT">1.3</a>. This current corresponds to the incident light intensity.</p>
+<p>Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured <span class="citation">(Hammamatsu <a href="#ref-HammamatsuPMT">2007</a>)</span>; see figure <a href="intro.html#fig:PMT">1.3</a>. This current corresponds to the incident light intensity.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:PMT"></span>
 <img src="img/PMT.png" alt="PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured (Leica 2012)." width="100%" />
@@ -272,7 +276,7 @@ Figure 1.3: PMT detector setup. Electrons are dissociated by photons at the phot
 <span id="def:unnamed-chunk-7" class="definition"><strong>Definition 1.7  </strong></span><em>Avalanche multiplication</em> in semiconductors occurs when free electrons which are moving in an electric field across the semiconductor collide with bound electrons, freeing them to move and indeed to free more bound electrons. This compounding increase in free electrons in the electric field leads to an increase in the electric current.
 </div>
 
-<p>Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure <a href="intro.html#fig:APD">1.4</a>. They are somewhat analogous to PMTs, using the avalanche effect in place of the series of cathodes.</p>
+<p>Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current; see figure <a href="intro.html#fig:APD">1.4</a>. They are somewhat analogous to PMTs, using the avalanche effect in place of the series of cathodes.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:APD"></span>
 <img src="img/APD.png" alt="APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor, this electron is accelerated, initiating an avalanche (Leica 2012)." width="100%" />
@@ -314,7 +318,7 @@ Figure 1.6: Light travels from the uniformly illuminated sample through a lens (
 </div>
 <div id="total-internal-reflection-microscopy" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Total internal reflection microscopy</h3>
-<p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure <a href="intro.html#fig:TIRFig">1.7</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot have the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.7</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
+<p><em>Total internal reflection microscopy</em> (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced in the immediate vicinity of the media boundary; see figure <a href="intro.html#fig:TIRFig">1.7</a> <span class="citation">(Mattheyses, Simon, and Rappoport <a href="#ref-TIRFig">2010</a>)</span>. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot have the object of interest right at the cover slip. Looking at figure <a href="intro.html#fig:TIRFig">1.7</a>, it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:TIRFig"></span>
 <img src="img/TIRFig.png" alt="The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. \(n_1\) is the refractive index of the sample and \(n_2\) is the refractive index of the cover slip; \(n_1&lt;n_2\) is assumed. \(\theta_c\) is the critical angle and \(\theta\) is the incident angle of the laser light; \(\theta &gt; \theta_c\) is assumed." width="100%" />
@@ -402,7 +406,7 @@ J = -D\frac{d\varphi}{dx}
 </div>
 <div id="FFS" class="section level2">
 <h2><span class="header-section-number">1.6</span> Fluorescence fluctuation spectroscopy</h2>
-<p>Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the intensity fluctuation of a fluorescence signal <span class="citation">(Chen et al. <a href="#ref-FFS">1999</a>)</span>. This very often takes the form of moment analysis <span class="citation">(Qian and Elson <a href="#ref-QianElson">1990</a>)</span>. Briefly, moment analysis is an attempt to extract data from a distribution of values using its <em>moments</em>. The first moment of a distribution is its mean value, the second moment is its variance. The <span class="math inline">\(n\)</span><sup>th</sup> moment of a random <span class="math inline">\(X\)</span> with expected value <span class="math inline">\(E[X]=\mu\)</span> for <span class="math inline">\(n&gt;1\)</span> is <span class="math inline">\(E[(X - \mu)^n]\)</span>.</p>
+<p>Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the intensity fluctuation of a fluorescence signal <span class="citation">(Chen et al. <a href="#ref-FFS">1999</a>)</span>. This very often takes the form of moment analysis <span class="citation">(Qian and Elson <a href="#ref-QianElson">1990</a>)</span>. Briefly, moment analysis is an attempt to extract data from a distribution of values using its <em>moments</em>. The first moment of a distribution is its mean value, the second moment is its variance. The <span class="math inline">\(n\)</span><sup>th</sup> moment of a random variable <span class="math inline">\(X\)</span> with expected value <span class="math inline">\(E[X]=\mu\)</span> for <span class="math inline">\(n&gt;1\)</span> is <span class="math inline">\(E[(X - \mu)^n]\)</span>.</p>
 <p>Intensity traces can be viewed as distributions with moments. For example, the intensity trace in figure <a href="intro.html#fig:confocal-volume-particle">1.8</a> has mean 0.27 and variance 0.48.</p>
 <div id="number-and-brightness" class="section level3">
 <h3><span class="header-section-number">1.6.1</span> Number and brightness</h3>
@@ -416,7 +420,9 @@ J = -D\frac{d\varphi}{dx}
 <div class="definition">
 <span id="def:unnamed-chunk-14" class="definition"><strong>Definition 1.13  </strong></span>The brightness <span class="math inline">\(\epsilon\)</span> of an entity is the mean number of photon detector counts it gives per unit time when in the illumination (confocal) volume.
 </div>
- For an image series where the <span class="math inline">\(i\)</span><sup>th</sup> slice in the stack is the image acquired at time <span class="math inline">\(t = i\)</span>, for a given pixel position <span class="math inline">\((x, y)\)</span>, we define <span class="math inline">\(\langle I \rangle\)</span> as the mean intensity of that pixel over the image series and <span class="math inline">\(\sigma^2\)</span> as the variance in that intensity. Define <span class="math inline">\(n\)</span> as the mean number of entities in the illumination volume corresponding to that pixel. Assuming that all entities are mobile, we have
+
+<blockquote>
+For an image series where the <span class="math inline">\(i\)</span><sup>th</sup> slice in the stack is the image acquired at time <span class="math inline">\(t = i\)</span>, for a given pixel position <span class="math inline">\((x, y)\)</span>, we define <span class="math inline">\(\langle I \rangle\)</span> as the mean intensity of that pixel over the image series and <span class="math inline">\(\sigma^2\)</span> as the variance in that intensity. Define <span class="math inline">\(n\)</span> as the mean number of entities in the illumination volume corresponding to that pixel. Assuming that all entities are mobile, we have
 <span class="math display" id="eq:NB1-2" id="eq:NB1-1">\[\begin{align}
 N &amp;= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} \tag{1.3} \\
 B &amp;= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon \tag{1.4}
@@ -426,7 +432,6 @@ where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)
 \epsilon &amp;= \frac{\sigma^2}{\langle I \rangle} - 1 \tag{1.5} \\
 n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 \end{align}\]</span>
-<blockquote>
 <p>— <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 </blockquote>
 <p>The quantity <span class="math inline">\(\epsilon\)</span> is a relative measure of oligomeric state. That is, <span class="math inline">\(\epsilon\)</span> will be twice as big for dimers as it is for monomers, three times as big for trimers as it is for monomers and so on.</p>
@@ -445,7 +450,7 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6}
 <p>It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument. This can be done with a chroma-slide. The photon counts measured from a chroma-slide should follow a Poisson distribution. If instead the distribution is super-Poissonian (has a greater variance than its mean), this is indicative of a non-constant dwell-time.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  </strong></span>The <em>frame time</em> of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detection of photons from the first pixel to the end of detection of photons from the last pixel.
+<span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.15  </strong></span>The <em>frame time</em> <span class="math inline">\(t_\text{frame}\)</span> of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detection of photons from the first pixel to the end of detection of photons from the last pixel.
 </div>
 
 
@@ -565,7 +570,7 @@ G(X; 0) = \frac{1}{n}
 </div>
 <div id="autocorrelation" class="section level3">
 <h3><span class="header-section-number">1.7.2</span> Autocorrelation</h3>
-<p>As mentioned already, the autocorrelation function (ACF) can be used to count the number of particles in the confocal volume. It can also be used to measure diffusion coefficients for various types of diffusion (normal, anomalous, polydisperse, etc.). The ACF is not used in my PhD.</p>
+<p>As mentioned already, the autocorrelation function (ACF) can be used to count the number of particles in the confocal volume. It can also be used to measure diffusion coefficients. The ACF is not used in my PhD.</p>
 </div>
 <div id="cross-correlation" class="section level3">
 <h3><span class="header-section-number">1.7.3</span> Cross-correlation</h3>
@@ -661,7 +666,7 @@ B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(
 <p>Photometrics. 2018. “Photometrics Launches Next Generation Scientific Cmos Camera with 95 Percent Quantum Efficiency.” <em>Photometrics</em>. <a href="https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera" class="uri">https://www.photometrics.com/news/pressrelease/Photometrics-Prime-95B-sCMOS-Camera</a>.</p>
 </div>
 <div id="ref-sCMOS">
-<p>Andor. 2018b. “SCMOS Cameras.” <a href="http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras" class="uri">http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras</a>.</p>
+<p>Andor. 2018b. “sCMOS Cameras.” <a href="http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras" class="uri">http://www.andor.com/scientific-cameras/neo-and-zyla-scmos-cameras</a>.</p>
 </div>
 <div id="ref-DanDynamin">
 <p>Jones, Daniel M, Luis A Alvarez, Rory Nolan, Margarita Ferriz, Raquel Sainz Urruela, Xènia Massana-Muñoz, Hila Novak-Kotzer, Michael L Dustin, and Sergi Padilla-Parra. 2017. “Dynamin-2 Stabilizes the Hiv-1 Fusion Pore with a Low Oligomeric State.” <em>Cell Reports</em> 18 (2). Elsevier: 443–53. doi:<a href="https://doi.org/10.1016/j.celrep.2016.12.032">10.1016/j.celrep.2016.12.032</a>.</p>

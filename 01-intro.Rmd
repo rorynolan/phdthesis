@@ -4,10 +4,10 @@
 ## Fluorescence 
 
 ```{definition}
-_Fluorescence_ is the emission of photons related to the process of _relaxation_ for a given molecule from an electronically _excited_ state (S~1~) to the _ground_ state (S~0~). 
+_Fluorescence_ is the emission of photons related to the process of _relaxation_ for a given molecule from an electronically _excited_ state ($S_1$) to the _ground_ state ($S_0$). 
 ```
 
-These two electronic states (S~0~ and S~1~) of a molecule are defined as the highest occupied molecular orbital (S~0~, HOMO) and the lowest unoccupied molecular orbital (S~1~, LUMO). Each electronic state has various associated _vibrational_ states between which _non-radiative_ transitions can occur. An electron can be _excited_ from the ground state S~0~ into the higher energy excited state S~1~ by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before _relaxing_ to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a _Jablonski_ diagram (figure \@ref(fig:Jablonski)).
+These two electronic states ($S_0$ and $S_1$) of a molecule are defined as the highest occupied molecular orbital ($S_0$, HOMO) and the lowest unoccupied molecular orbital ($S_1$, LUMO). Each electronic state has various associated _vibrational_ states between which _non-radiative_ transitions can occur. An electron can be _excited_ from the ground state $S_0$ into the higher energy excited state $S_1$ by absorption of a photon of the appropriate energy. The electron will remain in the excited state (possibly undergoing non-radiative transitions through vibrational states) for a period of nanoseconds before _relaxing_ to the lower energy ground state, losing energy by means of emitting a photon of that energy. This is shown by means of a _Jablonski_ diagram (figure \@ref(fig:Jablonski)).
 
 (ref:Jablonski-caption) Jablonski diagram of the process of fluorescence. Absorption causes excitation, relaxation causes the emission of light.
 
@@ -29,7 +29,7 @@ Fluorophores under constant excitation emit light one photon at a time according
 ### Phosphorescence
 
 ```{definition}
-Excited electrons can undergo a _forbidden_ transition into the _triplet_ state T~1~, where they remain for a period of milliseconds before relaxing to the ground state with the emission of a photon. This is _phosphorescence_.
+Excited electrons can undergo a _forbidden_ transition into the _triplet_ state $T_1$, where they remain for a period of milliseconds before relaxing to the ground state with the emission of a photon. This is _phosphorescence_.
 ```
 
 
@@ -57,18 +57,16 @@ An image is acquired on a confocal microscope by scanning this apparatus across 
 
 ### Detectors  {#detectors}
 
-There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect [@photoelectric], a phenomenon whereby incident light upon a certain material causes electrons to dissociate from that material.
+There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect [@photoelectric], a phenomenon whereby incident light upon a material causes electrons to dissociate from that material.
 
 ```{definition}
 The _quantum efficiency_ (QE) of a detector is the fraction of fluorescent signal that is reported by the detector.
 ```
 
-The quantum nature of the photoelectric effect makes it practically impossible for detectors to reach 100% efficiency.
-
 
 #### Photon multiplier tubes
 
-Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [@HammamatsuPMT]. See figure \@ref(fig:PMT). This current corresponds to the incident light intensity.
+Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [@HammamatsuPMT]; see figure \@ref(fig:PMT). This current corresponds to the incident light intensity.
 
 (ref:PMT-caption) PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured [@LeicaDetectors].
 
@@ -85,7 +83,7 @@ The QE of standard PMTs is approximately 25% for blue-green light. This is becau
 _Avalanche multiplication_ in semiconductors occurs when free electrons which are moving in an electric field across the semiconductor collide with bound electrons, freeing them to move and indeed to free more bound electrons. This compounding increase in free electrons in the electric field leads to an increase in the electric current.
 ```
 
-Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current. See figure \@ref(fig:APD). They are somewhat analogous to PMTs, using the avalanche effect in place of the series of cathodes. 
+Avalanche photo-diodes (APDs) are semiconductors that exploit the photoelectric effect together with avalanche multiplication (the photoelectric effect starts the avalanche) to convert light into measurable electric current; see figure \@ref(fig:APD). They are somewhat analogous to PMTs, using the avalanche effect in place of the series of cathodes. 
 
 (ref:APD-caption) APD detector setup. The incident photon dissociates an electron. Given the electric field across the semiconductor, this electron is accelerated, initiating an avalanche [@LeicaDetectors].
 
@@ -127,7 +125,7 @@ include_graphics(here("img", "Widefield.png"))
 
 
 ### Total internal reflection microscopy
-_Total internal reflection microscopy_ (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced at the media boundary, but this evanescent wave is only present very close to the boundary. See figure \@ref(fig:TIRFig) [@TIRFig]. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot have the object of interest right at the cover slip. Looking at figure \@ref(fig:TIRFig), it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.
+_Total internal reflection microscopy_ (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced in the immediate vicinity of the media boundary; see figure \@ref(fig:TIRFig) [@TIRFig]. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot have the object of interest right at the cover slip. Looking at figure \@ref(fig:TIRFig), it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.
 
 (ref:TIRFig-caption) The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. $n_1$ is the refractive index of the sample and $n_2$ is the refractive index of the cover slip; $n_1<n_2$ is assumed. $\theta_c$ is the critical angle and $\theta$ is the incident angle of the laser light; $\theta > \theta_c$ is assumed.
 
@@ -230,7 +228,7 @@ _Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no l
 
 ## Fluorescence fluctuation spectroscopy {#FFS}
 
-Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the intensity fluctuation of a fluorescence signal [@FFS]. This very often takes the form of moment analysis [@QianElson]. Briefly, moment analysis is an attempt to extract data from a distribution of values using its _moments_. The first moment of a distribution is its mean value, the second moment is its variance. The $n$^th^ moment of a random $X$ with expected value $E[X]=\mu$ for $n>1$ is $E[(X - \mu)^n]$.
+Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the intensity fluctuation of a fluorescence signal [@FFS]. This very often takes the form of moment analysis [@QianElson]. Briefly, moment analysis is an attempt to extract data from a distribution of values using its _moments_. The first moment of a distribution is its mean value, the second moment is its variance. The $n$^th^ moment of a random variable $X$ with expected value $E[X]=\mu$ for $n>1$ is $E[(X - \mu)^n]$.
 
 Intensity traces can be viewed as distributions with moments. For example, the intensity trace in figure \@ref(fig:confocal-volume-particle) has mean `r round(mean(df_intensity_trace$intensity), 2)` and variance  `r round(var(df_intensity_trace$intensity), 2)`. 
 
@@ -246,17 +244,17 @@ An _entity_ is a set of molecules which are chemically bound.
 ```{definition}
 The brightness $\epsilon$ of an entity is the mean number of photon detector counts it gives per unit time when in the illumination (confocal) volume.
 ```
-For an image series where the $i$^th^ slice in the stack is the image acquired at time $t = i$, for a given pixel position $(x, y)$, we define $\langle I \rangle$ as the mean intensity of that pixel over the image series and $\sigma^2$ as the variance in that intensity. Define $n$ as the mean number of entities in the illumination volume corresponding to that pixel. Assuming that all entities are mobile, we have
+
+> For an image series where the $i$^th^ slice in the stack is the image acquired at time $t = i$, for a given pixel position $(x, y)$, we define $\langle I \rangle$ as the mean intensity of that pixel over the image series and $\sigma^2$ as the variance in that intensity. Define $n$ as the mean number of entities in the illumination volume corresponding to that pixel. Assuming that all entities are mobile, we have
 \begin{align}
 N &= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} (\#eq:NB1-1) \\
 B &= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon (\#eq:NB1-2)
 \end{align}
-where $N$ and $B$ are referred to as the _apparent number_ and _apparent brightness_ respectively. This gives
+> where $N$ and $B$ are referred to as the _apparent number_ and _apparent brightness_ respectively. This gives
 \begin{align}
 \epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 (\#eq:NB2-1) \\
 n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} (\#eq:NB2-2)
 \end{align}
-> 
 > --- @NBreview^[This is a formulation of N&B that I wrote in a 2017 review of the technique.]
 
 The quantity $\epsilon$ is a relative measure of oligomeric state. That is, $\epsilon$ will be twice as big for dimers as it is for monomers, three times as big for trimers as it is for monomers and so on.
@@ -276,7 +274,7 @@ The _pixel dwell time_ $t_\text{dwell}$ of a scanning confocal microscope is the
 It is essential that the pixel dwell time is the same for each pixel, particularly for FFS. This is something that must be carefully verified on each instrument. This can be done with a chroma-slide. The photon counts measured from a chroma-slide should follow a Poisson distribution. If instead the distribution is super-Poissonian (has a greater variance than its mean), this is indicative of a non-constant dwell-time.
 
 ```{definition}
-The _frame time_ of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detection of photons from the first pixel to the end of detection of photons from the last pixel.
+The _frame time_ $t_\text{frame}$ of a scanning confocal microscope is the amount of time it takes to acquire the data for all of the pixels in a whole frame. That is the length of time from the start of detection of photons from the first pixel to the end of detection of photons from the last pixel.
 ```
 
 ```{definition}
@@ -397,7 +395,7 @@ Altogether, this implies that the intensity traces from the red and green channe
 
 ### Autocorrelation
 
-As mentioned already, the autocorrelation function (ACF) can be used to count the number of particles in the confocal volume. It can also be used to measure diffusion coefficients for various types of diffusion (normal, anomalous, polydisperse, etc.). The ACF is not used in my PhD.
+As mentioned already, the autocorrelation function (ACF) can be used to count the number of particles in the confocal volume. It can also be used to measure diffusion coefficients. The ACF is not used in my PhD.
 
 
 ### Cross-correlation
