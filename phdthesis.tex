@@ -94,6 +94,7 @@
     \date{University of Oxford}
 
 \usepackage{booktabs}
+\usepackage{longtable}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -134,7 +135,7 @@ PDF.
 \section*{Apportion of credit}\label{apportion-of-credit}
 \addcontentsline{toc}{section}{Apportion of credit}
 
-For clarity I include the following reliable rules of thumb:
+For clarity, I include the following reliable rules of thumb:
 
 \begin{itemize}
 \tightlist
@@ -172,8 +173,8 @@ I hereby list my publications. These can all be downloaded from
 \url{https://github.com/rorynolan/phdthesis/tree/master/papers}, where
 the naming convention is \texttt{JournalYEAR.pdf}.
 
-\subsubsection*{First author}\label{first-author}
-\addcontentsline{toc}{subsubsection}{First author}
+\subsection*{First author}\label{first-author}
+\addcontentsline{toc}{subsection}{First author}
 
 \begin{itemize}
 \tightlist
@@ -203,8 +204,8 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   Software''. In: \emph{Journal of Visualized Experiments} 0.0 (2018).
 \end{itemize}
 
-\subsubsection*{Co-first author}\label{co-first-author}
-\addcontentsline{toc}{subsubsection}{Co-first author}
+\subsection*{Co-first author}\label{co-first-author}
+\addcontentsline{toc}{subsection}{Co-first author}
 
 \begin{itemize}
 \tightlist
@@ -214,8 +215,8 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   Biol.} 0.0 (2018).
 \end{itemize}
 
-\subsubsection*{Other}\label{other}
-\addcontentsline{toc}{subsubsection}{Other}
+\subsection*{Other}\label{other}
+\addcontentsline{toc}{subsection}{Other}
 
 \begin{itemize}
 \tightlist
@@ -234,8 +235,8 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   \emph{BMC genomics} 18.1 (2017).
 \end{itemize}
 
-\subsubsection*{In preparation}\label{in-preparation}
-\addcontentsline{toc}{subsubsection}{In preparation}
+\subsection*{In preparation}\label{in-preparation}
+\addcontentsline{toc}{subsection}{In preparation}
 
 \begin{itemize}
 \tightlist
@@ -249,7 +250,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
 thesis}\label{acronyms-used-in-this-thesis}
 \addcontentsline{toc}{section}{Acronyms used in this thesis}
 
-\begin{tabular}{l|l}
+\begin{longtable}{l|l}
 \hline
 Acronym & Term\\
 \hline
@@ -275,7 +276,7 @@ CXCR4 & C-X-C motif Chemokyne Receptor 4\\
 \hline
 DNA & Deoxyribinucleic Acid\\
 \hline
-dSTORM & direct Stochastic Optical Reconstruction Microscopy\\
+dSTORM & direct STochastic Optical Reconstruction Microscopy\\
 \hline
 EM & Electron Microscopy\\
 \hline
@@ -347,101 +348,103 @@ TIRF & Total Internal Reflection Fluorescence\\
 \hline
 TZM-bl & Stable cell line expressing CD4 and CCR5\\
 \hline
-\end{tabular}
+\end{longtable}
 
 \section*{Mathematical symbols used in this
 thesis}\label{mathematical-symbols-used-in-this-thesis}
 \addcontentsline{toc}{section}{Mathematical symbols used in this thesis}
 
-\begin{tabular}{l|l}
+\begin{longtable}{l|l}
 \hline
 Symbol & Meaning\\
 \hline
-\$\textbackslash{}theta\$ & angle of incident light ray\\
+$\theta$ & angle of incident light ray\\
 \hline
-\$B\$ & apparent brightness of entities\\
+$B$ & apparent brightness of entities\\
 \hline
-\$N\$ & apparent number of entities\\
+$N$ & apparent number of entities\\
 \hline
-\$G\$ & autocorrelation\\
+$G$ & autocorrelation\\
 \hline
-\$\textbackslash{}varphi\$ & concentration\\
+$\varphi$ & concentration\\
 \hline
-\$\textbackslash{}text\{corr\}\$ & correlation\\
+$\text{corr}$ & correlation\\
 \hline
-\$\textbackslash{}theta\_c\$ & critical angle\\
+$\theta_c$ & critical angle\\
 \hline
-\$\textbackslash{}text\{crosscor\}\$ & cross-correlation\\
+$\text{crosscor}$ & cross-correlation\\
 \hline
-\$B\_\textbackslash{}text\{cc\}\$ & cross-corrlated brightness\\
+$B_\text{cc}$ & cross-corrlated brightness\\
 \hline
-\$\textbackslash{}sigma\textasciicircum{}2\_\textbackslash{}text\{cc\}\$ & cross-variance\\
+$\sigma^2_\text{cc}$ & cross-variance\\
 \hline
-\$\textbackslash{}tilde\{x\}\$ & deviation of \$x\$ from the mean \$\textbackslash{}mu\$ of \$X\$\\
+$\tilde{x}$ & deviation of $x$ from the expected value $\mu$ of $X$\\
 \hline
-\$D\$ & diffusion constant\\
+$D$ & diffusion constant\\
 \hline
-\$J\$ & diffusive flux\\
+$J$ & diffusive flux\\
 \hline
-\$\textbackslash{}epsilon\$ & entity brightness\\
+$\epsilon$ & entity brightness\\
 \hline
-\$E\$ & expectation operator\\
+$E$ & expectation operator\\
 \hline
-\$\textbackslash{}tau\$ & exponential smoothing parameter\\
+$\tau$ & exponential smoothing parameter\\
 \hline
-\$j\$ & frame number\\
+$j$ & frame number\\
 \hline
-\$S\_0\$ & highest occupied molecular orbital\\
+$S_0$ & highest occupied molecular orbital\\
 \hline
-\$I\$ & intensity\\
+$I$ & intensity\\
 \hline
-\$l\$ & length parameter of boxcar\\
+$l$ & length parameter of boxcar\\
 \hline
-\$T\_1\$ & lowest energy triplet state\\
+$T_1$ & lowest energy triplet state\\
 \hline
-\$S\_1\$ & lowest unoccupied molecular orbital\\
+$S_1$ & lowest unoccupied molecular orbital\\
 \hline
-\$\textbackslash{}mu\$ & mean\\
+$\text{msd}$ & mean squared displacement\\
 \hline
-\$\textbackslash{}text\{msd\}\$ & mean squared displacement\\
+$\mu$ & mean; expected value\\
 \hline
-\$n\$ & moment number; number of entities; number of replicates\\
+$n$ & moment number; number of entities; number of replicates\\
 \hline
-\$\textbackslash{}mathbb\{N\}\_0\$ & natural numbers (including zero)\\
+$\mathbb{N}$ & natural numbers (excluding zero)\\
 \hline
-\$d\$ & number of dimenions\\
+$\mathbb{N}_0$ & natural numbers (including zero)\\
 \hline
-\$\textbackslash{}alpha\$ & number of swaps\\
+$d$ & number of dimenions\\
 \hline
-\$p\$ & particle position; pixel position\\
+$\alpha$ & number of swaps\\
 \hline
-\$x\$ & position in space; horizontal position; instance of random variable \$X\$\\
+$p$ & particle position; pixel position\\
 \hline
-\$k\$ & positive real number\\
+$x$ & position in space; horizontal position; instance of random variable $X$\\
 \hline
-\$X\$ & random variable\\
+$k$ & positive real number\\
 \hline
-\$\textbackslash{}mathbb\{R\}\$ & real numbers\\
+$X$ & random variable\\
 \hline
-\$n\_2\$ & refractive index of cover slip\\
+$\mathbb{R}$ & real numbers\\
 \hline
-\$n\_1\$ & refractive index of sample on cover slip\\
+$n_2$ & refractive index of cover slip\\
 \hline
-\$\textbackslash{}tau\_D\$ & residence time of particle (in confocal volume)\\
+$n_1$ & refractive index of sample on cover slip\\
 \hline
-\$i\$ & slice number\\
+$\tau_D$ & residence time of particle (in confocal volume)\\
 \hline
-\$\textbackslash{}text\{exp\}\$ & the exponential function\\
+$i$ & slice number\\
 \hline
-\$t\$ & time\\
+$\text{exp}$ & the exponential function\\
 \hline
-\$\textbackslash{}text\{Var\}\$ & variance function\\
+$t$ & time\\
 \hline
-\$\textbackslash{}sigma\textasciicircum{}2\$ & variance in intensity\\
+$\text{Var}$ & variance function\\
 \hline
-\$y\$ & vertical position\\
+$\sigma^2$ & variance in intensity\\
 \hline
-\end{tabular}
+$y$ & vertical position\\
+\hline
+\end{longtable}
 
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -463,7 +466,7 @@ and algorithms in these fields. This correction is often termed
 \emph{detrending}, since its aim is to remove the downward trend in the
 data introduced by photobleaching.
 
-Previous detrending methods have two main caveats.
+Previous detrending methods have two main caveats:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -498,23 +501,21 @@ detrending presented in this thesis.
 \protect\hypertarget{def:unnamed-chunk-1}{}{\label{def:unnamed-chunk-1}
 }\emph{Fluorescence} is the emission of photons related to the process
 of \emph{relaxation} for a given molecule from an electronically
-\emph{excited} state (S\textsubscript{1}) to the \emph{ground} state
-(S\textsubscript{0}).
+\emph{excited} state (\(S_1\)) to the \emph{ground} state (\(S_0\)).
 \EndKnitrBlock{definition}
 
-These two electronic states (S\textsubscript{0} and S\textsubscript{1})
-of a molecule are defined as the highest occupied molecular orbital
-(S\textsubscript{0}, HOMO) and the lowest unoccupied molecular orbital
-(S\textsubscript{1}, LUMO). Each electronic state has various associated
-\emph{vibrational} states between which \emph{non-radiative} transitions
-can occur. An electron can be \emph{excited} from the ground state
-S\textsubscript{0} into the higher energy excited state
-S\textsubscript{1} by absorption of a photon of the appropriate energy.
-The electron will remain in the excited state (possibly undergoing
-non-radiative transitions through vibrational states) for a period of
-nanoseconds before \emph{relaxing} to the lower energy ground state,
-losing energy by means of emitting a photon of that energy. This is
-shown by means of a \emph{Jablonski} diagram (figure
+These two electronic states (\(S_0\) and \(S_1\)) of a molecule are
+defined as the highest occupied molecular orbital (\(S_0\), HOMO) and
+the lowest unoccupied molecular orbital (\(S_1\), LUMO). Each electronic
+state has various associated \emph{vibrational} states between which
+\emph{non-radiative} transitions can occur. An electron can be
+\emph{excited} from the ground state \(S_0\) into the higher energy
+excited state \(S_1\) by absorption of a photon of the appropriate
+energy. The electron will remain in the excited state (possibly
+undergoing non-radiative transitions through vibrational states) for a
+period of nanoseconds before \emph{relaxing} to the lower energy ground
+state, losing energy by means of emitting a photon of that energy. This
+is shown by means of a \emph{Jablonski} diagram (figure
 \ref{fig:Jablonski}).
 
 
@@ -550,9 +551,9 @@ according to Poisson statistics.
 \BeginKnitrBlock{definition}
 \protect\hypertarget{def:unnamed-chunk-4}{}{\label{def:unnamed-chunk-4}
 }Excited electrons can undergo a \emph{forbidden} transition into the
-\emph{triplet} state T\textsubscript{1}, where they remain for a period
-of milliseconds before relaxing to the ground state with the emission of
-a photon. This is \emph{phosphorescence}.
+\emph{triplet} state \(T_1\), where they remain for a period of
+milliseconds before relaxing to the ground state with the emission of a
+photon. This is \emph{phosphorescence}.
 \EndKnitrBlock{definition}
 
 \subsection{Photobleaching}\label{photobleaching}
@@ -595,16 +596,13 @@ across a sample, collecting one pixel at a time.
 There are many types of confocal microscope detector. I will discuss the
 most common ones here. Most rely on the photoelectric effect
 \citep{photoelectric}, a phenomenon whereby incident light upon a
-certain material causes electrons to dissociate from that material.
+material causes electrons to dissociate from that material.
 
 \BeginKnitrBlock{definition}
 \protect\hypertarget{def:unnamed-chunk-6}{}{\label{def:unnamed-chunk-6} }The
 \emph{quantum efficiency} (QE) of a detector is the fraction of
 fluorescent signal that is reported by the detector.
 \EndKnitrBlock{definition}
-
-The quantum nature of the photoelectric effect makes it practically
-impossible for detectors to reach 100\% efficiency.
 
 \subsubsection{Photon multiplier tubes}\label{photon-multiplier-tubes}
 
@@ -614,7 +612,7 @@ cathode where their accumulated kinetic energy is used to to release
 more electrons. These are then accelerated in vacuum towards another
 cathode and so on for a predefined number of these accelerations until
 at last the electrons are discharged into an anode where the current is
-measured \citep{HammamatsuPMT}. See figure \ref{fig:PMT}. This current
+measured \citep{HammamatsuPMT}; see figure \ref{fig:PMT}. This current
 corresponds to the incident light intensity.
 
 
@@ -653,7 +651,7 @@ electric field leads to an increase in the electric current.
 Avalanche photo-diodes (APDs) are semiconductors that exploit the
 photoelectric effect together with avalanche multiplication (the
 photoelectric effect starts the avalanche) to convert light into
-measurable electric current. See figure \ref{fig:APD}. They are somewhat
+measurable electric current; see figure \ref{fig:APD}. They are somewhat
 analogous to PMTs, using the avalanche effect in place of the series of
 cathodes.
 
@@ -748,15 +746,14 @@ microscopy}\label{total-internal-reflection-microscopy}
 
 \emph{Total internal reflection microscopy} (TIRF) uses the fact that
 when total internal reflection (TIR) is occurring, an evanescent wave is
-produced at the media boundary, but this evanescent wave is only present
-very close to the boundary. See figure \ref{fig:TIRFig} \citep{TIRFig}.
-The huge advantage of TIRF is that only a single plane is illuminated,
-so when focusing on that plane, only in-focus light is collected
-(because only the in-focus plane is illuminated). The main disadvantage
-is that it is not applicable when one cannot have the object of interest
-right at the cover slip. Looking at figure \ref{fig:TIRFig}, it is
-evident that TIRF would be ideal for imaging the membrane but useless
-for imaging the nucleus.
+produced in the immediate vicinity of the media boundary; see figure
+\ref{fig:TIRFig} \citep{TIRFig}. The huge advantage of TIRF is that only
+a single plane is illuminated, so when focusing on that plane, only
+in-focus light is collected (because only the in-focus plane is
+illuminated). The main disadvantage is that it is not applicable when
+one cannot have the object of interest right at the cover slip. Looking
+at figure \ref{fig:TIRFig}, it is evident that TIRF would be ideal for
+imaging the membrane but useless for imaging the nucleus.
 
 
 
@@ -936,8 +933,8 @@ very often takes the form of moment analysis \citep{QianElson}. Briefly,
 moment analysis is an attempt to extract data from a distribution of
 values using its \emph{moments}. The first moment of a distribution is
 its mean value, the second moment is its variance. The
-\(n\)\textsuperscript{th} moment of a random \(X\) with expected value
-\(E[X]=\mu\) for \(n>1\) is \(E[(X - \mu)^n]\).
+\(n\)\textsuperscript{th} moment of a random variable \(X\) with
+expected value \(E[X]=\mu\) for \(n>1\) is \(E[(X - \mu)^n]\).
 
 Intensity traces can be viewed as distributions with moments. For
 example, the intensity trace in figure
@@ -959,13 +956,16 @@ What follows is a mathematical description of the technique.
 }The brightness \(\epsilon\) of an entity is the mean number of photon
 detector counts it gives per unit time when in the illumination
 (confocal) volume.
-\EndKnitrBlock{definition} For an image series where the
-\(i\)\textsuperscript{th} slice in the stack is the image acquired at
-time \(t = i\), for a given pixel position \((x, y)\), we define
-\(\langle I \rangle\) as the mean intensity of that pixel over the image
-series and \(\sigma^2\) as the variance in that intensity. Define \(n\)
-as the mean number of entities in the illumination volume corresponding
-to that pixel. Assuming that all entities are mobile, we have
+\EndKnitrBlock{definition}
+
+\begin{quote}
+For an image series where the \(i\)\textsuperscript{th} slice in the
+stack is the image acquired at time \(t = i\), for a given pixel
+position \((x, y)\), we define \(\langle I \rangle\) as the mean
+intensity of that pixel over the image series and \(\sigma^2\) as the
+variance in that intensity. Define \(n\) as the mean number of entities
+in the illumination volume corresponding to that pixel. Assuming that
+all entities are mobile, we have
 
 \begin{align}
 N &= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} \label{eq:NB1-1} \\
@@ -980,7 +980,6 @@ where \(N\) and \(B\) are referred to as the \emph{apparent number} and
 n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \label{eq:NB2-2}
 \end{align}
 
-\begin{quote}
 --- \citet{NBreview}\footnote{This is a formulation of N\&B that I wrote
   in a 2017 review of the technique.}
 \end{quote}
@@ -1030,11 +1029,11 @@ dwell-time.
 
 \BeginKnitrBlock{definition}
 \protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16}
-}The \emph{frame time} of a scanning confocal microscope is the amount
-of time it takes to acquire the data for all of the pixels in a whole
-frame. That is the length of time from the start of detection of photons
-from the first pixel to the end of detection of photons from the last
-pixel.
+}The \emph{frame time} \(t_\text{frame}\) of a scanning confocal
+microscope is the amount of time it takes to acquire the data for all of
+the pixels in a whole frame. That is the length of time from the start
+of detection of photons from the first pixel to the end of detection of
+photons from the last pixel.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}
@@ -1263,8 +1262,7 @@ green channels.\footnote{This correlation may not always be detectable
 
 As mentioned already, the autocorrelation function (ACF) can be used to
 count the number of particles in the confocal volume. It can also be
-used to measure diffusion coefficients for various types of diffusion
-(normal, anomalous, polydisperse, etc.). The ACF is not used in my PhD.
+used to measure diffusion coefficients. The ACF is not used in my PhD.
 
 \subsection{Cross-correlation}\label{cross-correlation}
 
@@ -1403,39 +1401,37 @@ tools}\label{software-programs-languages-and-tools}
 
 \emph{C++} \citep{cpp} is a general-purpose programming language
 optimized for performance (speed), efficiency (with use of computer
-resources) and flexibility.\footnote{\url{https://en.wikipedia.org/wiki/C\%2B\%2B}}
-I used it for its speed, since many of the algorithms that I developed
-were quite computationally intensive and hence speed was an important
-consideration.
+resources) and flexibility. I used it for its speed, since many of the
+algorithms that I developed were quite computationally intensive and
+hence speed was an important consideration.
 
 \subsection{R}\label{r}
 
 \emph{R} \citep{R} is a programming language and free software
-environment for statistical computing and graphics.\footnote{\url{https://en.wikipedia.org/wiki/R_(programming_language)}}
-I use R primarily as a wrapper for my C++ code to make my algorithms
-more user-friendly. R is best used with the \emph{RStudio} integrated
-development environment.\footnote{\url{https://www.rstudio.com}}
+environment for statistical computing and graphics. I use R primarily as
+a wrapper for my C++ code to make my algorithms more user-friendly. R is
+best used with the \emph{RStudio} integrated development
+environment.\footnote{\url{https://www.rstudio.com}}
 
-\hypertarget{imagej}{\subsection{ImageJ}\label{imagej}}
+\subsection{ImageJ}\label{imagej}
 
-\emph{ImageJ} \protect\hyperlink{imagej}{ImageJ} is an open source image
-processing program designed for scientific multidimensional
-images.\footnote{\url{https://imagej.net}} It is the preferred image
-viewing and analysis software in the community. I have written my
+\emph{ImageJ} \citep{ImageJ} is an open source image processing program
+designed for scientific multidimensional images. It is the preferred
+image viewing and analysis software in the community. I have written my
 software in C++ and R because they are easier for developers, but I
 still intend to translate my image-related algorithms ImageJ plugins.
-ImageJ is best used via the FIJI \citep{FIJI} distribution.\footnote{\url{https://imagej.net/Fiji}}
+ImageJ is best used via the FIJI \citep{FIJI} distribution.
 
 \subsection{Git and GitHub}\label{git-and-github}
 
 Git is a free and open source distributed version control system
 designed to handle everything from small to very large projects with
 speed and efficiency.\footnote{\url{https://git-scm.com/}} GitHub is a
-web-based hosting service for version control using Git.\footnote{\url{https://en.wikipedia.org/wiki/GitHub}}
-All of the computer code used during my thesis can be found on my GitHub
-at \url{https://github.com/rorynolan}. The vast majority of my time
-during my thesis was spent writing code so this GitHub account is the
-best record of the work that I have done.
+web-based hosting service for version control using Git. All of the
+computer code used during my thesis can be found on my GitHub at
+\url{https://github.com/rorynolan}. The vast majority of my time during
+my thesis was spent writing code so this GitHub account is the best
+record of the work that I have done.
 
 \section{My software packages}\label{my-software-packages}
 
@@ -1494,8 +1490,7 @@ such file names. This package was peer reviewed and published
 }\emph{Unit testing} is a software testing method by which individual
 units of source code, sets of one or more computer program modules
 together with associated control data, usage procedures, and operating
-procedures, are tested to determine whether they are fit for
-use.\footnote{\url{https://en.wikipedia.org/wiki/Unit_testing}}
+procedures, are tested to determine whether they are fit for use.
 \EndKnitrBlock{definition}
 
 Unit testing is a tool to verify that software is performing as
@@ -1775,7 +1770,7 @@ i.e.~construct the line by taking a \emph{local average} at each point.
 This is often referred to as \emph{boxcar smoothing} because it can be
 visualized as drawing a box around a neighborhood of points, taking
 their average as the smoothed value at that point and then moving the
-box onto the next series of points and repeating the procedure. See
+box onto the next series of points and repeating the procedure; see
 figure \ref{fig:boxcar-explanation}.
 
 
@@ -1797,14 +1792,14 @@ boxcar is said to be of length 3 because it is wide enough to encompass
 3 points at a time. The boxcar is centered on a point and then the
 smoothed value at that point (blue dot) is calculated as the mean value
 of all points within the boxcar. In reality, every point gets a smoothed
-value which means that the boxcar \emph{overlaps} but in this figure,
-for the sake of clarity, they are not overlapped.}\label{fig:boxcar-explanation}
+value which means that the boxcar \emph{overlaps} but in this
+figure---for the sake of clarity---they are not overlapped.}\label{fig:boxcar-explanation}
 \end{figure}
 
-The parameter \(l\) of a boxcar is such that the length of the boxcar is
-equal to \(2l + 1\). This ensures that the length of the boxcar is
-always odd) which means it can always be centered upon a point). Hence
-the allowable lengths of a boxcar are \(3,5,7,9,\) etc.
+The length of the boxcar is equal to \(2l + 1\) for natural numbered
+parameter \(l \in \mathbb{N}\). This ensures that the length of the
+boxcar is always odd) which means it can always be centered upon a
+point). Hence the allowable lengths of a boxcar are \(3,5,7,9,\) etc.
 
 The boxcar parameter \(l\) has a large effect on the type of smoothing
 achieved. This can be seen in figure \ref{fig:boxcar-sizes} where boxcar
@@ -1829,11 +1824,11 @@ top-left. The other panels show the result of boxcar smoothing for
 
 This begs the question: what is the correct smoothing parameter \(l\)?
 
-\section{Choosing the correct smoothing parameter for
-detrending}\label{choosing-the-correct-smoothing-parameter-for-detrending}
+\section{The correct smoothing parameter for
+detrending}\label{the-correct-smoothing-parameter-for-detrending}
 
 Figure \ref{fig:boxcar-sizes} shows that the choice of boxcar size is
-crucial because different sizes lead to very different ``smoothed''
+crucial because different sizes lead to very different \emph{smoothed}
 lines. The most common choice in the community is to choose \(l = 10\)
 \citep{SimFCS}. There is no justification for this choice.
 
@@ -1882,7 +1877,7 @@ for \(l\) proceeds as follows:
 Mathematically, this can be expressed as
 
 \begin{equation}
-l = \text{argmin}_{\tilde{l}} |1 - (\text{ mean brightness of simulated series detrended with parameter } \tilde{l})|
+l = \text{argmin}_{\tilde{l}} |1 - (\text{mean brightness of simulated series detrended with parameter } \tilde{l})|
 \label{eq:leq}
 \end{equation}
 
@@ -1890,7 +1885,7 @@ In fact, what I have done here is to give a general method for solving
 for any detrending parameter \(\alpha\):
 
 \begin{equation}
-\alpha = \text{argmin}_{\tilde{\alpha}} |1 - (\text{ mean brightness of simulated series detrended with parameter } \tilde{\alpha})|
+\alpha = \text{argmin}_{\tilde{\alpha}} |1 - (\text{mean brightness of simulated series detrended with parameter } \tilde{\alpha})|
 \label{eq:detrend-param}
 \end{equation}
 
@@ -1902,10 +1897,10 @@ detrending}\label{exponential-smoothing-detrending}
 
 \emph{Exponential smoothing} is a slight alteration to boxcar smoothing.
 The idea is that when computing a local average, points nearer to the
-point of interest should have greater weights.\footnote{\url{https://en.wikipedia.org/wiki/Weighted_arithmetic_mean}}
-The weights fall off with distance \(|t|\) from the point of interest
-according to \(\exp(-\frac{|t|}{\tau})\) where the parameter \(\tau\) is
-a positive real number. This function is visualized in figure
+point of interest should have greater weights. The weights fall off with
+distance \(|t|\) from the point of interest according to
+\(\exp(-\frac{|t|}{\tau})\) where the parameter \(\tau\) is a positive
+real number. This function is visualized in figure
 \ref{fig:exp-smooth-func}. For small values of \(\tau\), only values
 very close to the point of interest have importance when calculating the
 local average. For larger values of \(\tau\), further values also have
@@ -1996,8 +1991,8 @@ of the \emph{Robin Hood} detrending algorithm (section
 \ref{robin-hood-detrending}) which includes correction for
 non-stationary variance as an intrinsic part of its detrending routine.
 
-\section{Caveats of fitting and smoothing approaches to
-detrending}\label{caveats-of-fitting-and-smoothing-approaches-to-detrending}
+\section{Caveats of fitting and smoothing
+approaches}\label{caveats-of-fitting-and-smoothing-approaches}
 
 Both fitting and smoothing approaches to detrending have serious
 caveats. Fitting approaches assume that the fluorescence intensity decay
@@ -2065,7 +2060,7 @@ the Robin Hood algorithm can only place the detrended image at the mean
 intensity of the original image. This is not a problem because the issue
 with bleaching in FCS and FFS is mainly that the changing signal leads
 to incorrect calculations, not that the loss in signal leads to a
-chronic lack of information (photons). Indeed a feature of the Robin
+critical lack of information (photons). Indeed, a feature of the Robin
 Hood algorithm is that it preserves the mean intensity of the real data
 on a pixel-by pixel basis.
 
@@ -2111,12 +2106,12 @@ series, equation \eqref{eq:detrend-param} can be used, with \(\alpha\)
 being the number of swaps.
 
 The random gifting of counts from higher to lower intensity frames has
-the effect of redistributing mean intensity but \emph{also} variance in
-intensity. With photon statistics (which follow a Poisson distribution),
-random counts provide both mean and variance. This is in contrast to all
-previous methods which consist of determining local deviation and adding
-it to a \emph{fixed} global mean: this provides no redistribution of
-variance.
+the effect of temporally redistributing mean intensity but \emph{also}
+variance in intensity. With photon statistics (which follow a Poisson
+distribution), random counts provide both mean and variance. This is in
+contrast to all previous methods which consist of determining local
+deviation and adding it to a \emph{fixed} global mean: this provides no
+temporal redistribution of variance.
 
 \section{A comparison of detrending methods}\label{detrend-compare}
 
@@ -2248,21 +2243,20 @@ cells with mClover-labelled FKBP12.
 discussion}\label{experimental-results-and-discussion}
 
 We found a brightness increase in \(\epsilon\) of \(\approx 1.6\)-fold
-using the \emph{automatic} detrending method. The choice of \(\tau=10\)
-resulted in a \(\approx 0.7\)-fold calculated increase, which is indeed
-a decrease. The \(\approx 1.6\)-fold increase suggests that dimerization
-had occurred (see figure \ref{fig:FKBPfoldchanges}), however, we
-expected the increase to be \(\approx 2\)-fold upon dimerization. In
-that publication \citep{nandb}, we postulated that the 1.6 figure was
-due to the fact that not all of the protein had dimerized. Recently, a
-paper came out \citep{fpcompare} explaining how the assumption that all
-fluorophores emit signal is invalid and that because of this, oligomeric
-state changes calculated from brightness must be adjusted by a
-correction factor specific to the fluorophore. Unfortunately, this study
-did not characterize mClover, so we do not know its correction factor. I
-suspect that applying this correction would bring our figure of 1.6 a
-lot closer to 2. We also tried \(\tau=10\), which gave a decrease in
-brightness, showing that arbitrary parameter choices lead to
+using the \emph{automatic} detrending method. The \(\approx 1.6\)-fold
+increase suggests that dimerization had occurred (see figure
+\ref{fig:FKBPfoldchanges}), however, we expected the increase to be
+\(\approx 2\)-fold upon dimerization. In that publication \citep{nandb},
+we postulated that the 1.6 figure was due to the fact that not all of
+the protein had dimerized. Recently, a paper came out \citep{fpcompare}
+explaining how the assumption that all fluorophores emit signal is
+invalid (because many never function properly) and that because of this,
+oligomeric state changes calculated from brightness must be adjusted by
+a correction factor specific to the fluorophore. Unfortunately, this
+study did not characterize mClover, so we do not know its correction
+factor. I suspect that applying this correction would bring our figure
+of 1.6 a lot closer to 2. We also tried \(\tau=10\), which gave a
+decrease in brightness, showing that arbitrary parameter choices lead to
 unpredictable and unreliable results and should hence be avoided.
 
 
@@ -2300,7 +2294,7 @@ using the histogram of pixel brightnesses.
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/nandb-fig} \hfill{}
+\includegraphics[width=0.85\linewidth]{/home/travis/build/rorynolan/phdthesis/img/nandb-fig} \hfill{}
 
 \caption{mClover-labelled myristoylated FKBP12 before and
 after application of 50nM AP1510. Shown here are intensity (first row),
@@ -2430,7 +2424,7 @@ HIV-1 fusion pore with a low oligomeric state.
 Following on from this, we wanted to study the stoichiometry of the
 interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or
 CXCR4) upon the engagement of the virus with the cell and to follow this
-interaction stoichiometry up to the point of fusion. See figure
+interaction stoichiometry up to the point of fusion; see figure
 \ref{fig:HIVStoichiometrySetup}.
 
 \begin{quote}
@@ -2561,8 +2555,8 @@ might serve as a scaffold to stabilise a final 4 CD4 -- 1/2 CXCR4
 conformation, with a single Env. We speculate that for
 HIV\textsubscript{HXB2}, step 2 is crucial to culminate the fusion
 reaction and there could be an anchoring domain and a fusion domain that
-undergoes gp120 disassembly leading to 6 helix bundle formation. For R5
-tropic virions, Env -- CD4 interactions form the previously described
+undergoes gp120 disassembly leading to 6 helix bundle formation. For
+R5-tropic virions, Env -- CD4 interactions form the previously described
 asymmetric pre-hairpin intermediate \citep{Munro} \citep{DoKwon}
 \citep{Ma}, following binding and oligomerisation of 2 additional CD4
 molecules with concomitant CCR5 dimerization. After this, the secondary
@@ -2585,7 +2579,8 @@ around the complex.
 \end{quote}
 
 For the X4 and R5-tropic cases, structural modelling of the hypothesis
-has been done. See figure \ref{fig:HIVStoichiometryStructure}.
+has been done to visualize our findings and to assess their viability;
+this produced figure \ref{fig:HIVStoichiometryStructure}.
 
 
 
@@ -2595,7 +2590,7 @@ has been done. See figure \ref{fig:HIVStoichiometryStructure}.
 \includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/HIVStoichiometryStructure} \hfill{}
 
 \caption{Pre-fusion reaction sequences
-for the R5 (a) and X4 (B) tropic cases.}\label{fig:HIVStoichiometryStructure}
+for the R5 (a) and X4 (b) tropic cases.}\label{fig:HIVStoichiometryStructure}
 \end{figure}
 
 \subsection{Conclusion}\label{conclusion}
@@ -2621,8 +2616,8 @@ inevitably still be some bleaching, so this must be corrected for. Until
 now, it was practically impossible to perform this correction correctly,
 because all methods required the user to select a vital correction
 parameter (\(\tau\) or \(l\)) without providing any instructions as to
-how the parameter should be chosen. I have now solved this problem such
-that now image series can be safely detrended by novice users, as this
+how the parameter should be chosen. I have solved this problem such that
+now image series can be safely detrended by novice users, as this
 parameter is chosen for them in the background. Now, detrending an image
 \texttt{img.tif} with the \emph{Robin Hood} method is as simple as
 typing the command \texttt{img\_detrend\_rh("img.tif")} in my software.
@@ -2640,7 +2635,7 @@ methods required a choice of smoothing parameter was ignored by sticking
 to the arbitrary choice of \(l=10\) for this parameter.
 
 My work in investigating the significance of this smoothing parameter
-found that this arbitrary choice was totally incorrect. The use of
+found that this arbitrary choice was totally inappropriate. The use of
 simulated image series and the fact that immobile particles have
 brightness \(B=1\) opened up a means of solving for the correct choice
 of this parameter without the need for user input. This was the first
@@ -2655,14 +2650,13 @@ to another in an image series circumvents the need for smoothing. The
 detrending process can be simplified from
 \(\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0\) to
 \(\mathbb{N}_0 \rightarrow \mathbb{N}_0\). Conveniently, the automatic
-approach used in the smoothing approaches to detrending can readily be
-extended to \emph{Robin Hood} detrending.
+parameter finding approach used in the smoothing approaches to
+detrending can readily be extended to \emph{Robin Hood} detrending.
 
 There are no obvious caveats to the \emph{Robin Hood} bleaching
-correction method and thus no more work is needed on its theory.
-However, it is vital to bear in mind that one should always try to avoid
-the source of error in the first place rather than rely on correction
-methods.
+correction method. However, it is vital to bear in mind that one should
+always try to avoid the source of error in the first place rather than
+rely on correction methods.
 
 \section{Applications of the new detrending
 techniques}\label{applications-of-the-new-detrending-techniques}
@@ -2673,8 +2667,7 @@ The FKBP applications of these detrending techniques in Cos-7 cells
 \citep{nandb} and in-vitro were mainly to demonstrate that N\&B used
 with these detrending techniques is a reliable method to measure
 oligomerization. The in vitro study \citep{JOVE} was particularly
-interesting because it was the first in vitro application of number and
-brightness.
+interesting because it was the first in vitro application of N\&B.
 
 \subsection{HIV-1 receptor
 stoichiometry}\label{hiv-1-receptor-stoichiometry-1}
@@ -2684,7 +2677,7 @@ The study of HIV-1 receptor stoichiometry \citep{HIVstoichiometry} is a
 automatic detrending algorithm. We have shown that this kind of
 fine-grained information about the process of HIV-1 fusion can be
 measured on a temporal basis in live cells. Whilst this alone is very
-exciting, it paves the way for similar studies to be done with HIV-1 and
+exciting, it paves the way for similar studies to be done with HIV-1 in
 different cell types and indeed for other virus fusion processes to be
 probed in this way.
 
@@ -2722,9 +2715,9 @@ this done is my top priority.
 \emph{ImageJ}}{Translate software to ImageJ}}\label{translate-software-to-imagej}
 
 Whilst I really like R, the fluorescence community does not use it,
-which has been a major barrier to the use of my algorithms. I will code
-my detrending algorithms as \emph{ImageJ} plugins and also as python
-modules so that more of the community have easy access to them.
+which has been a major barrier to the use of my algorithms by others. I
+will code my detrending algorithms as \emph{ImageJ} plugins and also as
+python modules so that more of the community have easy access to them.
 
 \section{Study real data bleaching profiles with
 simulations}\label{mimic}
@@ -2745,15 +2738,15 @@ I have the idea that when the question ``Do these proteins interact?''
 is answered by Forster resonance energy transfer (FRET, \citet{Frster}),
 it should also be answerable by FCS. I would like to try to reproduce
 some standard FRET results with FCS. I am particularly interested to
-find out if there are instances where one technique succeeds and the
-other fails and why this might be. For example, it might be possible
-that for a given interacting pair of proteins, it is impossible to label
-them such that the FRET couple is close enough for FRET to be detected,
-but that this interaction is detectable by FCS. These techniques have
-been compared before \citep{Sahoo}, but not by trying to reproduce
-previous work. In addition, attempts by new groups to reproduce work
-that is accepted in the literature are always interesting
-\citep{Baker2016}.
+find out if there are instances where one technique succeeds in
+detecting interaction and the other fails, and why this might be. For
+example, it might be possible that for a given interacting pair of
+proteins, it is impossible to label them such that the FRET couple is
+close enough for FRET to be detected, but that this interaction is
+detectable by FCS. These techniques have been compared before
+\citep{Sahoo}, but not by trying to reproduce previous work. In
+addition, attempts by new groups to reproduce work that is accepted in
+the literature are always interesting \citep{Baker2016}.
 
 \bibliography{book.bib,packages.bib,papers.bib,webpages.bib,theses.bib}
 

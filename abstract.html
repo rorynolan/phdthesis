@@ -68,7 +68,12 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#ways-to-read"><i class="fa fa-check"></i>Ways to read</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#apportion-of-credit"><i class="fa fa-check"></i>Apportion of credit</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publications"><i class="fa fa-check"></i>Publications</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#first-author"><i class="fa fa-check"></i>First author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#co-first-author"><i class="fa fa-check"></i>Co-first author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#other"><i class="fa fa-check"></i>Other</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#in-preparation"><i class="fa fa-check"></i>In preparation</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
 </ul></li>
@@ -125,10 +130,10 @@
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-fitting-detrending"><i class="fa fa-check"></i><b>3.3</b> Exponential fitting detrending</a></li>
 <li class="chapter" data-level="3.4" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#boxcar-smoothing-detrending"><i class="fa fa-check"></i><b>3.4</b> Boxcar smoothing detrending</a></li>
-<li class="chapter" data-level="3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#choosing-the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.5</b> Choosing the correct smoothing parameter for detrending</a></li>
+<li class="chapter" data-level="3.5" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#the-correct-smoothing-parameter-for-detrending"><i class="fa fa-check"></i><b>3.5</b> The correct smoothing parameter for detrending</a></li>
 <li class="chapter" data-level="3.6" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#exponential-smoothing-detrending"><i class="fa fa-check"></i><b>3.6</b> Exponential smoothing detrending</a></li>
 <li class="chapter" data-level="3.7" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#correcting-for-non-stationary-variance"><i class="fa fa-check"></i><b>3.7</b> Correcting for non-stationary variance</a></li>
-<li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches-to-detrending"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches to detrending</a></li>
+<li class="chapter" data-level="3.8" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#caveats-of-fitting-and-smoothing-approaches"><i class="fa fa-check"></i><b>3.8</b> Caveats of fitting and smoothing approaches</a></li>
 <li class="chapter" data-level="3.9" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#robin-hood-detrending"><i class="fa fa-check"></i><b>3.9</b> Robin Hood detrending</a></li>
 <li class="chapter" data-level="3.10" data-path="photobleaching-correction.html"><a href="photobleaching-correction.html#detrend-compare"><i class="fa fa-check"></i><b>3.10</b> A comparison of detrending methods</a></li>
 </ul></li>
@@ -192,7 +197,7 @@
 <p>The measured intensity (ideally in units of photon counts) of a fluorescent sample over time constitutes a time-series called an <em>intensity trace</em>. The idea of <em>fluorescence fluctuation spectroscopy</em> (FFS) is to extract information from intensity traces.</p>
 <p>Photobleaching is the phenomenon of the breaking of fluorophores (light emitters) over time. Photobleaching causes fluorescent signal to diminish over time. This changes the intensity trace, introducing a downward trend.</p>
 <p>Many quantitative methods in FFS implicitly assume that there is no bleaching in the data. Hence, data with significant levels of photobleaching must be corrected prior to the application of equations and algorithms in these fields. This correction is often termed <em>detrending</em>, since its aim is to remove the downward trend in the data introduced by photobleaching.</p>
-<p>Previous detrending methods have two main caveats.</p>
+<p>Previous detrending methods have two main caveats:</p>
 <ol style="list-style-type: decimal">
 <li>They rely on either fitting or smoothing, both of which approximate data as continuous. This is inappropriate for fluorescence intensity data, which is count data (i.e. discrete, not continuous).</li>
 <li>They require the user to choose a detrending parameter. The choice of this parameter is crucial to the success or failure of the detrending routine, yet instructions on how to choose it did not exist.</li>
