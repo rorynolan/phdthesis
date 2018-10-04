@@ -14,7 +14,7 @@ All of the current literature mentions bleaching correction as being purely for 
 
 ## The effects of bleaching in FCS and FFS
 
-We simulate two image series, each with 100,000 diffusing fluorescent particles. In the first image series (`img1`), these have brightness $\epsilon = 4$ and in the second (`img2`) they have brightness $\epsilon = 7$. See figure \@ref(fig:bleaching-sim). We bleach these by 15% and 20% to create `img1_bleached` and `img2_bleached` respectively.
+We simulate two image series with 500 frames, 64x64 pixels per frame, each with 100,000 diffusing fluorescent particles which are uniformly distributed at the beginning. In the first image series (`img1`), these have brightness $\epsilon = 4$ and in the second (`img2`) they have brightness $\epsilon = 7$. See figure \@ref(fig:bleaching-sim). We bleach these by 15% and 20% to create `img1_bleached` and `img2_bleached` respectively.
 
 (ref:bleaching-sim-caption) Frames 1, 100, 200, 300, 400 and 500 from image series of 100,000 diffusing emitters of brightness $\epsilon = 4$ (top) and $\epsilon = 7$ (bottom) with 15% (top) and 20% (bottom) bleaching.
 
@@ -37,7 +37,7 @@ ijtiff::display(to_display)
 
 It may not be obvious that these image series are subject to bleaching from figure \@ref(fig:bleaching-sim), but we can see it more clearly in figure \@ref(fig:bleaching-sim-mean-intensity).
 
-(ref:bleaching-sim-mean-intensity-caption) Mean intensity profiles of the simulated image series with and without bleaching. Simulation 1 was bleached by 15% and simulation 2 by 20%.
+(ref:bleaching-sim-mean-intensity-caption) Mean intensity profiles of the simulated image series with and without bleaching. Simulation 1 was bleached by 15% and simulation 2 by 20%. The bleaching is such that the mean intensity decreases according to a single exponential decay (even though it looks quite linear).
 
 ```{r bleaching-sim-mean-intensity, fig.cap='(ref:bleaching-sim-mean-intensity-caption)', echo=FALSE}
 df_bleach_sim <- tibble(simulation = c("img1", "img1_bleached",
@@ -257,7 +257,7 @@ This will be useful later when other detrending regimes with their own parameter
 
 _Exponential smoothing_ is a slight alteration to boxcar smoothing. The idea is that when computing a local average, points nearer to the point of interest should have greater weights. The weights fall off with distance $|t|$ from the point of interest according to $\exp(-\frac{|t|}{\tau})$ where the parameter $\tau$ is a positive real number. This function is visualized in figure \@ref(fig:exp-smooth-func). For small values of $\tau$, only values very close to the point of interest have importance when calculating the local average. For larger values of $\tau$, further values also have importance (but closer values always have higher weights). In this sense, increasing the value of $\tau$ has a similar effect to increasing the value of $l$ for the boxcar in that further away points are taken into account. 
 
-(ref:exp-smooth-func-caption) The function $\exp(-\frac{|t|}{\tau})$ visualized with $\tau = 3$ and $\tau = 9$. For $\tau = 3$, points at distance $|t| = 10$ have approximately zero weight, whereas for $\tau = 9$, these points have significant weight.
+(ref:exp-smooth-func-caption) The function $\exp(-\frac{|t|}{\tau})$ visualized with $\tau = 2$ and $\tau = 9$. For $\tau = 2$, points at distance $|t| = 10$ have approximately zero weight, whereas for $\tau = 9$, these points have significant weight.
 
 
 ```{r exp-smooth-func, echo=FALSE, fig.cap='(ref:exp-smooth-func-caption)'}
@@ -270,7 +270,7 @@ ggplot(tibble(x = 0, y = x)) + aes(x) +
   xlim(-30, 30) + 
   ylab(TeX("$\\exp\\left(-\\frac{|t|}{\\tau}\\right)$")) + xlab(TeX("$t$")) +
   scale_colour_manual("", values = c(red = "red", blue = "blue"),
-                      labels = unname(TeX(c("$\\tau = 3$", "$\\tau = 9$")))) 
+                      labels = unname(TeX(c("$\\tau = 9$", "$\\tau = 2$")))) 
 ```
 
 In figure \@ref(fig:tau-values), exponential smoothing with different parameters $\tau$ is applied to the trace in figure \@ref(fig:exp-fit-bleach). The results are similar to those in figure \@ref(fig:boxcar-sizes). 
@@ -322,7 +322,7 @@ All of this chapter so far has focused on correcting for non-stationary mean. As
 
 ## Caveats of fitting and smoothing approaches
 
-Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently [@nandb], but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities---where most pixel values are either 0 or 1---are quasi-binary^[By _quasi-binary_, I just mean that almost all values are 0 or 1.] and hence a continuous approximation does not make sense (see figure \@ref(fig:fit-smooth-caveats)). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities. 
+Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently [@nandb], but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as mathematically continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities---where most pixel values are either 0 or 1---are quasi-binary^[By _quasi-binary_, I just mean that almost all values are 0 or 1.] and hence a continuous approximation does not make sense (see figure \@ref(fig:fit-smooth-caveats)). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities. 
 
 (ref:fit-smooth-caveats-caption) Left: for high ($\gg 1$) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well.
 
@@ -341,7 +341,7 @@ tibble(t = seq_len(100), y = detrendr:::myrpois(seq(0.5, 0, length = 100))) %>%
 
 ## Robin Hood detrending {#robin-hood-detrending}
 
-Intensity images in units of photons are count data. This means that the values are all natural numbers, i.e. elements of $\mathbb{N}_0=\{0, 1, 2, 3, \ldots\}$. Fitting and smoothing give real-numbered values (elements of $\mathbb{R}$), which must then be transformed back into count data (elements of $\mathbb{N}_0$), normally by rounding. This means that fitting and smoothing methods of detrending push values through $\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0$. When current methods were failing to properly detrend low-intensity images, I began to wonder was it necessary to go through the real numbers $\mathbb{R}$, given that the start and end points were the natural numbers $\mathbb{N}_0$?
+Intensity images in units of photons are count data. This means that the values are all natural numbers, i.e. elements of $\mathbb{N}_0=\{0, 1, 2, 3, \ldots\}$. Fitting and smoothing give real-numbered values (elements of $\mathbb{R}$), which must then be transformed back into count data (elements of $\mathbb{N}_0$), normally by rounding. This means that fitting and smoothing methods of detrending push values through $\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0$ (the move back $\rightarrow \mathbb{N}_0$ is necessary because calculations like Quian and Elson's moment analysis assume photon count data, which is necessarily in $\mathbb{N}_0$). When current methods were failing to properly detrend low-intensity images, I began to wonder was it necessary to go through the real numbers $\mathbb{R}$, given that the start and end points were the natural numbers $\mathbb{N}_0$?
 
 Consider figure \@ref(fig:rh-detrend-eg). There is a bleached and unbleached version of an intensity trace. Suppose that our real data is the bleached trace, but we _wish_ it looked like the unbleached trace. You may wonder why the unbleached trace is not at the starting intensity of the bleached series. For reasons that will become clear, the Robin Hood algorithm can only place the detrended image at the mean intensity of the original image. This is not a problem because the issue with bleaching in FCS and FFS is mainly that the changing signal leads to incorrect calculations, not that the loss in signal leads to a critical lack of information (photons). Indeed, a feature of the Robin Hood algorithm is that it preserves the mean intensity of the real data on a pixel-by pixel basis.
 

@@ -106,57 +106,11 @@ include_graphics(here("img", "HyD.png"))
 
 HyDs with GaAsP (gallium arsenide phosphide) photocathodes achieve a quantum efficiency of up to 50% [@LeicaDetectors]. They also suffer least from detector afterpulsing, a phenomenon which can cause real signal pulses to be followed by a feedback pulse at a later time [@afterpulsing].
 
-With their superior sensitivity and dynamic range and low noise, HyDs can be calibrated to enable _photon-counting_ mode whereby the readout is in units of photons (not electron current). This is a much more physically relevant readout --- given that we are interested in measuring fluorescence --- which is very convenient for many biological applications, not least fluorescence fluctuation spectroscopy (FFS, discussed in section \@ref(FFS)).
+With hybrid detectors, the electric current pulse caused by a photon striking the photocathode is strong (well above background) and sharp (the pulse is very short-lived). This means that it is easy to detect the arrival of single photons at the photocathode. This enables HyDs to have a _photon-counting_ mode whereby the readout is in units of photons (not electron current). This is a much more physically relevant readout --- given that we are interested in measuring fluorescence --- which is very convenient for many biological applications, not least fluorescence fluctuation spectroscopy (FFS, discussed in section \@ref(FFS)). For this reason, the HyD was the detector of choice for all of the acquisitions in my thesis. 
 
 ```{remark}
-Henceforth, intensity counts will be assumed to be in units of photons unless otherwise stated.
+Henceforth, intensity counts will be assumed to be in units of photons.
 ```
-
-
-## Widefield light microscopy
-
-With widefield microscopy, the entire sample is illuminated simultaneously and the image is acquired by a camera (see figure \@ref(fig:widefield)). One advantage of this is the general simplicity of the setup: the optics are less complex and there is no need to scan across the sample to acquire each pixel (which requires precise robotics). Another advantage is that images can be acquired faster because all pixels in a frame are acquired simultaneously. The disadvantage of this is that the absence of confocal optics means that out of focus light can make it to the detection device (camera).
-
-(ref:widefield-caption) Light travels from the uniformly illuminated sample through a lens (or a few lenses) to the camera. Note the simplicity of this setup relative to that of a confocal microscope.
-
-```{r widefield, out.width='50%', fig.cap='(ref:widefield-caption)', echo=FALSE}
-include_graphics(here("img", "Widefield.png"))
-```
-
-
-### Total internal reflection microscopy
-_Total internal reflection microscopy_ (TIRF) uses the fact that when total internal reflection (TIR) is occurring, an evanescent wave is produced in the immediate vicinity of the media boundary; see figure \@ref(fig:TIRFig) [@TIRFig]. The huge advantage of TIRF is that only a single plane is illuminated, so when focusing on that plane, only in-focus light is collected (because only the in-focus plane is illuminated). The main disadvantage is that it is not applicable when one cannot have the object of interest right at the cover slip. Looking at figure \@ref(fig:TIRFig), it is evident that TIRF would be ideal for imaging the membrane but useless for imaging the nucleus.
-
-(ref:TIRFig-caption) The thin evanescent wave close to the boundary (between the cover slip and sample) where TIR is occurring. Only the part of the sample within this thin evanescent wave is illuminated. $n_1$ is the refractive index of the sample and $n_2$ is the refractive index of the cover slip; $n_1<n_2$ is assumed. $\theta_c$ is the critical angle and $\theta$ is the incident angle of the laser light; $\theta > \theta_c$ is assumed.
-
-```{r TIRFig, fig.cap='(ref:TIRFig-caption)', echo=FALSE}
-include_graphics(here("img", "TIRFig.png"))
-```
-
-
-### Cameras
-
-There are many types of camera available for widefield microscopes, the most common being EMCCD, CMOS, and sCMOS cameras.
-
-
-#### EMCCD cameras
-
-A charge-coupled device (CCD) is a device for the movement of electric charge. An EMCCD camera is an array of CCDs (one per pixel). When photons strike a CCD in the camera, electrons are dissociated by the photoelectric effect. These free charges are then moved across the CCD and this current can be measured and used as a measure of light intensity (in arbitrary units) [@EMCCD]. The EM stands for _electron multiplied_ which tells us that EMCCD cameras use an amplification technique, just like PMTs and APDs (section \@ref(detectors)). 
-
-
-#### CMOS cameras
-
-Complementary metal–oxide semiconductor cameras are arrays of semiconductors (one per pixel), again utilizing the photoelectric effect and the electric field across a semiconductor. CMOS cameras have amplification for each pixel, whereas EMCCDs only have a few amplifiers per camera [@CMOS]. This makes CMOS cameras more sensitive.
-
-
-#### sCMOS cameras 
-
-Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a CCD imaging substrate. These relatively new cameras offer 95% quantum efficiency [@photometrics], very low noise, rapid frame rates, large dynamic range, high resolution and wide field of view, all cheaper than a regular CCD [@sCMOS]. 
-
-
-#### Being quantitative with cameras
-
-For electronic reasons, the noise from certain pixels on all of the cameras above may be correlated. This hinders some techniques in the fluorescence correlation spectroscopy (section \@ref(FCS)). However, with careful characterization of the camera and correct mathematical treatment, quantitative studies can be carried out with cameras. Indeed, our group quantified the oligomeric state of the dynamin-2 protein at the HIV-1 fusion pore using data from a TIRF microscope with an EMCCD camera [@DanDynamin].
 
 
 ## Intensity traces
@@ -223,7 +177,19 @@ These definitions are the formally correct ones. In biophysics, however, both of
 
 ### Anomalous diffusion
 
-_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no longer holds and the relationship between MSD and time becomes non-linear. Knowing whether diffusion is anomalous or free can offer biological insight. For example, regions of free and anomalous diffusion were measured with FCS (section \@ref(FCS)) to investigate the spatiotemporal heterogeneity of lipid interaction in the plasma membrane of living cells [@EggSTEDFCS]. The pair correlation function approach (section \@ref(PCF)) can be used to image barriers to diffusion [@PCF]; diffusion barriers necessarily lead to anomalous diffusion.
+_Anomalous diffusion_ is a diffusion process whereby equation \@ref(eq:msd) no longer holds and the relationship between MSD and time becomes 
+
+\begin{equation}
+\text{msd}(t) = 2dDt^\alpha
+(\#eq:anomalous)
+\end{equation}
+
+where $\alpha \neq 1$. $\alpha > 1$ is known as _superdiffusion_ (faster than normal) and $\alpha < 1$ is known as _subdiffusion_ (slower than normal). 
+
+
+### Diffusion in the presence of barriers
+
+If barriers to diffusion are present, neither equations \@ref(eq:msd) and \@ref(eq:anomalous) hold. The pair correlation function approach (section \@ref(PCF)) can be used to image barriers to diffusion [@PCF].
 
 
 ## Fluorescence fluctuation spectroscopy {#FFS}
@@ -372,25 +338,11 @@ Henceforth, the FCS defintions of these quantities will be assumed.
 
 ### Correlation {#correlation}
 
-Suppose that two proteins of interest A and B are labelled with red and green fluorophores respectively (and there is no bleed-through between these red and green channels). 
+Co-diffusing fluorophores of different colours will necessarily induce positive correlation between the intensities of these two colour channels because co-diffusion means that presence of one fluorophore necessarily implies presence of the other fluorophore. Hence, correlation may be used as a measure of co-diffusion, and co-diffusion is often interpreted as interaction (the simplest explanation for co-diffusion is that the co-diffusing entities are somehow stuck together). This idea forms the basis of much of FCS. 
 
-If these proteins are interacting, then
+This does not hold for immobile particles. Immobile particles are not diffusing, so it doesn't make sense to employ a measure of diffusion.
 
-* interaction implies that A and B co-diffuse
-* this implies that for a given volume in the sample
-    - more of A implies more of B
-    - less of A implies less of B
-    - more of B implies more of A
-    - less of B implies less of A
-  
-Since the number of photons emitted is proportional to the amount of fluorophores present, it follows that
-
-* more red photons implies more green photons
-* less red photons implies less green photons
-* more green photons implies more red photons
-* less green photons implies less red photons
-
-Altogether, this implies that the intensity traces from the red and green channels will be correlated. If these proteins are not interacting, then the intensity traces from the red and green channels will not be correlated. Thus, interaction of red A and green B necessarily leads to correlation in fluorescent signals from the red and green channels.^[This correlation may not always be detectable due to weak interaction or weak signal.]
+Bleed-through of photons from one channel to another will induce artefactual correlation between the intensities of the two channels. Alternating laser excitation (ALEX, @ALEX) can be used to eliminate bleed through; however when using ALEX it is important to bear in mind that the two channels are no longer being acquired simultaneously. This is of particular importance for FCS. However if the instrument can go fast enough (with a laser alternation time far below the residence time of the diffusing entities), this problem is negligible.
 
 
 ### Autocorrelation
@@ -405,7 +357,7 @@ The cross-correlation of intensity traces from nearby pixels can be used to meas
 
 #### Pair correlation function {#PCF}
 
-The phrase _pair correlation function_^[This was needless, it could just be called _cross-correlation function_ but for the confusion about the term _cross-correlation_ in the FCS field.] was coined for this idea of cross-correlating intensity traces from nearby pixels. The PCF was used to image barriers to diffusion [@PCF] using the idea that the spatiotemporal correlation caused by particles moving from one place to another will not be present for positions $p_1$ and $p_2$ if they are on opposite sides of a barrier, because the barrier prevents travel from $p_1$ to $p_2$. It has also been used to create _diffusion tensors_: maps of diffusion velocities at every pixel [@DiffusionTensor]; this approach is similar to that of @STICS. 
+The phrase _pair correlation function_^[This was needless, it could just be called _cross-correlation function_ but for the confusion about the term _cross-correlation_ in the FCS field.] was coined for this idea of cross-correlating intensity traces from nearby pixels. The PCF was used to image barriers to diffusion [@PCF] using the idea that the spatiotemporal correlation caused by particles moving from one place to another will not be present for positions $p_1$ and $p_2$ if they are on opposite sides of a barrier, because the barrier prevents travel from $p_1$ to $p_2$. It has also been used to calculate the velocities of diffusing entities at each pixel in an image. The collection of these velocities at each pixel is known as a _diffusion tensor_ [@DiffusionTensor]. This approach is similar to that of @STICS. 
 
 
 ### Cross-correlated brightness
@@ -436,6 +388,10 @@ B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(
 (\#eq:bcc-corr)
 \end{equation}
 This means that $B_\text{cc}$ is just a scaled version of correlation. The need for this redefinition is unclear (but it is no harm). It does make the formula look like the brightness formula \@ref(eq:NB1-2), but no such oligomeric state information can be gleaned from $B_\text{cc}$. It is merely useful as a relative measure of interaction: higher $B_\text{cc}$ means more interaction, lower $B_\text{cc}$ means less interaction. It is commonly used to identify interactions. Then, conventional N&B performed on each of the channels (1 and 2) can be used to measure the stoichiometry of the interaction.
+
+\begin{example} 
+Protein A is labelled with a fluorophore that emits to channel 1, protein B is labelled with a fluorophore that emits to channel 2. At a given point in an image series, significant positive $B_\text{cc}$ indicates interaction between protein A and protein B. Form channel 1, with number and brightness we see that at this point, protein A is a dimer, whereas from channel 2, we see that protein B is a tetramer. Therefore the stoichiometry of the complex at this point is 2 units of A with 4 units of B.
+\end{example}
 
 ```{remark}
 Since cross-correlated brightness uses correlation but not cross-correlation, it is a prime example of the confusing naming that pervades FCS. It should be called _correlated brightness_. Rather than rename it, I will continue to refer to it as cross-correlated brightness.

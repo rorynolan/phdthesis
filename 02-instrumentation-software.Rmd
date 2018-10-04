@@ -3,7 +3,7 @@
 
 ## Instrumentation 
 
-All of the images used in this thesis were acquired on a Leica SP8 confocal microscope^[https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8] equipped with hybrid detectors (section \@ref(HyDs)). Importantly, the detectors that we have on this microscope are capable of photon counting. 
+All of the images used in this thesis were acquired on a Leica SP8 confocal microscope^[https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8] equipped with hybrid detectors (section \@ref(HyDs)) in photon counting mode. 
 
 
 
@@ -33,10 +33,18 @@ Git is a free and open source distributed version control system designed to han
 
 ## My software packages
 
+```{r pkg-downloads, echo=FALSE}
 
-### `ijtiff`
-
-```{r ijtiff-downloads, echo=FALSE}
+round_to_appropriate_10pow <- function(num) {
+  num %<>% round()
+  num_string <- format(num, scientific = FALSE)
+  n_digits <- nchar(num_string)
+  first_digit <- as.numeric(str_elem(num_string, 1))
+  candidates <- str_c(c(first_digit, first_digit + 1), 
+                      str_c(rep(0, n_digits - 1), collapse = "")) %>% 
+    as.numeric()
+  Closest(candidates, num)
+}
 
 get_downloads <- function(pkg) {
   pd_path <- here("misc", "package-downloads.csv")
@@ -49,6 +57,7 @@ get_downloads <- function(pkg) {
     out <- tibble(package = pkg, 
                   total = sum(since2010$count), 
                   per_month = round(total / n_days * 365.25 / 12)) %>% 
+      mutate_if(is.numeric, round_to_appropriate_10pow) %>% 
       mutate_if(is.numeric, format, scientific = FALSE)
     if (file.exists(pd_path)) {
       new_pd_df <- pd_path %>% 
@@ -65,6 +74,34 @@ get_downloads <- function(pkg) {
     filter(package == pkg) %>% 
     mutate_if(is.numeric, formatC, format = "d", big.mark = ",")
 }
+```
+
+
+### `filesstrings`
+
+```{r filesstrings-downloads, echo=FALSE}
+filesstrings_downloads <- get_downloads("filesstrings")
+```
+
+`filesstrings` is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like `well1_cell1_before_drug_addition.tif` is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. `filesstrings` is provides a consistent means of working with such file names. This package was peer reviewed and published [@filesstrings]. It gets `r filesstrings_downloads$per_month` downloads per month which amounts to `r filesstrings_downloads$total` since it was first released.
+
+
+### `exampletestr`
+
+```{definition}
+_Unit testing_ is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.
+```
+
+```{r exampletestr-downloads, echo=FALSE}
+exampletestr_downloads <- get_downloads("exampletestr")
+```
+
+Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. `exampletestr` is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, `exampletestr` was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.[@exampletestr] It gets `r exampletestr_downloads$per_month` downloads per month which amounts to `r exampletestr_downloads$total` since it was first released.
+
+
+### `ijtiff`
+
+```{r ijtiff-downloads, echo=FALSE}
 ijtiff_downloads <- get_downloads("ijtiff")
 ```
 
@@ -91,29 +128,13 @@ detrendr_downloads <- get_downloads("detrendr")
 `detrendr` is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section \@ref(photobleaching-correction). The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets `r detrendr_downloads$per_month` downloads per month which amounts to `r detrendr_downloads$total` since it was first released.
 
 
+### `nandb`
 
-### `filesstrings`
-
-```{r filesstrings-downloads, echo=FALSE}
-filesstrings_downloads <- get_downloads("filesstrings")
+```{r nandb-downloads, echo=FALSE}
+nandb_downloads <- get_downloads("detrendr")
 ```
 
-`filesstrings` is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like `well1_cell1_before_drug_addition.tif` is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. `filesstrings` is provides a consistent means of working with such file names. This package was peer reviewed and published [@filesstrings]. It gets `r filesstrings_downloads$per_month` downloads per month which amounts to `r filesstrings_downloads$total` since it was first released.
-
-
-
-### `exampletestr`
-
-
-```{definition}
-_Unit testing_ is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.
-```
-
-```{r exampletestr-downloads, echo=FALSE}
-exampletestr_downloads <- get_downloads("exampletestr")
-```
-
-Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. `exampletestr` is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, `exampletestr` was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.[@exampletestr] It gets `r exampletestr_downloads$per_month` downloads per month which amounts to `r exampletestr_downloads$total` since it was first released.
+`nandb` is an R package for number and brightness analysis. This was published along with a paper about detrending for number and brightness [@nandb]. It gets `r nandb_downloads$per_month` downloads per month which amounts to `r nandb_downloads$total` since it was first released.
 
 
 ### `brownded` {#brownded}
