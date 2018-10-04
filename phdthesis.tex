@@ -702,123 +702,22 @@ suffer least from detector afterpulsing, a phenomenon which can cause
 real signal pulses to be followed by a feedback pulse at a later time
 \citep{afterpulsing}.
 
-With their superior sensitivity and dynamic range and low noise, HyDs
-can be calibrated to enable \emph{photon-counting} mode whereby the
-readout is in units of photons (not electron current). This is a much
-more physically relevant readout --- given that we are interested in
-measuring fluorescence --- which is very convenient for many biological
-applications, not least fluorescence fluctuation spectroscopy (FFS,
-discussed in section \ref{FFS}).
+With hybrid detectors, the electric current pulse caused by a photon
+striking the photocathode is strong (well above background) and sharp
+(the pulse is very short-lived). This means that it is easy to detect
+the arrival of single photons at the photocathode. This enables HyDs to
+have a \emph{photon-counting} mode whereby the readout is in units of
+photons (not electron current). This is a much more physically relevant
+readout --- given that we are interested in measuring fluorescence ---
+which is very convenient for many biological applications, not least
+fluorescence fluctuation spectroscopy (FFS, discussed in section
+\ref{FFS}). For this reason, the HyD was the detector of choice for all
+of the acquisitions in my thesis.
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remark. } \fi{}Henceforth, intensity counts will be assumed
-to be in units of photons unless otherwise stated.
+to be in units of photons.
 \EndKnitrBlock{remark}
-
-\section{Widefield light microscopy}\label{widefield-light-microscopy}
-
-With widefield microscopy, the entire sample is illuminated
-simultaneously and the image is acquired by a camera (see figure
-\ref{fig:widefield}). One advantage of this is the general simplicity of
-the setup: the optics are less complex and there is no need to scan
-across the sample to acquire each pixel (which requires precise
-robotics). Another advantage is that images can be acquired faster
-because all pixels in a frame are acquired simultaneously. The
-disadvantage of this is that the absence of confocal optics means that
-out of focus light can make it to the detection device (camera).
-
-
-
-
-
-\begin{figure}
-
-\includegraphics[width=0.5\linewidth]{/home/travis/build/rorynolan/phdthesis/img/Widefield} \hfill{}
-
-\caption{Light travels from the uniformly illuminated
-sample through a lens (or a few lenses) to the camera. Note the
-simplicity of this setup relative to that of a confocal microscope.}\label{fig:widefield}
-\end{figure}
-
-\subsection{Total internal reflection
-microscopy}\label{total-internal-reflection-microscopy}
-
-\emph{Total internal reflection microscopy} (TIRF) uses the fact that
-when total internal reflection (TIR) is occurring, an evanescent wave is
-produced in the immediate vicinity of the media boundary; see figure
-\ref{fig:TIRFig} \citep{TIRFig}. The huge advantage of TIRF is that only
-a single plane is illuminated, so when focusing on that plane, only
-in-focus light is collected (because only the in-focus plane is
-illuminated). The main disadvantage is that it is not applicable when
-one cannot have the object of interest right at the cover slip. Looking
-at figure \ref{fig:TIRFig}, it is evident that TIRF would be ideal for
-imaging the membrane but useless for imaging the nucleus.
-
-
-
-
-
-
-
-
-
-\begin{figure}
-
-\includegraphics[width=1\linewidth]{/home/travis/build/rorynolan/phdthesis/img/TIRFig} \hfill{}
-
-\caption{The thin evanescent wave close to the boundary
-(between the cover slip and sample) where TIR is occurring. Only the
-part of the sample within this thin evanescent wave is illuminated.
-\(n_1\) is the refractive index of the sample and \(n_2\) is the
-refractive index of the cover slip; \(n_1<n_2\) is assumed. \(\theta_c\)
-is the critical angle and \(\theta\) is the incident angle of the laser
-light; \(\theta > \theta_c\) is assumed.}\label{fig:TIRFig}
-\end{figure}
-
-\subsection{Cameras}\label{cameras}
-
-There are many types of camera available for widefield microscopes, the
-most common being EMCCD, CMOS, and sCMOS cameras.
-
-\subsubsection{EMCCD cameras}\label{emccd-cameras}
-
-A charge-coupled device (CCD) is a device for the movement of electric
-charge. An EMCCD camera is an array of CCDs (one per pixel). When
-photons strike a CCD in the camera, electrons are dissociated by the
-photoelectric effect. These free charges are then moved across the CCD
-and this current can be measured and used as a measure of light
-intensity (in arbitrary units) \citep{EMCCD}. The EM stands for
-\emph{electron multiplied} which tells us that EMCCD cameras use an
-amplification technique, just like PMTs and APDs (section
-\ref{detectors}).
-
-\subsubsection{CMOS cameras}\label{cmos-cameras}
-
-Complementary metal--oxide semiconductor cameras are arrays of
-semiconductors (one per pixel), again utilizing the photoelectric effect
-and the electric field across a semiconductor. CMOS cameras have
-amplification for each pixel, whereas EMCCDs only have a few amplifiers
-per camera \citep{CMOS}. This makes CMOS cameras more sensitive.
-
-\subsubsection{sCMOS cameras}\label{scmos-cameras}
-
-Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a
-CCD imaging substrate. These relatively new cameras offer 95\% quantum
-efficiency \citep{photometrics}, very low noise, rapid frame rates,
-large dynamic range, high resolution and wide field of view, all cheaper
-than a regular CCD \citep{sCMOS}.
-
-\subsubsection{Being quantitative with
-cameras}\label{being-quantitative-with-cameras}
-
-For electronic reasons, the noise from certain pixels on all of the
-cameras above may be correlated. This hinders some techniques in the
-fluorescence correlation spectroscopy (section \ref{FCS}). However, with
-careful characterization of the camera and correct mathematical
-treatment, quantitative studies can be carried out with cameras. Indeed,
-our group quantified the oligomeric state of the dynamin-2 protein at
-the HIV-1 fusion pore using data from a TIRF microscope with an EMCCD
-camera \citep{DanDynamin}.
 
 \section{Intensity traces}\label{intensity-traces}
 
@@ -916,13 +815,23 @@ referred to as \emph{diffusion}. I will follow this convention.
 
 \emph{Anomalous diffusion} is a diffusion process whereby equation
 \eqref{eq:msd} no longer holds and the relationship between MSD and time
-becomes non-linear. Knowing whether diffusion is anomalous or free can
-offer biological insight. For example, regions of free and anomalous
-diffusion were measured with FCS (section \ref{FCS}) to investigate the
-spatiotemporal heterogeneity of lipid interaction in the plasma membrane
-of living cells \citep{EggSTEDFCS}. The pair correlation function
-approach (section \ref{PCF}) can be used to image barriers to diffusion
-\citep{PCF}; diffusion barriers necessarily lead to anomalous diffusion.
+becomes
+
+\begin{equation}
+\text{msd}(t) = 2dDt^\alpha
+\label{eq:anomalous}
+\end{equation}
+
+where \(\alpha \neq 1\). \(\alpha > 1\) is known as
+\emph{superdiffusion} (faster than normal) and \(\alpha < 1\) is known
+as \emph{subdiffusion} (slower than normal).
+
+\subsection{Diffusion in the presence of
+barriers}\label{diffusion-in-the-presence-of-barriers}
+
+If barriers to diffusion are present, neither equations \eqref{eq:msd} and
+\eqref{eq:anomalous} hold. The pair correlation function approach (section
+\ref{PCF}) can be used to image barriers to diffusion \citep{PCF}.
 
 \section{Fluorescence fluctuation spectroscopy}\label{FFS}
 
@@ -1208,54 +1117,27 @@ quantities will be assumed.
 
 \subsection{Correlation}\label{correlation}
 
-Suppose that two proteins of interest A and B are labelled with red and
-green fluorophores respectively (and there is no bleed-through between
-these red and green channels).
+Co-diffusing fluorophores of different colours will necessarily induce
+positive correlation between the intensities of these two colour
+channels because co-diffusion means that presence of one fluorophore
+necessarily implies presence of the other fluorophore. Hence,
+correlation may be used as a measure of co-diffusion, and co-diffusion
+is often interpreted as interaction (the simplest explanation for
+co-diffusion is that the co-diffusing entities are somehow stuck
+together). This idea forms the basis of much of FCS.
 
-If these proteins are interacting, then
+This does not hold for immobile particles. Immobile particles are not
+diffusing, so it doesn't make sense to employ a measure of diffusion.
 
-\begin{itemize}
-\tightlist
-\item
-  interaction implies that A and B co-diffuse
-\item
-  this implies that for a given volume in the sample
-
-  \begin{itemize}
-  \tightlist
-  \item
-    more of A implies more of B
-  \item
-    less of A implies less of B
-  \item
-    more of B implies more of A
-  \item
-    less of B implies less of A
-  \end{itemize}
-\end{itemize}
-
-Since the number of photons emitted is proportional to the amount of
-fluorophores present, it follows that
-
-\begin{itemize}
-\tightlist
-\item
-  more red photons implies more green photons
-\item
-  less red photons implies less green photons
-\item
-  more green photons implies more red photons
-\item
-  less green photons implies less red photons
-\end{itemize}
-
-Altogether, this implies that the intensity traces from the red and
-green channels will be correlated. If these proteins are not
-interacting, then the intensity traces from the red and green channels
-will not be correlated. Thus, interaction of red A and green B
-necessarily leads to correlation in fluorescent signals from the red and
-green channels.\footnote{This correlation may not always be detectable
-  due to weak interaction or weak signal.}
+Bleed-through of photons from one channel to another will induce
+artefactual correlation between the intensities of the two channels.
+Alternating laser excitation (ALEX, \citet{ALEX}) can be used to
+eliminate bleed through; however when using ALEX it is important to bear
+in mind that the two channels are no longer being acquired
+simultaneously. This is of particular importance for FCS. However if the
+instrument can go fast enough (with a laser alternation time far below
+the residence time of the diffusing entities), this problem is
+negligible.
 
 \subsection{Autocorrelation}\label{autocorrelation}
 
@@ -1280,9 +1162,10 @@ nearby pixels. The PCF was used to image barriers to diffusion
 particles moving from one place to another will not be present for
 positions \(p_1\) and \(p_2\) if they are on opposite sides of a
 barrier, because the barrier prevents travel from \(p_1\) to \(p_2\). It
-has also been used to create \emph{diffusion tensors}: maps of diffusion
-velocities at every pixel \citep{DiffusionTensor}; this approach is
-similar to that of \citet{STICS}.
+has also been used to calculate the velocities of diffusing entities at
+each pixel in an image. The collection of these velocities at each pixel
+is known as a \emph{diffusion tensor} \citep{DiffusionTensor}. This
+approach is similar to that of \citet{STICS}.
 
 \subsection{Cross-correlated
 brightness}\label{cross-correlated-brightness}
@@ -1327,6 +1210,10 @@ It is merely useful as a relative measure of interaction: higher
 interaction. It is commonly used to identify interactions. Then,
 conventional N\&B performed on each of the channels (1 and 2) can be
 used to measure the stoichiometry of the interaction.
+
+\begin{example} 
+Protein A is labelled with a fluorophore that emits to channel 1, protein B is labelled with a fluorophore that emits to channel 2. At a given point in an image series, significant positive $B_\text{cc}$ indicates interaction between protein A and protein B. Form channel 1, with number and brightness we see that at this point, protein A is a dimer, whereas from channel 2, we see that protein B is a tetramer. Therefore the stoichiometry of the complex at this point is 2 units of A with 4 units of B.
+\end{example}
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remark. } \fi{}Since cross-correlated brightness uses
@@ -1389,9 +1276,8 @@ Software}\label{instrumentation-and-software}
 
 All of the images used in this thesis were acquired on a Leica SP8
 confocal microscope\footnote{\url{https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8}}
-equipped with hybrid detectors (section \ref{HyDs}). Importantly, the
-detectors that we have on this microscope are capable of photon
-counting.
+equipped with hybrid detectors (section \ref{HyDs}) in photon counting
+mode.
 
 \section{Software programs, languages and
 tools}\label{software-programs-languages-and-tools}
@@ -1434,38 +1320,6 @@ record of the work that I have done.
 
 \section{My software packages}\label{my-software-packages}
 
-\subsection{\texorpdfstring{\texttt{ijtiff}}{ijtiff}}\label{ijtiff}
-
-An R package for general purpose TIFF file I/O. This is currently the
-only such package with read and write support for TIFF files with
-floating point (real-numbered) pixels, and the only package that can
-correctly import TIFF files that were saved from \emph{ImageJ}
-\citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
-capability is a basic need for masses of people. \texttt{ijtiff} gets
-334 downloads per month which amounts to 2,995 since it was first
-released.
-
-This package is part of the \emph{rOpenSci} project. rOpenSci is a
-non-profit initiative founded to make scientific data retrieval
-reproducible.\footnote{\url{https://ropensci.org/about}} This package
-was peer reviewed and published \citep{ijtiff}.
-
-\subsection{\texorpdfstring{\texttt{autothresholdr}}{autothresholdr}}\label{autothresholdr}
-
-\texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
-\emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 606 downloads per month which amounts to 11,370 since it
-was first released.
-
-\subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
-
-\texttt{detrendr} is an R package for detrending images (correcting for
-photobleaching). It provides all detrending algorithms mentioned in
-section \ref{photobleaching-correction}. The detrending is done in C++
-in the background for speed but it is wrapped in an R package for ease
-of use. It gets 340 downloads per month which amounts to 3,670 since it
-was first released.
-
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
 
 \texttt{filesstrings} is an R package providing convenient functions for
@@ -1479,8 +1333,8 @@ however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible.
 \texttt{filesstrings} is provides a consistent means of working with
 such file names. This package was peer reviewed and published
-\citep{filesstrings}. It gets 1,626 downloads per month which amounts to
-30,562 since it was first released.
+\citep{filesstrings}. It gets 2,000 downloads per month which amounts to
+30,000 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
@@ -1499,8 +1353,47 @@ package developers to write unit tests for their packages. It helped me
 to eradicate many bugs in all of my packages. Interestingly,
 \texttt{exampletestr} was used to unit test and eradicate bugs in
 itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 485 downloads per month which amounts
-to 8,743 since it was first released.
+2017.\citep{exampletestr} It gets 500 downloads per month which amounts
+to 10,000 since it was first released.
+
+\subsection{\texorpdfstring{\texttt{ijtiff}}{ijtiff}}\label{ijtiff}
+
+An R package for general purpose TIFF file I/O. This is currently the
+only such package with read and write support for TIFF files with
+floating point (real-numbered) pixels, and the only package that can
+correctly import TIFF files that were saved from \emph{ImageJ}
+\citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
+capability is a basic need for masses of people. \texttt{ijtiff} gets
+400 downloads per month which amounts to 4,000 since it was first
+released.
+
+This package is part of the \emph{rOpenSci} project. rOpenSci is a
+non-profit initiative founded to make scientific data retrieval
+reproducible.\footnote{\url{https://ropensci.org/about}} This package
+was peer reviewed and published \citep{ijtiff}.
+
+\subsection{\texorpdfstring{\texttt{autothresholdr}}{autothresholdr}}\label{autothresholdr}
+
+\texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
+\emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
+users. It gets 600 downloads per month which amounts to 10,000 since it
+was first released.
+
+\subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
+
+\texttt{detrendr} is an R package for detrending images (correcting for
+photobleaching). It provides all detrending algorithms mentioned in
+section \ref{photobleaching-correction}. The detrending is done in C++
+in the background for speed but it is wrapped in an R package for ease
+of use. It gets 300 downloads per month which amounts to 4,000 since it
+was first released.
+
+\subsection{\texorpdfstring{\texttt{nandb}}{nandb}}\label{nandb}
+
+\texttt{nandb} is an R package for number and brightness analysis. This
+was published along with a paper about detrending for number and
+brightness \citep{nandb}. It gets 300 downloads per month which amounts
+to 4,000 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
 
@@ -1567,12 +1460,13 @@ NSM. Discussion of correction for NSV starts in section
 \section{The effects of bleaching in FCS and
 FFS}\label{the-effects-of-bleaching-in-fcs-and-ffs}
 
-We simulate two image series, each with 100,000 diffusing fluorescent
-particles. In the first image series (\texttt{img1}), these have
-brightness \(\epsilon = 4\) and in the second (\texttt{img2}) they have
-brightness \(\epsilon = 7\). See figure \ref{fig:bleaching-sim}. We
-bleach these by 15\% and 20\% to create \texttt{img1\_bleached} and
-\texttt{img2\_bleached} respectively.
+We simulate two image series with 500 frames, 64x64 pixels per frame,
+each with 100,000 diffusing fluorescent particles which are uniformly
+distributed at the beginning. In the first image series (\texttt{img1}),
+these have brightness \(\epsilon = 4\) and in the second (\texttt{img2})
+they have brightness \(\epsilon = 7\). See figure
+\ref{fig:bleaching-sim}. We bleach these by 15\% and 20\% to create
+\texttt{img1\_bleached} and \texttt{img2\_bleached} respectively.
 
 
 
@@ -1597,13 +1491,17 @@ figure \ref{fig:bleaching-sim-mean-intensity}.
 
 
 
+
+
 \begin{figure}
 
 \includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/bleaching-sim-mean-intensity-1} \hfill{}
 
 \caption{Mean intensity profiles of
 the simulated image series with and without bleaching. Simulation 1 was
-bleached by 15\% and simulation 2 by 20\%.}\label{fig:bleaching-sim-mean-intensity}
+bleached by 15\% and simulation 2 by 20\%. The bleaching is such that
+the mean intensity decreases according to a single exponential decay
+(even though it looks quite linear).}\label{fig:bleaching-sim-mean-intensity}
 \end{figure}
 
 \subsection{FCS}\label{fcs}
@@ -1918,7 +1816,7 @@ are taken into account.
 \includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/exp-smooth-func-1} \hfill{}
 
 \caption{The function \(\exp(-\frac{|t|}{\tau})\)
-visualized with \(\tau = 3\) and \(\tau = 9\). For \(\tau = 3\), points
+visualized with \(\tau = 2\) and \(\tau = 9\). For \(\tau = 2\), points
 at distance \(|t| = 10\) have approximately zero weight, whereas for
 \(\tau = 9\), these points have significant weight.}\label{fig:exp-smooth-func}
 \end{figure}
@@ -2001,22 +1899,23 @@ perform well at the edges of time series that they are applied to. They
 also require the user to choose a smoothing parameter. The problem of
 how to best choose this parameter was solved recently \citep{nandb}, but
 this method has not been widely adopted. Most importantly, both fitting
-and smoothing fail when the data cannot be approximated as continuous
-(fitted and smoothed lines are continuous approximations of data).
-Fluorescence intensity data at low intensities---where most pixel values
-are either 0 or 1---are quasi-binary\footnote{By \emph{quasi-binary}, I
-  just mean that almost all values are 0 or 1.} and hence a continuous
-approximation does not make sense (see figure
-\ref{fig:fit-smooth-caveats}). This means that neither fitting nor
-smoothing are applicable detrending methods at low intensities. This is
-the crucial caveat of these methods because, when bleaching is a
-problem, it is common to reduce laser power to reduce bleaching, which
-leads directly to lower intensity images. With fitting and smoothing
-techniques, it may sometimes be advisable to increase the laser power to
-achieve higher intensities such that the detrending routines will
-function properly. This means one may need to bleach more in order to be
-able to correct for bleaching. This farcical situation necessitates a
-new detrending technique which can function at low intensities.
+and smoothing fail when the data cannot be approximated as
+mathematically continuous (fitted and smoothed lines are continuous
+approximations of data). Fluorescence intensity data at low
+intensities---where most pixel values are either 0 or 1---are
+quasi-binary\footnote{By \emph{quasi-binary}, I just mean that almost
+  all values are 0 or 1.} and hence a continuous approximation does not
+make sense (see figure \ref{fig:fit-smooth-caveats}). This means that
+neither fitting nor smoothing are applicable detrending methods at low
+intensities. This is the crucial caveat of these methods because, when
+bleaching is a problem, it is common to reduce laser power to reduce
+bleaching, which leads directly to lower intensity images. With fitting
+and smoothing techniques, it may sometimes be advisable to increase the
+laser power to achieve higher intensities such that the detrending
+routines will function properly. This means one may need to bleach more
+in order to be able to correct for bleaching. This farcical situation
+necessitates a new detrending technique which can function at low
+intensities.
 
 
 
@@ -2044,11 +1943,13 @@ real-numbered values (elements of \(\mathbb{R}\)), which must then be
 transformed back into count data (elements of \(\mathbb{N}_0\)),
 normally by rounding. This means that fitting and smoothing methods of
 detrending push values through
-\(\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0\). When
-current methods were failing to properly detrend low-intensity images, I
-began to wonder was it necessary to go through the real numbers
-\(\mathbb{R}\), given that the start and end points were the natural
-numbers \(\mathbb{N}_0\)?
+\(\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0\) (the
+move back \(\rightarrow \mathbb{N}_0\) is necessary because calculations
+like Quian and Elson's moment analysis assume photon count data, which
+is necessarily in \(\mathbb{N}_0\)). When current methods were failing
+to properly detrend low-intensity images, I began to wonder was it
+necessary to go through the real numbers \(\mathbb{R}\), given that the
+start and end points were the natural numbers \(\mathbb{N}_0\)?
 
 Consider figure \ref{fig:rh-detrend-eg}. There is a bleached and
 unbleached version of an intensity trace. Suppose that our real data is
