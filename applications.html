@@ -76,6 +76,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
@@ -139,9 +140,8 @@
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.1.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.1.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion"><i class="fa fa-check"></i><b>4.1.2</b> Experimental results and discussion</a></li>
-<li class="chapter" data-level="4.1.3" data-path="applications.html"><a href="applications.html#visualization-of-bleaching-correction-on-real-data"><i class="fa fa-check"></i><b>4.1.3</b> Visualization of bleaching correction on real data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a><ul>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-NB"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="applications.html"><a href="applications.html#introduction-1"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion-1"><i class="fa fa-check"></i><b>4.2.2</b> Experimental results and discussion</a></li>
 </ul></li>
@@ -164,10 +164,11 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
-<li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.1</b> Robin Hood publication</a></li>
-<li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.2</b> Translate software to <em>ImageJ</em></a></li>
-<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
-<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.4</b> Compare FRET with FCS</a></li>
+<li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.1</b> Translate software to <em>ImageJ</em></a></li>
+<li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.2</b> Study real data bleaching profiles with simulations</a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.3</b> Robin Hood publication</a></li>
+<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#revisit-old-nb-data-with-new-detrending-algorithm"><i class="fa fa-check"></i><b>6.4</b> Revisit old N&amp;B data with new detrending algorithm</a></li>
+<li class="chapter" data-level="6.5" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.5</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -196,19 +197,23 @@
 <h2><span class="header-section-number">4.1</span> Dimerization of FKBP12</h2>
 <div id="introduction" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Introduction</h3>
-<p>Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 <span class="citation">(Amara et al. <a href="#ref-Amara">1997</a>)</span>. As a test application of exponential smoothing detrending (section <a href="photobleaching-correction.html#exponential-smoothing-detrending">3.6</a>) with automatically chosen parameter <span class="math inline">\(\tau\)</span>, we used this system with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12.</p>
+<p>Myristoylated FKBP12 is known to dimerize upon addition of the dimerizing drug AP1510 <span class="citation">(Amara et al. <a href="#ref-Amara">1997</a>)</span>. As a test application of exponential smoothing detrending (section <a href="photobleaching-correction.html#exponential-smoothing-detrending">3.6</a>) with automatically chosen parameter <span class="math inline">\(\tau\)</span>, we used this system with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12 <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>.</p>
 </div>
 <div id="experimental-results-and-discussion" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Experimental results and discussion</h3>
-<p>We found a brightness increase in <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(\approx 1.6\)</span>-fold using the <em>automatic</em> detrending method. The <span class="math inline">\(\approx 1.6\)</span>-fold increase suggests that dimerization had occurred (see figure <a href="applications.html#fig:FKBPfoldchanges">4.1</a>), however, we expected the increase to be <span class="math inline">\(\approx 2\)</span>-fold upon dimerization. In that publication <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out <span class="citation">(Dunsing et al. <a href="#ref-fpcompare">2018</a>)</span> explaining how the assumption that all fluorophores emit signal is invalid (because many never function properly) and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. We also tried <span class="math inline">\(\tau=10\)</span>, which gave a decrease in brightness, showing that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.</p>
+<p>We found a brightness increase in <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(\approx 1.6\)</span>-fold using the <em>automatic</em> detrending method. Assuming thae population was all monomers before ligand addition, the <span class="math inline">\(\approx 1.6\)</span>-fold increase upon addition suggests that dimerization had occurred (see figure <a href="applications.html#fig:FKBPfoldchanges">4.1</a>), however, we expected the increase to be <span class="math inline">\(\approx 2\)</span>-fold upon dimerization. There could be many reasons for this discrepancy.</p>
+<ol style="list-style-type: decimal">
+<li>FKBP is natively expressed in Cos7 cells, so depending on the level of native expression (not labelled) and the level of expression of our transfected FKBP (labelled), it could be that many cases of what is actually a dimer is behaving like a monomer because only one of the pair is labelled.</li>
+<li>Recently, a paper came out <span class="citation">(Dunsing et al. <a href="#ref-fpcompare">2018</a>)</span> explaining how the assumption that all fluorophores emit signal is invalid (because many never function properly) and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor to be able to apply it. Any such correction would bring us higher than 1.6.</li>
+</ol>
+<p>It is possible that all of the above reasons are valid and are present to different degrees in different images. This could be a cause of the heterogeneity of fold-changes in <span class="math inline">\(\epsilon\)</span> measured from single images. This heterogeneity means that many replicates are needed in number and brightness experiments in order to converge upon the true value of the fold change.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:FKBPfoldchanges"></span>
-<img src="img/foldchanges.png" alt="The fold changes in brightness \(\epsilon\) upon addition of AP1510 drug shown for different detrending routines. \(\tau=\) NA is no detrend." width="100%" />
+<img src="img/foldchanges.png" alt="The fold changes in brightness \(\epsilon\) upon addition of AP1510 drug shown for different detrending routines (\(\tau=10\), auto \(\tau\) and no detrend)." width="100%" />
 <p class="caption">
-Figure 4.1: The fold changes in brightness <span class="math inline">\(\epsilon\)</span> upon addition of AP1510 drug shown for different detrending routines. <span class="math inline">\(\tau=\)</span> NA is no detrend.
+Figure 4.1: The fold changes in brightness <span class="math inline">\(\epsilon\)</span> upon addition of AP1510 drug shown for different detrending routines (<span class="math inline">\(\tau=10\)</span>, auto <span class="math inline">\(\tau\)</span> and no detrend).
 </p>
 </div>
-<p>The heterogeneity of fold-changes in <span class="math inline">\(\epsilon\)</span> measured from single images as shown in figure <a href="applications.html#fig:FKBPfoldchanges">4.1</a> shows that many replicates are needed in number and brightness experiments in order to converge upon the true value of the fold change.</p>
 <p>A pair of cells from this study together with their brightness statistics are shown in figure <a href="applications.html#fig:nandb-fig">4.2</a>. Notice how there is no discernible change in intensity before and after addition of the drug, but there is a discernible change in brightness <span class="math inline">\(B\)</span>, best seen using the histogram of pixel brightnesses.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:nandb-fig"></span>
@@ -218,32 +223,21 @@ Figure 4.2: mClover-labelled myristoylated FKBP12 before and after application o
 </p>
 </div>
 </div>
-<div id="visualization-of-bleaching-correction-on-real-data" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> Visualization of bleaching correction on real data</h3>
-<p>That publication also includes a visualization of bleaching correction on real data. Figure <a href="applications.html#fig:bleachvis1">4.3</a> shows this, comparing the choice of <span class="math inline">\(\tau=10\)</span> with the automatic detrending algorithm, which chooses an appropriate <span class="math inline">\(\tau\)</span> based on the data. It is evident that both <span class="math inline">\(\tau=10\)</span> and the automatic choice of <span class="math inline">\(\tau\)</span> give the corrected intensity profile a stationary mean (both the red and green series start and end at <span class="math inline">\(\approx 11\)</span>), however the <span class="math inline">\(\tau = 10\)</span> correction (red line) also has a much decreased variance compared to the auto <span class="math inline">\(\tau\)</span> line (green), which is bad; the <span class="math inline">\(\tau = 10\)</span> line is removing local variation, which is exactly what we’re trying to avoid.</p>
-
-<div class="figure" style="text-align: left"><span id="fig:bleachvis1"></span>
-<img src="img/bleachvis1.png" alt="Real data image series mean intensity profile with bleaching correction with \(\tau = 10\) and auto \(\tau\)." width="100%" />
-<p class="caption">
-Figure 4.3: Real data image series mean intensity profile with bleaching correction with <span class="math inline">\(\tau = 10\)</span> and auto <span class="math inline">\(\tau\)</span>.
-</p>
 </div>
-</div>
-</div>
-<div id="in-vitro-number-and-brightness" class="section level2">
+<div id="in-vitro-NB" class="section level2">
 <h2><span class="header-section-number">4.2</span> <em>In vitro</em> number and brightness</h2>
 <div id="introduction-1" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Introduction</h3>
-<p>In our research group, we believe that the most practical quantitative method for measuring homo-dimerization <em>in vivo</em> and <em>in vitro</em> is N&amp;B <span class="citation">(Digman et al. <a href="#ref-NB">2008</a>)</span> because it is calibration-free and does not require specialized instrumentation. There are many examples of the application of N&amp;B <em>in vivo</em> (the original N&amp;B paper has over 250 citations, most of which are <em>in vivo</em> applications) but none <em>in vitro</em>. Hence, we published a protocol <span class="citation">(Nolan et al. <a href="#ref-JOVE">2018</a>)</span> detailing how N&amp;B can be applied <em>in vitro</em>. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known colloquially as the <em>BB dimerizer</em>); this pair is designed to have better specificity than the original <span class="citation">(Clackson et al. <a href="#ref-Clackson">1998</a>)</span>.</p>
+<p>In our research group, we believe that the most practical quantitative method for measuring homo-dimerization <em>in vivo</em> and <em>in vitro</em> is N&amp;B <span class="citation">(Digman et al. <a href="#ref-NB">2008</a>)</span> because it is calibration-free and does not require specialized instrumentation. There are many examples of the application of N&amp;B <em>in vivo</em> (the original N&amp;B paper has over 250 citations, most of which are <em>in vivo</em> applications) but none <em>in vitro</em>. Hence, we published a protocol <span class="citation">(Nolan et al. <a href="#ref-JOVE">2018</a>)</span> detailing how N&amp;B can be applied <em>in vitro</em>. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known colloquially as the <em>BB dimerizer</em>). The fact that FKBP12F36V is an FKBP12 mutant and that BB only dimerizes this mutant means that the previous issue of the interaction of endogenous and exogenous proteins is eliminated.</p>
 </div>
 <div id="experimental-results-and-discussion-1" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Experimental results and discussion</h3>
-<p>In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> upon addition of the drug. See figure <a href="applications.html#fig:jove">4.4</a>. This analysis was done with exponential smoothing detrending with automatically chosen parameter <span class="math inline">\(\tau\)</span>. Without detrending, the pre-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.026\)</span>, showing that detrending is absolutely necessary and that neglecting this step can lead to nonsensical results.</p>
+<p>In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> upon addition of the drug. See figure <a href="applications.html#fig:jove">4.3</a>. This analysis was done with exponential smoothing detrending with automatically chosen parameter <span class="math inline">\(\tau\)</span>. Without detrending, the pre-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.026\)</span>, whereas the post-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.010\)</span> again, which would lead one to conclude that the oligomeric state decreased upon BB addition. This is a nonsensical result given that the FKBP12F36V is monomeric to begin with. This shows that detrending is absolutely necessary and that neglecting this step can lead to incorrect results.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:jove"></span>
 <img src="img/jove-dimerization.png" alt="Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from \(\epsilon = 0.005\) to \(\epsilon = 0.010\) over a period of minutes." width="100%" />
 <p class="caption">
-Figure 4.4: Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> over a period of minutes.
+Figure 4.3: Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> over a period of minutes.
 </p>
 </div>
 
@@ -270,7 +264,7 @@ The <span class="math inline">\(S\)</span> in the denominator was omitted in the
 <div id="the-use-of-number-and-brightness-to-study-hiv-1-cell-entry" class="section level4">
 <h4><span class="header-section-number">4.3.1.2</span> The use of number and brightness to study HIV-1 cell entry</h4>
 <p>Our main motivation for studying N&amp;B in the first place was that we thought it was a valuable method to study the process of HIV-1 fusion in live cells. N&amp;B was first used in our research group to study the oligomeric state of dynamin at the HIV-1 fusion pore in TZM-bl cells <span class="citation">(Jones et al. <a href="#ref-DanDynamin">2017</a>)</span>. This study concluded that dynamin-2 stabilizes the HIV-1 fusion pore with a low oligomeric state.</p>
-<p>Following on from this, we wanted to study the stoichiometry of the interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or CXCR4) upon the engagement of the virus with the cell and to follow this interaction stoichiometry up to the point of fusion; see figure <a href="applications.html#fig:HIVStoichiometrySetup">4.5</a>.</p>
+<p>Following on from this, we wanted to study the stoichiometry of the interaction of HIV-1 with its receptor (CD4) and co-receptor (CCR5 or CXCR4) upon the engagement of the virus with the cell and to follow this interaction stoichiometry up to the point of fusion; see figure <a href="applications.html#fig:HIVStoichiometrySetup">4.4</a>.</p>
 <blockquote>
 <p>Entry of HIV-1 into a host cell requires an initial interaction between the viral-envelope glycoprotein spike complex—Env—with cell surface displayed CD4 and co receptors <span class="citation">(Jakobsdottir et al. <a href="#ref-Jakobsdottir">2017</a>)</span>. Although structural studies have revealed the intra-molecular basis for CD4 receptor and CXCR4/CCR5 co-receptor-induced conformational changes to the HIV-1 Env during host cell entry <span class="citation">(Ozorowski et al. <a href="#ref-Ozorowski">2017</a>)</span>, little is known about how the inter-molecular dynamics and stoichiometry of this process culminates in fusion with the host cell membrane in live cells <span class="citation">(Brandenberg et al. <a href="#ref-Brandenberg">2015</a>)</span>. This is due to the difficulty of working with live cells and the lack of temporal resolution of the techniques commonly employed (i.e. crystallography and cryo-EM).</p>
 <p>— <span class="citation">Iliopoulou et al. (<a href="#ref-HIVstoichiometry">2018</a>)</span></p>
@@ -279,7 +273,7 @@ The <span class="math inline">\(S\)</span> in the denominator was omitted in the
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometrySetup"></span>
 <img src="img/HIVStoichiometrySetup.png" alt="The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labeling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction." width="100%" />
 <p class="caption">
-Figure 4.5: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labeling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction.
+Figure 4.4: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labeling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction.
 </p>
 </div>
 <p>We saw N&amp;B as the ideal technique to probe this stoichiometry temporally. With our microscope, we could acquire 100 frames per 1.7 minutes, therefore, using each consecutive sequence of 100 frames to create a brightness image, we could obtain 1 brightness image every 1.7 minutes and use this to calculate this temporal stoichiometry.</p>
@@ -287,55 +281,55 @@ Figure 4.5: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and
 </div>
 <div id="experimental-setup" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Experimental setup</h3>
-<p>Receptor (CD4) and co-receptor (CXCR4 or CCR5) were labelled in Cos7 cells. Virus was added at time <span class="math inline">\(t=0\)</span> and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, <span class="citation">Kapanidis et al. (<a href="#ref-ALEX">2005</a>)</span>) was used to eliminate the possibility of channel bleed-through. See figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.6</a>.</p>
+<p>Cos7 cells were transfected with labelled receptor (CD4) and co-receptor (CXCR4 or CCR5) (these cells do not express these proteins endogenously). Virus was added at time <span class="math inline">\(t=0\)</span> and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, <span class="citation">Kapanidis et al. (<a href="#ref-ALEX">2005</a>)</span>) was used to eliminate the possibility of channel bleed-through. See figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a>.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryIntensity"></span>
 <img src="img/HIVStoichiometryIntensity.png" alt="Intensity images from the virus, receptor and co-receptor. Every 100th frame is shown. A virus which lands at \(t \approx 1.7\) minutes is highlighted." width="100%" />
 <p class="caption">
-Figure 4.6: Intensity images from the virus, receptor and co-receptor. Every 100<sup>th</sup> frame is shown. A virus which lands at <span class="math inline">\(t \approx 1.7\)</span> minutes is highlighted.
+Figure 4.5: Intensity images from the virus, receptor and co-receptor. Every 100<sup>th</sup> frame is shown. A virus which lands at <span class="math inline">\(t \approx 1.7\)</span> minutes is highlighted.
 </p>
 </div>
 </div>
 <div id="analysis" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Analysis</h3>
-<p>The virus channel was used to locate the virus at a given point in time. The receptor and co-receptor were used to calculate brightness and cross-correlated brightness every 100 frames (every 1.7 min). The brightness was used to determine the number of receptor and co-receptor units involved in a complex. The cross-correlated brightness was used to delimit whether or not the receptor and co-receptor units were together in the <em>same</em> complex. See figure <a href="applications.html#fig:HIVStoichiometryAnalysis">4.7</a>, this is the corresponding brightness and cross-correlated brightness image of figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.6</a>. Notice that once the virus lands, the oligomeric state of the receptor and co-receptor increases. We also see significant positive cross-correlated brightness in this area, indicating that the virus has triggered a complex of receptor and co-receptor.</p>
+<p>The virus channel was used to locate the virus at a given point in time. The receptor and co-receptor were used to calculate brightness and cross-correlated brightness every 100 frames (every 1.7 min). The brightness was used to determine the number of receptor and co-receptor units involved in a complex. The cross-correlated brightness was used to delimit whether or not the receptor and co-receptor units were together in the <em>same</em> complex. See figure <a href="applications.html#fig:HIVStoichiometryAnalysis">4.6</a>, this is the corresponding brightness and cross-correlated brightness image of figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a>. Notice that once the virus lands, the oligomeric state of the receptor and co-receptor increases. We also see significant positive cross-correlated brightness in this area, indicating that the virus has triggered a complex of receptor and co-receptor.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryAnalysis"></span>
 <img src="img/HIVStoichiometryAnalysis.png" alt="Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two." width="100%" />
 <p class="caption">
-Figure 4.7: Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two.
+Figure 4.6: Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two.
 </p>
 </div>
 </div>
 <div id="results" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Results</h3>
-<p>Figure <a href="applications.html#fig:HIVStoichiometryPlots">4.8</a> shows the results of the analysis detailed in figures <a href="applications.html#fig:HIVStoichiometryIntensity">4.6</a> and <a href="applications.html#fig:HIVStoichiometryAnalysis">4.7</a> for <span class="math inline">\(n=10\)</span> cases where virus triggered receptor and co-receptor complexes in the X4-tropic setting and <span class="math inline">\(n=12\)</span> in the R5-tropic setting. A three-step pre-fusion process is hypothesized for each.</p>
+<p>Figure <a href="applications.html#fig:HIVStoichiometryPlots">4.7</a> shows the results of the analysis detailed in figures <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a> and <a href="applications.html#fig:HIVStoichiometryAnalysis">4.6</a> for <span class="math inline">\(n=10\)</span> cases where virus triggered receptor and co-receptor complexes in the X4-tropic setting and <span class="math inline">\(n=12\)</span> in the R5-tropic setting. A three-step pre-fusion process is hypothesized for each.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryPlots"></span>
 <img src="img/X4plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIVHXB2. Right panel: HIVJR-FL." width="47%" /><img src="img/R5plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIVHXB2. Right panel: HIVJR-FL." width="47%" />
 <p class="caption">
-Figure 4.8: Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIV<sub>HXB2</sub>. Right panel: HIV<sub>JR-FL</sub>.
+Figure 4.7: Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIV<sub>HXB2</sub>. Right panel: HIV<sub>JR-FL</sub>.
 </p>
 </div>
 <blockquote>
-<p>Our studies support a dynamic three step model for both HIV<sub>HXB2</sub> and HIV<sub>JR-FL</sub> (figure <a href="applications.html#fig:HIVStoichiometryStructure">4.9</a>). For X4 tropic virions, Env – CD4 interactions induce CXCR4 dimerization, CD4 then engages with two Env (shown by 3 color TIRF-dSTORM microscopy) to generate a hexamer that might serve as a scaffold to stabilise a final 4 CD4 – 1/2 CXCR4 conformation, with a single Env. We speculate that for HIV<sub>HXB2</sub>, step 2 is crucial to culminate the fusion reaction and there could be an anchoring domain and a fusion domain that undergoes gp120 disassembly leading to 6 helix bundle formation. For R5-tropic virions, Env – CD4 interactions form the previously described asymmetric pre-hairpin intermediate <span class="citation">(Munro et al. <a href="#ref-Munro">2014</a>)</span> <span class="citation">(Kwon et al. <a href="#ref-DoKwon">2015</a>)</span> <span class="citation">(Ma et al. <a href="#ref-Ma">2018</a>)</span>, following binding and oligomerisation of 2 additional CD4 molecules with concomitant CCR5 dimerization. After this, the secondary intermediate leads to the final fusion competent complex with a total of <span class="math inline">\(4\pm 0.3\)</span> CD4, <span class="math inline">\(2\pm 0.3\)</span> CCR5 and 1 JR-FL Env. Interestingly, dSTORM experiments show an average stoichiometry for step 3 of <span class="math inline">\(3.4\pm 0.1\)</span> CD4, <span class="math inline">\(1.5\pm 0.2\)</span> CCR5.</p>
+<p>Our studies support a dynamic three step model for both HIV<sub>HXB2</sub> and HIV<sub>JR-FL</sub> (figure <a href="applications.html#fig:HIVStoichiometryStructure">4.8</a>). For X4 tropic virions, Env – CD4 interactions induce CXCR4 dimerization, CD4 then engages with two Env (shown by 3 color TIRF-dSTORM microscopy) to generate a hexamer that might serve as a scaffold to stabilise a final 4 CD4 – 1/2 CXCR4 conformation, with a single Env. We speculate that for HIV<sub>HXB2</sub>, step 2 is crucial to culminate the fusion reaction and there could be an anchoring domain and a fusion domain that undergoes gp120 disassembly leading to 6 helix bundle formation. For R5-tropic virions, Env – CD4 interactions form the previously described asymmetric pre-hairpin intermediate <span class="citation">(Munro et al. <a href="#ref-Munro">2014</a>)</span> <span class="citation">(Kwon et al. <a href="#ref-DoKwon">2015</a>)</span> <span class="citation">(Ma et al. <a href="#ref-Ma">2018</a>)</span>, following binding and oligomerisation of 2 additional CD4 molecules with concomitant CCR5 dimerization. After this, the secondary intermediate leads to the final fusion competent complex with a total of <span class="math inline">\(4\pm 0.3\)</span> CD4, <span class="math inline">\(2\pm 0.3\)</span> CCR5 and 1 JR-FL Env. Interestingly, dSTORM experiments show an average stoichiometry for step 3 of <span class="math inline">\(3.4\pm 0.1\)</span> CD4, <span class="math inline">\(1.5\pm 0.2\)</span> CCR5.</p>
 </blockquote>
 <blockquote>
 <p>Our data indicate that both HXB2 Env and JR-FL Env start with an asymmetric intermediate bound to a single CD4, as previously suggested. Our models also support the existence of important differences in the entry mechanisms of X4 and R5 strains. In the X4 strains, CXCR4 dimerization <span class="citation">(Tan et al. <a href="#ref-Tan">2013</a>)</span> <span class="citation">(Qin et al. <a href="#ref-Qin">2015</a>)</span> occurs prior to CD4 hexamer formation and following initial Env – CD4 recognition <span class="citation">(Liu et al. <a href="#ref-Liu">2017</a>)</span>. For R5 tropic JR-FL, CCR5 dimerization <span class="citation">(Qin et al. <a href="#ref-Qin">2015</a>)</span> occurs after Env-CD4 complexation and recruitment of two additional CD4 molecules <span class="citation">(Wu et al. <a href="#ref-Wu">1996</a>)</span> around the complex.</p>
 <p>— <span class="citation">Iliopoulou et al. (<a href="#ref-HIVstoichiometry">2018</a>)</span></p>
 </blockquote>
-<p>For the X4 and R5-tropic cases, structural modelling of the hypothesis has been done to visualize our findings and to assess their viability; this produced figure <a href="applications.html#fig:HIVStoichiometryStructure">4.9</a>.</p>
+<p>For the X4 and R5-tropic cases, structural modelling of the hypothesis has been done to visualize our findings and to assess their viability; this produced figure <a href="applications.html#fig:HIVStoichiometryStructure">4.8</a>.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryStructure"></span>
-<img src="img/HIVStoichiometryStructure.png" alt="Pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases." width="100%" />
+<img src="img/HIVStoichiometryStructure.png" alt="Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases." width="100%" />
 <p class="caption">
-Figure 4.9: Pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases.
+Figure 4.8: Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases.
 </p>
 </div>
 </div>
 <div id="conclusion" class="section level3">
 <h3><span class="header-section-number">4.3.5</span> Conclusion</h3>
-<p>Time-resolved N&amp;B enabled us to answer questions about the interaction between the HIV-1 virus and its receptor and co-receptor in live cells which up to now could not be answered. Being able to correctly correct for bleaching is crucial for reliable N&amp;B analysis, so the development of these new algorithms was crucial to this study.</p>
+<p>Time-resolved N&amp;B enabled us to answer questions about the interaction between HIV-1 and its receptor and co-receptor in live cells which up to now could not be answered. We addressed this problem with the N&amp;B technique. Successful application of N&amp;B relies on being able to correct for bleaching reliably (as seen in section <a href="applications.html#in-vitro-NB">4.2</a>). This was impossible before the advent of my bleaching correction algorithms, therefore their development was a key step in making this work possible.</p>
 
 </div>
 </div>
@@ -356,9 +350,6 @@ Figure 4.9: Pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases
 </div>
 <div id="ref-JOVE">
 <p>Nolan, Rory, Luis Alvarez, Samuel C. Griffiths, Jonathan Elegheert, Christian Siebold, and Sergi Padilla-Parra. 2018. “Calibration-Free in-Vitro Quantification of Protein Homo-Oligomerization Using Commercial Instrumentation and Free, Open Source Brightness Analysis Software.” <em>Journal of Visualized Experiments</em> 0 (0). MyJove Corporation.</p>
-</div>
-<div id="ref-Clackson">
-<p>Clackson, T., W. Yang, L. W. Rozamus, M. Hatada, J. F. Amara, C. T. Rollins, L. F. Stevenson, et al. 1998. “Redesigning an FKBP-ligand interface to generate chemical dimerizers with novel specificity.” <em>Proc. Natl. Acad. Sci. U.S.A.</em> 95 (18): 10437–42. <a href="http://www.pnas.org/content/95/18/10437" class="uri">http://www.pnas.org/content/95/18/10437</a>.</p>
 </div>
 <div id="ref-Dalal">
 <p>Dalal, R. B., M. A. Digman, A. F. Horwitz, V. Vetri, and E. Gratton. 2008. “Determination of particle number and brightness using a laser scanning confocal microscope operating in the analog mode.” <em>Microsc. Res. Tech.</em> 71 (1): 69–81. doi:<a href="https://doi.org/10.1002/jemt.20526">10.1002/jemt.20526</a>.</p>
