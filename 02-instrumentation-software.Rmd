@@ -105,7 +105,7 @@ Unit testing is a tool to verify that software is performing as intended. It is 
 ijtiff_downloads <- get_downloads("ijtiff")
 ```
 
-An R package for general purpose TIFF file I/O. This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from _ImageJ_ [@ImageJ]. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. `ijtiff` gets `r ijtiff_downloads$per_month` downloads per month which amounts to `r ijtiff_downloads$total` since it was first released.
+An R package for general purpose tagged image file format (TIFF) input and output (I/O). This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from _ImageJ_ [@ImageJ]. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. `ijtiff` gets `r ijtiff_downloads$per_month` downloads per month which amounts to `r ijtiff_downloads$total` since it was first released.
 
 This package is part of the _rOpenSci_ project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.^[https://ropensci.org/about] This package was peer reviewed and published [@ijtiff].
 
@@ -139,7 +139,7 @@ nandb_downloads <- get_downloads("detrendr")
 
 ### `brownded` {#brownded}
 
-`brownded` is an R software package (https://github.com/rorynolan/brownded) for simulating bounded Brownian motion in any number of dimensions, where _bounded_ Brownian motion is Brownian motion in an $d$-dimensional box where the particles collide elastically (without loss of energy) with the boundaries of the box. `brownded` allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles. 
+`brownded` is an R software package (https://github.com/rorynolan/brownded) for simulating bounded Brownian motion in any number of dimensions, where _bounded_ Brownian motion is Brownian motion in an $d$-dimensional box where the particles collide elastically (without loss of energy) within the boundaries of the box. `brownded` allows specification of the number of dimensions, the number of particles, the size of the box and the diffusion coefficient of the particles. 
 
 `brownded` also facilitates the simulation of images created from fluorescent particles undergoing bounded Brownian motion. It allows specification of the time at which each image should be taken, the pixel size and the brightness of the particles. Each fluorescent particle contributes photon counts to its pixel of residence at that time according to a Poisson process. 
 

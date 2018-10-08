@@ -76,6 +76,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
@@ -139,9 +140,8 @@
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#dimerization-of-fkbp12"><i class="fa fa-check"></i><b>4.1</b> Dimerization of FKBP12</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="applications.html"><a href="applications.html#introduction"><i class="fa fa-check"></i><b>4.1.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.1.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion"><i class="fa fa-check"></i><b>4.1.2</b> Experimental results and discussion</a></li>
-<li class="chapter" data-level="4.1.3" data-path="applications.html"><a href="applications.html#visualization-of-bleaching-correction-on-real-data"><i class="fa fa-check"></i><b>4.1.3</b> Visualization of bleaching correction on real data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-number-and-brightness"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a><ul>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#in-vitro-NB"><i class="fa fa-check"></i><b>4.2</b> <em>In vitro</em> number and brightness</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="applications.html"><a href="applications.html#introduction-1"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2.2" data-path="applications.html"><a href="applications.html#experimental-results-and-discussion-1"><i class="fa fa-check"></i><b>4.2.2</b> Experimental results and discussion</a></li>
 </ul></li>
@@ -164,10 +164,11 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
-<li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.1</b> Robin Hood publication</a></li>
-<li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.2</b> Translate software to <em>ImageJ</em></a></li>
-<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.3</b> Study real data bleaching profiles with simulations</a></li>
-<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.4</b> Compare FRET with FCS</a></li>
+<li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.1</b> Translate software to <em>ImageJ</em></a></li>
+<li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.2</b> Study real data bleaching profiles with simulations</a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.3</b> Robin Hood publication</a></li>
+<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#revisit-old-nb-data-with-new-detrending-algorithm"><i class="fa fa-check"></i><b>6.4</b> Revisit old N&amp;B data with new detrending algorithm</a></li>
+<li class="chapter" data-level="6.5" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.5</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -192,20 +193,24 @@
             <section class="normal" id="section-">
 <div id="future-plans" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Future plans</h1>
-<div id="robin-hood-publication" class="section level2">
-<h2><span class="header-section-number">6.1</span> Robin Hood publication</h2>
-<p>The <em>Robin Hood</em> algorithm is already incorporated in the R package <code>detrendr</code> but it hasn’t been published or peer-reviewed. Getting this done is my top priority.</p>
-</div>
 <div id="translate-software-to-imagej" class="section level2">
-<h2><span class="header-section-number">6.2</span> Translate software to <em>ImageJ</em></h2>
+<h2><span class="header-section-number">6.1</span> Translate software to <em>ImageJ</em></h2>
 <p>Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms by others. I will code my detrending algorithms as <em>ImageJ</em> plugins and also as python modules so that more of the community have easy access to them.</p>
 </div>
 <div id="mimic" class="section level2">
-<h2><span class="header-section-number">6.3</span> Study real data bleaching profiles with simulations</h2>
+<h2><span class="header-section-number">6.2</span> Study real data bleaching profiles with simulations</h2>
 <p>It was mentioned in section <a href="photobleaching-correction.html#detrend-compare">3.10</a> that it would be possible to study the effect of real bleaching as opposed to simulated ideal bleaching and why it is more necessary to detrend in the real data case, by mimicking real bleaching profiles with simulations. This is something I would like to do. It would be difficult because it would require the collection and cataloging of a diverse set of real data bleaching profiles from various biological samples. This would be the bottleneck because I have already written the simulation and analysis pipelines.</p>
 </div>
+<div id="robin-hood-publication" class="section level2">
+<h2><span class="header-section-number">6.3</span> Robin Hood publication</h2>
+<p>Once <em>Robin Hood</em> has been implemented in <em>ImageJ</em> and more realistic bleaching problems have been studied, <em>Robin Hood</em> should be published.</p>
+</div>
+<div id="revisit-old-nb-data-with-new-detrending-algorithm" class="section level2">
+<h2><span class="header-section-number">6.4</span> Revisit old N&amp;B data with new detrending algorithm</h2>
+<p>Having claimed that Robin Hood detrending is significantly better than previous detrending methods, it makes sense to revisit old results found using old detrending methods to see how much they would be changed with the application of this new detrending algorithm. The main difficulty in such a project would be obtaining the old data. To this day, most microscopy publications do not have their associated images in a centralised repository, so the only way to get this data is to request it from the authors.</p>
+</div>
 <div id="compare-fret-with-fcs" class="section level2">
-<h2><span class="header-section-number">6.4</span> Compare FRET with FCS</h2>
+<h2><span class="header-section-number">6.5</span> Compare FRET with FCS</h2>
 <p>I have the idea that when the question “Do these proteins interact?” is answered by Forster resonance energy transfer (FRET, <span class="citation">Förster (<a href="#ref-Frster">1948</a>)</span>), it should also be answerable by FCS. I would like to try to reproduce some standard FRET results with FCS. I am particularly interested to find out if there are instances where one technique succeeds in detecting interaction and the other fails, and why this might be. For example, it might be possible that for a given interacting pair of proteins, it is impossible to label them such that the FRET couple is close enough for FRET to be detected, but that this interaction is detectable by FCS. These techniques have been compared before <span class="citation">(Sahoo and Schwille <a href="#ref-Sahoo">2011</a>)</span>, but not by trying to reproduce previous work. In addition, attempts by new groups to reproduce work that is accepted in the literature are always interesting <span class="citation">(Baker <a href="#ref-Baker2016">2016</a>)</span>.</p>
 
 </div>

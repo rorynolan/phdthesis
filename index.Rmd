@@ -24,7 +24,8 @@ description: "Rory Nolan's PhD thesis"
 # The dev version of latex2exp is needed
 pacman::p_load(tidyverse, forcats, magrittr, ijtiff, cranlogs, lubridate,
                curl, detrendr, nandb, filesstrings, knitr, latex2exp,
-               janitor, RcppRoll, abind, brownded, here, readxl, DescTools)
+               janitor, RcppRoll, abind, brownded, here, readxl, DescTools,
+               assertthat)
 
 opts_chunk$set(comment = "#>", fig.asp = 0.6, 
                out.width = "100%", fig.align = "left",
@@ -132,3 +133,18 @@ read_excel(here("misc", "AcroMath.xlsx"), sheet = "Math") %>%
   mutate(Symbol = str_c("$", Symbol, "$")) %>% 
   kable(escape = FALSE, longtable = TRUE)
 ```
+
+
+## Acknowledgements {-}
+
+Thanks to my parents Kate and Dave who were good enough to house me rent-free for 18 years. They encouraged me academically after it became clear that I was not the next Kevin Kilbane. Thanks to my wife Naomi who puts up with me now that my parents have had enough of me. Thanks to my brother Brendan who taught me (perhaps wrongly) that maths is cool.
+
+Thanks to my supervisor Sergi Padilla-Parra who had many good ideas of what to study, for his intelligent input and generosity with time. Moreover, thanks to him for emphasising that it's possible to work too hard. It's largely thanks to his attitude that my time in Oxford was so enjoyable. 
+
+Thanks to all of my lab mates: Dan, Keith, Xenia, Raquel, Luis, Margarita, Marina, Maro, Marina, Maria, Chad and Irene; it was interesting and fun to spend time with you all. I'll look back upon my time in the lab fondly, I hope you can say the same. 
+
+Thanks to my friends Kathrin and Zammy from my PhD programme; we shared the journey to becoming doctors and come out of the other end with lifelong friendships as well as new titles.
+
+Thanks to my college friends Bas, Jessica, Francis, Sarah, Andy, Frankie, Jonny, Suze, Walid, Sophia, Martin, Max, Maj, Nirmalie, Luiza, LD and many more. It was a privilege to have so many good friends at once.
+
+There are plenty more people I should thank, but I'm tired so I'm going to stop now.

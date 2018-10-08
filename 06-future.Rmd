@@ -1,11 +1,6 @@
 # Future plans
 
 
-## Robin Hood publication
-
-The _Robin Hood_ algorithm is already incorporated in the R package `detrendr` but it hasn't been published or peer-reviewed. Getting this done is my top priority.
-
-
 ## Translate software to _ImageJ_
 
 Whilst I really like R, the fluorescence community does not use it, which has been a major barrier to the use of my algorithms by others. I will code my detrending algorithms as _ImageJ_ plugins and also as python modules so that more of the community have easy access to them.
@@ -14,6 +9,16 @@ Whilst I really like R, the fluorescence community does not use it, which has be
 ## Study real data bleaching profiles with simulations {#mimic}
 
 It was mentioned in section \@ref(detrend-compare) that it would be possible to study the effect of real bleaching as opposed to simulated ideal bleaching and why it is more necessary to detrend in the real data case, by mimicking real bleaching profiles with simulations. This is something I would like to do. It would be difficult because it would require the collection and cataloging of a diverse set of real data bleaching profiles from various biological samples. This would be the bottleneck because I have already written the simulation and analysis pipelines. 
+
+
+## Robin Hood publication
+
+Once _Robin Hood_ has been implemented in _ImageJ_ and more realistic bleaching problems have been studied, _Robin Hood_ should be published.
+
+
+## Revisit old N&B data with new detrending algorithm
+
+Having claimed that Robin Hood detrending is significantly better than previous detrending methods, it makes sense to revisit old results found using old detrending methods to see how much they would be changed with the application of this new detrending algorithm. The main difficulty in such a project would be obtaining the old data. To this day, most microscopy publications do not have their associated images in a centralised repository, so the only way to get this data is to request it from the authors.
 
 
 ## Compare FRET with FCS

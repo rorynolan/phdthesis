@@ -6,20 +6,23 @@
 
 ### Introduction
 
-Myristoylated FKBP12 is known to dimerize upon addition of the drug AP1510 [@Amara]. As a test application of exponential smoothing detrending (section \@ref(exponential-smoothing-detrending)) with automatically chosen parameter $\tau$, we used this system with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12. 
+Myristoylated FKBP12 is known to dimerize upon addition of the dimerizing drug AP1510 [@Amara]. As a test application of exponential smoothing detrending (section \@ref(exponential-smoothing-detrending)) with automatically chosen parameter $\tau$, we used this system with number and brightness to verify this dimerization. We tested this in 20 Cos7 cells with mClover-labelled FKBP12 [@nandb]. 
 
 
 ### Experimental results and discussion
 
-We found a brightness increase in $\epsilon$ of $\approx 1.6$-fold using the _automatic_ detrending method. The $\approx 1.6$-fold increase suggests that dimerization had occurred (see figure \@ref(fig:FKBPfoldchanges)), however, we expected the increase to be $\approx 2$-fold upon dimerization. In that publication [@nandb], we postulated that the 1.6 figure was due to the fact that not all of the protein had dimerized. Recently, a paper came out [@fpcompare] explaining how the assumption that all fluorophores emit signal is invalid (because many never function properly) and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor. I suspect that applying this correction would bring our figure of 1.6 a lot closer to 2. We also tried $\tau=10$, which gave a decrease in brightness, showing that arbitrary parameter choices lead to unpredictable and unreliable results and should hence be avoided.
+We found a brightness increase in $\epsilon$ of $\approx 1.6$-fold using the _automatic_ detrending method. Assuming thae population was all monomers before ligand addition, the $\approx 1.6$-fold increase upon addition suggests that dimerization had occurred (see figure \@ref(fig:FKBPfoldchanges)), however, we expected the increase to be $\approx 2$-fold upon dimerization. There could be many reasons for this discrepancy. 
 
-(ref:FKBPfoldchanges-caption) The fold changes in brightness $\epsilon$ upon addition of AP1510 drug shown for different detrending routines. $\tau=$ NA is no detrend.
+1. FKBP is natively expressed in Cos7 cells, so depending on the level of native expression (not labelled) and the level of expression of our transfected FKBP (labelled), it could be that many cases of what is actually a dimer is behaving like a monomer because only one of the pair is labelled.
+1. Recently, a paper came out [@fpcompare] explaining how the assumption that all fluorophores emit signal is invalid (because many never function properly) and that because of this, oligomeric state changes calculated from brightness must be adjusted by a correction factor specific to the fluorophore. Unfortunately, this study did not characterize mClover, so we do not know its correction factor to be able to apply it. Any such correction would bring us higher than 1.6. 
+
+It is possible that all of the above reasons are valid and are present to different degrees in different images. This could be a cause of the heterogeneity of fold-changes in $\epsilon$ measured from single images. This heterogeneity means that many replicates are needed in number and brightness experiments in order to converge upon the true value of the fold change. 
+
+(ref:FKBPfoldchanges-caption) The fold changes in brightness $\epsilon$ upon addition of AP1510 drug shown for different detrending routines ($\tau=10$, auto $\tau$ and no detrend).
 
 ```{r FKBPfoldchanges, echo=FALSE, fig.cap='(ref:FKBPfoldchanges-caption)'}
 include_graphics(here("img", "foldchanges.png"))
 ```
-
-The heterogeneity of fold-changes in $\epsilon$ measured from single images as shown in figure \@ref(fig:FKBPfoldchanges) shows that many replicates are needed in number and brightness experiments in order to converge upon the true value of the fold change. 
 
 A pair of cells from this study together with their brightness statistics are shown in figure \@ref(fig:nandb-fig). Notice how there is no discernible change in intensity before and after addition of the drug, but there is a discernible change in brightness $B$, best seen using the histogram of pixel brightnesses.
 
@@ -30,28 +33,17 @@ include_graphics(here("img", "nandb-fig.png"))
 ```
 
 
-### Visualization of bleaching correction on real data
-
-That publication also includes a visualization of bleaching correction on real data. Figure \@ref(fig:bleachvis1) shows this, comparing the choice of $\tau=10$ with the automatic detrending algorithm, which chooses an appropriate $\tau$ based on the data. It is evident that both $\tau=10$ and the automatic choice of $\tau$ give the corrected intensity profile a stationary mean (both the red and green series start and end at $\approx 11$), however the $\tau = 10$ correction (red line) also has a much decreased variance compared to the auto $\tau$ line (green), which is bad; the $\tau = 10$ line is removing local variation, which is exactly what we're trying to avoid.
-
-(ref:bleachvis-caption) Real data image series mean intensity profile with bleaching correction with $\tau = 10$ and auto $\tau$. 
-
-```{r bleachvis1, echo=FALSE, fig.cap='(ref:bleachvis-caption)'}
-include_graphics(here("img", "bleachvis1.png"))
-```
-
-
-## _In vitro_ number and brightness
+## _In vitro_ number and brightness {#in-vitro-NB}
 
 
 ### Introduction
 
-In our research group, we believe that the most practical quantitative method for measuring homo-dimerization _in vivo_ and _in vitro_ is N&B [@NB] because it is calibration-free and does not require specialized instrumentation. There are many examples of the application of N&B _in vivo_ (the original N&B paper has over 250 citations, most of which are _in vivo_ applications) but none _in vitro_. Hence, we published a protocol [@JOVE] detailing how N&B can be applied _in vitro_. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known colloquially as the _BB dimerizer_); this pair is designed to have better specificity than the original [@Clackson]. 
+In our research group, we believe that the most practical quantitative method for measuring homo-dimerization _in vivo_ and _in vitro_ is N&B [@NB] because it is calibration-free and does not require specialized instrumentation. There are many examples of the application of N&B _in vivo_ (the original N&B paper has over 250 citations, most of which are _in vivo_ applications) but none _in vitro_. Hence, we published a protocol [@JOVE] detailing how N&B can be applied _in vitro_. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known colloquially as the _BB dimerizer_). The fact that FKBP12F36V is an FKBP12 mutant and that BB only dimerizes this mutant means that the previous issue of the interaction of endogenous and exogenous proteins is eliminated.
 
 
 ### Experimental results and discussion
 
-In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from $\epsilon = 0.005$ to $\epsilon = 0.010$ upon addition of the drug. See figure \@ref(fig:jove). This analysis was done with exponential smoothing detrending with automatically chosen parameter $\tau$. Without detrending, the pre-BB brightness was calculated as $\epsilon = 0.026$, showing that detrending is absolutely necessary and that neglecting this step can lead to nonsensical results.
+In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from $\epsilon = 0.005$ to $\epsilon = 0.010$ upon addition of the drug. See figure \@ref(fig:jove). This analysis was done with exponential smoothing detrending with automatically chosen parameter $\tau$. Without detrending, the pre-BB brightness was calculated as $\epsilon = 0.026$, whereas the post-BB brightness was calculated as $\epsilon = 0.010$ again, which would lead one to conclude that the oligomeric state decreased upon BB addition. This is a nonsensical result given that the FKBP12F36V is monomeric to begin with. This shows that detrending is absolutely necessary and that neglecting this step can lead to incorrect results.
 
 (ref:jove-caption) Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from $\epsilon = 0.005$ to $\epsilon = 0.010$ over a period of minutes.
 
@@ -106,7 +98,7 @@ We saw N&B as the ideal technique to probe this stoichiometry temporally. With o
 
 ### Experimental setup
 
-Receptor (CD4) and co-receptor (CXCR4 or CCR5) were labelled in Cos7 cells. Virus was added at time $t=0$ and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, @ALEX) was used to eliminate the possibility of channel bleed-through. See figure \@ref(fig:HIVStoichiometryIntensity).
+Cos7 cells were transfected with labelled receptor (CD4) and co-receptor (CXCR4 or CCR5) (these cells do not express these proteins endogenously). Virus was added at time $t=0$ and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, @ALEX) was used to eliminate the possibility of channel bleed-through. See figure \@ref(fig:HIVStoichiometryIntensity).
 
 (ref:HIVStoichiometryIntensity) Intensity images from the virus, receptor and co-receptor. Every 100^th^ frame is shown. A virus which lands at $t \approx 1.7$ minutes is highlighted.
 
@@ -143,7 +135,7 @@ include_graphics(here("img", str_c(c("X4", "R5"), "plot.png")))
 
 For the X4 and R5-tropic cases, structural modelling of the hypothesis has been done to visualize our findings and to assess their viability; this produced figure \@ref(fig:HIVStoichiometryStructure). 
 
-(ref:HIVStoichiometryStructure-caption) Pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases.
+(ref:HIVStoichiometryStructure-caption) Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases.
 
 
 ```{r, HIVStoichiometryStructure, fig.cap='(ref:HIVStoichiometryStructure-caption)', echo=FALSE}
@@ -153,4 +145,4 @@ include_graphics(here("img", "HIVStoichiometryStructure.png"))
 
 ### Conclusion
 
-Time-resolved N&B enabled us to answer questions about the interaction between the HIV-1 virus and its receptor and co-receptor in live cells which up to now could not be answered. Being able to correctly correct for bleaching is crucial for reliable N&B analysis, so the development of these new algorithms was crucial to this study.
+Time-resolved N&B enabled us to answer questions about the interaction between HIV-1 and its receptor and co-receptor in live cells which up to now could not be answered. We addressed this problem with the N&B technique. Successful application of N&B relies on being able to correct for bleaching reliably (as seen in section \@ref(in-vitro-NB)). This was impossible before the advent of my bleaching correction algorithms, therefore their development was a key step in making this work possible.

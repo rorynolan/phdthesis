@@ -66,7 +66,7 @@ The _quantum efficiency_ (QE) of a detector is the fraction of fluorescent signa
 
 #### Photon multiplier tubes
 
-Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [@HammamatsuPMT]; see figure \@ref(fig:PMT). This current corresponds to the incident light intensity.
+Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated electrons are accelerated through a potential difference towards a cathode where their accumulated kinetic energy is used to release more electrons. These are then accelerated in vacuum towards another cathode and so on for a predefined number of these accelerations until at last the electrons are discharged into an anode where the current is measured [@HammamatsuPMT]; see figure \@ref(fig:PMT). This current corresponds to the incident light intensity.
 
 (ref:PMT-caption) PMT detector setup. Electrons are dissociated by photons at the photocathode, accelerated towards various other cathodes where more and more are freed and then finally they arrive at the anode where the current is measured [@LeicaDetectors].
 
@@ -117,15 +117,18 @@ Henceforth, intensity counts will be assumed to be in units of photons.
 
 Consider figure \@ref(fig:confocal-volume-particle). A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here). 
 
-(ref:confocal-volume-particle-caption) Left: a fluorophore diffusing through the confocal volume [@sphd]. Right: the intensity trace due to this fluorophore. 
-
-```{r confocal-volume-particle, message=FALSE, fig.show='hold', out.width='50%', fig.cap='(ref:confocal-volume-particle-caption)', echo=FALSE}
+```{r confocal-volume-particle-setup, echo=FALSE}
 set.seed(9)
 cvp_png <- here("img", "cvp.png")
 df_intensity_trace <- tibble(time = seq_len(100),
                              intensity = detrendr:::myrpois(c(rep(0, 30), 
                                                               rep(0.7, 40), 
                                                               rep(0, 30)))) 
+```
+
+(ref:confocal-volume-particle-caption) Left: a fluorophore diffusing through the confocal volume [@sphd]. Right: the intensity trace due to this fluorophore. This intensity trace has mean `r round(mean(df_intensity_trace$intensity), 2)` and variance  `r round(var(df_intensity_trace$intensity), 2)`. 
+
+```{r confocal-volume-particle, message=FALSE, fig.show='hold', out.width='50%', fig.cap='(ref:confocal-volume-particle-caption)', echo=FALSE}
 p <- ggplot(df_intensity_trace) + aes(time, intensity) + 
   geom_bar(stat = "identity") + xlab("time (ms)")
 ggsave(cvp_png, p, width = 2, height = 1.5)
@@ -338,11 +341,11 @@ Henceforth, the FCS defintions of these quantities will be assumed.
 
 ### Correlation {#correlation}
 
-Co-diffusing fluorophores of different colours will necessarily induce positive correlation between the intensities of these two colour channels because co-diffusion means that presence of one fluorophore necessarily implies presence of the other fluorophore. Hence, correlation may be used as a measure of co-diffusion, and co-diffusion is often interpreted as interaction (the simplest explanation for co-diffusion is that the co-diffusing entities are somehow stuck together). This idea forms the basis of much of FCS. 
+Co-diffusing fluorophores of different colours will necessarily induce positive correlation between the intensity traces of these two colour channels because co-diffusion means that presence of one fluorophore necessarily implies presence of the other fluorophore. Hence, correlation may be used as a measure of co-diffusion, and co-diffusion is often interpreted as interaction (the simplest explanation for co-diffusion is that the co-diffusing entities are somehow stuck together). This idea forms the basis of much of FCS. 
 
 This does not hold for immobile particles. Immobile particles are not diffusing, so it doesn't make sense to employ a measure of diffusion.
 
-Bleed-through of photons from one channel to another will induce artefactual correlation between the intensities of the two channels. Alternating laser excitation (ALEX, @ALEX) can be used to eliminate bleed through; however when using ALEX it is important to bear in mind that the two channels are no longer being acquired simultaneously. This is of particular importance for FCS. However if the instrument can go fast enough (with a laser alternation time far below the residence time of the diffusing entities), this problem is negligible.
+Bleed-through of photons from one channel to another will induce artefactual correlation between the intensities of the two channels. Alternating laser excitation (ALEX, @ALEX) can be used to eliminate bleed through; however when using ALEX it is important to bear in mind that the two channels are no longer being acquired simultaneously. This is of particular importance for FCS. However if the instrument can go fast enough (with a laser alternation time much less than the residence time of the diffusing entities), this problem is negligible.
 
 
 ### Autocorrelation
@@ -362,7 +365,9 @@ The phrase _pair correlation function_^[This was needless, it could just be call
 
 ### Cross-correlated brightness
 
-_Cross-correlated brightness_ [@ccNB] molds the correlation idea (section \@ref(correlation)) into the framework of N&B. Suppose there are two channels with intensities $I_1$ and $I_2$. 
+_Cross-correlated brightness_ [@ccNB] molds the correlation idea (section \@ref(correlation)) into the framework of N&B. Cross-correlated brightness isn't really a brightness at all, it's just a measure of correlation.
+
+Suppose there are two channels with intensities $I_1$ and $I_2$. 
 
 ```{definition, name='cross-variance'}
 
