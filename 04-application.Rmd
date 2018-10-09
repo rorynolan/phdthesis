@@ -56,7 +56,7 @@ include_graphics(here("img", "jove-dimerization.png"))
 This paper also included an important correction to the equation for brightness $\epsilon$ when analog equipment is used. The correct equation is 
 
 \begin{equation}
-\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})}
+\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1
 (\#eq:dalaleq)
 \end{equation}
   

@@ -88,13 +88,13 @@ for ImageJ users". In: _Journal of Open Source Software_ 3.23 (2018).
 * R. Nolan, L. Alvarez, S. C. Griffiths, et al. “Calibration-Free In-Vitro
 Quantification of Protein Homo-Oligomerization Using Commercial
 Instrumentation and Free, Open Source Brightness Analysis Software”. In:
-_Journal of Visualized Experiments_ 0.0 (2018).
+_Journal of Visualized Experiments_ 137 (2018).
 
 ### Co-first author {-}
 
 * M. Iliopoulou, R. Nolan, et al. "A dynamic three step
 mechanism drives the HIV-1 pre-fusion reaction". In: _Nat. Struct. Mol. Biol._
-0.0 (2018).
+25.9 (2018).
 
 ### Other {-}
 

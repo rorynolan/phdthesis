@@ -1,0 +1,43 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Corrections to comments by Dr. Marc Tramier
+
+* I have refined my discussion of confocal microscope detectors, including Marc's insight into how and why photon counting works well on HyDs.
+* I have removed discussion of camera equipment, as we agreed it was irrelevant to my thesis because I never used it.
+* I have included the equations for N&B with analog equipment.
+* I have crrected my discussion of anomalous diffusion vs diffusion with barriers (of course Marc was right: they're not the same)
+* I have upgraded the discussion of correlation to discuss bleed-through and immobile entities.
+* I have included a paragraph about the difficulty of doing FCS when the density of fluorophores / labelled proteins is very high.
+* I have expanded the explanation/discussion of diffusion tensors.
+* I have given more detail on the characterization of stoichiometry using N&B with ccN&B.
+* I have given more details about my simulation of images.
+* I have included a paragraph to show that bleaching also induces artefactual autocorrelation.
+* I have mentioned that my simulations with constant bleaching should be complemented with other bleaching regimes.
+* Included the development of Robin Hood for single-point FCS in my future plans.
+
+
+## Corrections to comments by Dr. Thomas Bowden
+
+* I have corrected all highlighted typos.
+* I have improved the caption of the intensity trace; it now details the mean and variance of that trace.
+* I have clarified that cross-correlated brightness is not a brightness in the usual sense.
+* I have included the idea to revisit old N&B publications (not just our own) with the new detrending algorithm in future plans.
+* I have amended the number of downloads of my softwares to be a rounded monthly average.
+* I have included more detail about my simulations (in several places).
+* I have exxtended the discussion about the effects of bleaching in FCS.
+* I have fixed the legend in the figure about exponential detrending with parameter $\tau$.
+* I have acknowledged that the fact that no detrend at all is best in my simulations but not with real data is indicative of a problem with my simulations.
+* I have included a discussion of endogenous FKBP12 and how this might influence calculations of the oligomeric state of exogenously labelled FKBP12.
+* I have removed a figure comparing the various detrending methods by looking at their mean intensity profiles. This is because I have realised that there is no way to read this graph which can tell you which method is better/worse than any other, so it just obscures understanding. 
+* I have clarified the advantages of the mutant FKBP12F36V.
+* I have clarified how not detrending leads to nonsensical results in the in vitro experiment.
+* I have included a line clarifying that Cos7 cells do not have endogenous expression of the HIV-1 receptor or co-receptors.
+* I have included more detail on my the detrending algorithm was crucial to the HIV stoichiometry study. 
+* I have included the necessity of more realistic simulations to study Robin Hood in my future plans.

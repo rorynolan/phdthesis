@@ -208,15 +208,15 @@
 </ol>
 <p>It is possible that all of the above reasons are valid and are present to different degrees in different images. This could be a cause of the heterogeneity of fold-changes in <span class="math inline">\(\epsilon\)</span> measured from single images. This heterogeneity means that many replicates are needed in number and brightness experiments in order to converge upon the true value of the fold change.</p>
 
-<div class="figure" style="text-align: left"><span id="fig:FKBPfoldchanges"></span>
-<img src="img/foldchanges.png" alt="The fold changes in brightness \(\epsilon\) upon addition of AP1510 drug shown for different detrending routines (\(\tau=10\), auto \(\tau\) and no detrend)." width="100%" />
+<div class="figure"><span id="fig:FKBPfoldchanges"></span>
+<img src="img/foldchanges.png" alt="The fold changes in brightness \(\epsilon\) upon addition of AP1510 drug shown for different detrending routines (\(\tau=10\), auto \(\tau\) and no detrend)." width="3000" />
 <p class="caption">
 Figure 4.1: The fold changes in brightness <span class="math inline">\(\epsilon\)</span> upon addition of AP1510 drug shown for different detrending routines (<span class="math inline">\(\tau=10\)</span>, auto <span class="math inline">\(\tau\)</span> and no detrend).
 </p>
 </div>
 <p>A pair of cells from this study together with their brightness statistics are shown in figure <a href="applications.html#fig:nandb-fig">4.2</a>. Notice how there is no discernible change in intensity before and after addition of the drug, but there is a discernible change in brightness <span class="math inline">\(B\)</span>, best seen using the histogram of pixel brightnesses.</p>
 
-<div class="figure" style="text-align: left"><span id="fig:nandb-fig"></span>
+<div class="figure"><span id="fig:nandb-fig"></span>
 <img src="img/nandb-fig.png" alt="mClover-labelled myristoylated FKBP12 before and after application of 50nM AP1510. Shown here are intensity (first row), brightness (second row), a plot of intensity versus brightness (third row) and brightness histograms (fourth row). Notice how the change in brightness upon addition of the drug is seen most clearly by comparing the brightness histograms. The vertical lines in the histogram plot show the means of those histograms. Brightness here refers to B. Scale bar 20 \(\mu\)m. (Nolan, Alvarez, et al. 2017)" width="85%" />
 <p class="caption">
 Figure 4.2: mClover-labelled myristoylated FKBP12 before and after application of 50nM AP1510. Shown here are intensity (first row), brightness (second row), a plot of intensity versus brightness (third row) and brightness histograms (fourth row). Notice how the change in brightness upon addition of the drug is seen most clearly by comparing the brightness histograms. The vertical lines in the histogram plot show the means of those histograms. Brightness here refers to B. Scale bar 20 <span class="math inline">\(\mu\)</span>m. <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>
@@ -228,14 +228,14 @@ Figure 4.2: mClover-labelled myristoylated FKBP12 before and after application o
 <h2><span class="header-section-number">4.2</span> <em>In vitro</em> number and brightness</h2>
 <div id="introduction-1" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Introduction</h3>
-<p>In our research group, we believe that the most practical quantitative method for measuring homo-dimerization <em>in vivo</em> and <em>in vitro</em> is N&amp;B <span class="citation">(Digman et al. <a href="#ref-NB">2008</a>)</span> because it is calibration-free and does not require specialized instrumentation. There are many examples of the application of N&amp;B <em>in vivo</em> (the original N&amp;B paper has over 250 citations, most of which are <em>in vivo</em> applications) but none <em>in vitro</em>. Hence, we published a protocol <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-JOVE">2018</a>)</span> detailing how N&amp;B can be applied <em>in vitro</em>. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known colloquially as the <em>BB dimerizer</em>). The fact that FKBP12F36V is an FKBP12 mutant and that BB only dimerizes this mutant means that the previous issue of the interaction of endogenous and exogenous proteins is eliminated.</p>
+<p>In our research group, we believe that the most practical quantitative method for measuring homo-dimerization <em>in vivo</em> and <em>in vitro</em> is N&amp;B <span class="citation">(Digman et al. <a href="#ref-NB">2008</a>)</span> because it is calibration-free and does not require specialized instrumentation. There are many examples of the application of N&amp;B <em>in vivo</em> (the original N&amp;B paper has over 250 citations, most of which are <em>in vivo</em> applications) but none <em>in vitro</em>. Hence, we published a protocol <span class="citation">(Nolan et al. <a href="#ref-JOVE">2018</a>)</span> detailing how N&amp;B can be applied <em>in vitro</em>. This time, we used FKBP12F36V which is an FKBP mutant with a new dimerizing drug AP20187 (known colloquially as the <em>BB dimerizer</em>). The fact that FKBP12F36V is an FKBP12 mutant and that BB only dimerizes this mutant means that the previous issue of the interaction of endogenous and exogenous proteins is eliminated.</p>
 </div>
 <div id="experimental-results-and-discussion-1" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Experimental results and discussion</h3>
 <p>In this experiment, the FKBP12F36V was labelled with mVenus. We found that the brightness doubled from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> upon addition of the drug. See figure <a href="applications.html#fig:jove">4.3</a>. This analysis was done with exponential smoothing detrending with automatically chosen parameter <span class="math inline">\(\tau\)</span>. Without detrending, the pre-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.026\)</span>, whereas the post-BB brightness was calculated as <span class="math inline">\(\epsilon = 0.010\)</span> again, which would lead one to conclude that the oligomeric state decreased upon BB addition. This is a nonsensical result given that the FKBP12F36V is monomeric to begin with. This shows that detrending is absolutely necessary and that neglecting this step can lead to incorrect results.</p>
 
-<div class="figure" style="text-align: left"><span id="fig:jove"></span>
-<img src="img/jove-dimerization.png" alt="Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from \(\epsilon = 0.005\) to \(\epsilon = 0.010\) over a period of minutes." width="100%" />
+<div class="figure"><span id="fig:jove"></span>
+<img src="img/jove-dimerization.png" alt="Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from \(\epsilon = 0.005\) to \(\epsilon = 0.010\) over a period of minutes." width="1350" />
 <p class="caption">
 Figure 4.3: Dimerization of FKBP12F36V upon BB addition is seen by a brightness doubling from <span class="math inline">\(\epsilon = 0.005\)</span> to <span class="math inline">\(\epsilon = 0.010\)</span> over a period of minutes.
 </p>
@@ -245,7 +245,7 @@ Figure 4.3: Dimerization of FKBP12F36V upon BB addition is seen by a brightness 
 <p> <span class="remark"><em>Remark. </em></span> 
 This paper also included an important correction to the equation for brightness <span class="math inline">\(\epsilon\)</span> when analog equipment is used. The correct equation is</p>
 <span class="math display" id="eq:dalaleq">\[\begin{equation}
-\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})}
+\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1
 \tag{4.1}
 \end{equation}\]</span>
 The <span class="math inline">\(S\)</span> in the denominator was omitted in the original paper <span class="citation">(Dalal et al. <a href="#ref-Dalal">2008</a>)</span> and this error was reproduced in our N&amp;B review <span class="citation">(Nolan, Iliopoulou, et al. <a href="#ref-NBreview">2017</a>)</span>.
@@ -271,8 +271,8 @@ The <span class="math inline">\(S\)</span> in the denominator was omitted in the
 <p>— <span class="citation">Iliopoulou et al. (<a href="#ref-HIVstoichiometry">2018</a>)</span></p>
 </blockquote>
 
-<div class="figure" style="text-align: left"><span id="fig:HIVStoichiometrySetup"></span>
-<img src="img/HIVStoichiometrySetup.png" alt="The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labeling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction." width="100%" />
+<div class="figure"><span id="fig:HIVStoichiometrySetup"></span>
+<img src="img/HIVStoichiometrySetup.png" alt="The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labeling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction." width="931" />
 <p class="caption">
 Figure 4.4: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and form a complex with the co-receptor (CXCR4 or CCR5, this figure shows an X4-tropic virus and co-receptor) to initiate the fusion process. Labeling the viral Gag protein with mCherry, the receptor with mTFP1 and the co-receptor with mOrange, it is possible to follow these three players in the fusion reaction and to quantify their interaction.
 </p>
@@ -284,8 +284,8 @@ Figure 4.4: The HIV-1 envelope glycoprotein Env must bind the receptor (CD4) and
 <h3><span class="header-section-number">4.3.2</span> Experimental setup</h3>
 <p>Cos7 cells were transfected with labelled receptor (CD4) and co-receptor (CXCR4 or CCR5) (these cells do not express these proteins endogenously). Virus was added at time <span class="math inline">\(t=0\)</span> and imaging proceeded for a number of minutes at 100 frames per 1.7 minutes. Alternating laser excitation (ALEX, <span class="citation">Kapanidis et al. (<a href="#ref-ALEX">2005</a>)</span>) was used to eliminate the possibility of channel bleed-through. See figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a>.</p>
 
-<div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryIntensity"></span>
-<img src="img/HIVStoichiometryIntensity.png" alt="Intensity images from the virus, receptor and co-receptor. Every 100th frame is shown. A virus which lands at \(t \approx 1.7\) minutes is highlighted." width="100%" />
+<div class="figure"><span id="fig:HIVStoichiometryIntensity"></span>
+<img src="img/HIVStoichiometryIntensity.png" alt="Intensity images from the virus, receptor and co-receptor. Every 100th frame is shown. A virus which lands at \(t \approx 1.7\) minutes is highlighted." width="652" />
 <p class="caption">
 Figure 4.5: Intensity images from the virus, receptor and co-receptor. Every 100<sup>th</sup> frame is shown. A virus which lands at <span class="math inline">\(t \approx 1.7\)</span> minutes is highlighted.
 </p>
@@ -295,8 +295,8 @@ Figure 4.5: Intensity images from the virus, receptor and co-receptor. Every 100
 <h3><span class="header-section-number">4.3.3</span> Analysis</h3>
 <p>The virus channel was used to locate the virus at a given point in time. The receptor and co-receptor were used to calculate brightness and cross-correlated brightness every 100 frames (every 1.7 min). The brightness was used to determine the number of receptor and co-receptor units involved in a complex. The cross-correlated brightness was used to delimit whether or not the receptor and co-receptor units were together in the <em>same</em> complex. See figure <a href="applications.html#fig:HIVStoichiometryAnalysis">4.6</a>, this is the corresponding brightness and cross-correlated brightness image of figure <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a>. Notice that once the virus lands, the oligomeric state of the receptor and co-receptor increases. We also see significant positive cross-correlated brightness in this area, indicating that the virus has triggered a complex of receptor and co-receptor.</p>
 
-<div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryAnalysis"></span>
-<img src="img/HIVStoichiometryAnalysis.png" alt="Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two." width="100%" />
+<div class="figure"><span id="fig:HIVStoichiometryAnalysis"></span>
+<img src="img/HIVStoichiometryAnalysis.png" alt="Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two." width="595" />
 <p class="caption">
 Figure 4.6: Brightness images of receptor and co-receptor and cross-correlated brightness image of the interaction between the two.
 </p>
@@ -306,7 +306,7 @@ Figure 4.6: Brightness images of receptor and co-receptor and cross-correlated b
 <h3><span class="header-section-number">4.3.4</span> Results</h3>
 <p>Figure <a href="applications.html#fig:HIVStoichiometryPlots">4.7</a> shows the results of the analysis detailed in figures <a href="applications.html#fig:HIVStoichiometryIntensity">4.5</a> and <a href="applications.html#fig:HIVStoichiometryAnalysis">4.6</a> for <span class="math inline">\(n=10\)</span> cases where virus triggered receptor and co-receptor complexes in the X4-tropic setting and <span class="math inline">\(n=12\)</span> in the R5-tropic setting. A three-step pre-fusion process is hypothesized for each.</p>
 
-<div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryPlots"></span>
+<div class="figure"><span id="fig:HIVStoichiometryPlots"></span>
 <img src="img/X4plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIVHXB2. Right panel: HIVJR-FL." width="47%" /><img src="img/R5plot.png" alt="Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIVHXB2. Right panel: HIVJR-FL." width="47%" />
 <p class="caption">
 Figure 4.7: Number of receptor and co-receptor units involved in complexes with virus over time, obtained by brightness analysis. Left panel: HIV<sub>HXB2</sub>. Right panel: HIV<sub>JR-FL</sub>.
@@ -321,8 +321,8 @@ Figure 4.7: Number of receptor and co-receptor units involved in complexes with 
 </blockquote>
 <p>For the X4 and R5-tropic cases, structural modelling of the hypothesis has been done to visualize our findings and to assess their viability; this produced figure <a href="applications.html#fig:HIVStoichiometryStructure">4.8</a>.</p>
 
-<div class="figure" style="text-align: left"><span id="fig:HIVStoichiometryStructure"></span>
-<img src="img/HIVStoichiometryStructure.png" alt="Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases." width="100%" />
+<div class="figure"><span id="fig:HIVStoichiometryStructure"></span>
+<img src="img/HIVStoichiometryStructure.png" alt="Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases." width="4176" />
 <p class="caption">
 Figure 4.8: Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tropic cases.
 </p>
@@ -350,7 +350,7 @@ Figure 4.8: Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tro
 <p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32. <a href="https://doi.org/10.1529/biophysj.107.114645" class="uri">https://doi.org/10.1529/biophysj.107.114645</a>.</p>
 </div>
 <div id="ref-JOVE">
-<p>Nolan, Rory, Luis Alvarez, Samuel C. Griffiths, Jonathan Elegheert, Christian Siebold, and Sergi Padilla-Parra. 2018. “Calibration-Free in-Vitro Quantification of Protein Homo-Oligomerization Using Commercial Instrumentation and Free, Open Source Brightness Analysis Software.” <em>Journal of Visualized Experiments</em> 0 (0). MyJove Corporation.</p>
+<p>Nolan, Rory, Luis Alvarez, Samuel C. Griffiths, Jonathan Elegheert, Christian Siebold, and Sergi Padilla-Parra. 2018. “Calibration-Free in-Vitro Quantification of Protein Homo-Oligomerization Using Commercial Instrumentation and Free, Open Source Brightness Analysis Software.” <em>Journal of Visualized Experiments</em> 137 (e58157). MyJove Corporation. <a href="https://doi.org/10.3791/58157" class="uri">https://doi.org/10.3791/58157</a>.</p>
 </div>
 <div id="ref-Dalal">
 <p>Dalal, R. B., M. A. Digman, A. F. Horwitz, V. Vetri, and E. Gratton. 2008. “Determination of particle number and brightness using a laser scanning confocal microscope operating in the analog mode.” <em>Microsc. Res. Tech.</em> 71 (1):69–81. <a href="https://doi.org/10.1002/jemt.20526" class="uri">https://doi.org/10.1002/jemt.20526</a>.</p>
@@ -383,7 +383,7 @@ Figure 4.8: Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tro
 <p>Brandenberg, Oliver F., Carsten Magnus, Roland R. Regoes, and Alexandra Trkola. 2015. “The HIV-1 Entry Process: A Stoichiometric View.” <em>Trends in Microbiology</em> 23 (12). Elsevier BV:763–74. <a href="https://doi.org/10.1016/j.tim.2015.09.003" class="uri">https://doi.org/10.1016/j.tim.2015.09.003</a>.</p>
 </div>
 <div id="ref-HIVstoichiometry">
-<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 0 (0).</p>
+<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 25 (9). <a href="https://doi.org/10.1038/s41594-018-0113-x" class="uri">https://doi.org/10.1038/s41594-018-0113-x</a>.</p>
 </div>
 <div id="ref-ALEX">
 <p>Kapanidis, Achillefs N., Ted A. Laurence, Nam Ki Lee, Emmanuel Margeat, Xiangxu Kong, and Shimon Weiss. 2005. “Alternating-Laser Excitation of Single Molecules.” <em>Accounts of Chemical Research</em> 38 (7). American Chemical Society (ACS):523–33. <a href="https://doi.org/10.1021/ar0401348" class="uri">https://doi.org/10.1021/ar0401348</a>.</p>

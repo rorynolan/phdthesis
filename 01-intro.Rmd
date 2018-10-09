@@ -57,7 +57,7 @@ An image is acquired on a confocal microscope by scanning this apparatus across 
 
 ### Detectors  {#detectors}
 
-There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect [@photoelectric], a phenomenon whereby incident light upon a material causes electrons to dissociate from that material.
+There are many types of confocal microscope detectors. I will discuss the most common ones here. Most rely on the photoelectric effect [@photoelectric], a phenomenon whereby incident light upon a material causes electrons to dissociate from that material.
 
 ```{definition}
 The _quantum efficiency_ (QE) of a detector is the fraction of fluorescent signal that is reported by the detector.
@@ -221,8 +221,17 @@ B &= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon (\#eq:NB1-2)
 \end{align}
 > where $N$ and $B$ are referred to as the _apparent number_ and _apparent brightness_ respectively. This gives
 \begin{align}
-\epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 (\#eq:NB2-1) \\
-n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} (\#eq:NB2-2)
+n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} (\#eq:NB2-2) \\
+\epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 (\#eq:NB2-1)
+\end{align}
+These relations are derived using a moment analysis technique which was originally applied to molecules in solution [@QianElson]. With a scanning confocal microscope in analog mode, we must use three correction terms: 1. The proportionality constant $S$, which is the conversion factor between photons detected and the number of counts returned by the analog electronics. 2. The offset (bias) due to the analog electronics in the level of the background. 3. The readout noise $\sigma_0^2$ is the variance in this background signal [@Dalal]. Then, if all entities are mobile, we have
+\begin{align}
+N &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} (\#eq:NBa1-1) \\
+B &= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) (\#eq:NBa1-2)
+\end{align}
+\begin{align}
+n &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} (\#eq:NBa2-2) \\
+\epsilon &= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 (\#eq:NBa2-1)
 \end{align}
 > --- @NBreview^[This is a formulation of N&B that I wrote in a 2017 review of the technique.]
 
@@ -346,6 +355,8 @@ Co-diffusing fluorophores of different colours will necessarily induce positive 
 This does not hold for immobile particles. Immobile particles are not diffusing, so it doesn't make sense to employ a measure of diffusion.
 
 Bleed-through of photons from one channel to another will induce artefactual correlation between the intensities of the two channels. Alternating laser excitation (ALEX, @ALEX) can be used to eliminate bleed through; however when using ALEX it is important to bear in mind that the two channels are no longer being acquired simultaneously. This is of particular importance for FCS. However if the instrument can go fast enough (with a laser alternation time much less than the residence time of the diffusing entities), this problem is negligible.
+
+If the density of fluorophores under observation is too high, correlation can be practically impossible to measure. For example, the difference between 1 and 0 is much easier to detect than the difference between 11 and 10. At high density, relative differences are lower and hence harder to detect.
 
 
 ### Autocorrelation
