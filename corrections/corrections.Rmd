@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * I have refined my discussion of confocal microscope detectors, including Marc's insight into how and why photon counting works well on HyDs.
 * I have removed discussion of camera equipment, as we agreed it was irrelevant to my thesis because I never used it.
 * I have included the equations for N&B with analog equipment.
-* I have crrected my discussion of anomalous diffusion vs diffusion with barriers (of course Marc was right: they're not the same)
+* I have corrected my discussion of anomalous diffusion vs diffusion with barriers (of course Marc was right: they're not the same)
 * I have upgraded the discussion of correlation to discuss bleed-through and immobile entities.
 * I have included a paragraph about the difficulty of doing FCS when the density of fluorophores / labelled proteins is very high.
 * I have expanded the explanation/discussion of diffusion tensors.
@@ -31,7 +31,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * I have included the idea to revisit old N&B publications (not just our own) with the new detrending algorithm in future plans.
 * I have amended the number of downloads of my softwares to be a rounded monthly average.
 * I have included more detail about my simulations (in several places).
-* I have exxtended the discussion about the effects of bleaching in FCS.
+* I have extended the discussion about the effects of bleaching in FCS.
 * I have fixed the legend in the figure about exponential detrending with parameter $\tau$.
 * I have acknowledged that the fact that no detrend at all is best in my simulations but not with real data is indicative of a problem with my simulations.
 * I have included a discussion of endogenous FKBP12 and how this might influence calculations of the oligomeric state of exogenously labelled FKBP12.
