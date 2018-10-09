@@ -200,7 +200,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   R. Nolan, L. Alvarez, S. C. Griffiths, et al. ``Calibration-Free
   In-Vitro Quantification of Protein Homo-Oligomerization Using
   Commercial Instrumentation and Free, Open Source Brightness Analysis
-  Software''. In: \emph{Journal of Visualized Experiments} 0.0 (2018).
+  Software''. In: \emph{Journal of Visualized Experiments} 137 (2018).
 \end{itemize}
 
 \subsection*{Co-first author}\label{co-first-author}
@@ -211,7 +211,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
 \item
   M. Iliopoulou, R. Nolan, et al. ``A dynamic three step mechanism
   drives the HIV-1 pre-fusion reaction''. In: \emph{Nat. Struct. Mol.
-  Biol.} 0.0 (2018).
+  Biol.} 25.9 (2018).
 \end{itemize}
 
 \subsection*{Other}\label{other}
@@ -445,6 +445,38 @@ $y$ & vertical position\\
 \hline
 \end{longtable}
 
+\section*{Acknowledgements}\label{acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+Thanks to my parents Kate and Dave who were good enough to house me
+rent-free for 18 years. They encouraged me academically after it became
+clear that I was not the next Kevin Kilbane. Thanks to my wife Naomi who
+puts up with me now that my parents have had enough of me. Thanks to my
+brother Brendan who taught me (perhaps wrongly) that maths is cool.
+
+Thanks to my supervisor Sergi Padilla-Parra who had many good ideas of
+what to study, for his intelligent input and generosity with time.
+Moreover, thanks to him for emphasising that it's possible to work too
+hard. It's largely thanks to his attitude that my time in Oxford was so
+enjoyable.
+
+Thanks to all of my lab mates: Dan, Keith, Xenia, Raquel, Luis,
+Margarita, Marina, Maro, Marina, Maria, Chad and Irene; it was
+interesting and fun to spend time with you all. I'll look back upon my
+time in the lab fondly, I hope you can say the same.
+
+Thanks to my friends Kathrin and Zammy from my PhD programme; we shared
+the journey to becoming doctors and come out of the other end with
+lifelong friendships as well as new titles.
+
+Thanks to my college friends Bas, Jessica, Francis, Sarah, Andy,
+Frankie, Jonny, Suze, Walid, Sophia, Martin, Max, Maj, Nirmalie, Luiza,
+LD and many more. It was a privilege to have so many good friends at
+once.
+
+There are plenty more people I should thank, but I'm tired so I'm going
+to stop now.
+
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
@@ -592,8 +624,8 @@ across a sample, collecting one pixel at a time.
 
 \subsection{Detectors}\label{detectors}
 
-There are many types of confocal microscope detector. I will discuss the
-most common ones here. Most rely on the photoelectric effect
+There are many types of confocal microscope detectors. I will discuss
+the most common ones here. Most rely on the photoelectric effect
 \citep{photoelectric}, a phenomenon whereby incident light upon a
 material causes electrons to dissociate from that material.
 
@@ -607,11 +639,11 @@ fluorescent signal that is reported by the detector.
 
 Photon multiplier tubes (PMTs) use the photoelectric effect. Dissociated
 electrons are accelerated through a potential difference towards a
-cathode where their accumulated kinetic energy is used to to release
-more electrons. These are then accelerated in vacuum towards another
-cathode and so on for a predefined number of these accelerations until
-at last the electrons are discharged into an anode where the current is
-measured \citep{HammamatsuPMT}; see figure \ref{fig:PMT}. This current
+cathode where their accumulated kinetic energy is used to release more
+electrons. These are then accelerated in vacuum towards another cathode
+and so on for a predefined number of these accelerations until at last
+the electrons are discharged into an anode where the current is measured
+\citep{HammamatsuPMT}; see figure \ref{fig:PMT}. This current
 corresponds to the incident light intensity.
 
 
@@ -702,123 +734,22 @@ suffer least from detector afterpulsing, a phenomenon which can cause
 real signal pulses to be followed by a feedback pulse at a later time
 \citep{afterpulsing}.
 
-With their superior sensitivity and dynamic range and low noise, HyDs
-can be calibrated to enable \emph{photon-counting} mode whereby the
-readout is in units of photons (not electron current). This is a much
-more physically relevant readout --- given that we are interested in
-measuring fluorescence --- which is very convenient for many biological
-applications, not least fluorescence fluctuation spectroscopy (FFS,
-discussed in section \ref{FFS}).
+With hybrid detectors, the electric current pulse caused by a photon
+striking the photocathode is strong (well above background) and sharp
+(the pulse is very short-lived). This means that it is easy to detect
+the arrival of single photons at the photocathode. This enables HyDs to
+have a \emph{photon-counting} mode whereby the readout is in units of
+photons (not electron current). This is a much more physically relevant
+readout --- given that we are interested in measuring fluorescence ---
+which is very convenient for many biological applications, not least
+fluorescence fluctuation spectroscopy (FFS, discussed in section
+\ref{FFS}). For this reason, the HyD was the detector of choice for all
+of the acquisitions in my thesis.
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remark. } \fi{}Henceforth, intensity counts will be assumed
-to be in units of photons unless otherwise stated.
+to be in units of photons.
 \EndKnitrBlock{remark}
-
-\section{Widefield light microscopy}\label{widefield-light-microscopy}
-
-With widefield microscopy, the entire sample is illuminated
-simultaneously and the image is acquired by a camera (see figure
-\ref{fig:widefield}). One advantage of this is the general simplicity of
-the setup: the optics are less complex and there is no need to scan
-across the sample to acquire each pixel (which requires precise
-robotics). Another advantage is that images can be acquired faster
-because all pixels in a frame are acquired simultaneously. The
-disadvantage of this is that the absence of confocal optics means that
-out of focus light can make it to the detection device (camera).
-
-
-
-
-
-\begin{figure}
-
-\includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/Widefield} \hfill{}
-
-\caption{Light travels from the uniformly illuminated
-sample through a lens (or a few lenses) to the camera. Note the
-simplicity of this setup relative to that of a confocal microscope.}\label{fig:widefield}
-\end{figure}
-
-\subsection{Total internal reflection
-microscopy}\label{total-internal-reflection-microscopy}
-
-\emph{Total internal reflection microscopy} (TIRF) uses the fact that
-when total internal reflection (TIR) is occurring, an evanescent wave is
-produced in the immediate vicinity of the media boundary; see figure
-\ref{fig:TIRFig} \citep{TIRFig}. The huge advantage of TIRF is that only
-a single plane is illuminated, so when focusing on that plane, only
-in-focus light is collected (because only the in-focus plane is
-illuminated). The main disadvantage is that it is not applicable when
-one cannot have the object of interest right at the cover slip. Looking
-at figure \ref{fig:TIRFig}, it is evident that TIRF would be ideal for
-imaging the membrane but useless for imaging the nucleus.
-
-
-
-
-
-
-
-
-
-\begin{figure}
-
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/TIRFig} \hfill{}
-
-\caption{The thin evanescent wave close to the boundary
-(between the cover slip and sample) where TIR is occurring. Only the
-part of the sample within this thin evanescent wave is illuminated.
-\(n_1\) is the refractive index of the sample and \(n_2\) is the
-refractive index of the cover slip; \(n_1<n_2\) is assumed. \(\theta_c\)
-is the critical angle and \(\theta\) is the incident angle of the laser
-light; \(\theta > \theta_c\) is assumed.}\label{fig:TIRFig}
-\end{figure}
-
-\subsection{Cameras}\label{cameras}
-
-There are many types of camera available for widefield microscopes, the
-most common being EMCCD, CMOS, and sCMOS cameras.
-
-\subsubsection{EMCCD cameras}\label{emccd-cameras}
-
-A charge-coupled device (CCD) is a device for the movement of electric
-charge. An EMCCD camera is an array of CCDs (one per pixel). When
-photons strike a CCD in the camera, electrons are dissociated by the
-photoelectric effect. These free charges are then moved across the CCD
-and this current can be measured and used as a measure of light
-intensity (in arbitrary units) \citep{EMCCD}. The EM stands for
-\emph{electron multiplied} which tells us that EMCCD cameras use an
-amplification technique, just like PMTs and APDs (section
-\ref{detectors}).
-
-\subsubsection{CMOS cameras}\label{cmos-cameras}
-
-Complementary metal--oxide semiconductor cameras are arrays of
-semiconductors (one per pixel), again utilizing the photoelectric effect
-and the electric field across a semiconductor. CMOS cameras have
-amplification for each pixel, whereas EMCCDs only have a few amplifiers
-per camera \citep{CMOS}. This makes CMOS cameras more sensitive.
-
-\subsubsection{sCMOS cameras}\label{scmos-cameras}
-
-Scientific CMOS (sCMOS) cameras consist of a CMOS circuit bonded to a
-CCD imaging substrate. These relatively new cameras offer 95\% quantum
-efficiency \citep{photometrics}, very low noise, rapid frame rates,
-large dynamic range, high resolution and wide field of view, all cheaper
-than a regular CCD \citep{sCMOS}.
-
-\subsubsection{Being quantitative with
-cameras}\label{being-quantitative-with-cameras}
-
-For electronic reasons, the noise from certain pixels on all of the
-cameras above may be correlated. This hinders some techniques in the
-fluorescence correlation spectroscopy (section \ref{FCS}). However, with
-careful characterization of the camera and correct mathematical
-treatment, quantitative studies can be carried out with cameras. Indeed,
-our group quantified the oligomeric state of the dynamin-2 protein at
-the HIV-1 fusion pore using data from a TIRF microscope with an EMCCD
-camera \citep{DanDynamin}.
 
 \section{Intensity traces}\label{intensity-traces}
 
@@ -833,13 +764,15 @@ Different numbers of photons are collected per unit time (per ms here).
 
 
 
+
 \begin{figure}
 
 \includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/confocal_volume_particle} \includegraphics[width=0.5\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/cvp} \hfill{}
 
 \caption{Left: a fluorophore diffusing
 through the confocal volume \citep{sphd}. Right: the intensity trace due
-to this fluorophore.}\label{fig:confocal-volume-particle}
+to this fluorophore. This intensity trace has mean 0.27 and variance
+0.48.}\label{fig:confocal-volume-particle}
 \end{figure}
 
 \BeginKnitrBlock{definition}
@@ -916,13 +849,23 @@ referred to as \emph{diffusion}. I will follow this convention.
 
 \emph{Anomalous diffusion} is a diffusion process whereby equation
 \eqref{eq:msd} no longer holds and the relationship between MSD and time
-becomes non-linear. Knowing whether diffusion is anomalous or free can
-offer biological insight. For example, regions of free and anomalous
-diffusion were measured with FCS (section \ref{FCS}) to investigate the
-spatiotemporal heterogeneity of lipid interaction in the plasma membrane
-of living cells \citep{EggSTEDFCS}. The pair correlation function
-approach (section \ref{PCF}) can be used to image barriers to diffusion
-\citep{PCF}; diffusion barriers necessarily lead to anomalous diffusion.
+becomes
+
+\begin{equation}
+\text{msd}(t) = 2dDt^\alpha
+\label{eq:anomalous}
+\end{equation}
+
+where \(\alpha \neq 1\). \(\alpha > 1\) is known as
+\emph{superdiffusion} (faster than normal) and \(\alpha < 1\) is known
+as \emph{subdiffusion} (slower than normal).
+
+\subsection{Diffusion in the presence of
+barriers}\label{diffusion-in-the-presence-of-barriers}
+
+If barriers to diffusion are present, neither equations \eqref{eq:msd} and
+\eqref{eq:anomalous} hold. The pair correlation function approach (section
+\ref{PCF}) can be used to image barriers to diffusion \citep{PCF}.
 
 \section{Fluorescence fluctuation spectroscopy}\label{FFS}
 
@@ -975,8 +918,26 @@ where \(N\) and \(B\) are referred to as the \emph{apparent number} and
 \emph{apparent brightness} respectively. This gives
 
 \begin{align}
-\epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 \label{eq:NB2-1} \\
-n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \label{eq:NB2-2}
+n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \label{eq:NB2-2} \\
+\epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 \label{eq:NB2-1}
+\end{align}
+
+These relations are derived using a moment analysis technique which was
+originally applied to molecules in solution \citep{QianElson}. With a
+scanning confocal microscope in analog mode, we must use three
+correction terms: 1. The proportionality constant \(S\), which is the
+conversion factor between photons detected and the number of counts
+returned by the analog electronics. 2. The offset (bias) due to the
+analog electronics in the level of the background. 3. The readout noise
+\(\sigma_0^2\) is the variance in this background signal \citep{Dalal}.
+Then, if all entities are mobile, we have
+
+\begin{align}
+N &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} \label{eq:NBa1-1} \\
+B &= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) \label{eq:NBa1-2}
+\end{align}\begin{align}
+n &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} \label{eq:NBa2-2} \\
+\epsilon &= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 \label{eq:NBa2-1}
 \end{align}
 
 --- \citet{NBreview}\footnote{This is a formulation of N\&B that I wrote
@@ -1208,54 +1169,33 @@ quantities will be assumed.
 
 \subsection{Correlation}\label{correlation}
 
-Suppose that two proteins of interest A and B are labelled with red and
-green fluorophores respectively (and there is no bleed-through between
-these red and green channels).
+Co-diffusing fluorophores of different colours will necessarily induce
+positive correlation between the intensity traces of these two colour
+channels because co-diffusion means that presence of one fluorophore
+necessarily implies presence of the other fluorophore. Hence,
+correlation may be used as a measure of co-diffusion, and co-diffusion
+is often interpreted as interaction (the simplest explanation for
+co-diffusion is that the co-diffusing entities are somehow stuck
+together). This idea forms the basis of much of FCS.
 
-If these proteins are interacting, then
+This does not hold for immobile particles. Immobile particles are not
+diffusing, so it doesn't make sense to employ a measure of diffusion.
 
-\begin{itemize}
-\tightlist
-\item
-  interaction implies that A and B co-diffuse
-\item
-  this implies that for a given volume in the sample
+Bleed-through of photons from one channel to another will induce
+artefactual correlation between the intensities of the two channels.
+Alternating laser excitation (ALEX, \citet{ALEX}) can be used to
+eliminate bleed through; however when using ALEX it is important to bear
+in mind that the two channels are no longer being acquired
+simultaneously. This is of particular importance for FCS. However if the
+instrument can go fast enough (with a laser alternation time much less
+than the residence time of the diffusing entities), this problem is
+negligible.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    more of A implies more of B
-  \item
-    less of A implies less of B
-  \item
-    more of B implies more of A
-  \item
-    less of B implies less of A
-  \end{itemize}
-\end{itemize}
-
-Since the number of photons emitted is proportional to the amount of
-fluorophores present, it follows that
-
-\begin{itemize}
-\tightlist
-\item
-  more red photons implies more green photons
-\item
-  less red photons implies less green photons
-\item
-  more green photons implies more red photons
-\item
-  less green photons implies less red photons
-\end{itemize}
-
-Altogether, this implies that the intensity traces from the red and
-green channels will be correlated. If these proteins are not
-interacting, then the intensity traces from the red and green channels
-will not be correlated. Thus, interaction of red A and green B
-necessarily leads to correlation in fluorescent signals from the red and
-green channels.\footnote{This correlation may not always be detectable
-  due to weak interaction or weak signal.}
+If the density of fluorophores under observation is too high,
+correlation can be practically impossible to measure. For example, the
+difference between 1 and 0 is much easier to detect than the difference
+between 11 and 10. At high density, relative differences are lower and
+hence harder to detect.
 
 \subsection{Autocorrelation}\label{autocorrelation}
 
@@ -1280,16 +1220,20 @@ nearby pixels. The PCF was used to image barriers to diffusion
 particles moving from one place to another will not be present for
 positions \(p_1\) and \(p_2\) if they are on opposite sides of a
 barrier, because the barrier prevents travel from \(p_1\) to \(p_2\). It
-has also been used to create \emph{diffusion tensors}: maps of diffusion
-velocities at every pixel \citep{DiffusionTensor}; this approach is
-similar to that of \citet{STICS}.
+has also been used to calculate the velocities of diffusing entities at
+each pixel in an image. The collection of these velocities at each pixel
+is known as a \emph{diffusion tensor} \citep{DiffusionTensor}. This
+approach is similar to that of \citet{STICS}.
 
 \subsection{Cross-correlated
 brightness}\label{cross-correlated-brightness}
 
 \emph{Cross-correlated brightness} \citep{ccNB} molds the correlation
-idea (section \ref{correlation}) into the framework of N\&B. Suppose
-there are two channels with intensities \(I_1\) and \(I_2\).
+idea (section \ref{correlation}) into the framework of N\&B.
+Cross-correlated brightness isn't really a brightness at all, it's just
+a measure of correlation.
+
+Suppose there are two channels with intensities \(I_1\) and \(I_2\).
 
 \BeginKnitrBlock{definition}[cross-variance]
 \protect\hypertarget{def:unnamed-chunk-25}{}{\label{def:unnamed-chunk-25}
@@ -1327,6 +1271,10 @@ It is merely useful as a relative measure of interaction: higher
 interaction. It is commonly used to identify interactions. Then,
 conventional N\&B performed on each of the channels (1 and 2) can be
 used to measure the stoichiometry of the interaction.
+
+\begin{example} 
+Protein A is labelled with a fluorophore that emits to channel 1, protein B is labelled with a fluorophore that emits to channel 2. At a given point in an image series, significant positive $B_\text{cc}$ indicates interaction between protein A and protein B. Form channel 1, with number and brightness we see that at this point, protein A is a dimer, whereas from channel 2, we see that protein B is a tetramer. Therefore the stoichiometry of the complex at this point is 2 units of A with 4 units of B.
+\end{example}
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remark. } \fi{}Since cross-correlated brightness uses
@@ -1389,9 +1337,8 @@ Software}\label{instrumentation-and-software}
 
 All of the images used in this thesis were acquired on a Leica SP8
 confocal microscope\footnote{\url{https://www.Leica-microsystems.com/products/confocal-microscopes/details/product/Leica-tcs-sp8}}
-equipped with hybrid detectors (section \ref{HyDs}). Importantly, the
-detectors that we have on this microscope are capable of photon
-counting.
+equipped with hybrid detectors (section \ref{HyDs}) in photon counting
+mode.
 
 \section{Software programs, languages and
 tools}\label{software-programs-languages-and-tools}
@@ -1434,38 +1381,6 @@ record of the work that I have done.
 
 \section{My software packages}\label{my-software-packages}
 
-\subsection{\texorpdfstring{\texttt{ijtiff}}{ijtiff}}\label{ijtiff}
-
-An R package for general purpose TIFF file I/O. This is currently the
-only such package with read and write support for TIFF files with
-floating point (real-numbered) pixels, and the only package that can
-correctly import TIFF files that were saved from \emph{ImageJ}
-\citep{ImageJ}. R has millions of users worldwide so this TIFF I/O
-capability is a basic need for masses of people. \texttt{ijtiff} gets
-334 downloads per month which amounts to 2,995 since it was first
-released.
-
-This package is part of the \emph{rOpenSci} project. rOpenSci is a
-non-profit initiative founded to make scientific data retrieval
-reproducible.\footnote{\url{https://ropensci.org/about}} This package
-was peer reviewed and published \citep{ijtiff}.
-
-\subsection{\texorpdfstring{\texttt{autothresholdr}}{autothresholdr}}\label{autothresholdr}
-
-\texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
-\emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 606 downloads per month which amounts to 11,370 since it
-was first released.
-
-\subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
-
-\texttt{detrendr} is an R package for detrending images (correcting for
-photobleaching). It provides all detrending algorithms mentioned in
-section \ref{photobleaching-correction}. The detrending is done in C++
-in the background for speed but it is wrapped in an R package for ease
-of use. It gets 340 downloads per month which amounts to 3,670 since it
-was first released.
-
 \subsection{\texorpdfstring{\texttt{filesstrings}}{filesstrings}}\label{filesstrings}
 
 \texttt{filesstrings} is an R package providing convenient functions for
@@ -1479,8 +1394,8 @@ however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible.
 \texttt{filesstrings} is provides a consistent means of working with
 such file names. This package was peer reviewed and published
-\citep{filesstrings}. It gets 1,626 downloads per month which amounts to
-30,562 since it was first released.
+\citep{filesstrings}. It gets 2,000 downloads per month which amounts to
+30,000 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
@@ -1499,8 +1414,47 @@ package developers to write unit tests for their packages. It helped me
 to eradicate many bugs in all of my packages. Interestingly,
 \texttt{exampletestr} was used to unit test and eradicate bugs in
 itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 485 downloads per month which amounts
-to 8,743 since it was first released.
+2017.\citep{exampletestr} It gets 500 downloads per month which amounts
+to 10,000 since it was first released.
+
+\subsection{\texorpdfstring{\texttt{ijtiff}}{ijtiff}}\label{ijtiff}
+
+An R package for general purpose tagged image file format (TIFF) input
+and output (I/O). This is currently the only such package with read and
+write support for TIFF files with floating point (real-numbered) pixels,
+and the only package that can correctly import TIFF files that were
+saved from \emph{ImageJ} \citep{ImageJ}. R has millions of users
+worldwide so this TIFF I/O capability is a basic need for masses of
+people. \texttt{ijtiff} gets 500 downloads per month which amounts to
+5,000 since it was first released.
+
+This package is part of the \emph{rOpenSci} project. rOpenSci is a
+non-profit initiative founded to make scientific data retrieval
+reproducible.\footnote{\url{https://ropensci.org/about}} This package
+was peer reviewed and published \citep{ijtiff}.
+
+\subsection{\texorpdfstring{\texttt{autothresholdr}}{autothresholdr}}\label{autothresholdr}
+
+\texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
+\emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
+users. It gets 600 downloads per month which amounts to 10,000 since it
+was first released.
+
+\subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
+
+\texttt{detrendr} is an R package for detrending images (correcting for
+photobleaching). It provides all detrending algorithms mentioned in
+section \ref{photobleaching-correction}. The detrending is done in C++
+in the background for speed but it is wrapped in an R package for ease
+of use. It gets 300 downloads per month which amounts to 4,000 since it
+was first released.
+
+\subsection{\texorpdfstring{\texttt{nandb}}{nandb}}\label{nandb}
+
+\texttt{nandb} is an R package for number and brightness analysis. This
+was published along with a paper about detrending for number and
+brightness \citep{nandb}. It gets 300 downloads per month which amounts
+to 4,000 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
 
@@ -1508,7 +1462,7 @@ to 8,743 since it was first released.
 (\url{https://github.com/rorynolan/brownded}) for simulating bounded
 Brownian motion in any number of dimensions, where \emph{bounded}
 Brownian motion is Brownian motion in an \(d\)-dimensional box where the
-particles collide elastically (without loss of energy) with the
+particles collide elastically (without loss of energy) within the
 boundaries of the box. \texttt{brownded} allows specification of the
 number of dimensions, the number of particles, the size of the box and
 the diffusion coefficient of the particles.
@@ -1567,13 +1521,14 @@ NSM. Discussion of correction for NSV starts in section
 \section{The effects of bleaching in FCS and
 FFS}\label{the-effects-of-bleaching-in-fcs-and-ffs}
 
-We simulate two image series, each with 100,000 diffusing fluorescent
-particles. In the first image series (\texttt{img1}), these have
-brightness \(\epsilon = 4\) and in the second (\texttt{img2}) they have
-brightness \(\epsilon = 7\). See figure \ref{fig:bleaching-sim}. We
-bleach these by 15\% and 20\% to create \texttt{img1\_bleached} and
-\texttt{img2\_bleached} respectively.
-
+We simulate two image series with 500 frames, 64x64 pixels per frame
+(pixel size 1 \(\mu\)m), each with 100,000 diffusing
+(\(D = 100~\mu\text{m}^2/\text{s}\)) fluorescent particles which are
+uniformly distributed at the beginning. In the first image series
+(\texttt{img1}), these have brightness \(\epsilon = 4\) and in the
+second (\texttt{img2}) they have brightness \(\epsilon = 7\). See figure
+\ref{fig:bleaching-sim}. We bleach these by 15\% and 20\% to create
+\texttt{img1\_bleached} and \texttt{img2\_bleached} respectively.
 
 
 
@@ -1584,14 +1539,15 @@ bleach these by 15\% and 20\% to create \texttt{img1\_bleached} and
 \includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/bleaching-sim-1} \hfill{}
 
 \caption{Frames 1, 100, 200, 300, 400 and 500 from
-image series of 100,000 diffusing emitters of brightness
-\(\epsilon = 4\) (top) and \(\epsilon = 7\) (bottom) with 15\% (top) and
-20\% (bottom) bleaching.}\label{fig:bleaching-sim}
+simulated image series. \(\epsilon = 4\) (top) and \(\epsilon = 7\)
+(bottom) with 15\% (top) and 20\% (bottom) bleaching.}\label{fig:bleaching-sim}
 \end{figure}
 
 It may not be obvious that these image series are subject to bleaching
 from figure \ref{fig:bleaching-sim}, but we can see it more clearly in
 figure \ref{fig:bleaching-sim-mean-intensity}.
+
+
 
 
 
@@ -1603,7 +1559,9 @@ figure \ref{fig:bleaching-sim-mean-intensity}.
 
 \caption{Mean intensity profiles of
 the simulated image series with and without bleaching. Simulation 1 was
-bleached by 15\% and simulation 2 by 20\%.}\label{fig:bleaching-sim-mean-intensity}
+bleached by 15\% and simulation 2 by 20\%. The bleaching is such that
+the mean intensity decreases according to a single exponential decay
+(even though it looks quite linear).}\label{fig:bleaching-sim-mean-intensity}
 \end{figure}
 
 \subsection{FCS}\label{fcs}
@@ -1617,10 +1575,98 @@ introducing correlation between otherwise unrelated images. Since
 correlation is used as a proxy for hetero-interaction, bleaching can
 make it appear as though there is interaction when in fact there is not.
 
+\subsubsection{Why does bleaching introduce
+correlation}\label{why-does-bleaching-introduce-correlation}
+
+Let's take another look at the formula for correlation:
+
+\BeginKnitrBlock{definition}[FCS]
+\protect\hypertarget{def:unnamed-chunk-30}{}{\label{def:unnamed-chunk-30}
+\iffalse (FCS) \fi{} }The \emph{correlation} between two random
+variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
+and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
+
+\begin{equation}
+\text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\mu_X \mu_Y}
+\label{eq:FCSCorrelationDuplicate}
+\end{equation}
+\EndKnitrBlock{definition}
+
+So correlation is answering the question: \emph{Do \(X\) and \(Y\)
+deviate from their mean at the same time and in the same or opposite
+direction?} If there is no pattern in their deviations from mean, then
+the correlation will be zero. If they deviate from their means in the
+same direction at the same time, there will be a positive correlation;
+if they deviate from their means in the opposite direction at the same
+time, there will be a negative correlation. Correlation is all about
+measuring whether deviation from mean in two different series is
+synchronised or not.
+
+Let's create two unrelated intensity traces \(X\) and \(Y\), both of
+length 500. \(X\) will be Poisson(\(\lambda = 50\)) and \(Y\) will be
+Poisson(\(\lambda = 30\)).
+
+
+
+
+\begin{verbatim}
+#> 
+#>  Pearson's product-moment correlation
+#> 
+#> data:  X and Y
+#> t = 1.0731, df = 498, p-value = 0.2837
+#> alternative hypothesis: true correlation is not equal to 0
+#> 95 percent confidence interval:
+#>  -0.03982597  0.13515369
+#> sample estimates:
+#>        cor 
+#> 0.04803237
+\end{verbatim}
+
+\begin{figure}
+
+\includegraphics[width=0.45\linewidth]{phdthesis_files/figure-latex/unrelated-intensity-traces-1} \includegraphics[width=0.45\linewidth]{phdthesis_files/figure-latex/unrelated-intensity-traces-2} \hfill{}
+
+\caption{Unrelated intensity traces
+\(X\) and \(Y\) with their means in red.}\label{fig:unrelated-intensity-traces}
+\end{figure}
+
+There's no pattern in how \(X\) and \(Y\) deviate from their means,
+indeed a Pearson correlation test of \(X\) and \(Y\) returns an
+insignificant \(p\)-value of 0.28.
+
+Now let's bleach them both by 90\%.
+
+\begin{figure}
+
+\includegraphics[width=0.45\linewidth]{phdthesis_files/figure-latex/bleached-unrelated-intensity-traces-1} \includegraphics[width=0.45\linewidth]{phdthesis_files/figure-latex/bleached-unrelated-intensity-traces-2} \hfill{}
+
+\caption{Unrelated intensity traces
+\(X\) and \(Y\) with their means in red.}\label{fig:bleached-unrelated-intensity-traces}
+\end{figure}
+
+Now, there is visible correlation. At the start of \(X\) and \(Y\), both
+are consistently above their mean and at the end, both are consistently
+below. They are simultaneously above and below respectively, so there
+will be positive correlation. This is backed up by a Pearson correlation
+test which returns a significant \(p\)-value of less than \(10^{-200}\).
+
+
+
+
+
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remark. } \fi{}Bleaching also introduces
+autocorrelation for the same reason. The series \(X\) had no
+autocorrelation before bleaching (\(p\) = 0.23), whereas after
+bleaching, \(X\) has significant autocorrelation (\(p < 10^{-200}\)).
+\EndKnitrBlock{remark}
+
 \subsection{FFS}\label{ffs}
 
 \BeginKnitrBlock{definition}[median mean pixel intensity]
-\protect\hypertarget{def:unnamed-chunk-30}{}{\label{def:unnamed-chunk-30}
+\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
 \iffalse (median mean pixel intensity) \fi{} }The \emph{median mean
 pixel intensity} of an image series is found by taking the mean
 intensity of each pixel in the image series and then taking the median
@@ -1629,7 +1675,7 @@ pixel intensity of the image series.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[median pixel intensity variance]
-\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
+\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
 \iffalse (median pixel intensity variance) \fi{} }The \emph{median pixel
 intensity variance} of an image series is found by taking the variance
 in the intensity of each pixel in the image series and then taking the
@@ -1812,13 +1858,17 @@ to straight horizontal lines (too smooth).
 
 
 
+
+
 \begin{figure}
 
 \includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/boxcar-sizes-1} \hfill{}
 
 \caption{The original intensity trace is shown in the
 top-left. The other panels show the result of boxcar smoothing for
-\(l = 1, 3, 75, 300\) and \(1000\).}\label{fig:boxcar-sizes}
+\(l = 1, 3, 75, 300\) and \(1000\). \(l=1\) and \(l=3\) are not smooth
+enough, \(l = 75\) looks like it might be OK although it is slightly
+wiggly. \(l = 300\) and \(l = 1000\) are over-smoothed.}\label{fig:boxcar-sizes}
 \end{figure}
 
 This begs the question: what is the correct smoothing parameter \(l\)?
@@ -1837,7 +1887,7 @@ to solve for the appropriate choice of \(l\) to use for detrending a
 specific image series.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
+\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
 }The \emph{mean intensity profile} of one channel of an image series is
 obtained by calculating the mean intensity of each frame in that image
 series.
@@ -1866,8 +1916,8 @@ for \(l\) proceeds as follows:
   Given that the simulated series is of immobile particles only, once
   properly detrended, it should have \(B = 1\).
 \item
-  The \(l\) for which the detrended series has mean brightness closes to
-  1 is the most appropriate for the simulated data.
+  The \(l\) for which the detrended series has mean brightness closest
+  to 1 is the most appropriate for the simulated data.
 \item
   By the assumption above, this \(l\) is the most appropriate for the
   real data.
@@ -1918,7 +1968,7 @@ are taken into account.
 \includegraphics[width=1\linewidth]{phdthesis_files/figure-latex/exp-smooth-func-1} \hfill{}
 
 \caption{The function \(\exp(-\frac{|t|}{\tau})\)
-visualized with \(\tau = 3\) and \(\tau = 9\). For \(\tau = 3\), points
+visualized with \(\tau = 2\) and \(\tau = 9\). For \(\tau = 2\), points
 at distance \(|t| = 10\) have approximately zero weight, whereas for
 \(\tau = 9\), these points have significant weight.}\label{fig:exp-smooth-func}
 \end{figure}
@@ -1954,7 +2004,7 @@ published \citep{nandb}.
 variance}\label{correcting-for-non-stationary-variance}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
+\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34}
 }The variance of a random variable \(X\) is the expected value of the
 squared deviation of \(X\) from its mean \(\mu\):
 
@@ -2001,22 +2051,23 @@ perform well at the edges of time series that they are applied to. They
 also require the user to choose a smoothing parameter. The problem of
 how to best choose this parameter was solved recently \citep{nandb}, but
 this method has not been widely adopted. Most importantly, both fitting
-and smoothing fail when the data cannot be approximated as continuous
-(fitted and smoothed lines are continuous approximations of data).
-Fluorescence intensity data at low intensities---where most pixel values
-are either 0 or 1---are quasi-binary\footnote{By \emph{quasi-binary}, I
-  just mean that almost all values are 0 or 1.} and hence a continuous
-approximation does not make sense (see figure
-\ref{fig:fit-smooth-caveats}). This means that neither fitting nor
-smoothing are applicable detrending methods at low intensities. This is
-the crucial caveat of these methods because, when bleaching is a
-problem, it is common to reduce laser power to reduce bleaching, which
-leads directly to lower intensity images. With fitting and smoothing
-techniques, it may sometimes be advisable to increase the laser power to
-achieve higher intensities such that the detrending routines will
-function properly. This means one may need to bleach more in order to be
-able to correct for bleaching. This farcical situation necessitates a
-new detrending technique which can function at low intensities.
+and smoothing fail when the data cannot be approximated as
+mathematically continuous (fitted and smoothed lines are continuous
+approximations of data). Fluorescence intensity data at low
+intensities---where most pixel values are either 0 or 1---are
+quasi-binary\footnote{By \emph{quasi-binary}, I just mean that almost
+  all values are 0 or 1.} and hence a continuous approximation does not
+make sense (see figure \ref{fig:fit-smooth-caveats}). This means that
+neither fitting nor smoothing are applicable detrending methods at low
+intensities. This is the crucial caveat of these methods because, when
+bleaching is a problem, it is common to reduce laser power to reduce
+bleaching, which leads directly to lower intensity images. With fitting
+and smoothing techniques, it may sometimes be advisable to increase the
+laser power to achieve higher intensities such that the detrending
+routines will function properly. This means one may need to bleach more
+in order to be able to correct for bleaching. This farcical situation
+necessitates a new detrending technique which can function at low
+intensities.
 
 
 
@@ -2044,11 +2095,13 @@ real-numbered values (elements of \(\mathbb{R}\)), which must then be
 transformed back into count data (elements of \(\mathbb{N}_0\)),
 normally by rounding. This means that fitting and smoothing methods of
 detrending push values through
-\(\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0\). When
-current methods were failing to properly detrend low-intensity images, I
-began to wonder was it necessary to go through the real numbers
-\(\mathbb{R}\), given that the start and end points were the natural
-numbers \(\mathbb{N}_0\)?
+\(\mathbb{N}_0 \rightarrow \mathbb{R} \rightarrow \mathbb{N}_0\) (the
+move back \(\rightarrow \mathbb{N}_0\) is necessary because calculations
+like Qian and Elson's moment analysis assume photon count data, which is
+necessarily in \(\mathbb{N}_0\)). When current methods were failing to
+properly detrend low-intensity images, I began to wonder was it
+necessary to go through the real numbers \(\mathbb{R}\), given that the
+start and end points were the natural numbers \(\mathbb{N}_0\)?
 
 Consider figure \ref{fig:rh-detrend-eg}. There is a bleached and
 unbleached version of an intensity trace. Suppose that our real data is
@@ -2129,7 +2182,9 @@ To compare the various detrending methods, I use the following workflow:
   (virtually) sample at a rate appropriate for number and brightness
   analysis.
 \item
-  Bleach the simulation with a chosen constant bleaching rate.
+  Bleach the simulation with a chosen constant bleaching rate.\footnote{It
+    would be good to test with non-constant bleaching rates too, this
+    wasn't done due to time constraints.}
 \item
   Simulate photon emission from the bleached simulation (bleached
   particles don't emit photons) with the same brightness \(\epsilon\)
@@ -2166,7 +2221,7 @@ with the following detrending routines:\footnote{The detrending took 2
 The performance was evaluated using the \emph{mean relative error}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34} }
+\protect\hypertarget{def:unnamed-chunk-35}{}{\label{def:unnamed-chunk-35} }
 For a given brightness and bleaching fraction,
 
 \begin{equation}
@@ -2199,18 +2254,19 @@ the best choice in all cases is to not detrend at all! This is an
 interesting result and seems to render all detrending routines
 worthless. However, when working with real data, not detrending does not
 work well at all. This will be shown in chapter \ref{applications}. This
-is probably because with real data, bleaching is likely not taking place
-at a constant, steady rate and other factors such as cell movement are
-contributing to medium and long term intensity fluctuations and these
-have a detrimental effect on calculations if not detrended out. It would
-be possible to study this by mimicking real bleaching profiles with
-simulations (see section \ref{mimic}).
+indicated that my simulations are unrealistic. This is probably because
+with real data, bleaching is likely not taking place at a constant,
+steady rate and other factors such as cell movement or/and laser power
+fluctuations are contributing to medium and long term intensity
+fluctuations and these have a detrimental effect on calculations if not
+detrended out. It would be possible to study this by mimicking real
+bleaching profiles with simulations (see section \ref{mimic}).
 
 The worst performer by far is \texttt{boxcar10}. For example, at
 \(\epsilon = 0.1\), it makes an error of worse than 40\% and for
 \(\epsilon = 0.001, 0.01\), its error is worse than 50\%, so it does not
 even appear on the plot. This is good evidence that arbitrarily choosing
-the parameter \(l\) very bad practice. For realistic brightnesses
+the parameter \(l\) is very bad practice. For realistic brightnesses
 (\(\le 0.1\)), \texttt{robinhood} is the best with errors almost always
 lower than 5\%. \texttt{autotau} also performs very well, with errors
 almost always less than 10\%. At the lowest brightness
@@ -2231,32 +2287,50 @@ available fluorophores are not this bright.
 
 \subsection{Introduction}\label{introduction}
 
-Myristoylated FKBP12 is known to dimerize upon addition of the drug
-AP1510 \citep{Amara}. As a test application of exponential smoothing
-detrending (section \ref{exponential-smoothing-detrending}) with
-automatically chosen parameter \(\tau\), we used this system with number
-and brightness to verify this dimerization. We tested this in 20 Cos7
-cells with mClover-labelled FKBP12.
+Myristoylated FKBP12 is known to dimerize upon addition of the
+dimerizing drug AP1510 \citep{Amara}. As a test application of
+exponential smoothing detrending (section
+\ref{exponential-smoothing-detrending}) with automatically chosen
+parameter \(\tau\), we used this system with number and brightness to
+verify this dimerization. We tested this in 20 Cos7 cells with
+mClover-labelled FKBP12 \citep{nandb}.
 
 \subsection{Experimental results and
 discussion}\label{experimental-results-and-discussion}
 
 We found a brightness increase in \(\epsilon\) of \(\approx 1.6\)-fold
-using the \emph{automatic} detrending method. The \(\approx 1.6\)-fold
-increase suggests that dimerization had occurred (see figure
-\ref{fig:FKBPfoldchanges}), however, we expected the increase to be
-\(\approx 2\)-fold upon dimerization. In that publication \citep{nandb},
-we postulated that the 1.6 figure was due to the fact that not all of
-the protein had dimerized. Recently, a paper came out \citep{fpcompare}
-explaining how the assumption that all fluorophores emit signal is
-invalid (because many never function properly) and that because of this,
-oligomeric state changes calculated from brightness must be adjusted by
-a correction factor specific to the fluorophore. Unfortunately, this
-study did not characterize mClover, so we do not know its correction
-factor. I suspect that applying this correction would bring our figure
-of 1.6 a lot closer to 2. We also tried \(\tau=10\), which gave a
-decrease in brightness, showing that arbitrary parameter choices lead to
-unpredictable and unreliable results and should hence be avoided.
+using the \emph{automatic} detrending method. Assuming that the
+population was all monomers before ligand addition, the
+\(\approx 1.6\)-fold increase upon addition suggests that dimerization
+had occurred (see figure \ref{fig:FKBPfoldchanges}), however, we
+expected the increase to be \(\approx 2\)-fold upon dimerization. There
+could be many reasons for this discrepancy.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  FKBP is endogenously expressed in Cos7 cells, so depending on the
+  level of native expression (not labelled) and the level of expression
+  of our transfected FKBP (labelled), it could be that many cases of
+  what is actually a dimer is behaving like a monomer because only one
+  of the pair is labelled.
+\item
+  Recently, a paper came out \citep{fpcompare} explaining how the
+  assumption that all fluorophores emit signal is invalid (because many
+  never function properly) and that because of this, oligomeric state
+  changes calculated from brightness must be adjusted by a correction
+  factor specific to the fluorophore. Unfortunately, this study did not
+  characterize mClover, so we do not know its correction factor to be
+  able to apply it. Any such correction would bring us higher than 1.6.
+\end{enumerate}
+
+It is possible that all of the above reasons are valid and are present
+to different degrees in different images. This could be a cause of the
+heterogeneity of fold-changes in \(\epsilon\) measured from single
+images. This heterogeneity means that many replicates are needed in
+number and brightness experiments in order to converge upon the true
+value of the fold change.
 
 
 
@@ -2268,13 +2342,8 @@ unpredictable and unreliable results and should hence be avoided.
 
 \caption{The fold changes in brightness
 \(\epsilon\) upon addition of AP1510 drug shown for different detrending
-routines. \(\tau=\) NA is no detrend.}\label{fig:FKBPfoldchanges}
+routines (\(\tau=10\), auto \(\tau\) and no detrend).}\label{fig:FKBPfoldchanges}
 \end{figure}
-
-The heterogeneity of fold-changes in \(\epsilon\) measured from single
-images as shown in figure \ref{fig:FKBPfoldchanges} shows that many
-replicates are needed in number and brightness experiments in order to
-converge upon the true value of the fold change.
 
 A pair of cells from this study together with their brightness
 statistics are shown in figure \ref{fig:nandb-fig}. Notice how there is
@@ -2305,33 +2374,8 @@ the means of those histograms. Brightness here refers to B. Scale bar 20
 \(\mu\)m. \citep{nandb}}\label{fig:nandb-fig}
 \end{figure}
 
-\subsection{Visualization of bleaching correction on real
-data}\label{visualization-of-bleaching-correction-on-real-data}
-
-That publication also includes a visualization of bleaching correction
-on real data. Figure \ref{fig:bleachvis1} shows this, comparing the
-choice of \(\tau=10\) with the automatic detrending algorithm, which
-chooses an appropriate \(\tau\) based on the data. It is evident that
-both \(\tau=10\) and the automatic choice of \(\tau\) give the corrected
-intensity profile a stationary mean (both the red and green series start
-and end at \(\approx 11\)), however the \(\tau = 10\) correction (red
-line) also has a much decreased variance compared to the auto \(\tau\)
-line (green), which is bad; the \(\tau = 10\) line is removing local
-variation, which is exactly what we're trying to avoid.
-
-
-
-
-\begin{figure}
-
-\includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/bleachvis1} \hfill{}
-
-\caption{Real data image series mean intensity profile
-with bleaching correction with \(\tau = 10\) and auto \(\tau\).}\label{fig:bleachvis1}
-\end{figure}
-
 \section{\texorpdfstring{\emph{In vitro} number and
-brightness}{In vitro number and brightness}}\label{in-vitro-number-and-brightness}
+brightness}{In vitro number and brightness}}\label{in-vitro-NB}
 
 \subsection{Introduction}\label{introduction-1}
 
@@ -2344,8 +2388,10 @@ citations, most of which are \emph{in vivo} applications) but none
 \emph{in vitro}. Hence, we published a protocol \citep{JOVE} detailing
 how N\&B can be applied \emph{in vitro}. This time, we used FKBP12F36V
 which is an FKBP mutant with a new dimerizing drug AP20187 (known
-colloquially as the \emph{BB dimerizer}); this pair is designed to have
-better specificity than the original \citep{Clackson}.
+colloquially as the \emph{BB dimerizer}). The fact that FKBP12F36V is an
+FKBP12 mutant and that BB only dimerizes this mutant means that the
+previous issue of the interaction of endogenous and exogenous proteins
+is eliminated.
 
 \subsection{Experimental results and
 discussion}\label{experimental-results-and-discussion-1}
@@ -2356,8 +2402,12 @@ that the brightness doubled from \(\epsilon = 0.005\) to
 \ref{fig:jove}. This analysis was done with exponential smoothing
 detrending with automatically chosen parameter \(\tau\). Without
 detrending, the pre-BB brightness was calculated as
-\(\epsilon = 0.026\), showing that detrending is absolutely necessary
-and that neglecting this step can lead to nonsensical results.
+\(\epsilon = 0.026\), whereas the post-BB brightness was calculated as
+\(\epsilon = 0.010\) again, which would lead one to conclude that the
+oligomeric state decreased upon BB addition. This is a nonsensical
+result given that the FKBP12F36V is monomeric to begin with. This shows
+that detrending is absolutely necessary and that neglecting this step
+can lead to incorrect results.
 
 
 
@@ -2378,7 +2428,7 @@ correction to the equation for brightness \(\epsilon\) when analog
 equipment is used. The correct equation is
 
 \begin{equation}
-\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})}
+\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1
 \label{eq:dalaleq}
 \end{equation}
 
@@ -2471,9 +2521,10 @@ minutes and use this to calculate this temporal stoichiometry.
 
 \subsection{Experimental setup}\label{experimental-setup}
 
-Receptor (CD4) and co-receptor (CXCR4 or CCR5) were labelled in Cos7
-cells. Virus was added at time \(t=0\) and imaging proceeded for a
-number of minutes at 100 frames per 1.7 minutes. Alternating laser
+Cos7 cells were transfected with labelled receptor (CD4) and co-receptor
+(CXCR4 or CCR5) (these cells do not express these proteins
+endogenously). Virus was added at time \(t=0\) and imaging proceeded for
+a number of minutes at 100 frames per 1.7 minutes. Alternating laser
 excitation (ALEX, \citet{ALEX}) was used to eliminate the possibility of
 channel bleed-through. See figure \ref{fig:HIVStoichiometryIntensity}.
 
@@ -2590,17 +2641,20 @@ this produced figure \ref{fig:HIVStoichiometryStructure}.
 
 \includegraphics[width=1\linewidth]{/Users/rnolan/Dropbox/DPhil/phdthesis/img/HIVStoichiometryStructure} \hfill{}
 
-\caption{Pre-fusion reaction sequences
-for the R5 (a) and X4 (b) tropic cases.}\label{fig:HIVStoichiometryStructure}
+\caption{Model of pre-fusion reaction
+sequences for the R5 (a) and X4 (b) tropic cases.}\label{fig:HIVStoichiometryStructure}
 \end{figure}
 
 \subsection{Conclusion}\label{conclusion}
 
 Time-resolved N\&B enabled us to answer questions about the interaction
-between the HIV-1 virus and its receptor and co-receptor in live cells
-which up to now could not be answered. Being able to correctly correct
-for bleaching is crucial for reliable N\&B analysis, so the development
-of these new algorithms was crucial to this study.
+between HIV-1 and its receptor and co-receptor in live cells which up to
+now could not be answered. We addressed this problem with the N\&B
+technique. Successful application of N\&B relies on being able to
+correct for bleaching reliably (as seen in section \ref{in-vitro-NB}).
+This was impossible before the advent of my bleaching correction
+algorithms, therefore their development was a key step in making this
+work possible.
 
 \chapter{Discussion}\label{discussion}
 
@@ -2706,12 +2760,6 @@ good manual is essential with any software package.
 
 \chapter{Future plans}\label{future-plans}
 
-\section{Robin Hood publication}\label{robin-hood-publication}
-
-The \emph{Robin Hood} algorithm is already incorporated in the R package
-\texttt{detrendr} but it hasn't been published or peer-reviewed. Getting
-this done is my top priority.
-
 \section{\texorpdfstring{Translate software to
 \emph{ImageJ}}{Translate software to ImageJ}}\label{translate-software-to-imagej}
 
@@ -2732,6 +2780,33 @@ require the collection and cataloging of a diverse set of real data
 bleaching profiles from various biological samples. This would be the
 bottleneck because I have already written the simulation and analysis
 pipelines.
+
+\section{Robin Hood for single point
+FCS}\label{robin-hood-for-single-point-fcs}
+
+Right now, Robin Hood works only for imaging FFS/FCS because it has a
+step where it uses the mean intensity of a frame. With single point,
+there are no frames to take the mean of. This problem can be overcome
+with the use of smoothing splines. I will work on this when the thesis
+work is done.
+
+\section{Robin Hood publication}\label{robin-hood-publication}
+
+Once \emph{Robin Hood} has been implemented in \emph{ImageJ} and more
+realistic bleaching problems have been studied, \emph{Robin Hood} should
+be published.
+
+\section{Revisit old N\&B data with new detrending
+algorithm}\label{revisit-old-nb-data-with-new-detrending-algorithm}
+
+Having claimed that Robin Hood detrending is significantly better than
+previous detrending methods, it makes sense to revisit old results found
+using old detrending methods to see how much they would be changed with
+the application of this new detrending algorithm. The main difficulty in
+such a project would be obtaining the old data. To this day, most
+microscopy publications do not have their associated images in a
+centralised repository, so the only way to get this data is to request
+it from the authors.
 
 \section{Compare FRET with FCS}\label{compare-fret-with-fcs}
 
