@@ -166,9 +166,10 @@
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
 <li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.1</b> Translate software to <em>ImageJ</em></a></li>
 <li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.2</b> Study real data bleaching profiles with simulations</a></li>
-<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.3</b> Robin Hood publication</a></li>
-<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#revisit-old-nb-data-with-new-detrending-algorithm"><i class="fa fa-check"></i><b>6.4</b> Revisit old N&amp;B data with new detrending algorithm</a></li>
-<li class="chapter" data-level="6.5" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.5</b> Compare FRET with FCS</a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#robin-hood-for-single-point-fcs"><i class="fa fa-check"></i><b>6.3</b> Robin Hood for single point FCS</a></li>
+<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.4</b> Robin Hood publication</a></li>
+<li class="chapter" data-level="6.5" data-path="future-plans.html"><a href="future-plans.html#revisit-old-nb-data-with-new-detrending-algorithm"><i class="fa fa-check"></i><b>6.5</b> Revisit old N&amp;B data with new detrending algorithm</a></li>
+<li class="chapter" data-level="6.6" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.6</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -250,7 +251,7 @@ Figure 1.2: Confocal microscope light path showing how out of focus light does n
 <p>An image is acquired on a confocal microscope by scanning this apparatus across a sample, collecting one pixel at a time.</p>
 <div id="detectors" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Detectors</h3>
-<p>There are many types of confocal microscope detector. I will discuss the most common ones here. Most rely on the photoelectric effect <span class="citation">(Albert Einstein <a href="#ref-photoelectric">1905</a>)</span>, a phenomenon whereby incident light upon a material causes electrons to dissociate from that material.</p>
+<p>There are many types of confocal microscope detectors. I will discuss the most common ones here. Most rely on the photoelectric effect <span class="citation">(Albert Einstein <a href="#ref-photoelectric">1905</a>)</span>, a phenomenon whereby incident light upon a material causes electrons to dissociate from that material.</p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.6  </strong></span>The <em>quantum efficiency</em> (QE) of a detector is the fraction of fluorescent signal that is reported by the detector.
@@ -394,9 +395,17 @@ N &amp;= \frac{\langle I \rangle^2}{\sigma^2} = \frac{\epsilon n}{1 + \epsilon} 
 B &amp;= \frac{\sigma^2}{\langle I \rangle} = 1 + \epsilon \tag{1.5}
 \end{align}\]</span>
 where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)</span> are referred to as the <em>apparent number</em> and <em>apparent brightness</em> respectively. This gives
-<span class="math display" id="eq:NB2-2" id="eq:NB2-1">\[\begin{align}
-\epsilon &amp;= \frac{\sigma^2}{\langle I \rangle} - 1 \tag{1.6} \\
-n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.7}
+<span class="math display" id="eq:NB2-1" id="eq:NB2-2">\[\begin{align}
+n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6} \\
+\epsilon &amp;= \frac{\sigma^2}{\langle I \rangle} - 1 \tag{1.7}
+\end{align}\]</span>
+These relations are derived using a moment analysis technique which was originally applied to molecules in solution <span class="citation">(Qian and Elson <a href="#ref-QianElson">1990</a>)</span>. With a scanning confocal microscope in analog mode, we must use three correction terms: 1. The proportionality constant <span class="math inline">\(S\)</span>, which is the conversion factor between photons detected and the number of counts returned by the analog electronics. 2. The offset (bias) due to the analog electronics in the level of the background. 3. The readout noise <span class="math inline">\(\sigma_0^2\)</span> is the variance in this background signal <span class="citation">(Dalal et al. <a href="#ref-Dalal">2008</a>)</span>. Then, if all entities are mobile, we have
+<span class="math display" id="eq:NBa2-1" id="eq:NBa2-2" id="eq:NBa1-2" id="eq:NBa1-1">\[\begin{align}
+N &amp;= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} \tag{1.8} \\
+B &amp;= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) \tag{1.9}
+\end{align}\begin{align}
+n &amp;= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} \tag{1.10} \\
+\epsilon &amp;= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 \tag{1.11}
 \end{align}\]</span>
 <p>— <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 </blockquote>
@@ -443,7 +452,7 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.7}
 <span id="def:unnamed-chunk-18" class="definition"><strong>Definition 1.17  (statistics)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
 <span class="math display" id="eq:correlation">\[\begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\sigma_X \sigma_Y}
-\tag{1.8}
+\tag{1.12}
 \end{equation}\]</span>
 where <span class="math inline">\(E\)</span> is the expectation operator.
 </div>
@@ -453,7 +462,7 @@ where <span class="math inline">\(E\)</span> is the expectation operator.
 <span id="def:unnamed-chunk-19" class="definition"><strong>Definition 1.18  (statistics)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
 <span class="math display" id="eq:autocorrelation">\[\begin{equation}
 G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
-\tag{1.9}
+\tag{1.13}
 \end{equation}\]</span>
 </div>
 
@@ -462,7 +471,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 <span id="def:unnamed-chunk-20" class="definition"><strong>Definition 1.19  (statistics)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
 <span class="math display" id="eq:crosscorrelation">\[\begin{equation}
 \text{crosscorr}(X, Y; \tau) = \text{corr}(X_t, Y_{t + \tau}) = \frac{E[(X_t - \mu_X)(Y_{t + \tau} - \mu_Y)]}{\sigma_X \sigma_Y}
-\tag{1.10}
+\tag{1.14}
 \end{equation}\]</span>
 </div>
 
@@ -472,7 +481,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 <span id="def:unnamed-chunk-21" class="definition"><strong>Definition 1.20  (FCS)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
 <span class="math display" id="eq:FCScorrelation">\[\begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\mu_X \mu_Y}
-\tag{1.11}
+\tag{1.15}
 \end{equation}\]</span>
 where <span class="math inline">\(E\)</span> is the expectation operator.
 </div>
@@ -482,7 +491,7 @@ where <span class="math inline">\(E\)</span> is the expectation operator.
 <span id="def:unnamed-chunk-22" class="definition"><strong>Definition 1.21  (FCS)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
 <span class="math display" id="eq:FCSautocorrelation">\[\begin{equation}
 G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\mu^2_X}
-\tag{1.12}
+\tag{1.16}
 \end{equation}\]</span>
 </div>
 
@@ -491,14 +500,14 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 <span id="def:unnamed-chunk-23" class="definition"><strong>Definition 1.22  (FCS)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
 <span class="math display" id="eq:FCScrosscorrelation">\[\begin{equation}
 \text{crosscorr}(X, Y; \tau) = \text{corr}(X_t, Y_{t + \tau}) = \frac{E[(X_t - \mu_X)(Y_{t + \tau} - \mu_Y)]}{\mu_X \mu_Y}
-\tag{1.13}
+\tag{1.17}
 \end{equation}\]</span>
 </div>
 
 <p>The reason for these redefinitions (which just involve replacing standard deviations with means in the denominators of each expression) is that with the FCS definition, the autocorrelation has the nice property that for normal diffusion</p>
 <span class="math display" id="eq:FCSautocorrprop">\[\begin{equation}
 G(X; 0) = \frac{1}{n}
-\tag{1.14}
+\tag{1.18}
 \end{equation}\]</span>
 <p>where <span class="math inline">\(n\)</span> is the mean number of fluorescent particles in the focal volume. The convenience of the statistics definitions is that there, correlations are guaranteed to be in <span class="math inline">\([-1, 1]\)</span>, with <span class="math inline">\(0\)</span> representing no correlation, <span class="math inline">\(1\)</span> perfect positive correlation and <span class="math inline">\(-1\)</span> perfect negative correlation; this is lost with the FCS definitions: 0 still represents no correlation, but correlation values are no longer bounded, so the ideas of perfect correlation are lost.</p>
 <p>I felt it necessary to provide these definitions for two reasons:</p>
@@ -516,6 +525,7 @@ G(X; 0) = \frac{1}{n}
 <p>Co-diffusing fluorophores of different colours will necessarily induce positive correlation between the intensity traces of these two colour channels because co-diffusion means that presence of one fluorophore necessarily implies presence of the other fluorophore. Hence, correlation may be used as a measure of co-diffusion, and co-diffusion is often interpreted as interaction (the simplest explanation for co-diffusion is that the co-diffusing entities are somehow stuck together). This idea forms the basis of much of FCS.</p>
 <p>This does not hold for immobile particles. Immobile particles are not diffusing, so it doesn’t make sense to employ a measure of diffusion.</p>
 <p>Bleed-through of photons from one channel to another will induce artefactual correlation between the intensities of the two channels. Alternating laser excitation (ALEX, <span class="citation">Kapanidis et al. (<a href="#ref-ALEX">2005</a>)</span>) can be used to eliminate bleed through; however when using ALEX it is important to bear in mind that the two channels are no longer being acquired simultaneously. This is of particular importance for FCS. However if the instrument can go fast enough (with a laser alternation time much less than the residence time of the diffusing entities), this problem is negligible.</p>
+<p>If the density of fluorophores under observation is too high, correlation can be practically impossible to measure. For example, the difference between 1 and 0 is much easier to detect than the difference between 11 and 10. At high density, relative differences are lower and hence harder to detect.</p>
 </div>
 <div id="autocorrelation" class="section level3">
 <h3><span class="header-section-number">1.6.2</span> Autocorrelation</h3>
@@ -538,7 +548,7 @@ G(X; 0) = \frac{1}{n}
 <span id="def:unnamed-chunk-25" class="definition"><strong>Definition 1.23  (cross-variance)  </strong></span>
 <span class="math display" id="eq:cross-var">\[\begin{equation}
 \sigma^2_\text{cc} = E[(I_2 - \langle I_1 \rangle)(I_2 - \langle I_2 \rangle)]
-\tag{1.15}
+\tag{1.19}
 \end{equation}\]</span>
 </div>
 
@@ -547,14 +557,14 @@ G(X; 0) = \frac{1}{n}
 <span id="def:unnamed-chunk-26" class="definition"><strong>Definition 1.24  (cross-correlated brightness)  </strong></span>
 <span class="math display" id="eq:cross-corr-nb">\[\begin{equation}
 B_\text{cc} = \frac{\sigma^2_\text{cc}}{\sqrt{\langle I_1 \rangle \langle I_2 \rangle}}
-\tag{1.16}
+\tag{1.20}
 \end{equation}\]</span>
 </div>
 
 <span class="math inline">\(B_\text{cc}\)</span> is related to <span class="math inline">\(\text{corr}(I_1, I_2)\)</span> by
 <span class="math display" id="eq:bcc-corr">\[\begin{equation}
 B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(I_1, I_2)
-\tag{1.17}
+\tag{1.21}
 \end{equation}\]</span>
 <p>This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scaled version of correlation. The need for this redefinition is unclear (but it is no harm). It does make the formula look like the brightness formula <a href="intro.html#eq:NB1-2">(1.5)</a>, but no such oligomeric state information can be gleaned from <span class="math inline">\(B_\text{cc}\)</span>. It is merely useful as a relative measure of interaction: higher <span class="math inline">\(B_\text{cc}\)</span> means more interaction, lower <span class="math inline">\(B_\text{cc}\)</span> means less interaction. It is commonly used to identify interactions. Then, conventional N&amp;B performed on each of the channels (1 and 2) can be used to measure the stoichiometry of the interaction.</p>
 
@@ -622,6 +632,9 @@ B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(
 <div id="ref-NB">
 <p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6): 2320–32. doi:<a href="https://doi.org/10.1529/biophysj.107.114645">10.1529/biophysj.107.114645</a>.</p>
 </div>
+<div id="ref-Dalal">
+<p>Dalal, R. B., M. A. Digman, A. F. Horwitz, V. Vetri, and E. Gratton. 2008. “Determination of particle number and brightness using a laser scanning confocal microscope operating in the analog mode.” <em>Microsc. Res. Tech.</em> 71 (1): 69–81. doi:<a href="https://doi.org/10.1002/jemt.20526">10.1002/jemt.20526</a>.</p>
+</div>
 <div id="ref-NBreview">
 <p>Nolan, Rory, Maro Iliopoulou, Luis Alvarez, and Sergi Padilla-Parra. 2017. “Detecting Protein Aggregation and Interaction in Live Cells: A Guide to Number and Brightness.” <em>Methods</em>. doi:<a href="https://doi.org/10.1016/j.ymeth.2017.12.001">10.1016/j.ymeth.2017.12.001</a>.</p>
 </div>
@@ -653,7 +666,7 @@ B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(
 <p>Jones, Daniel M, Luis A Alvarez, Rory Nolan, Margarita Ferriz, Raquel Sainz Urruela, Xènia Massana-Muñoz, Hila Novak-Kotzer, Michael L Dustin, and Sergi Padilla-Parra. 2017. “Dynamin-2 Stabilizes the Hiv-1 Fusion Pore with a Low Oligomeric State.” <em>Cell Reports</em> 18 (2). Elsevier: 443–53. doi:<a href="https://doi.org/10.1016/j.celrep.2016.12.032">10.1016/j.celrep.2016.12.032</a>.</p>
 </div>
 <div id="ref-HIVstoichiometry">
-<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 0 (0).</p>
+<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 25 (9). doi:<a href="https://doi.org/10.1038/s41594-018-0113-x">10.1038/s41594-018-0113-x</a>.</p>
 </div>
 <div id="ref-Hoischen">
 <p>Hoischen, Christian, Shamci Monajembashi, Klaus Weisshart, and Peter Hemmerich. 2018. “Multimodal Light Microscopy Approaches to Reveal Structural and Functional Properties of Promyelocytic Leukemia Nuclear Bodies.” <em>Frontiers in Oncology</em> 8 (May). Frontiers Media SA. doi:<a href="https://doi.org/10.3389/fonc.2018.00125">10.3389/fonc.2018.00125</a>.</p>

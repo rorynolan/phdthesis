@@ -166,9 +166,10 @@
 <li class="chapter" data-level="6" data-path="future-plans.html"><a href="future-plans.html"><i class="fa fa-check"></i><b>6</b> Future plans</a><ul>
 <li class="chapter" data-level="6.1" data-path="future-plans.html"><a href="future-plans.html#translate-software-to-imagej"><i class="fa fa-check"></i><b>6.1</b> Translate software to <em>ImageJ</em></a></li>
 <li class="chapter" data-level="6.2" data-path="future-plans.html"><a href="future-plans.html#mimic"><i class="fa fa-check"></i><b>6.2</b> Study real data bleaching profiles with simulations</a></li>
-<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.3</b> Robin Hood publication</a></li>
-<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#revisit-old-nb-data-with-new-detrending-algorithm"><i class="fa fa-check"></i><b>6.4</b> Revisit old N&amp;B data with new detrending algorithm</a></li>
-<li class="chapter" data-level="6.5" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.5</b> Compare FRET with FCS</a></li>
+<li class="chapter" data-level="6.3" data-path="future-plans.html"><a href="future-plans.html#robin-hood-for-single-point-fcs"><i class="fa fa-check"></i><b>6.3</b> Robin Hood for single point FCS</a></li>
+<li class="chapter" data-level="6.4" data-path="future-plans.html"><a href="future-plans.html#robin-hood-publication"><i class="fa fa-check"></i><b>6.4</b> Robin Hood publication</a></li>
+<li class="chapter" data-level="6.5" data-path="future-plans.html"><a href="future-plans.html#revisit-old-nb-data-with-new-detrending-algorithm"><i class="fa fa-check"></i><b>6.5</b> Revisit old N&amp;B data with new detrending algorithm</a></li>
+<li class="chapter" data-level="6.6" data-path="future-plans.html"><a href="future-plans.html#compare-fret-with-fcs"><i class="fa fa-check"></i><b>6.6</b> Compare FRET with FCS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -244,7 +245,7 @@ Figure 4.3: Dimerization of FKBP12F36V upon BB addition is seen by a brightness 
 <div class="remark">
 <p> <span class="remark"><em>Remark. </em></span>  This paper also included an important correction to the equation for brightness <span class="math inline">\(\epsilon\)</span> when analog equipment is used. The correct equation is</p>
 <span class="math display" id="eq:dalaleq">\[\begin{equation}
-\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})}
+\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1
 \tag{4.1}
 \end{equation}\]</span>
 The <span class="math inline">\(S\)</span> in the denominator was omitted in the original paper <span class="citation">(Dalal et al. <a href="#ref-Dalal">2008</a>)</span> and this error was reproduced in our N&amp;B review <span class="citation">(Nolan, Iliopoulou, et al. <a href="#ref-NBreview">2017</a>)</span>.
@@ -349,7 +350,7 @@ Figure 4.8: Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tro
 <p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6): 2320–32. doi:<a href="https://doi.org/10.1529/biophysj.107.114645">10.1529/biophysj.107.114645</a>.</p>
 </div>
 <div id="ref-JOVE">
-<p>Nolan, Rory, Luis Alvarez, Samuel C. Griffiths, Jonathan Elegheert, Christian Siebold, and Sergi Padilla-Parra. 2018. “Calibration-Free in-Vitro Quantification of Protein Homo-Oligomerization Using Commercial Instrumentation and Free, Open Source Brightness Analysis Software.” <em>Journal of Visualized Experiments</em> 0 (0). MyJove Corporation.</p>
+<p>Nolan, Rory, Luis Alvarez, Samuel C. Griffiths, Jonathan Elegheert, Christian Siebold, and Sergi Padilla-Parra. 2018. “Calibration-Free in-Vitro Quantification of Protein Homo-Oligomerization Using Commercial Instrumentation and Free, Open Source Brightness Analysis Software.” <em>Journal of Visualized Experiments</em> 137 (e58157). MyJove Corporation. doi:<a href="https://doi.org/10.3791/58157">10.3791/58157</a>.</p>
 </div>
 <div id="ref-Dalal">
 <p>Dalal, R. B., M. A. Digman, A. F. Horwitz, V. Vetri, and E. Gratton. 2008. “Determination of particle number and brightness using a laser scanning confocal microscope operating in the analog mode.” <em>Microsc. Res. Tech.</em> 71 (1): 69–81. doi:<a href="https://doi.org/10.1002/jemt.20526">10.1002/jemt.20526</a>.</p>
@@ -382,7 +383,7 @@ Figure 4.8: Model of pre-fusion reaction sequences for the R5 (a) and X4 (b) tro
 <p>Brandenberg, Oliver F., Carsten Magnus, Roland R. Regoes, and Alexandra Trkola. 2015. “The HIV-1 Entry Process: A Stoichiometric View.” <em>Trends in Microbiology</em> 23 (12). Elsevier BV: 763–74. doi:<a href="https://doi.org/10.1016/j.tim.2015.09.003">10.1016/j.tim.2015.09.003</a>.</p>
 </div>
 <div id="ref-HIVstoichiometry">
-<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 0 (0).</p>
+<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 25 (9). doi:<a href="https://doi.org/10.1038/s41594-018-0113-x">10.1038/s41594-018-0113-x</a>.</p>
 </div>
 <div id="ref-ALEX">
 <p>Kapanidis, Achillefs N., Ted A. Laurence, Nam Ki Lee, Emmanuel Margeat, Xiangxu Kong, and Shimon Weiss. 2005. “Alternating-Laser Excitation of Single Molecules.” <em>Accounts of Chemical Research</em> 38 (7). American Chemical Society (ACS): 523–33. doi:<a href="https://doi.org/10.1021/ar0401348">10.1021/ar0401348</a>.</p>

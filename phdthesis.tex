@@ -200,7 +200,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   R. Nolan, L. Alvarez, S. C. Griffiths, et al. ``Calibration-Free
   In-Vitro Quantification of Protein Homo-Oligomerization Using
   Commercial Instrumentation and Free, Open Source Brightness Analysis
-  Software''. In: \emph{Journal of Visualized Experiments} 0.0 (2018).
+  Software''. In: \emph{Journal of Visualized Experiments} 137 (2018).
 \end{itemize}
 
 \subsection*{Co-first author}\label{co-first-author}
@@ -211,7 +211,7 @@ the naming convention is \texttt{JournalYEAR.pdf}.
 \item
   M. Iliopoulou, R. Nolan, et al. ``A dynamic three step mechanism
   drives the HIV-1 pre-fusion reaction''. In: \emph{Nat. Struct. Mol.
-  Biol.} 0.0 (2018).
+  Biol.} 25.9 (2018).
 \end{itemize}
 
 \subsection*{Other}\label{other}
@@ -624,8 +624,8 @@ across a sample, collecting one pixel at a time.
 
 \subsection{Detectors}\label{detectors}
 
-There are many types of confocal microscope detector. I will discuss the
-most common ones here. Most rely on the photoelectric effect
+There are many types of confocal microscope detectors. I will discuss
+the most common ones here. Most rely on the photoelectric effect
 \citep{photoelectric}, a phenomenon whereby incident light upon a
 material causes electrons to dissociate from that material.
 
@@ -918,8 +918,26 @@ where \(N\) and \(B\) are referred to as the \emph{apparent number} and
 \emph{apparent brightness} respectively. This gives
 
 \begin{align}
-\epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 \label{eq:NB2-1} \\
-n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \label{eq:NB2-2}
+n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \label{eq:NB2-2} \\
+\epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 \label{eq:NB2-1}
+\end{align}
+
+These relations are derived using a moment analysis technique which was
+originally applied to molecules in solution \citep{QianElson}. With a
+scanning confocal microscope in analog mode, we must use three
+correction terms: 1. The proportionality constant \(S\), which is the
+conversion factor between photons detected and the number of counts
+returned by the analog electronics. 2. The offset (bias) due to the
+analog electronics in the level of the background. 3. The readout noise
+\(\sigma_0^2\) is the variance in this background signal \citep{Dalal}.
+Then, if all entities are mobile, we have
+
+\begin{align}
+N &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} \label{eq:NBa1-1} \\
+B &= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) \label{eq:NBa1-2}
+\end{align}\begin{align}
+n &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} \label{eq:NBa2-2} \\
+\epsilon &= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 \label{eq:NBa2-1}
 \end{align}
 
 --- \citet{NBreview}\footnote{This is a formulation of N\&B that I wrote
@@ -1173,6 +1191,12 @@ instrument can go fast enough (with a laser alternation time much less
 than the residence time of the diffusing entities), this problem is
 negligible.
 
+If the density of fluorophores under observation is too high,
+correlation can be practically impossible to measure. For example, the
+difference between 1 and 0 is much easier to detect than the difference
+between 11 and 10. At high density, relative differences are lower and
+hence harder to detect.
+
 \subsection{Autocorrelation}\label{autocorrelation}
 
 As mentioned already, the autocorrelation function (ACF) can be used to
@@ -1401,8 +1425,8 @@ write support for TIFF files with floating point (real-numbered) pixels,
 and the only package that can correctly import TIFF files that were
 saved from \emph{ImageJ} \citep{ImageJ}. R has millions of users
 worldwide so this TIFF I/O capability is a basic need for masses of
-people. \texttt{ijtiff} gets 400 downloads per month which amounts to
-4,000 since it was first released.
+people. \texttt{ijtiff} gets 500 downloads per month which amounts to
+5,000 since it was first released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
 non-profit initiative founded to make scientific data retrieval
@@ -2230,12 +2254,13 @@ the best choice in all cases is to not detrend at all! This is an
 interesting result and seems to render all detrending routines
 worthless. However, when working with real data, not detrending does not
 work well at all. This will be shown in chapter \ref{applications}. This
-is probably because with real data, bleaching is likely not taking place
-at a constant, steady rate and other factors such as cell movement are
-contributing to medium and long term intensity fluctuations and these
-have a detrimental effect on calculations if not detrended out. It would
-be possible to study this by mimicking real bleaching profiles with
-simulations (see section \ref{mimic}).
+indicated that my simulations are unrealistic. This is probably because
+with real data, bleaching is likely not taking place at a constant,
+steady rate and other factors such as cell movement or/and laser power
+fluctuations are contributing to medium and long term intensity
+fluctuations and these have a detrimental effect on calculations if not
+detrended out. It would be possible to study this by mimicking real
+bleaching profiles with simulations (see section \ref{mimic}).
 
 The worst performer by far is \texttt{boxcar10}. For example, at
 \(\epsilon = 0.1\), it makes an error of worse than 40\% and for
@@ -2403,7 +2428,7 @@ correction to the equation for brightness \(\epsilon\) when analog
 equipment is used. The correct equation is
 
 \begin{equation}
-\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})}
+\epsilon = \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1
 \label{eq:dalaleq}
 \end{equation}
 
@@ -2755,6 +2780,15 @@ require the collection and cataloging of a diverse set of real data
 bleaching profiles from various biological samples. This would be the
 bottleneck because I have already written the simulation and analysis
 pipelines.
+
+\section{Robin Hood for single point
+FCS}\label{robin-hood-for-single-point-fcs}
+
+Right now, Robin Hood works only for imaging FFS/FCS because it has a
+step where it uses the mean intensity of a frame. With single point,
+there are no frames to take the mean of. This problem can be overcome
+with the use of smoothing splines. I will work on this when the thesis
+work is done.
 
 \section{Robin Hood publication}\label{robin-hood-publication}
 
