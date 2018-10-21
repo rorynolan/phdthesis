@@ -1071,12 +1071,14 @@ where \(E\) is the expectation operator.
 the correlation of a signal \(X\) with a delayed copy of itself as a
 function of the delay \(\tau\).
 
-Statisticians define this in two different ways.
+Statisticians define this in two different ways:
 
 \begin{equation}
 G_1(X; \tau) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
 \label{eq:autocorrelation1}
-\end{equation}\begin{equation}
+\end{equation}
+
+\begin{equation}
 G_2(X; \tau) = \frac{\sum_{t = \tau + 1}^T (x_t - \mu_x)(x_{t - \tau} - \mu_x)}{\sum_{t = 1}^T [(x_t -\mu_x)^2]}
 \label{eq:autocorrelation2}
 \end{equation}

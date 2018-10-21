@@ -461,15 +461,16 @@ where <span class="math inline">\(E\)</span> is the expectation operator.
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-19" class="definition"><strong>Definition 1.18  (statistics)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.</p>
-Statisticians define this in two different ways.
-<span class="math display" id="eq:autocorrelation2" id="eq:autocorrelation1">\[\begin{equation}
+<p>Statisticians define this in two different ways:</p>
+<span class="math display" id="eq:autocorrelation1">\[\begin{equation}
 G_1(X; \tau) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
 \tag{1.13}
-\end{equation}\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:autocorrelation2">\[\begin{equation}
 G_2(X; \tau) = \frac{\sum_{t = \tau + 1}^T (x_t - \mu_x)(x_{t - \tau} - \mu_x)}{\sum_{t = 1}^T [(x_t -\mu_x)^2]}
 \tag{1.14}
 \end{equation}\]</span>
-The relationship between <span class="math inline">\(G_1\)</span> and <span class="math inline">\(G_2\)</span> is
+<p>The relationship between <span class="math inline">\(G_1\)</span> and <span class="math inline">\(G_2\)</span> is</p>
 <span class="math display" id="eq:autocorrelation12relation">\[\begin{equation}
 G_2(X; \tau) = \frac{T - \tau}{T - 1} \times G_1(X; \tau)
 \tag{1.15}
