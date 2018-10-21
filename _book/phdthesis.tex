@@ -935,7 +935,9 @@ Then, if all entities are mobile, we have
 \begin{align}
 N &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} \label{eq:NBa1-1} \\
 B &= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) \label{eq:NBa1-2}
-\end{align}\begin{align}
+\end{align}
+
+\begin{align}
 n &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} \label{eq:NBa2-2} \\
 \epsilon &= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 \label{eq:NBa2-1}
 \end{align}
@@ -1044,13 +1046,16 @@ described as a subfield of FFS \citep{FFSnewage}. In practice, FFS is
 mostly used to refer to the non-FCS parts of the whole FFS field. I will
 follow that convention.
 
-First, let us introduce some concepts from statistics.
+First, let us introduce some concepts from statistics. Let \(X\) and
+\(Y\) be random variables manifested in observations
+\(\{x_1, x_2, \ldots, x_T\}\) and \(\{x_1, x_2, \ldots, x_T\}\) taken at
+times \(t = 1, 2, \ldots, T\). Let \(X\) and \(Y\) have expected values
+\(\mu_X\) and \(\mu_Y\) and variances \(\sigma^2_x\) and \(\sigma^2_Y\).
 
 \BeginKnitrBlock{definition}[statistics]
 \protect\hypertarget{def:unnamed-chunk-18}{}{\label{def:unnamed-chunk-18}
-\iffalse (statistics) \fi{} }The \emph{correlation} between two random
-variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
-and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
+\iffalse (statistics) \fi{} }The \emph{correlation} between random
+variables \(X\) and \(Y\) is
 
 \begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\sigma_X \sigma_Y}
@@ -1066,14 +1071,35 @@ where \(E\) is the expectation operator.
 the correlation of a signal \(X\) with a delayed copy of itself as a
 function of the delay \(\tau\).
 
+Statisticians define this in two different ways.
+
 \begin{equation}
-G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
-\label{eq:autocorrelation}
+G_1(X; \tau) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
+\label{eq:autocorrelation1}
+\end{equation}\begin{equation}
+G_2(X; \tau) = \frac{\sum_{t = \tau + 1}^T (x_t - \mu_x)(x_{t - \tau} - \mu_x)}{\sum_{t = 1}^T [(x_t -\mu_x)^2]}
+\label{eq:autocorrelation2}
+\end{equation}
+
+The relationship between \(G_1\) and \(G_2\) is
+
+\begin{equation}
+G_2(X; \tau) = \frac{T - \tau}{T - 1} \times G_1(X; \tau)
+\label{eq:autocorrelation12relation}
 \end{equation}
 \EndKnitrBlock{definition}
 
+\BeginKnitrBlock{remark}
+\iffalse{} {Remark. } \fi{}Above, I have labelled these \(G_1\) and
+\(G_2\) to distinguish the definitions, but elsewhere people will just
+use \(G\) (or something else) and it will be up to you---the reader---to
+figure out which one is being used. \(G_2\) is often used in the
+statistics field of time-series analysis. A modified version of \(G_1\)
+is used in FCS (this modified version is defined below).
+\EndKnitrBlock{remark}
+
 \BeginKnitrBlock{definition}[statistics]
-\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20}
+\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
 \iffalse (statistics) \fi{} }The \emph{cross-correlation} of two series
 is the correlation of one with a delayed copy of the other as a function
 of the delay.
@@ -1087,7 +1113,7 @@ of the delay.
 For the purposes of FCS, these quantities were redefined as follows.
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-21}{}{\label{def:unnamed-chunk-21}
+\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
 \iffalse (FCS) \fi{} }The \emph{correlation} between two random
 variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
 and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
@@ -1101,7 +1127,7 @@ where \(E\) is the expectation operator.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22}
+\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
 \iffalse (FCS) \fi{} }\emph{Autocorrelation} \(G(X; \tau)\), is the
 correlation of a signal \(X\) with a delayed copy of itself as a
 function of the delay \(\tau\).
@@ -1113,7 +1139,7 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-23}{}{\label{def:unnamed-chunk-23}
+\protect\hypertarget{def:unnamed-chunk-24}{}{\label{def:unnamed-chunk-24}
 \iffalse (FCS) \fi{} }The \emph{cross-correlation} of two series is the
 correlation of one with a delayed copy of the other as a function of the
 delay.
@@ -1236,7 +1262,7 @@ a measure of correlation.
 Suppose there are two channels with intensities \(I_1\) and \(I_2\).
 
 \BeginKnitrBlock{definition}[cross-variance]
-\protect\hypertarget{def:unnamed-chunk-25}{}{\label{def:unnamed-chunk-25}
+\protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26}
 \iffalse (cross-variance) \fi{} }
 
 \begin{equation}
@@ -1246,7 +1272,7 @@ Suppose there are two channels with intensities \(I_1\) and \(I_2\).
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[cross-correlated brightness]
-\protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26}
+\protect\hypertarget{def:unnamed-chunk-27}{}{\label{def:unnamed-chunk-27}
 \iffalse (cross-correlated brightness) \fi{} }
 
 \begin{equation}
@@ -1400,7 +1426,7 @@ such file names. This package was peer reviewed and published
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-28}{}{\label{def:unnamed-chunk-28}
+\protect\hypertarget{def:unnamed-chunk-29}{}{\label{def:unnamed-chunk-29}
 }\emph{Unit testing} is a software testing method by which individual
 units of source code, sets of one or more computer program modules
 together with associated control data, usage procedures, and operating
@@ -1425,8 +1451,8 @@ write support for TIFF files with floating point (real-numbered) pixels,
 and the only package that can correctly import TIFF files that were
 saved from \emph{ImageJ} \citep{ImageJ}. R has millions of users
 worldwide so this TIFF I/O capability is a basic need for masses of
-people. \texttt{ijtiff} gets 500 downloads per month which amounts to
-5,000 since it was first released.
+people. \texttt{ijtiff} gets 600 downloads per month which amounts to
+6,000 since it was first released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
 non-profit initiative founded to make scientific data retrieval
@@ -1581,7 +1607,7 @@ correlation}\label{why-does-bleaching-introduce-correlation}
 Let's take another look at the formula for correlation:
 
 \BeginKnitrBlock{definition}[FCS]
-\protect\hypertarget{def:unnamed-chunk-30}{}{\label{def:unnamed-chunk-30}
+\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
 \iffalse (FCS) \fi{} }The \emph{correlation} between two random
 variables \(X\) and \(Y\) with expected values \(\mu_X\) and \(\mu_Y\)
 and standard deviations \(\sigma_X\) and \(\sigma_Y\) is
@@ -1666,7 +1692,7 @@ bleaching, \(X\) has significant autocorrelation (\(p < 10^{-200}\)).
 \subsection{FFS}\label{ffs}
 
 \BeginKnitrBlock{definition}[median mean pixel intensity]
-\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31}
+\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
 \iffalse (median mean pixel intensity) \fi{} }The \emph{median mean
 pixel intensity} of an image series is found by taking the mean
 intensity of each pixel in the image series and then taking the median
@@ -1675,7 +1701,7 @@ pixel intensity of the image series.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[median pixel intensity variance]
-\protect\hypertarget{def:unnamed-chunk-32}{}{\label{def:unnamed-chunk-32}
+\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
 \iffalse (median pixel intensity variance) \fi{} }The \emph{median pixel
 intensity variance} of an image series is found by taking the variance
 in the intensity of each pixel in the image series and then taking the
@@ -1887,7 +1913,7 @@ to solve for the appropriate choice of \(l\) to use for detrending a
 specific image series.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
+\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34}
 }The \emph{mean intensity profile} of one channel of an image series is
 obtained by calculating the mean intensity of each frame in that image
 series.
@@ -2004,7 +2030,7 @@ published \citep{nandb}.
 variance}\label{correcting-for-non-stationary-variance}
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-34}{}{\label{def:unnamed-chunk-34}
+\protect\hypertarget{def:unnamed-chunk-35}{}{\label{def:unnamed-chunk-35}
 }The variance of a random variable \(X\) is the expected value of the
 squared deviation of \(X\) from its mean \(\mu\):
 
@@ -2221,7 +2247,7 @@ with the following detrending routines:\footnote{The detrending took 2
 The performance was evaluated using the \emph{mean relative error}.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-35}{}{\label{def:unnamed-chunk-35} }
+\protect\hypertarget{def:unnamed-chunk-36}{}{\label{def:unnamed-chunk-36} }
 For a given brightness and bleaching fraction,
 
 \begin{equation}

@@ -225,14 +225,17 @@ n &= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} (\#eq:NB2-2) \\
 \epsilon &= \frac{\sigma^2}{\langle I \rangle} - 1 (\#eq:NB2-1)
 \end{align}
 These relations are derived using a moment analysis technique which was originally applied to molecules in solution [@QianElson]. With a scanning confocal microscope in analog mode, we must use three correction terms: 1. The proportionality constant $S$, which is the conversion factor between photons detected and the number of counts returned by the analog electronics. 2. The offset (bias) due to the analog electronics in the level of the background. 3. The readout noise $\sigma_0^2$ is the variance in this background signal [@Dalal]. Then, if all entities are mobile, we have
-\begin{align}
+> 
+> \begin{align}
 N &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} (\#eq:NBa1-1) \\
 B &= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) (\#eq:NBa1-2)
 \end{align}
-\begin{align}
+> 
+> \begin{align}
 n &= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} (\#eq:NBa2-2) \\
 \epsilon &= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 (\#eq:NBa2-1)
 \end{align}
+> 
 > --- @NBreview^[This is a formulation of N&B that I wrote in a 2017 review of the technique.]
 
 The quantity $\epsilon$ is a relative measure of oligomeric state. That is, $\epsilon$ will be twice as big for dimers as it is for monomers, three times as big for trimers as it is for monomers and so on.
@@ -275,10 +278,10 @@ The N&B technique is fraught with technical difficulties. Principal of these is 
 
 Fluorescence correlation spectroscopy (FCS) is the correlation analysis of fluorescence intensity fluctuations. For this reason, FCS can be described as a subfield of FFS [@FFSnewage]. In practice, FFS is mostly used to refer to the non-FCS parts of the whole FFS field. I will follow that convention.
 
-First, let us introduce some concepts from statistics.
+First, let us introduce some concepts from statistics. Let $X$ and $Y$ be random variables manifested in observations $\{x_1, x_2, \ldots, x_T\}$ and $\{x_1, x_2, \ldots, x_T\}$ taken at times $t = 1, 2, \ldots, T$. Let $X$ and $Y$ have expected values $\mu_X$ and $\mu_Y$ and variances $\sigma^2_x$ and $\sigma^2_Y$.
 
 ```{definition, name='statistics'}
-The _correlation_ between two random variables $X$ and $Y$ with expected values $\mu_X$ and $\mu_Y$ and standard deviations $\sigma_X$ and $\sigma_Y$ is
+The _correlation_ between random variables $X$ and $Y$ is
 \begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\sigma_X \sigma_Y}
 (\#eq:correlation)
@@ -288,10 +291,26 @@ where $E$ is the expectation operator.
 
 ```{definition, name='statistics'}
 _Autocorrelation_ $G(X; \tau)$, is the correlation of a signal $X$ with a delayed copy of itself as a function of the delay $\tau$.
+
+Statisticians define this in two different ways.
 \begin{equation}
-G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
-(\#eq:autocorrelation)
+G_1(X; \tau) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
+(\#eq:autocorrelation1)
 \end{equation}
+\begin{equation}
+G_2(X; \tau) = \frac{\sum_{t = \tau + 1}^T (x_t - \mu_x)(x_{t - \tau} - \mu_x)}{\sum_{t = 1}^T [(x_t -\mu_x)^2]}
+(\#eq:autocorrelation2)
+\end{equation}
+  
+The relationship between $G_1$ and $G_2$ is 
+\begin{equation}
+G_2(X; \tau) = \frac{T - \tau}{T - 1} \times G_1(X; \tau)
+(\#eq:autocorrelation12relation)
+\end{equation}
+```
+
+```{remark}
+Above, I have labelled these $G_1$ and $G_2$ to distinguish the definitions, but elsewhere people will just use $G$ (or something else) and it will be up to you---the reader---to figure out which one is being used. $G_2$ is often used in the statistics field of time-series analysis. A modified version of $G_1$ is used in FCS (this modified version is defined below).
 ```
 
 ```{definition, name='statistics'}
