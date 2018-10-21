@@ -399,11 +399,12 @@ where <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)
 n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6} \\
 \epsilon &amp;= \frac{\sigma^2}{\langle I \rangle} - 1 \tag{1.7}
 \end{align}\]</span>
-These relations are derived using a moment analysis technique which was originally applied to molecules in solution <span class="citation">(Qian and Elson <a href="#ref-QianElson">1990</a>)</span>. With a scanning confocal microscope in analog mode, we must use three correction terms: 1. The proportionality constant <span class="math inline">\(S\)</span>, which is the conversion factor between photons detected and the number of counts returned by the analog electronics. 2. The offset (bias) due to the analog electronics in the level of the background. 3. The readout noise <span class="math inline">\(\sigma_0^2\)</span> is the variance in this background signal <span class="citation">(Dalal et al. <a href="#ref-Dalal">2008</a>)</span>. Then, if all entities are mobile, we have
-<span class="math display" id="eq:NBa2-1" id="eq:NBa2-2" id="eq:NBa1-2" id="eq:NBa1-1">\[\begin{align}
+<p>These relations are derived using a moment analysis technique which was originally applied to molecules in solution <span class="citation">(Qian and Elson <a href="#ref-QianElson">1990</a>)</span>. With a scanning confocal microscope in analog mode, we must use three correction terms: 1. The proportionality constant <span class="math inline">\(S\)</span>, which is the conversion factor between photons detected and the number of counts returned by the analog electronics. 2. The offset (bias) due to the analog electronics in the level of the background. 3. The readout noise <span class="math inline">\(\sigma_0^2\)</span> is the variance in this background signal <span class="citation">(Dalal et al. <a href="#ref-Dalal">2008</a>)</span>. Then, if all entities are mobile, we have</p>
+<span class="math display" id="eq:NBa1-2" id="eq:NBa1-1">\[\begin{align}
 N &amp;= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} \tag{1.8} \\
 B &amp;= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) \tag{1.9}
-\end{align}\begin{align}
+\end{align}\]</span>
+<span class="math display" id="eq:NBa2-1" id="eq:NBa2-2">\[\begin{align}
 n &amp;= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} \tag{1.10} \\
 \epsilon &amp;= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 \tag{1.11}
 \end{align}\]</span>
@@ -446,10 +447,10 @@ n &amp;= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S
 <div id="FCS" class="section level2">
 <h2><span class="header-section-number">1.6</span> Fluorescence correlation spectroscopy</h2>
 <p>Fluorescence correlation spectroscopy (FCS) is the correlation analysis of fluorescence intensity fluctuations. For this reason, FCS can be described as a subfield of FFS <span class="citation">(Jameson, Ross, and Albanesi <a href="#ref-FFSnewage">2009</a>)</span>. In practice, FFS is mostly used to refer to the non-FCS parts of the whole FFS field. I will follow that convention.</p>
-<p>First, let us introduce some concepts from statistics.</p>
+<p>First, let us introduce some concepts from statistics. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables manifested in observations <span class="math inline">\(\{x_1, x_2, \ldots, x_T\}\)</span> and <span class="math inline">\(\{x_1, x_2, \ldots, x_T\}\)</span> taken at times <span class="math inline">\(t = 1, 2, \ldots, T\)</span>. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and variances <span class="math inline">\(\sigma^2_x\)</span> and <span class="math inline">\(\sigma^2_Y\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-18" class="definition"><strong>Definition 1.17  (statistics)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
+<span id="def:unnamed-chunk-18" class="definition"><strong>Definition 1.17  (statistics)  </strong></span>The <em>correlation</em> between random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is
 <span class="math display" id="eq:correlation">\[\begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\sigma_X \sigma_Y}
 \tag{1.12}
@@ -459,55 +460,69 @@ where <span class="math inline">\(E\)</span> is the expectation operator.
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-19" class="definition"><strong>Definition 1.18  (statistics)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
-<span class="math display" id="eq:autocorrelation">\[\begin{equation}
-G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
+<p><span id="def:unnamed-chunk-19" class="definition"><strong>Definition 1.18  (statistics)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.</p>
+Statisticians define this in two different ways.
+<span class="math display" id="eq:autocorrelation2" id="eq:autocorrelation1">\[\begin{equation}
+G_1(X; \tau) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
 \tag{1.13}
+\end{equation}\begin{equation}
+G_2(X; \tau) = \frac{\sum_{t = \tau + 1}^T (x_t - \mu_x)(x_{t - \tau} - \mu_x)}{\sum_{t = 1}^T [(x_t -\mu_x)^2]}
+\tag{1.14}
+\end{equation}\]</span>
+The relationship between <span class="math inline">\(G_1\)</span> and <span class="math inline">\(G_2\)</span> is
+<span class="math display" id="eq:autocorrelation12relation">\[\begin{equation}
+G_2(X; \tau) = \frac{T - \tau}{T - 1} \times G_1(X; \tau)
+\tag{1.15}
 \end{equation}\]</span>
 </div>
 
 
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> Above, I have labelled these <span class="math inline">\(G_1\)</span> and <span class="math inline">\(G_2\)</span> to distinguish the definitions, but elsewhere people will just use <span class="math inline">\(G\)</span> (or something else) and it will be up to you—the reader—to figure out which one is being used. <span class="math inline">\(G_2\)</span> is often used in the statistics field of time-series analysis. A modified version of <span class="math inline">\(G_1\)</span> is used in FCS (this modified version is defined below).
+</div>
+
+
 <div class="definition">
-<span id="def:unnamed-chunk-20" class="definition"><strong>Definition 1.19  (statistics)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
+<span id="def:unnamed-chunk-21" class="definition"><strong>Definition 1.19  (statistics)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
 <span class="math display" id="eq:crosscorrelation">\[\begin{equation}
 \text{crosscorr}(X, Y; \tau) = \text{corr}(X_t, Y_{t + \tau}) = \frac{E[(X_t - \mu_X)(Y_{t + \tau} - \mu_Y)]}{\sigma_X \sigma_Y}
-\tag{1.14}
+\tag{1.16}
 \end{equation}\]</span>
 </div>
 
 <p>For the purposes of FCS, these quantities were redefined as follows.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-21" class="definition"><strong>Definition 1.20  (FCS)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
+<span id="def:unnamed-chunk-22" class="definition"><strong>Definition 1.20  (FCS)  </strong></span>The <em>correlation</em> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with expected values <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> is
 <span class="math display" id="eq:FCScorrelation">\[\begin{equation}
 \text{corr}(X, Y) = \frac{E[(X - \mu_X)(Y - \mu_Y)]}{\mu_X \mu_Y}
-\tag{1.15}
+\tag{1.17}
 \end{equation}\]</span>
 where <span class="math inline">\(E\)</span> is the expectation operator.
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-22" class="definition"><strong>Definition 1.21  (FCS)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
+<span id="def:unnamed-chunk-23" class="definition"><strong>Definition 1.21  (FCS)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.
 <span class="math display" id="eq:FCSautocorrelation">\[\begin{equation}
 G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\mu^2_X}
-\tag{1.16}
+\tag{1.18}
 \end{equation}\]</span>
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-23" class="definition"><strong>Definition 1.22  (FCS)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
+<span id="def:unnamed-chunk-24" class="definition"><strong>Definition 1.22  (FCS)  </strong></span>The <em>cross-correlation</em> of two series is the correlation of one with a delayed copy of the other as a function of the delay.
 <span class="math display" id="eq:FCScrosscorrelation">\[\begin{equation}
 \text{crosscorr}(X, Y; \tau) = \text{corr}(X_t, Y_{t + \tau}) = \frac{E[(X_t - \mu_X)(Y_{t + \tau} - \mu_Y)]}{\mu_X \mu_Y}
-\tag{1.17}
+\tag{1.19}
 \end{equation}\]</span>
 </div>
 
 <p>The reason for these redefinitions (which just involve replacing standard deviations with means in the denominators of each expression) is that with the FCS definition, the autocorrelation has the nice property that for normal diffusion</p>
 <span class="math display" id="eq:FCSautocorrprop">\[\begin{equation}
 G(X; 0) = \frac{1}{n}
-\tag{1.18}
+\tag{1.20}
 \end{equation}\]</span>
 <p>where <span class="math inline">\(n\)</span> is the mean number of fluorescent particles in the focal volume. The convenience of the statistics definitions is that there, correlations are guaranteed to be in <span class="math inline">\([-1, 1]\)</span>, with <span class="math inline">\(0\)</span> representing no correlation, <span class="math inline">\(1\)</span> perfect positive correlation and <span class="math inline">\(-1\)</span> perfect negative correlation; this is lost with the FCS definitions: 0 still represents no correlation, but correlation values are no longer bounded, so the ideas of perfect correlation are lost.</p>
 <p>I felt it necessary to provide these definitions for two reasons:</p>
@@ -545,26 +560,26 @@ G(X; 0) = \frac{1}{n}
 <p>Suppose there are two channels with intensities <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-25" class="definition"><strong>Definition 1.23  (cross-variance)  </strong></span>
+<span id="def:unnamed-chunk-26" class="definition"><strong>Definition 1.23  (cross-variance)  </strong></span>
 <span class="math display" id="eq:cross-var">\[\begin{equation}
 \sigma^2_\text{cc} = E[(I_2 - \langle I_1 \rangle)(I_2 - \langle I_2 \rangle)]
-\tag{1.19}
+\tag{1.21}
 \end{equation}\]</span>
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-26" class="definition"><strong>Definition 1.24  (cross-correlated brightness)  </strong></span>
+<span id="def:unnamed-chunk-27" class="definition"><strong>Definition 1.24  (cross-correlated brightness)  </strong></span>
 <span class="math display" id="eq:cross-corr-nb">\[\begin{equation}
 B_\text{cc} = \frac{\sigma^2_\text{cc}}{\sqrt{\langle I_1 \rangle \langle I_2 \rangle}}
-\tag{1.20}
+\tag{1.22}
 \end{equation}\]</span>
 </div>
 
 <span class="math inline">\(B_\text{cc}\)</span> is related to <span class="math inline">\(\text{corr}(I_1, I_2)\)</span> by
 <span class="math display" id="eq:bcc-corr">\[\begin{equation}
 B_\text{cc} = \sqrt{\langle I_1 \rangle \langle I_2 \rangle} \times \text{corr}(I_1, I_2)
-\tag{1.21}
+\tag{1.23}
 \end{equation}\]</span>
 <p>This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scaled version of correlation. The need for this redefinition is unclear (but it is no harm). It does make the formula look like the brightness formula <a href="intro.html#eq:NB1-2">(1.5)</a>, but no such oligomeric state information can be gleaned from <span class="math inline">\(B_\text{cc}\)</span>. It is merely useful as a relative measure of interaction: higher <span class="math inline">\(B_\text{cc}\)</span> means more interaction, lower <span class="math inline">\(B_\text{cc}\)</span> means less interaction. It is commonly used to identify interactions. Then, conventional N&amp;B performed on each of the channels (1 and 2) can be used to measure the stoichiometry of the interaction.</p>
 
