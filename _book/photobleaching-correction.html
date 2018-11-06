@@ -416,7 +416,7 @@ Figure 3.13: The original intensity trace is shown in the top-left. The other pa
 </div>
 <div id="caveats-of-fitting-and-smoothing-approaches" class="section level2">
 <h2><span class="header-section-number">3.8</span> Caveats of fitting and smoothing approaches</h2>
-<p>Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as mathematically continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities—where most pixel values are either 0 or 1—are quasi-binary<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> and hence a continuous approximation does not make sense (see figure <a href="photobleaching-correction.html#fig:fit-smooth-caveats">3.14</a>). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities.</p>
+<p>Both fitting and smoothing approaches to detrending have serious caveats. Fitting approaches assume that the fluorescence intensity decay has a certain form. Unpredictable issues such as cell movement mean that no particular decay form can be assumed. Smoothing methods do not perform well at the edges of time series that they are applied to. They also require the user to choose a smoothing parameter. The problem of how to best choose this parameter was solved recently <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>, but this method has not been widely adopted. Most importantly, both fitting and smoothing fail when the data cannot be approximated as mathematically continuous (fitted and smoothed lines are continuous approximations of data). Fluorescence intensity data at low intensities—where most pixel values are either 0 or 1—are quasi-binary<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> and hence a continuous approximation does not make sense (see figure <a href="photobleaching-correction.html#fig:fit-smooth-caveats">3.14</a>). This means that neither fitting nor smoothing are applicable detrending methods at low intensities. This is the crucial caveat of these methods because, when bleaching is a problem, it is common to reduce laser power to reduce bleaching, which leads directly to lower intensity images. With fitting and smoothing techniques, it may sometimes be advisable to increase the laser power to achieve higher intensities such that the detrending routines will function properly. This means one may need to bleach more in order to be able to correct for bleaching. This farcical situation necessitates a new detrending technique which can function at low intensities.</p>
 
 <div class="figure" style="text-align: left"><span id="fig:fit-smooth-caveats"></span>
 <img src="phdthesis_files/figure-html/fit-smooth-caveats-1.png" alt="Left: for high (\(\gg 1\)) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well." width="49%" /><img src="phdthesis_files/figure-html/fit-smooth-caveats-2.png" alt="Left: for high (\(\gg 1\)) intensity values, the line is a satisfactory approximation of the data, representing it well. Right: for low (quasi-binary) intensity values, the line is not a good approximation for the data and indeed no line or curve could represent the data well." width="49%" />
@@ -453,12 +453,12 @@ Figure 3.16: Robin Hood: counts are taken from frames of higher intensity (usual
 <ol style="list-style-type: decimal">
 <li>Simulate a number <span class="math inline">\(N = 100,000\)</span> of particles diffusing with known diffusion rate. Simulations were done with the <code>brownded</code> software package (section <a href="instrumentation-and-software.html#brownded">2.3.7</a>).</li>
 <li>Simulate photon emission from these particles with chosen brightness <span class="math inline">\(\epsilon\)</span> and create an image series from this, being careful to (virtually) sample at a rate appropriate for number and brightness analysis.</li>
-<li>Bleach the simulation with a chosen constant bleaching rate.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></li>
+<li>Bleach the simulation with a chosen constant bleaching rate.<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></li>
 <li>Simulate photon emission from the bleached simulation (bleached particles don’t emit photons) with the same brightness <span class="math inline">\(\epsilon\)</span> and create an image series.</li>
 <li>Detrend the bleached image series.</li>
 <li>Evaluate the detrending algorithm by measuring how close the brightness of the detrended bleached image series is to the known simulated brightness.</li>
 </ol>
-<p>For all combinations of brightnesses of <span class="math inline">\(\epsilon = 0.001, 0.01, 0.1, 1, 10\)</span> and bleaching fractions of 0%, 1%, 5%, 10%, 15%, 20%, 25%, 30%, 20 images of 64x64 pixels and 5,000 frames were simulated using 100,000 fluorescent diffusing particles.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> These were detrended with the following detrending routines:<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<p>For all combinations of brightnesses of <span class="math inline">\(\epsilon = 0.001, 0.01, 0.1, 1, 10\)</span> and bleaching fractions of 0%, 1%, 5%, 10%, 15%, 20%, 25%, 30%, 20 images of 64x64 pixels and 5,000 frames were simulated using 100,000 fluorescent diffusing particles.<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> These were detrended with the following detrending routines:<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></p>
 <ol style="list-style-type: decimal">
 <li>Boxcar with <span class="math inline">\(l = 10\)</span> (<code>boxcar10</code>, the most common detrending routine).</li>
 <li>Exponential smoothing with automatically chosen parameter <span class="math inline">\(\tau\)</span> (<code>autotau</code>).</li>
@@ -467,8 +467,7 @@ Figure 3.16: Robin Hood: counts are taken from frames of higher intensity (usual
 <p>The performance was evaluated using the <em>mean relative error</em>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-36" class="definition"><strong>Definition 3.6  </strong></span>
-For a given brightness and bleaching fraction,</p>
+<p><span id="def:unnamed-chunk-36" class="definition"><strong>Definition 3.6  </strong></span> For a given brightness and bleaching fraction,</p>
 <span class="math display" id="eq:mean-relative-error">\[\begin{equation}
 \text{mean relative error } = \frac{|(\text{calculated brightness after detrending}) - (\text{true brightness})|}{(\text{true brightness})}
 \tag{3.5}
@@ -491,25 +490,25 @@ Figure 3.17: A comparison of different detrending methods with various brightnes
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-polynomial">
-<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). JSTOR:737. <a href="https://doi.org/10.2307/1911686" class="uri">https://doi.org/10.2307/1911686</a>.</p>
+<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). JSTOR: 737. doi:<a href="https://doi.org/10.2307/1911686">10.2307/1911686</a>.</p>
 </div>
 <div id="ref-SimFCS">
 <p>Laboratory for Fluorescence Dynamics. 2018. <em>Globals for Images: SimFCS 4</em>. <em>University of California, Irvine</em>. <a href="http://www.lfd.uci.edu/globals/" class="uri">http://www.lfd.uci.edu/globals/</a>.</p>
 </div>
 <div id="ref-NB">
-<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32. <a href="https://doi.org/10.1529/biophysj.107.114645" class="uri">https://doi.org/10.1529/biophysj.107.114645</a>.</p>
+<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6): 2320–32. doi:<a href="https://doi.org/10.1529/biophysj.107.114645">10.1529/biophysj.107.114645</a>.</p>
 </div>
 <div id="ref-nandb">
-<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press:3508–10. <a href="https://doi.org/10.1093/bioinformatics/btx434" class="uri">https://doi.org/10.1093/bioinformatics/btx434</a>.</p>
+<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press: 3508–10. doi:<a href="https://doi.org/10.1093/bioinformatics/btx434">10.1093/bioinformatics/btx434</a>.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="8">
-<li id="fn8"><p>By <em>quasi-binary</em>, I just mean that almost all values are 0 or 1.<a href="photobleaching-correction.html#fnref8" class="footnote-back">↩</a></p></li>
-<li id="fn9"><p>It would be good to test with non-constant bleaching rates too, this wasn’t done due to time constraints.<a href="photobleaching-correction.html#fnref9" class="footnote-back">↩</a></p></li>
-<li id="fn10"><p>The simulation took 3 weeks.<a href="photobleaching-correction.html#fnref10" class="footnote-back">↩</a></p></li>
-<li id="fn11"><p>The detrending took 2 weeks.<a href="photobleaching-correction.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>By <em>quasi-binary</em>, I just mean that almost all values are 0 or 1.<a href="photobleaching-correction.html#fnref8">↩</a></p></li>
+<li id="fn9"><p>It would be good to test with non-constant bleaching rates too, this wasn’t done due to time constraints.<a href="photobleaching-correction.html#fnref9">↩</a></p></li>
+<li id="fn10"><p>The simulation took 3 weeks.<a href="photobleaching-correction.html#fnref10">↩</a></p></li>
+<li id="fn11"><p>The detrending took 2 weeks.<a href="photobleaching-correction.html#fnref11">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -564,7 +563,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

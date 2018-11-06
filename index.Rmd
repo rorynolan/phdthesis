@@ -13,7 +13,6 @@ linkcolor: blue
 citecolor: green
 urlcolor: NavyBlue
 toccolor: blue
-linestretch: 2
 description: "Rory Nolan's PhD thesis"
 ---
 

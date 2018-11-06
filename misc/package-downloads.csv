@@ -1,6 +1,6 @@
 package,total,per_month
 detrendr,4000,300
 autothresholdr,10000, 600
-ijtiff, 6000, 600
+ijtiff, 9000, 800
 exampletestr,10000, 500
 filesstrings,30000,2000

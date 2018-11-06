@@ -1,7 +1,5 @@
 \documentclass[12pt,]{book}
 \usepackage{lmodern}
-\usepackage{setspace}
-\setstretch{2}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -1076,7 +1074,9 @@ Statisticians define this in two different ways:
 \begin{equation}
 G_1(X; \tau) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
 \label{eq:autocorrelation1}
-\end{equation}\begin{equation}
+\end{equation}
+
+\begin{equation}
 G_2(X; \tau) = \frac{\sum_{t = \tau + 1}^T (x_t - \mu_x)(x_{t - \tau} - \mu_x)}{\sum_{t = 1}^T [(x_t -\mu_x)^2]}
 \label{eq:autocorrelation2}
 \end{equation}
@@ -1451,8 +1451,8 @@ write support for TIFF files with floating point (real-numbered) pixels,
 and the only package that can correctly import TIFF files that were
 saved from \emph{ImageJ} \citep{ImageJ}. R has millions of users
 worldwide so this TIFF I/O capability is a basic need for masses of
-people. \texttt{ijtiff} gets 600 downloads per month which amounts to
-6,000 since it was first released.
+people. \texttt{ijtiff} gets 800 downloads per month which amounts to
+9,000 since it was first released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
 non-profit initiative founded to make scientific data retrieval
