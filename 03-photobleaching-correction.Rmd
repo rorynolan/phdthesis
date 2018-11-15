@@ -96,7 +96,7 @@ There's no pattern in how $X$ and $Y$ deviate from their means, indeed a Pearson
 
 Now let's bleach them both by `r round(100 * bleach_frac)`%.
 
-```{r bleached-unrelated-intensity-traces, fig.show='hold', out.width='45%', echo=FALSE, fig.height=2.5, fig.width=3, fig.cap='(ref:unrelated-intensity-traces-caption)'}
+```{r bleached-unrelated-intensity-traces, fig.show='hold', out.width='45%', echo=FALSE, fig.height=2.5, fig.width=3, echo=FALSE, fig.cap='(ref:unrelated-intensity-traces-caption)'}
 set.seed(1)
 bleach_rate <- log(1 - bleach_frac) / length(X)
 X %<>% {. * exp(bleach_rate * seq_along(.))}

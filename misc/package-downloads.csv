@@ -1,5 +1,5 @@
 package,total,per_month
-detrendr,4000,300
+detrendr,5000,400
 autothresholdr,10000, 600
 ijtiff, 9000, 800
 exampletestr,10000, 500
