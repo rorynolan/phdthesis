@@ -240,17 +240,6 @@ Figure 3.2: Mean intensity profiles of the simulated image series with and witho
 <p>So correlation is answering the question: <em>Do <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> deviate from their mean at the same time and in the same or opposite direction?</em> If there is no pattern in their deviations from mean, then the correlation will be zero. If they deviate from their means in the same direction at the same time, there will be a positive correlation; if they deviate from their means in the opposite direction at the same time, there will be a negative correlation. Correlation is all about measuring whether deviation from mean in two different series is synchronised or not.</p>
 <p>Let’s create two unrelated intensity traces <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, both of length 500. <span class="math inline">\(X\)</span> will be Poisson(<span class="math inline">\(\lambda = 50\)</span>) and <span class="math inline">\(Y\)</span> will be Poisson(<span class="math inline">\(\lambda = 30\)</span>).</p>
 
-<pre><code>#&gt; 
-#&gt;  Pearson&#39;s product-moment correlation
-#&gt; 
-#&gt; data:  X and Y
-#&gt; t = 1.0731, df = 498, p-value = 0.2837
-#&gt; alternative hypothesis: true correlation is not equal to 0
-#&gt; 95 percent confidence interval:
-#&gt;  -0.03982597  0.13515369
-#&gt; sample estimates:
-#&gt;        cor 
-#&gt; 0.04803237</code></pre>
 <div class="figure" style="text-align: left"><span id="fig:unrelated-intensity-traces"></span>
 <img src="phdthesis_files/figure-html/unrelated-intensity-traces-1.png" alt="Unrelated intensity traces \(X\) and \(Y\) with their means in red." width="45%" /><img src="phdthesis_files/figure-html/unrelated-intensity-traces-2.png" alt="Unrelated intensity traces \(X\) and \(Y\) with their means in red." width="45%" />
 <p class="caption">
