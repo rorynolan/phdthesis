@@ -85,7 +85,6 @@ ggplot(XY, aes(time, X)) + geom_line() + ylim(0, 75) +
   geom_hline(yintercept = mean(X), colour = "red")
 ggplot(XY, aes(time, Y)) + geom_line() + ylim(0, 75) + 
   geom_hline(yintercept = mean(Y), colour = "red")
-cor.test(X, Y)
 bleach_frac <-  0.9
 autocor_p_beforebleach <- cor.test(X[-1], dplyr::lag(X)[-1])$p.value %>% 
   round(2)
