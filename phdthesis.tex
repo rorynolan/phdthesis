@@ -73,7 +73,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -97,10 +97,11 @@
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
 \newtheorem{corollary}{Corollary}[chapter]
 \newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
 \theoremstyle{definition}
@@ -199,6 +200,10 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   In-Vitro Quantification of Protein Homo-Oligomerization Using
   Commercial Instrumentation and Free, Open Source Brightness Analysis
   Software''. In: \emph{Journal of Visualized Experiments} 137 (2018).
+\item
+  R. Nolan and S. Padilla-Parra. ``Robin Hood: non-fitting,
+  non-smoothing image detrending for bleaching correction''. In:
+  \emph{BioRxiv} (2019).
 \end{itemize}
 
 \subsection*{Co-first author}\label{co-first-author}
@@ -230,17 +235,6 @@ the naming convention is \texttt{JournalYEAR.pdf}.
   nurture of cell heterogeneity: accounting for macrophage
   gene-environment interactions with single-cell RNA-Seq''. In:
   \emph{BMC genomics} 18.1 (2017).
-\end{itemize}
-
-\subsection*{In preparation}\label{in-preparation}
-\addcontentsline{toc}{subsection}{In preparation}
-
-\begin{itemize}
-\tightlist
-\item
-  The \emph{Robin Hood} algorithm (described in section
-  \ref{robin-hood-detrending}) will be submitted to a journal after the
-  submission of this thesis but before the end of my PhD contract.
 \end{itemize}
 
 \section*{Acronyms used in this
@@ -769,8 +763,8 @@ Different numbers of photons are collected per unit time (per ms here).
 
 \caption{Left: a fluorophore diffusing
 through the confocal volume \citep{sphd}. Right: the intensity trace due
-to this fluorophore. This intensity trace has mean 0.35 and variance
-0.69.}\label{fig:confocal-volume-particle}
+to this fluorophore. This intensity trace has mean 0.3 and variance
+0.31.}\label{fig:confocal-volume-particle}
 \end{figure}
 
 \BeginKnitrBlock{definition}
@@ -878,7 +872,7 @@ expected value \(E[X]=\mu\) for \(n>1\) is \(E[(X - \mu)^n]\).
 
 Intensity traces can be viewed as distributions with moments. For
 example, the intensity trace in figure
-\ref{fig:confocal-volume-particle} has mean 0.35 and variance 0.69.
+\ref{fig:confocal-volume-particle} has mean 0.3 and variance 0.31.
 
 \subsection{Number and brightness}\label{number-and-brightness}
 
@@ -1420,8 +1414,8 @@ however if the naming or the extraction of data from these names is
 inconsistent, analysis becomes a nightmare and less reproducible.
 \texttt{filesstrings} is provides a consistent means of working with
 such file names. This package was peer reviewed and published
-\citep{filesstrings}. It gets 2,000 downloads per month which amounts to
-30,000 since it was first released.
+\citep{filesstrings}. It gets 3,000 downloads per month which amounts to
+80,000 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{exampletestr}}{exampletestr}}\label{exampletestr}
 
@@ -1440,8 +1434,8 @@ package developers to write unit tests for their packages. It helped me
 to eradicate many bugs in all of my packages. Interestingly,
 \texttt{exampletestr} was used to unit test and eradicate bugs in
 itself! This package was peer reviewed and published in
-2017.\citep{exampletestr} It gets 500 downloads per month which amounts
-to 10,000 since it was first released.
+2017.\citep{exampletestr} It gets 600 downloads per month which amounts
+to 20,000 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{ijtiff}}{ijtiff}}\label{ijtiff}
 
@@ -1452,7 +1446,7 @@ and the only package that can correctly import TIFF files that were
 saved from \emph{ImageJ} \citep{ImageJ}. R has millions of users
 worldwide so this TIFF I/O capability is a basic need for masses of
 people. \texttt{ijtiff} gets 800 downloads per month which amounts to
-9,000 since it was first released.
+20,000 since it was first released.
 
 This package is part of the \emph{rOpenSci} project. rOpenSci is a
 non-profit initiative founded to make scientific data retrieval
@@ -1463,7 +1457,7 @@ was peer reviewed and published \citep{ijtiff}.
 
 \texttt{autothresholdr} provides the \emph{ImageJ} \citep{ImageJ}
 \emph{Auto Threshold} plugin \citep{autothresholdr} functionality to R
-users. It gets 600 downloads per month which amounts to 10,000 since it
+users. It gets 700 downloads per month which amounts to 20,000 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{detrendr}}{detrendr}}\label{detrendr}
@@ -1472,15 +1466,15 @@ was first released.
 photobleaching). It provides all detrending algorithms mentioned in
 section \ref{photobleaching-correction}. The detrending is done in C++
 in the background for speed but it is wrapped in an R package for ease
-of use. It gets 400 downloads per month which amounts to 5,000 since it
+of use. It gets 500 downloads per month which amounts to 10,000 since it
 was first released.
 
 \subsection{\texorpdfstring{\texttt{nandb}}{nandb}}\label{nandb}
 
 \texttt{nandb} is an R package for number and brightness analysis. This
 was published along with a paper about detrending for number and
-brightness \citep{nandb}. It gets 400 downloads per month which amounts
-to 5,000 since it was first released.
+brightness \citep{nandb}. It gets 500 downloads per month which amounts
+to 10,000 since it was first released.
 
 \subsection{\texorpdfstring{\texttt{brownded}}{brownded}}\label{brownded}
 
