@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Algorithms for the Correction of Photobleaching</title>
-  <meta name="description" content="Rory Nolan’s PhD thesis">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Photobleaching Correction | Algorithms for the Correction of Photobleaching</title>
+  <meta name="description" content="Rory Nolan’s PhD thesis" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Algorithms for the Correction of Photobleaching" />
+  <meta property="og:title" content="Chapter 3 Photobleaching Correction | Algorithms for the Correction of Photobleaching" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Algorithms for the Correction of Photobleaching" />
+  <meta name="twitter:title" content="Chapter 3 Photobleaching Correction | Algorithms for the Correction of Photobleaching" />
   
   <meta name="twitter:description" content="Rory Nolan’s PhD thesis" />
   
 
-<meta name="author" content="Rory Nolan">
+<meta name="author" content="Rory Nolan" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="instrumentation-and-software.html">
-<link rel="next" href="applications.html">
+<link rel="prev" href="instrumentation-and-software.html"/>
+<link rel="next" href="applications.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -72,7 +72,6 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#first-author"><i class="fa fa-check"></i>First author</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#co-first-author"><i class="fa fa-check"></i>Co-first author</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#other"><i class="fa fa-check"></i>Other</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#in-preparation"><i class="fa fa-check"></i>In preparation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
@@ -359,15 +358,15 @@ Figure 3.11: The original intensity trace is shown in the top-left. The other pa
 <li>By the assumption above, this <span class="math inline">\(l\)</span> is the most appropriate for the real data.</li>
 </ol>
 <p>Mathematically, this can be expressed as</p>
-<span class="math display" id="eq:leq">\[\begin{equation}
+<p><span class="math display" id="eq:leq">\[\begin{equation}
 l = \text{argmin}_{\tilde{l}} |1 - (\text{mean brightness of simulated series detrended with parameter } \tilde{l})|
 \tag{3.2}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>In fact, what I have done here is to give a general method for solving for any detrending parameter <span class="math inline">\(\alpha\)</span>:</p>
-<span class="math display" id="eq:detrend-param">\[\begin{equation}
+<p><span class="math display" id="eq:detrend-param">\[\begin{equation}
 \alpha = \text{argmin}_{\tilde{\alpha}} |1 - (\text{mean brightness of simulated series detrended with parameter } \tilde{\alpha})|
 \tag{3.3}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>This will be useful later when other detrending regimes with their own parameters are introduced.</p>
 </div>
 <div id="exponential-smoothing-detrending" class="section level2">
@@ -458,10 +457,10 @@ Figure 3.16: Robin Hood: counts are taken from frames of higher intensity (usual
 <div class="definition">
 <p><span id="def:unnamed-chunk-36" class="definition"><strong>Definition 3.6  </strong></span>
 For a given brightness and bleaching fraction,</p>
-<span class="math display" id="eq:mean-relative-error">\[\begin{equation}
+<p><span class="math display" id="eq:mean-relative-error">\[\begin{equation}
 \text{mean relative error } = \frac{|(\text{calculated brightness after detrending}) - (\text{true brightness})|}{(\text{true brightness})}
 \tag{3.5}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 </div>
 
 <p>Figure <a href="photobleaching-correction.html#fig:detrend-compare">3.17</a> shows the results. Before I discuss them, note that the common brightnesses that we see are in the range <span class="math inline">\(\epsilon = 0.003\)</span> to <span class="math inline">\(\epsilon = 0.1\)</span>.</p>
@@ -480,16 +479,16 @@ Figure 3.17: A comparison of different detrending methods with various brightnes
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-polynomial">
-<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). JSTOR:737. <a href="https://doi.org/10.2307/1911686" class="uri">https://doi.org/10.2307/1911686</a>.</p>
-</div>
-<div id="ref-SimFCS">
-<p>Laboratory for Fluorescence Dynamics. 2018. <em>Globals for Images: SimFCS 4</em>. <em>University of California, Irvine</em>. <a href="http://www.lfd.uci.edu/globals/" class="uri">http://www.lfd.uci.edu/globals/</a>.</p>
+<p>Chan, K. Hung, Jack C. Hayya, and J. Keith Ord. 1977. “A Note on Trend Removal Methods: The Case of Polynomial Regression Versus Variate Differencing.” <em>Econometrica</em> 45 (3). JSTOR: 737. <a href="https://doi.org/10.2307/1911686">https://doi.org/10.2307/1911686</a>.</p>
 </div>
 <div id="ref-NB">
-<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32. <a href="https://doi.org/10.1529/biophysj.107.114645" class="uri">https://doi.org/10.1529/biophysj.107.114645</a>.</p>
+<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6): 2320–32. <a href="https://doi.org/10.1529/biophysj.107.114645">https://doi.org/10.1529/biophysj.107.114645</a>.</p>
+</div>
+<div id="ref-SimFCS">
+<p>Laboratory for Fluorescence Dynamics. 2018. <em>Globals for Images: SimFCS 4</em>. <em>University of California, Irvine</em>. <a href="http://www.lfd.uci.edu/globals/">http://www.lfd.uci.edu/globals/</a>.</p>
 </div>
 <div id="ref-nandb">
-<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press:3508–10. <a href="https://doi.org/10.1093/bioinformatics/btx434" class="uri">https://doi.org/10.1093/bioinformatics/btx434</a>.</p>
+<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press: 3508–10. <a href="https://doi.org/10.1093/bioinformatics/btx434">https://doi.org/10.1093/bioinformatics/btx434</a>.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -527,7 +526,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -537,6 +536,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -554,9 +557,10 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

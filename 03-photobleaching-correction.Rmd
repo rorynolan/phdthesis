@@ -47,7 +47,7 @@ df_bleach_sim <- tibble(simulation = c("img1", "img1_bleached",
                        frame = map(img, ~ seq_len(dim(.)[4])),
                        mean_intensity = map(img, apply, 4, mean)) %>% 
   select(-img) %>% 
-  unnest()
+  unnest(cols = c(frame, mean_intensity))
 ggplot(df_bleach_sim, aes(x = frame, y = mean_intensity, colour = simulation)) +
   geom_line() + ylab("mean intensity") + 
   ylim(50, max(df_bleach_sim$mean_intensity))
@@ -152,6 +152,7 @@ Naively, one could assume that bleaching of fluorophores takes place at some con
 ```{r exp-fit-bleach, fig.cap='(ref:exp-fit-bleach-caption)', echo=FALSE}
 set.seed(1)
 means <- 100
+bleach_fraction_to_rate <- function(frac, n_frames) 1 - (1 - frac) ^ (1 / n_frames)
 bleach_rate <- bleach_fraction_to_rate(0.2, 500)
 for (i in 1:499) means %<>% c((1 - bleach_rate) * last(.))
 devs <- detrendr:::myrpois(means * (1 - 0.9))

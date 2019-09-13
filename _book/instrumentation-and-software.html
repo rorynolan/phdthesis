@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Algorithms for the Correction of Photobleaching</title>
-  <meta name="description" content="Rory Nolan’s PhD thesis">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Instrumentation and Software | Algorithms for the Correction of Photobleaching</title>
+  <meta name="description" content="Rory Nolan’s PhD thesis" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Algorithms for the Correction of Photobleaching" />
+  <meta property="og:title" content="Chapter 2 Instrumentation and Software | Algorithms for the Correction of Photobleaching" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Algorithms for the Correction of Photobleaching" />
+  <meta name="twitter:title" content="Chapter 2 Instrumentation and Software | Algorithms for the Correction of Photobleaching" />
   
   <meta name="twitter:description" content="Rory Nolan’s PhD thesis" />
   
 
-<meta name="author" content="Rory Nolan">
+<meta name="author" content="Rory Nolan" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html">
-<link rel="next" href="photobleaching-correction.html">
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="photobleaching-correction.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -72,7 +72,6 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#first-author"><i class="fa fa-check"></i>First author</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#co-first-author"><i class="fa fa-check"></i>Co-first author</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#other"><i class="fa fa-check"></i>Other</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#in-preparation"><i class="fa fa-check"></i>In preparation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
@@ -221,7 +220,7 @@
 <h2><span class="header-section-number">2.3</span> My software packages</h2>
 <div id="filesstrings" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> <code>filesstrings</code></h3>
-<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. <code>filesstrings</code> is provides a consistent means of working with such file names. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 2,000 downloads per month which amounts to 30,000 since it was first released.</p>
+<p><code>filesstrings</code> is an R package providing convenient functions for moving files, deleting directories, and a variety of string operations that facilitate manipulating file names and extracting information from strings. The motivation for making this package was to facilitate the use of file names for metadata. This is very common in microscopy, e.g. a file name like <code>well1_cell1_before_drug_addition.tif</code> is often seen. Using file names for metadata like this is a good idea, however if the naming or the extraction of data from these names is inconsistent, analysis becomes a nightmare and less reproducible. <code>filesstrings</code> is provides a consistent means of working with such file names. This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-filesstrings">2017</a><a href="#ref-filesstrings">b</a>)</span>. It gets 3,000 downloads per month which amounts to 80,000 since it was first released.</p>
 </div>
 <div id="exampletestr" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> <code>exampletestr</code></h3>
@@ -230,24 +229,24 @@
 <span id="def:unnamed-chunk-29" class="definition"><strong>Definition 2.1  </strong></span><em>Unit testing</em> is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.
 </div>
 
-<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 500 downloads per month which amounts to 10,000 since it was first released.</p>
+<p>Unit testing is a tool to verify that software is performing as intended. It is a great way to discover bugs in software. <code>exampletestr</code> is an R package which makes it easier for R package developers to write unit tests for their packages. It helped me to eradicate many bugs in all of my packages. Interestingly, <code>exampletestr</code> was used to unit test and eradicate bugs in itself! This package was peer reviewed and published in 2017.<span class="citation">(Nolan and Padilla-Parra <a href="#ref-exampletestr">2017</a><a href="#ref-exampletestr">a</a>)</span> It gets 600 downloads per month which amounts to 20,000 since it was first released.</p>
 </div>
 <div id="ijtiff" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> <code>ijtiff</code></h3>
-<p>An R package for general purpose tagged image file format (TIFF) input and output (I/O). This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 800 downloads per month which amounts to 9,000 since it was first released.</p>
+<p>An R package for general purpose tagged image file format (TIFF) input and output (I/O). This is currently the only such package with read and write support for TIFF files with floating point (real-numbered) pixels, and the only package that can correctly import TIFF files that were saved from <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span>. R has millions of users worldwide so this TIFF I/O capability is a basic need for masses of people. <code>ijtiff</code> gets 800 downloads per month which amounts to 20,000 since it was first released.</p>
 <p>This package is part of the <em>rOpenSci</em> project. rOpenSci is a non-profit initiative founded to make scientific data retrieval reproducible.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> This package was peer reviewed and published <span class="citation">(Nolan and Padilla-Parra <a href="#ref-ijtiff">2018</a>)</span>.</p>
 </div>
 <div id="autothresholdr" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> <code>autothresholdr</code></h3>
-<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 600 downloads per month which amounts to 10,000 since it was first released.</p>
+<p><code>autothresholdr</code> provides the <em>ImageJ</em> <span class="citation">(Rueden et al. <a href="#ref-ImageJ">2017</a>)</span> <em>Auto Threshold</em> plugin <span class="citation">(Landini et al. <a href="#ref-autothresholdr">2016</a>)</span> functionality to R users. It gets 700 downloads per month which amounts to 20,000 since it was first released.</p>
 </div>
 <div id="detrendr" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> <code>detrendr</code></h3>
-<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 400 downloads per month which amounts to 5,000 since it was first released.</p>
+<p><code>detrendr</code> is an R package for detrending images (correcting for photobleaching). It provides all detrending algorithms mentioned in section <a href="photobleaching-correction.html#photobleaching-correction">3</a>. The detrending is done in C++ in the background for speed but it is wrapped in an R package for ease of use. It gets 500 downloads per month which amounts to 10,000 since it was first released.</p>
 </div>
 <div id="nandb" class="section level3">
 <h3><span class="header-section-number">2.3.6</span> <code>nandb</code></h3>
-<p><code>nandb</code> is an R package for number and brightness analysis. This was published along with a paper about detrending for number and brightness <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>. It gets 400 downloads per month which amounts to 5,000 since it was first released.</p>
+<p><code>nandb</code> is an R package for number and brightness analysis. This was published along with a paper about detrending for number and brightness <span class="citation">(Nolan, Alvarez, et al. <a href="#ref-nandb">2017</a>)</span>. It gets 500 downloads per month which amounts to 10,000 since it was first released.</p>
 </div>
 <div id="brownded" class="section level3">
 <h3><span class="header-section-number">2.3.7</span> <code>brownded</code></h3>
@@ -260,32 +259,32 @@
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-cpp">
-<p>Stroustrup, Bjarne. 2013. <em>The C++ Programming Language</em>. 4th ed. Addison-Wesley Professional.</p>
-</div>
-<div id="ref-R">
-<p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
-</div>
-<div id="ref-ImageJ">
-<p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1):529. <a href="https://doi.org/10.1186/s12859-017-1934-z" class="uri">https://doi.org/10.1186/s12859-017-1934-z</a>.</p>
-</div>
-<div id="ref-FIJI">
-<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7):676–82. <a href="https://doi.org/10.1038/nmeth.2019" class="uri">https://doi.org/10.1038/nmeth.2019</a>.</p>
-</div>
-<div id="ref-filesstrings">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2017b. “filesstrings: An R Package for File and String Manipulation.” <em>The Journal of Open Source Software</em> 2 (14). The Open Journal:260. <a href="https://doi.org/10.21105/joss.00260" class="uri">https://doi.org/10.21105/joss.00260</a>.</p>
-</div>
-<div id="ref-exampletestr">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2017a. “exampletestr - an Easy Start to Unit Testing R Packages.” <em>Wellcome Open Research</em> 2 (June). F1000 Research, Ltd.:31. <a href="https://doi.org/10.12688/wellcomeopenres.11635.2" class="uri">https://doi.org/10.12688/wellcomeopenres.11635.2</a>.</p>
-</div>
-<div id="ref-ijtiff">
-<p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal:633. <a href="https://doi.org/10.21105/joss.00633" class="uri">https://doi.org/10.21105/joss.00633</a>.</p>
-</div>
 <div id="ref-autothresholdr">
-<p>Landini, G., D.A. Randell, S. Fouad, and A. Galton. 2016. “Automatic Thresholding from the Gradients of Region Boundaries.” <em>Journal of Microscopy</em> 265 (2). Wiley:185–95. <a href="https://doi.org/10.1111/jmi.12474" class="uri">https://doi.org/10.1111/jmi.12474</a>.</p>
+<p>Landini, G., D.A. Randell, S. Fouad, and A. Galton. 2016. “Automatic Thresholding from the Gradients of Region Boundaries.” <em>Journal of Microscopy</em> 265 (2). Wiley: 185–95. <a href="https://doi.org/10.1111/jmi.12474">https://doi.org/10.1111/jmi.12474</a>.</p>
 </div>
 <div id="ref-nandb">
-<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press:3508–10. <a href="https://doi.org/10.1093/bioinformatics/btx434" class="uri">https://doi.org/10.1093/bioinformatics/btx434</a>.</p>
+<p>Nolan, Rory, L Alvarez, Jonathan Elegheert, Maro Iliopoulou, G Maria Jakobsdottir, Marina Rodriguez-Muñoz, A Radu Aricescu, and Sergi Padilla Parra. 2017. “Nandb—Number and Brightness in R with a Novel Automatic Detrending Algorithm.” <em>Bioinformatics</em> 33 (21). Oxford University Press: 3508–10. <a href="https://doi.org/10.1093/bioinformatics/btx434">https://doi.org/10.1093/bioinformatics/btx434</a>.</p>
+</div>
+<div id="ref-exampletestr">
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017a. “exampletestr - an Easy Start to Unit Testing R Packages.” <em>Wellcome Open Research</em> 2 (June). F1000 Research, Ltd.: 31. <a href="https://doi.org/10.12688/wellcomeopenres.11635.2">https://doi.org/10.12688/wellcomeopenres.11635.2</a>.</p>
+</div>
+<div id="ref-filesstrings">
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2017b. “filesstrings: An R Package for File and String Manipulation.” <em>The Journal of Open Source Software</em> 2 (14). The Open Journal: 260. <a href="https://doi.org/10.21105/joss.00260">https://doi.org/10.21105/joss.00260</a>.</p>
+</div>
+<div id="ref-ijtiff">
+<p>Nolan, Rory, and Sergi Padilla-Parra. 2018. “ijtiff: An R Package Providing TIFF I/O for ImageJ Users.” <em>Journal of Open Source Software</em> 3 (23). The Open Journal: 633. <a href="https://doi.org/10.21105/joss.00633">https://doi.org/10.21105/joss.00633</a>.</p>
+</div>
+<div id="ref-R">
+<p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-ImageJ">
+<p>Rueden, C. T., J. Schindelin, M. C. Hiner, B. E. DeZonia, A. E. Walter, E. T. Arena, and K. W. Eliceiri. 2017. “ImageJ2: ImageJ for the next generation of scientific image data.” <em>BMC Bioinformatics</em> 18 (1): 529. <a href="https://doi.org/10.1186/s12859-017-1934-z">https://doi.org/10.1186/s12859-017-1934-z</a>.</p>
+</div>
+<div id="ref-FIJI">
+<p>Schindelin, J., I. Arganda-Carreras, E. Frise, V. Kaynig, M. Longair, T. Pietzsch, S. Preibisch, et al. 2012. “Fiji: an open-source platform for biological-image analysis.” <em>Nat. Methods</em> 9 (7): 676–82. <a href="https://doi.org/10.1038/nmeth.2019">https://doi.org/10.1038/nmeth.2019</a>.</p>
+</div>
+<div id="ref-cpp">
+<p>Stroustrup, Bjarne. 2013. <em>The C++ Programming Language</em>. 4th ed. Addison-Wesley Professional.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -323,7 +322,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -333,6 +332,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -350,9 +353,10 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

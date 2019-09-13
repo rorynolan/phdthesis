@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Algorithms for the Correction of Photobleaching</title>
-  <meta name="description" content="Rory Nolan’s PhD thesis">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Introduction | Algorithms for the Correction of Photobleaching</title>
+  <meta name="description" content="Rory Nolan’s PhD thesis" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Algorithms for the Correction of Photobleaching" />
+  <meta property="og:title" content="Chapter 1 Introduction | Algorithms for the Correction of Photobleaching" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Algorithms for the Correction of Photobleaching" />
+  <meta name="twitter:title" content="Chapter 1 Introduction | Algorithms for the Correction of Photobleaching" />
   
   <meta name="twitter:description" content="Rory Nolan’s PhD thesis" />
   
 
-<meta name="author" content="Rory Nolan">
+<meta name="author" content="Rory Nolan" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="abstract.html">
-<link rel="next" href="instrumentation-and-software.html">
+<link rel="prev" href="abstract.html"/>
+<link rel="next" href="instrumentation-and-software.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -72,7 +72,6 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#first-author"><i class="fa fa-check"></i>First author</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#co-first-author"><i class="fa fa-check"></i>Co-first author</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#other"><i class="fa fa-check"></i>Other</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#in-preparation"><i class="fa fa-check"></i>In preparation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acronyms-used-in-this-thesis"><i class="fa fa-check"></i>Acronyms used in this thesis</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#mathematical-symbols-used-in-this-thesis"><i class="fa fa-check"></i>Mathematical symbols used in this thesis</a></li>
@@ -311,9 +310,9 @@ Figure 1.5: HyD detector setup. A photon dissociates an electron from the photoc
 <p>Consider figure <a href="intro.html#fig:confocal-volume-particle">1.6</a>. A fluorophore enters the confocal volume, is excited there and emits photons which are collected by the detector. When the fluorophore is not in the confocal volume (start and end), no photons are detected. When the particle is in the confocal volume, photons it emits are collected at the detector. Different numbers of photons are collected per unit time (per ms here).</p>
 
 <div class="figure" style="text-align: left"><span id="fig:confocal-volume-particle"></span>
-<img src="img/confocal_volume_particle.png" alt="Left: a fluorophore diffusing through the confocal volume (Padilla-Parra 2009). Right: the intensity trace due to this fluorophore. This intensity trace has mean 0.27 and variance 0.48." width="50%" /><img src="img/cvp.png" alt="Left: a fluorophore diffusing through the confocal volume (Padilla-Parra 2009). Right: the intensity trace due to this fluorophore. This intensity trace has mean 0.27 and variance 0.48." width="50%" />
+<img src="img/confocal_volume_particle.png" alt="Left: a fluorophore diffusing through the confocal volume (Padilla-Parra 2009). Right: the intensity trace due to this fluorophore. This intensity trace has mean 0.32 and variance 0.56." width="50%" /><img src="img/cvp.png" alt="Left: a fluorophore diffusing through the confocal volume (Padilla-Parra 2009). Right: the intensity trace due to this fluorophore. This intensity trace has mean 0.32 and variance 0.56." width="50%" />
 <p class="caption">
-Figure 1.6: Left: a fluorophore diffusing through the confocal volume <span class="citation">(Padilla-Parra <a href="#ref-sphd">2009</a>)</span>. Right: the intensity trace due to this fluorophore. This intensity trace has mean 0.27 and variance 0.48.
+Figure 1.6: Left: a fluorophore diffusing through the confocal volume <span class="citation">(Padilla-Parra <a href="#ref-sphd">2009</a>)</span>. Right: the intensity trace due to this fluorophore. This intensity trace has mean 0.32 and variance 0.56.
 </p>
 </div>
 
@@ -330,10 +329,10 @@ Figure 1.6: Left: a fluorophore diffusing through the confocal volume <span clas
 </div>
 
 <p>Fick’s first law of diffusion relates the concentration to the diffusive flux, assuming a steady state. It describes how the flux goes from high to low concentration areas, with magnitude proportional to the concentration gradient. The law is:</p>
-<span class="math display" id="eq:ficksfirst">\[\begin{equation}
+<p><span class="math display" id="eq:ficksfirst">\[\begin{equation}
 J = -D\frac{d\varphi}{dx}
 \tag{1.1}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>where</p>
 <ul>
 <li><span class="math inline">\(J\)</span> is the diffusive flux</li>
@@ -360,10 +359,10 @@ J = -D\frac{d\varphi}{dx}
 <div id="anomalous-diffusion" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Anomalous diffusion</h3>
 <p><em>Anomalous diffusion</em> is a diffusion process whereby equation <a href="intro.html#eq:msd">(1.2)</a> no longer holds and the relationship between MSD and time becomes</p>
-<span class="math display" id="eq:anomalous">\[\begin{equation}
+<p><span class="math display" id="eq:anomalous">\[\begin{equation}
 \text{msd}(t) = 2dDt^\alpha
 \tag{1.3}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(\alpha \neq 1\)</span>. <span class="math inline">\(\alpha &gt; 1\)</span> is known as <em>superdiffusion</em> (faster than normal) and <span class="math inline">\(\alpha &lt; 1\)</span> is known as <em>subdiffusion</em> (slower than normal).</p>
 </div>
 <div id="diffusion-in-the-presence-of-barriers" class="section level3">
@@ -374,7 +373,7 @@ J = -D\frac{d\varphi}{dx}
 <div id="FFS" class="section level2">
 <h2><span class="header-section-number">1.5</span> Fluorescence fluctuation spectroscopy</h2>
 <p>Broadly, fluorescence fluctuation spectroscopy (FFS) is the analysis of the intensity fluctuation of a fluorescence signal <span class="citation">(Chen et al. <a href="#ref-FFS">1999</a>)</span>. This very often takes the form of moment analysis <span class="citation">(Qian and Elson <a href="#ref-QianElson">1990</a>)</span>. Briefly, moment analysis is an attempt to extract data from a distribution of values using its <em>moments</em>. The first moment of a distribution is its mean value, the second moment is its variance. The <span class="math inline">\(n\)</span><sup>th</sup> moment of a random variable <span class="math inline">\(X\)</span> with expected value <span class="math inline">\(E[X]=\mu\)</span> for <span class="math inline">\(n&gt;1\)</span> is <span class="math inline">\(E[(X - \mu)^n]\)</span>.</p>
-<p>Intensity traces can be viewed as distributions with moments. For example, the intensity trace in figure <a href="intro.html#fig:confocal-volume-particle">1.6</a> has mean 0.27 and variance 0.48.</p>
+<p>Intensity traces can be viewed as distributions with moments. For example, the intensity trace in figure <a href="intro.html#fig:confocal-volume-particle">1.6</a> has mean 0.32 and variance 0.56.</p>
 <div id="number-and-brightness" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> Number and brightness</h3>
 <p><em>Number and brightness</em> (N&amp;B, <span class="citation">Digman et al. (<a href="#ref-NB">2008</a>)</span>) is an FFS technique for quantifying the oligomeric states of fluorescently labelled proteins. What follows is a mathematical description of the technique.</p>
@@ -400,14 +399,14 @@ n &amp;= \frac{\langle I \rangle^2}{\sigma^2 - \langle I \rangle} \tag{1.6} \\
 \epsilon &amp;= \frac{\sigma^2}{\langle I \rangle} - 1 \tag{1.7}
 \end{align}\]</span>
 These relations are derived using a moment analysis technique which was originally applied to molecules in solution <span class="citation">(Qian and Elson <a href="#ref-QianElson">1990</a>)</span>. With a scanning confocal microscope in analog mode, we must use three correction terms: 1. The proportionality constant <span class="math inline">\(S\)</span>, which is the conversion factor between photons detected and the number of counts returned by the analog electronics. 2. The offset (bias) due to the analog electronics in the level of the background. 3. The readout noise <span class="math inline">\(\sigma_0^2\)</span> is the variance in this background signal <span class="citation">(Dalal et al. <a href="#ref-Dalal">2008</a>)</span>. Then, if all entities are mobile, we have</p>
-<span class="math display" id="eq:NBa1-2" id="eq:NBa1-1">\[\begin{align}
+<p><span class="math display" id="eq:NBa1-2" id="eq:NBa1-1">\[\begin{align}
 N &amp;= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2} = \frac{\epsilon n}{1 + \epsilon} \tag{1.8} \\
 B &amp;= \frac{\sigma^2 - \sigma_0^2}{\langle I \rangle - \text{ offset}} = S(1 + \epsilon) \tag{1.9}
-\end{align}\]</span>
-<span class="math display" id="eq:NBa2-1" id="eq:NBa2-2">\[\begin{align}
+\end{align}\]</span></p>
+<p><span class="math display" id="eq:NBa2-1" id="eq:NBa2-2">\[\begin{align}
 n &amp;= \frac{(\langle I \rangle - \text{ offset})^2}{\sigma^2 - \sigma_0^2 - S(\langle I \rangle - \text{ offset})} \tag{1.10} \\
 \epsilon &amp;= \frac{\sigma^2 - \sigma_0^2}{S(\langle I \rangle - \text{ offset})} - 1 \tag{1.11}
-\end{align}\]</span>
+\end{align}\]</span></p>
 <p>— <span class="citation">Nolan, Iliopoulou, et al. (<a href="#ref-NBreview">2017</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </blockquote>
 <p>The quantity <span class="math inline">\(\epsilon\)</span> is a relative measure of oligomeric state. That is, <span class="math inline">\(\epsilon\)</span> will be twice as big for dimers as it is for monomers, three times as big for trimers as it is for monomers and so on.</p>
@@ -462,14 +461,14 @@ where <span class="math inline">\(E\)</span> is the expectation operator.
 <div class="definition">
 <p><span id="def:unnamed-chunk-19" class="definition"><strong>Definition 1.18  (statistics)  </strong></span><em>Autocorrelation</em> <span class="math inline">\(G(X; \tau)\)</span>, is the correlation of a signal <span class="math inline">\(X\)</span> with a delayed copy of itself as a function of the delay <span class="math inline">\(\tau\)</span>.</p>
 <p>Statisticians define this in two different ways:</p>
-<span class="math display" id="eq:autocorrelation1">\[\begin{equation}
+<p><span class="math display" id="eq:autocorrelation1">\[\begin{equation}
 G_1(X; \tau) = \frac{E[(X_t - \mu_X)(X_{t + \tau} - \mu_X)]}{\sigma^2_X}
 \tag{1.13}
-\end{equation}\]</span>
-<span class="math display" id="eq:autocorrelation2">\[\begin{equation}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:autocorrelation2">\[\begin{equation}
 G_2(X; \tau) = \frac{\sum_{t = \tau + 1}^T (x_t - \mu_x)(x_{t - \tau} - \mu_x)}{\sum_{t = 1}^T [(x_t -\mu_x)^2]}
 \tag{1.14}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>The relationship between <span class="math inline">\(G_1\)</span> and <span class="math inline">\(G_2\)</span> is</p>
 <span class="math display" id="eq:autocorrelation12relation">\[\begin{equation}
 G_2(X; \tau) = \frac{T - \tau}{T - 1} \times G_1(X; \tau)
@@ -521,10 +520,10 @@ G(X; \tau) = \text{corr}(X_t, X_{t + \tau}) = \frac{E[(X_t - \mu_X)(X_{t + \tau}
 </div>
 
 <p>The reason for these redefinitions (which just involve replacing standard deviations with means in the denominators of each expression) is that with the FCS definition, the autocorrelation has the nice property that for normal diffusion</p>
-<span class="math display" id="eq:FCSautocorrprop">\[\begin{equation}
+<p><span class="math display" id="eq:FCSautocorrprop">\[\begin{equation}
 G(X; 0) = \frac{1}{n}
 \tag{1.20}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(n\)</span> is the mean number of fluorescent particles in the focal volume. The convenience of the statistics definitions is that there, correlations are guaranteed to be in <span class="math inline">\([-1, 1]\)</span>, with <span class="math inline">\(0\)</span> representing no correlation, <span class="math inline">\(1\)</span> perfect positive correlation and <span class="math inline">\(-1\)</span> perfect negative correlation; this is lost with the FCS definitions: 0 still represents no correlation, but correlation values are no longer bounded, so the ideas of perfect correlation are lost.</p>
 <p>I felt it necessary to provide these definitions for two reasons:</p>
 <ol style="list-style-type: decimal">
@@ -615,89 +614,89 @@ This means that <span class="math inline">\(B_\text{cc}\)</span> is just a scale
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-fcsxpert">
-<p>FCSXpert. 2018. “What Is the Confocal Volume?” Sensor Technologies LLC. <a href="http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html" class="uri">http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html</a>.</p>
+<div id="ref-FFS">
+<p>Chen, Y., J. D. Muller, K. M. Berland, and E. Gratton. 1999. “Fluorescence fluctuation spectroscopy.” <em>Methods</em> 19 (2): 234–52. <a href="https://doi.org/10.1006/meth.1999.0854">https://doi.org/10.1006/meth.1999.0854</a>.</p>
+</div>
+<div id="ref-Dalal">
+<p>Dalal, R. B., M. A. Digman, A. F. Horwitz, V. Vetri, and E. Gratton. 2008. “Determination of particle number and brightness using a laser scanning confocal microscope operating in the analog mode.” <em>Microsc. Res. Tech.</em> 71 (1): 69–81. <a href="https://doi.org/10.1002/jemt.20526">https://doi.org/10.1002/jemt.20526</a>.</p>
+</div>
+<div id="ref-Declerck">
+<p>Declerck, Nathalie, and Catherine A. Royer. 2013. “Interactions in Gene Expression Networks Studied by Two-Photon Fluorescence Fluctuation Spectroscopy.” In <em>Methods in Enzymology</em>, 203–30. Elsevier. <a href="https://doi.org/10.1016/b978-0-12-405539-1.00007-5">https://doi.org/10.1016/b978-0-12-405539-1.00007-5</a>.</p>
+</div>
+<div id="ref-NB">
+<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6): 2320–32. <a href="https://doi.org/10.1529/biophysj.107.114645">https://doi.org/10.1529/biophysj.107.114645</a>.</p>
+</div>
+<div id="ref-PCF">
+<p>Digman, M. A., and E. Gratton. 2009. “Imaging barriers to diffusion by pair correlation functions.” <em>Biophys. J.</em> 97 (2): 665–73. <a href="https://doi.org/10.1016/j.bpj.2009.04.048">https://doi.org/10.1016/j.bpj.2009.04.048</a>.</p>
+</div>
+<div id="ref-ccNB">
+<p>Digman, M. A., P. W. Wiseman, C. Choi, Alan R. Horwitz, and E. Gratton. 2009. “Stoichiometry of Molecular Complexes at Adhesions in Living Cells.” <em>Proceedings of the National Academy of Sciences</em> 106 (7). National Academy of Sciences: 2170–5. <a href="https://doi.org/10.1073/pnas.0806036106">https://doi.org/10.1073/pnas.0806036106</a>.</p>
+</div>
+<div id="ref-Brownian">
+<p>Einstein, A. 1905. “Über Die von Der Molekularkinetischen Theorie Der Wärme Geforderte Bewegung von in Ruhenden Flüssigkeiten Suspendierten Teilchen.” <em>Annalen Der Physik</em> 322 (8). Wiley: 549–60. <a href="https://doi.org/10.1002/andp.19053220806">https://doi.org/10.1002/andp.19053220806</a>.</p>
 </div>
 <div id="ref-photoelectric">
-<p>Einstein, Albert. 1905. “Concerning an Heuristic Point of View Toward the Emission and Transformation of Light.” <em>Annalen Der Physik</em> 17:132–48.</p>
+<p>Einstein, Albert. 1905. “Concerning an Heuristic Point of View Toward the Emission and Transformation of Light.” <em>Annalen Der Physik</em> 17: 132–48.</p>
+</div>
+<div id="ref-fcsxpert">
+<p>FCSXpert. 2018. “What Is the Confocal Volume?” Sensor Technologies LLC. <a href="http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html">http://www.fcsxpert.com/classroom/theory/what-is-confocal-volume.html</a>.</p>
+</div>
+<div id="ref-Fenz">
+<p>Fenz, Susanne F., Ana-Sunčana Smith, and Cornelia Monzel. 2017. “Measuring the Invisible: Determining the Size of Growing Nanodomains Using the “Inverse FCS”.” <em>Biophysical Journal</em> 112 (11). Elsevier BV: 2245–6. <a href="https://doi.org/10.1016/j.bpj.2017.04.014">https://doi.org/10.1016/j.bpj.2017.04.014</a>.</p>
+</div>
+<div id="ref-Gach">
+<p>Gach, Johannes S., Margaux Bouzin, Marcus P. Wong, Veronika Chromikova, Andrea Gorlani, Kuan-Ting Yu, Brijesh Sharma, Enrico Gratton, and Donald N. Forthal. 2017. “Human Immunodeficiency Virus Type-1 (HIV-1) Evades Antibody-Dependent Phagocytosis.” Edited by Alexandra Trkola. <em>PLOS Pathogens</em> 13 (12). Public Library of Science (PLoS): e1006793. <a href="https://doi.org/10.1371/journal.ppat.1006793">https://doi.org/10.1371/journal.ppat.1006793</a>.</p>
 </div>
 <div id="ref-HammamatsuPMT">
-<p>Hammamatsu. 2007. “Photomultiplier Tubes: Basics and Applications.” <em>Hammamatsu</em>. <a href="https://www.hamamatsu.com/resources/pdf/etd/PMT_handbook_v3aE.pdf" class="uri">https://www.hamamatsu.com/resources/pdf/etd/PMT_handbook_v3aE.pdf</a>.</p>
+<p>Hammamatsu. 2007. “Photomultiplier Tubes: Basics and Applications.” <em>Hammamatsu</em>. <a href="https://www.hamamatsu.com/resources/pdf/etd/PMT_handbook_v3aE.pdf">https://www.hamamatsu.com/resources/pdf/etd/PMT_handbook_v3aE.pdf</a>.</p>
+</div>
+<div id="ref-STICS">
+<p>Hebert, B., S. Costantino, and P. W. Wiseman. 2005. “Spatiotemporal image correlation spectroscopy (STICS) theory, verification, and application to protein velocity mapping in living CHO cells.” <em>Biophys. J.</em> 88 (5): 3601–14. <a href="https://doi.org/10.1529/biophysj.104.054874">https://doi.org/10.1529/biophysj.104.054874</a>.</p>
+</div>
+<div id="ref-Hoischen">
+<p>Hoischen, Christian, Shamci Monajembashi, Klaus Weisshart, and Peter Hemmerich. 2018. “Multimodal Light Microscopy Approaches to Reveal Structural and Functional Properties of Promyelocytic Leukemia Nuclear Bodies.” <em>Frontiers in Oncology</em> 8 (May). Frontiers Media SA. <a href="https://doi.org/10.3389/fonc.2018.00125">https://doi.org/10.3389/fonc.2018.00125</a>.</p>
+</div>
+<div id="ref-HIVstoichiometry">
+<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 25 (9). <a href="https://doi.org/10.1038/s41594-018-0113-x">https://doi.org/10.1038/s41594-018-0113-x</a>.</p>
+</div>
+<div id="ref-FFSnewage">
+<p>Jameson, D. M., J. A. Ross, and J. P. Albanesi. 2009. “Fluorescence fluctuation spectroscopy: ushering in a new age of enlightenment for cellular dynamics.” <em>Biophys Rev</em> 1 (3): 105–18. <a href="https://doi.org/10.1007/s12551-009-0013-8">https://doi.org/10.1007/s12551-009-0013-8</a>.</p>
+</div>
+<div id="ref-DanDynamin">
+<p>Jones, Daniel M, Luis A Alvarez, Rory Nolan, Margarita Ferriz, Raquel Sainz Urruela, Xènia Massana-Muñoz, Hila Novak-Kotzer, Michael L Dustin, and Sergi Padilla-Parra. 2017. “Dynamin-2 Stabilizes the Hiv-1 Fusion Pore with a Low Oligomeric State.” <em>Cell Reports</em> 18 (2). Elsevier: 443–53. <a href="https://doi.org/10.1016/j.celrep.2016.12.032">https://doi.org/10.1016/j.celrep.2016.12.032</a>.</p>
+</div>
+<div id="ref-ALEX">
+<p>Kapanidis, Achillefs N., Ted A. Laurence, Nam Ki Lee, Emmanuel Margeat, Xiangxu Kong, and Shimon Weiss. 2005. “Alternating-Laser Excitation of Single Molecules.” <em>Accounts of Chemical Research</em> 38 (7). American Chemical Society (ACS): 523–33. <a href="https://doi.org/10.1021/ar0401348">https://doi.org/10.1021/ar0401348</a>.</p>
+</div>
+<div id="ref-Kisley">
+<p>Kisley, Lydia, and Christy F. Landes. 2014. “Molecular Approaches to Chromatography Using Single Molecule Spectroscopy.” <em>Analytical Chemistry</em> 87 (1). American Chemical Society (ACS): 83–98. <a href="https://doi.org/10.1021/ac5039225">https://doi.org/10.1021/ac5039225</a>.</p>
 </div>
 <div id="ref-LeicaDetectors">
-<p>Leica. 2012. “Sensors for True Confocal Scanning.” <em>Leica Microsystems</em>. <a href="https://www.leica-microsystems.com/science-lab/sensors-for-true-confocal-scanning/" class="uri">https://www.leica-microsystems.com/science-lab/sensors-for-true-confocal-scanning/</a>.</p>
+<p>Leica. 2012. “Sensors for True Confocal Scanning.” <em>Leica Microsystems</em>. <a href="https://www.leica-microsystems.com/science-lab/sensors-for-true-confocal-scanning/">https://www.leica-microsystems.com/science-lab/sensors-for-true-confocal-scanning/</a>.</p>
 </div>
-<div id="ref-afterpulsing">
-<p>Zhao, M., L. Jin, B. Chen, Y. Ding, H. Ma, and D. Chen. 2003. “Afterpulsing and its correction in fluorescence correlation spectroscopy experiments.” <em>Appl Opt</em> 42 (19):4031–6.</p>
+<div id="ref-Ly">
+<p>Ly, Sonny, Feliza Bourguet, Nicholas O. Fischer, Edmond Y. Lau, Matthew A. Coleman, and Ted A. Laurence. 2014. “Quantifying Interactions of a Membrane Protein Embedded in a Lipid Nanodisc Using Fluorescence Correlation Spectroscopy.” <em>Biophysical Journal</em> 106 (2). Elsevier BV: L05–L08. <a href="https://doi.org/10.1016/j.bpj.2013.12.014">https://doi.org/10.1016/j.bpj.2013.12.014</a>.</p>
+</div>
+<div id="ref-Mieruszynski">
+<p>Mieruszynski, Stephen, Candida Briggs, Michelle A. Digman, Enrico Gratton, and Mark R Jones. 2015. “Live Cell Characterization of DNA Aggregation Delivered Through Lipofection.” <em>Scientific Reports</em> 5 (1). Springer Nature. <a href="https://doi.org/10.1038/srep10528">https://doi.org/10.1038/srep10528</a>.</p>
+</div>
+<div id="ref-Moutin">
+<p>Moutin, E., V. Compan, F. Raynaud, C. Clerte, N. Bouquier, G. Labesse, M. L. Ferguson, L. Fagni, C. A. Royer, and J. Perroy. 2014. “The Stoichiometry of Scaffold Complexes in Living Neurons - DLC2 Functions as a Dimerization Engine for GKAP.” <em>Journal of Cell Science</em> 127 (16). The Company of Biologists: 3451–62. <a href="https://doi.org/10.1242/jcs.145748">https://doi.org/10.1242/jcs.145748</a>.</p>
+</div>
+<div id="ref-NBreview">
+<p>Nolan, Rory, Maro Iliopoulou, Luis Alvarez, and Sergi Padilla-Parra. 2017. “Detecting Protein Aggregation and Interaction in Live Cells: A Guide to Number and Brightness.” <em>Methods</em>. <a href="https://doi.org/10.1016/j.ymeth.2017.12.001">https://doi.org/10.1016/j.ymeth.2017.12.001</a>.</p>
 </div>
 <div id="ref-sphd">
 <p>Padilla-Parra, Sergi. 2009. “Developpments Methodologiques Pour La Quantification Des Interactions Proteiques En Cellules Vivantes Par Microscopie de Fluorescence.” PhD thesis, Universite Paris Diderot.</p>
 </div>
-<div id="ref-Brownian">
-<p>Einstein, A. 1905. “Über Die von Der Molekularkinetischen Theorie Der Wärme Geforderte Bewegung von in Ruhenden Flüssigkeiten Suspendierten Teilchen.” <em>Annalen Der Physik</em> 322 (8). Wiley:549–60. <a href="https://doi.org/10.1002/andp.19053220806" class="uri">https://doi.org/10.1002/andp.19053220806</a>.</p>
-</div>
-<div id="ref-PCF">
-<p>Digman, M. A., and E. Gratton. 2009. “Imaging barriers to diffusion by pair correlation functions.” <em>Biophys. J.</em> 97 (2):665–73. <a href="https://doi.org/10.1016/j.bpj.2009.04.048" class="uri">https://doi.org/10.1016/j.bpj.2009.04.048</a>.</p>
-</div>
-<div id="ref-FFS">
-<p>Chen, Y., J. D. Muller, K. M. Berland, and E. Gratton. 1999. “Fluorescence fluctuation spectroscopy.” <em>Methods</em> 19 (2):234–52. <a href="https://doi.org/10.1006/meth.1999.0854" class="uri">https://doi.org/10.1006/meth.1999.0854</a>.</p>
-</div>
 <div id="ref-QianElson">
-<p>Qian, H., and E. L. Elson. 1990. “Distribution of molecular aggregation by analysis of fluctuation moments.” <em>Proc. Natl. Acad. Sci. U.S.A.</em> 87 (14):5479–83. <a href="https://doi.org/10.1073/pnas.87.14.5479" class="uri">https://doi.org/10.1073/pnas.87.14.5479</a>.</p>
-</div>
-<div id="ref-NB">
-<p>Digman, M. A., R. Dalal, A. F. Horwitz, and E. Gratton. 2008. “Mapping the number of molecules and brightness in the laser scanning microscope.” <em>Biophys. J.</em> 94 (6):2320–32. <a href="https://doi.org/10.1529/biophysj.107.114645" class="uri">https://doi.org/10.1529/biophysj.107.114645</a>.</p>
-</div>
-<div id="ref-Dalal">
-<p>Dalal, R. B., M. A. Digman, A. F. Horwitz, V. Vetri, and E. Gratton. 2008. “Determination of particle number and brightness using a laser scanning confocal microscope operating in the analog mode.” <em>Microsc. Res. Tech.</em> 71 (1):69–81. <a href="https://doi.org/10.1002/jemt.20526" class="uri">https://doi.org/10.1002/jemt.20526</a>.</p>
-</div>
-<div id="ref-NBreview">
-<p>Nolan, Rory, Maro Iliopoulou, Luis Alvarez, and Sergi Padilla-Parra. 2017. “Detecting Protein Aggregation and Interaction in Live Cells: A Guide to Number and Brightness.” <em>Methods</em>. <a href="https://doi.org/10.1016/j.ymeth.2017.12.001" class="uri">https://doi.org/10.1016/j.ymeth.2017.12.001</a>.</p>
-</div>
-<div id="ref-FFSnewage">
-<p>Jameson, D. M., J. A. Ross, and J. P. Albanesi. 2009. “Fluorescence fluctuation spectroscopy: ushering in a new age of enlightenment for cellular dynamics.” <em>Biophys Rev</em> 1 (3):105–18. <a href="https://doi.org/10.1007/s12551-009-0013-8" class="uri">https://doi.org/10.1007/s12551-009-0013-8</a>.</p>
-</div>
-<div id="ref-ALEX">
-<p>Kapanidis, Achillefs N., Ted A. Laurence, Nam Ki Lee, Emmanuel Margeat, Xiangxu Kong, and Shimon Weiss. 2005. “Alternating-Laser Excitation of Single Molecules.” <em>Accounts of Chemical Research</em> 38 (7). American Chemical Society (ACS):523–33. <a href="https://doi.org/10.1021/ar0401348" class="uri">https://doi.org/10.1021/ar0401348</a>.</p>
-</div>
-<div id="ref-STICS">
-<p>Hebert, B., S. Costantino, and P. W. Wiseman. 2005. “Spatiotemporal image correlation spectroscopy (STICS) theory, verification, and application to protein velocity mapping in living CHO cells.” <em>Biophys. J.</em> 88 (5):3601–14. <a href="https://doi.org/10.1529/biophysj.104.054874" class="uri">https://doi.org/10.1529/biophysj.104.054874</a>.</p>
+<p>Qian, H., and E. L. Elson. 1990. “Distribution of molecular aggregation by analysis of fluctuation moments.” <em>Proc. Natl. Acad. Sci. U.S.A.</em> 87 (14): 5479–83. <a href="https://doi.org/10.1073/pnas.87.14.5479">https://doi.org/10.1073/pnas.87.14.5479</a>.</p>
 </div>
 <div id="ref-DiffusionTensor">
-<p>Rienzo, Carmine Di, Francesco Cardarelli, Mariagrazia Di Luca, Fabio Beltram, and Enrico Gratton. 2016. “Diffusion Tensor Analysis by Two-Dimensional Pair Correlation of Fluorescence Fluctuations in Cells.” <em>Biophysical Journal</em> 111 (4). Elsevier BV:841–51. <a href="https://doi.org/10.1016/j.bpj.2016.07.005" class="uri">https://doi.org/10.1016/j.bpj.2016.07.005</a>.</p>
+<p>Rienzo, Carmine Di, Francesco Cardarelli, Mariagrazia Di Luca, Fabio Beltram, and Enrico Gratton. 2016. “Diffusion Tensor Analysis by Two-Dimensional Pair Correlation of Fluorescence Fluctuations in Cells.” <em>Biophysical Journal</em> 111 (4). Elsevier BV: 841–51. <a href="https://doi.org/10.1016/j.bpj.2016.07.005">https://doi.org/10.1016/j.bpj.2016.07.005</a>.</p>
 </div>
-<div id="ref-ccNB">
-<p>Digman, M. A., P. W. Wiseman, C. Choi, Alan R. Horwitz, and E. Gratton. 2009. “Stoichiometry of Molecular Complexes at Adhesions in Living Cells.” <em>Proceedings of the National Academy of Sciences</em> 106 (7). National Academy of Sciences:2170–5. <a href="https://doi.org/10.1073/pnas.0806036106" class="uri">https://doi.org/10.1073/pnas.0806036106</a>.</p>
-</div>
-<div id="ref-Mieruszynski">
-<p>Mieruszynski, Stephen, Candida Briggs, Michelle A. Digman, Enrico Gratton, and Mark R Jones. 2015. “Live Cell Characterization of DNA Aggregation Delivered Through Lipofection.” <em>Scientific Reports</em> 5 (1). Springer Nature. <a href="https://doi.org/10.1038/srep10528" class="uri">https://doi.org/10.1038/srep10528</a>.</p>
-</div>
-<div id="ref-Moutin">
-<p>Moutin, E., V. Compan, F. Raynaud, C. Clerte, N. Bouquier, G. Labesse, M. L. Ferguson, L. Fagni, C. A. Royer, and J. Perroy. 2014. “The Stoichiometry of Scaffold Complexes in Living Neurons - DLC2 Functions as a Dimerization Engine for GKAP.” <em>Journal of Cell Science</em> 127 (16). The Company of Biologists:3451–62. <a href="https://doi.org/10.1242/jcs.145748" class="uri">https://doi.org/10.1242/jcs.145748</a>.</p>
-</div>
-<div id="ref-Declerck">
-<p>Declerck, Nathalie, and Catherine A. Royer. 2013. “Interactions in Gene Expression Networks Studied by Two-Photon Fluorescence Fluctuation Spectroscopy.” In <em>Methods in Enzymology</em>, 203–30. Elsevier. <a href="https://doi.org/10.1016/b978-0-12-405539-1.00007-5" class="uri">https://doi.org/10.1016/b978-0-12-405539-1.00007-5</a>.</p>
-</div>
-<div id="ref-DanDynamin">
-<p>Jones, Daniel M, Luis A Alvarez, Rory Nolan, Margarita Ferriz, Raquel Sainz Urruela, Xènia Massana-Muñoz, Hila Novak-Kotzer, Michael L Dustin, and Sergi Padilla-Parra. 2017. “Dynamin-2 Stabilizes the Hiv-1 Fusion Pore with a Low Oligomeric State.” <em>Cell Reports</em> 18 (2). Elsevier:443–53. <a href="https://doi.org/10.1016/j.celrep.2016.12.032" class="uri">https://doi.org/10.1016/j.celrep.2016.12.032</a>.</p>
-</div>
-<div id="ref-HIVstoichiometry">
-<p>Iliopoulou, Maro, Rory Nolan, Luis Alvarez, Yasunori Watanabe, Charles A. Coomer, G. Maria Jakobsdottir, Thomas A. Bowden, and Sergi Padilla-Parra. 2018. “A dynamic three step mechanism drives the HIV-1 prefusion reaction.” <em>Nat. Struct. Mol. Biol.</em> 25 (9). <a href="https://doi.org/10.1038/s41594-018-0113-x" class="uri">https://doi.org/10.1038/s41594-018-0113-x</a>.</p>
-</div>
-<div id="ref-Hoischen">
-<p>Hoischen, Christian, Shamci Monajembashi, Klaus Weisshart, and Peter Hemmerich. 2018. “Multimodal Light Microscopy Approaches to Reveal Structural and Functional Properties of Promyelocytic Leukemia Nuclear Bodies.” <em>Frontiers in Oncology</em> 8 (May). Frontiers Media SA. <a href="https://doi.org/10.3389/fonc.2018.00125" class="uri">https://doi.org/10.3389/fonc.2018.00125</a>.</p>
-</div>
-<div id="ref-Gach">
-<p>Gach, Johannes S., Margaux Bouzin, Marcus P. Wong, Veronika Chromikova, Andrea Gorlani, Kuan-Ting Yu, Brijesh Sharma, Enrico Gratton, and Donald N. Forthal. 2017. “Human Immunodeficiency Virus Type-1 (HIV-1) Evades Antibody-Dependent Phagocytosis.” Edited by Alexandra Trkola. <em>PLOS Pathogens</em> 13 (12). Public Library of Science (PLoS):e1006793. <a href="https://doi.org/10.1371/journal.ppat.1006793" class="uri">https://doi.org/10.1371/journal.ppat.1006793</a>.</p>
-</div>
-<div id="ref-Fenz">
-<p>Fenz, Susanne F., Ana-Sunčana Smith, and Cornelia Monzel. 2017. “Measuring the Invisible: Determining the Size of Growing Nanodomains Using the “Inverse FCS”.” <em>Biophysical Journal</em> 112 (11). Elsevier BV:2245–6. <a href="https://doi.org/10.1016/j.bpj.2017.04.014" class="uri">https://doi.org/10.1016/j.bpj.2017.04.014</a>.</p>
-</div>
-<div id="ref-Kisley">
-<p>Kisley, Lydia, and Christy F. Landes. 2014. “Molecular Approaches to Chromatography Using Single Molecule Spectroscopy.” <em>Analytical Chemistry</em> 87 (1). American Chemical Society (ACS):83–98. <a href="https://doi.org/10.1021/ac5039225" class="uri">https://doi.org/10.1021/ac5039225</a>.</p>
-</div>
-<div id="ref-Ly">
-<p>Ly, Sonny, Feliza Bourguet, Nicholas O. Fischer, Edmond Y. Lau, Matthew A. Coleman, and Ted A. Laurence. 2014. “Quantifying Interactions of a Membrane Protein Embedded in a Lipid Nanodisc Using Fluorescence Correlation Spectroscopy.” <em>Biophysical Journal</em> 106 (2). Elsevier BV:L05–L08. <a href="https://doi.org/10.1016/j.bpj.2013.12.014" class="uri">https://doi.org/10.1016/j.bpj.2013.12.014</a>.</p>
+<div id="ref-afterpulsing">
+<p>Zhao, M., L. Jin, B. Chen, Y. Ding, H. Ma, and D. Chen. 2003. “Afterpulsing and its correction in fluorescence correlation spectroscopy experiments.” <em>Appl Opt</em> 42 (19): 4031–6.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -734,7 +733,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -744,6 +743,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -761,9 +764,10 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

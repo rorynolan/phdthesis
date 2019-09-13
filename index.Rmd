@@ -88,6 +88,7 @@ for ImageJ users". In: _Journal of Open Source Software_ 3.23 (2018).
 Quantification of Protein Homo-Oligomerization Using Commercial
 Instrumentation and Free, Open Source Brightness Analysis Software”. In:
 _Journal of Visualized Experiments_ 137 (2018).
+* R. Nolan and S. Padilla-Parra. "Robin Hood: non-fitting, non-smoothing image detrending for bleaching correction". In: _BioRxiv_ (2019). 
 
 ### Co-first author {-}
 
@@ -106,11 +107,6 @@ medicine_ (2017).
 * Q. F. Wills, E. Mellado-Gomez, R. Nolan, et al. "The nature and nurture
 of cell heterogeneity: accounting for macrophage gene-environment
 interactions with single-cell RNA-Seq". In: _BMC genomics_ 18.1 (2017).
-
-
-### In preparation {-}
-
-* The _Robin Hood_ algorithm (described in section \@ref(robin-hood-detrending)) will be submitted to a journal after the submission of this thesis but before the end of my PhD contract.
 
 
 ## Acronyms used in this thesis {-}
